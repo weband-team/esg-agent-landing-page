@@ -173,7 +173,7 @@ export default function Home() {
 
     setIsSubmitting(true);
     try {
-      const response = await fetch('/app/../api/deposit', {
+      const response = await fetch('/api/deposit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

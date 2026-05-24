@@ -89,8 +89,23 @@ function getDepositByReference(reference) {
   });
 }
 
+/**
+ * Update the payment status of a deposit by its reference code
+ */
+function updateDepositStatus(reference, status) {
+  return new Promise((resolve, reject) => {
+    db.run(`UPDATE deposits SET status = ? WHERE reference = ?`, [status, reference], function(err) {
+      if (err) {
+        return reject(err);
+      }
+      resolve({ reference, status, changes: this.changes });
+    });
+  });
+}
+
 module.exports = {
   saveDeposit,
   getAllDeposits,
-  getDepositByReference
+  getDepositByReference,
+  updateDepositStatus
 };
