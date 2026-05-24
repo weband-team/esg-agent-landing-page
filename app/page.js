@@ -260,7 +260,7 @@ export default function Home() {
               <ButtonPrimaryLink href="#join">
                 {txt('🚀 Zarezerwuj miejsce w pilotażu', '🚀 Reserve your pilot spot')}
               </ButtonPrimaryLink>
-              <ButtonSecondaryLink href="https://app.esgsync.pro" target="_blank">
+              <ButtonSecondaryLink href="https://app.esgsyncpro.qirelab.com" target="_blank">
                 {txt('Urunom aplikację ↗', 'Launch Application ↗')}
               </ButtonSecondaryLink>
             </HeroCtaGroup>
@@ -1217,7 +1217,7 @@ export default function Home() {
               <ButtonSecondary onClick={() => setIsModalOpen(false)}>
                 {txt('Zamknij', 'Close')}
               </ButtonSecondary>
-              <ButtonPrimaryLink href="https://app.esgsync.pro" target="_blank" style={{ boxShadow: 'none' }}>
+              <ButtonPrimaryLink href="https://app.esgsyncpro.qirelab.com" target="_blank" style={{ boxShadow: 'none' }}>
                 {txt('Przejdź do Aplikacji ↗', 'Go to App ↗')}
               </ButtonPrimaryLink>
             </div>
