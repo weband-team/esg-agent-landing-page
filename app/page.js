@@ -600,11 +600,11 @@ export default function Home() {
               <BenefitItem>
                 <BenefitIconWrap>🎁</BenefitIconWrap>
                 <BenefitText>
-                  <h4>{txt('6 miesięcy pełnego dostępu — bezpłatnie', '6 months full access — free of charge')}</h4>
+                  <h4>{txt('Pół roku (6 miesięcy) pełnego dostępu — bezpłatnie', 'Half of the year (6 months) full access — free')}</h4>
                   <p>
                     {txt(
-                      'Gdy produkt zostanie oficjalnie wydany, Członkowie Założyciele otrzymają pół roku bezpłatnego użytkowania bez żadnych zobowiązań. Zacznij korzystać od pierwszego dnia premiery.',
-                      'When the product officially launches, Founding Members get six months of free usage with no strings attached. Start using it from day one of the release.'
+                      'Gdy produkt zostanie oficjalnie wydany (premiera planowana jest na 24 czerwca), Członkowie Założyciele otrzymają pół roku (6 miesięcy) bezpłatnego użytkowania bez żadnych zobowiązań. Zacznij korzystać od pierwszego dnia premiery.',
+                      'When the product officially launches (release is planned for June 24th), Founding Members get free access for half of the year (6 months) with no strings attached. Start using it from day one of the release.'
                     )}
                   </p>
                   <BenefitValueBadge>{txt('Wartość: ~1 800–3 600 PLN', 'Value: ~€450–900')}</BenefitValueBadge>
@@ -695,7 +695,7 @@ export default function Home() {
                 </li>
                 <li>
                   <span className="check">✓</span>
-                  <span>{txt('6 miesięcy bezpłatnego dostępu po premierze', '6 months free access after launch')}</span>
+                  <span>{txt('Pół roku (6 miesięcy) bezpłatnego dostępu po premierze (od 24 czerwca)', 'Half of the year (6 months) free access after release (from June 24th)')}</span>
                 </li>
                 <li>
                   <span className="check">✓</span>
@@ -765,7 +765,7 @@ export default function Home() {
             <FlowStepCard>
               <div className="flow-num flow-num-check">✓</div>
               <h4>{txt('Korzyści z pełni korzyści Założyciela', 'Enjoy full Founding Member benefits')}</h4>
-              <p>{txt('6 miesięcy bezpłatnie, cena 50% na zawsze, priorytetowy support i wpływ na kierunek produktu. Warunki gwarantowane.', '6 months free, 50% price forever, priority support and direct product influence. Guaranteed in writing.')}</p>
+              <p>{txt('Pół roku bezpłatnie (od premiery 24 czerwca), cena 50% na zawsze, priorytetowy support i wpływ na kierunek produktu. Warunki gwarantowane.', 'Half of the year free (from release on June 24th), 50% price forever, priority support and direct product influence. Guaranteed in writing.')}</p>
               <p className="flow-note">{txt('→ Certyfikat statusu Założyciela', '→ Founding Member certificate')}</p>
             </FlowStepCard>
           </FlowStepsGrid>
@@ -947,8 +947,8 @@ export default function Home() {
               <FaqAnswer className="faq-a">
                 <p>
                   {txt(
-                    'Tak — mamy działający produkt MVP z pełną funkcjonalnością: wgrywaniem dokumentów, agentem AI, trackerem zgodności i generowaniem raportów. Pilotaż to 30-dniowy okres testowania z prawdziwymi użytkownikami przed oficjalną premierą. Zbieramy feedback, aby produkt był doskonały w dniu launchu.',
-                    "Yes — we have a fully working MVP: document upload, AI agent, compliance tracker, and report generation. The pilot is a 30-day testing period with real users before the official launch. We're collecting feedback to make the product perfect on launch day."
+                    'Tak — mamy działający produkt MVP z pełną funkcjonalnością: wgrywaniem dokumentów, agentem AI, trackerem zgodności i generowaniem raportów. Pilotaż to 30-dniowy okres testowania z prawdziwymi użytkownikami przed oficjalną premierą komercyjną, która zaplanowana jest na 24 czerwca. Zbieramy feedback, aby produkt był doskonały w dniu premiery.',
+                    "Yes — we have a fully working MVP: document upload, AI agent, compliance tracker, and report generation. The pilot is a 30-day testing period with real users before the official commercial release, which is planned for June 24th. We're collecting feedback to make the product perfect on launch day."
                   )}
                 </p>
               </FaqAnswer>
@@ -962,8 +962,8 @@ export default function Home() {
               <FaqAnswer className="faq-a">
                 <p>
                   {txt(
-                    'Depozyt jest wymagany wyłącznie do aktywacji statusu Członka Założyciela i wszystkich związanych z nim korzyści (6 miesięcy gratis, cena 50% na zawsze, etc.). Możesz też dołączyć do pilotażu bez depozytu — ale wtedy nie przysługują Ci korzyści założycielskie.',
-                    "The deposit is required only to activate Founding Member status and associated benefits (6 months free, 50% price forever, etc.). You can also join the pilot without a deposit — but you won't receive the founding benefits."
+                    'Depozyt jest wymagany wyłącznie do aktywacji statusu Członka Założyciela i wszystkich związanych z nim korzyści (pół roku bezpłatnego dostępu po premierze od 24 czerwca, cena 50% na zawsze, etc.). Możesz też dołączyć do pilotażu bez depozytu — ale wtedy nie przysługują Ci korzyści założycielskie.',
+                    "The deposit is required only to activate Founding Member status and associated benefits (half of the year of free access after release on June 24th, 50% price forever, etc.). You can also join the pilot without a deposit — but you won't receive the founding benefits."
                   )}
                 </p>
               </FaqAnswer>
@@ -1036,8 +1036,8 @@ export default function Home() {
           </ButtonPrimaryLink>
           <p style={{ marginTop: '1.5rem', fontSize: '0.8rem', color: '#475569' }}>
             {txt(
-              '* 6 miesięcy bezpłatnego dostępu dla Członków Założycielskich po oficjalnej premierze produktu. Warunki gwarantowane pisemnie dla wszystkich uczestników Programu Założycielskiego.',
-              '* 6 months free access for Founding Members upon official product launch. Conditions guaranteed in writing for all Founding Member program participants.'
+              '* Pół roku (6 miesięcy) bezpłatnego dostępu dla Członków Założycielskich po oficjalnej premierze produktu, która zaplanowana jest na 24 czerwca. Warunki gwarantowane pisemnie dla wszystkich uczestników Programu Założycielskiego.',
+              '* Half of the year (6 months) free access for Founding Members upon official product launch, which is planned for June 24th. Conditions guaranteed in writing for all Founding Member program participants.'
             )}
           </p>
         </Container>
