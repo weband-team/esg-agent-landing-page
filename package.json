@@ -1,0 +1,27 @@
+{
+  "name": "esg-agent-landing-page",
+  "version": "1.0.0",
+  "description": "Bilingual landing page and bank deposit system for ESG Compliance Agent",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [
+    "esg",
+    "landing",
+    "express",
+    "sqlite"
+  ],
+  "author": "Antigravity",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "next": "^16.2.6",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "sqlite3": "^5.1.7",
+    "styled-components": "^6.4.2"
+  }
+}
