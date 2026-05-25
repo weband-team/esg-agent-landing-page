@@ -1,0 +1,131 @@
+name: Deploy esg-agent-landing-page to VPS
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Security audit
+        run: npm audit --audit-level=critical
+        continue-on-error: false
+
+      - name: Build Next.js project
+        run: npm run build
+
+      - name: Prepare deployment archive
+        run: |
+          echo "Creating deployment directory..."
+          mkdir -p deploy
+
+          echo "Creating archive with all project files..."
+          tar -czf deploy/esg-agent-landing-page.tar.gz \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='deploy' \
+            .
+
+          echo "Archive created successfully!"
+          ls -lh deploy/
+
+      - name: Copy archive to VPS
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_KEY }}
+          port: ${{ secrets.VPS_PORT || 22 }}
+          source: "deploy/esg-agent-landing-page.tar.gz"
+          target: "/tmp/"
+          strip_components: 1
+
+      - name: Deploy on VPS
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_KEY }}
+          port: ${{ secrets.VPS_PORT || 22 }}
+          script: |
+            set -e
+
+            echo "Starting deployment..."
+
+            DEPLOY_DIR="/var/www/esg-agent-landing-page"
+            PM2_NAME="esg-agent-landing-page"
+            ARCHIVE_NAME="esg-agent-landing-page.tar.gz"
+            APP_PORT=5743
+
+            echo "Deploy directory: $DEPLOY_DIR"
+            echo "PM2 process name: $PM2_NAME"
+            echo "Archive name: $ARCHIVE_NAME"
+            echo "App port: $APP_PORT"
+
+            # Preserve SQLite database across deploys
+            if [ -f "$DEPLOY_DIR/deposits.db" ]; then
+              echo "Backing up existing SQLite database..."
+              cp "$DEPLOY_DIR/deposits.db" /tmp/deposits.db.bak
+            fi
+
+            # Clean up old deployment
+            echo "Cleaning old deployment..."
+            rm -rf $DEPLOY_DIR
+            mkdir -p $DEPLOY_DIR
+
+            # Extract archive
+            echo "Extracting archive..."
+            tar -xzf /tmp/$ARCHIVE_NAME -C $DEPLOY_DIR/
+
+            # Clean up archive
+            rm -f /tmp/$ARCHIVE_NAME
+
+            # Restore SQLite database
+            if [ -f /tmp/deposits.db.bak ]; then
+              echo "Restoring SQLite database..."
+              mv /tmp/deposits.db.bak "$DEPLOY_DIR/deposits.db"
+            fi
+
+            # Navigate to project directory
+            cd $DEPLOY_DIR
+
+            # PM2 deployment
+            echo "Managing PM2 process..."
+            if pm2 describe $PM2_NAME > /dev/null 2>&1; then
+              echo "Stopping existing PM2 process..."
+              pm2 delete $PM2_NAME
+            fi
+
+            echo "Starting PM2 process on port $APP_PORT..."
+            PORT=$APP_PORT pm2 start npm --name $PM2_NAME -- run start
+
+            # Verify the process is running
+            pm2 show $PM2_NAME
+
+            # Configure PM2 to start on system boot
+            echo "Configuring PM2 startup..."
+            pm2 startup || true
+
+            # Save PM2 process list
+            echo "Saving PM2 process list..."
+            pm2 save
+
+            # Show PM2 status
+            pm2 list
+
+            echo "Deployment completed successfully!"
