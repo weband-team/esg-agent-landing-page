@@ -1487,3 +1487,37 @@ export const LegalMetaTable = styled.table`
     font-weight: 600;
   }
 `;
+
+// ─── VIDEO DEMO COMPONENTS ───
+export const VideoSection = styled.section`
+  padding: 6rem 0;
+  background: ${props => props.theme.colors.slate950};
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    padding: 4.5rem 0;
+  }
+`;
+
+export const VideoWrapper = styled.div`
+  max-width: 850px;
+  width: 100%;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(34, 197, 94, 0.15);
+  background: rgba(15, 23, 42, 0.6);
+  position: relative;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+`;

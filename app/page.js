@@ -93,7 +93,9 @@ import {
   FieldValueWrap,
   FieldValue,
   CopyBtn,
-  ModalFooter
+  ModalFooter,
+  VideoSection,
+  VideoWrapper
 } from './styles';
 
 export default function Home() {
@@ -452,6 +454,40 @@ export default function Home() {
           </StepsGrid>
         </Container>
       </HowSection>
+
+      <Divider />
+
+      {/* VIDEO DEMO SECTION */}
+      <VideoSection id="demo">
+        <Container>
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <Tag>{txt('Prezentacja wideo', 'Demo Video')}</Tag>
+            <SectionTitle>
+              {txt('Zobacz agenta ', 'See the agent ')}
+              <GradientText>{txt('w akcji', 'in action')}</GradientText>
+            </SectionTitle>
+            <SectionSub style={{ margin: '0 auto', textAlign: 'center' }}>
+              {txt(
+                'Obejrzyj krótkie nagranie prezentacyjne i przekonaj się, jak intuicyjne jest generowanie raportów ESG z naszym asystentem AI.',
+                'Watch a short product demonstration to see how intuitive generating ESG reports with our AI assistant can be.'
+              )}
+            </SectionSub>
+          </div>
+          <VideoWrapper>
+            <iframe
+              key={lang}
+              src={lang === 'pl' 
+                ? 'https://drive.google.com/file/d/1y4pSu5FPl482U4cZ6-MkPp_XRHw_0Bi0/preview' 
+                : 'https://drive.google.com/file/d/1-I0Dvt3ZXE0eu-cTrJwC4N18UA3N7t-J/preview'}
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              title={txt('Prezentacja wideo ESG Compliance Agent', 'ESG Compliance Agent Presentation Video')}
+            />
+          </VideoWrapper>
+        </Container>
+      </VideoSection>
+
+      <Divider />
 
       {/* REGULATIONS STRIP */}
       <RegsStrip>
