@@ -83,7 +83,7 @@ export default function TermsOfService() {
               <ul>
                 <li><strong>Użytkownik / Aplikant:</strong> podmiot prowadzący działalność gospodarczą, który zarejestrował się w Programie Założycielskim za pośrednictwem formularza.</li>
                 <li><strong>Operator:</strong> spółka QIRE LAB SP. Z O.O., właściciel autorskich praw majątkowych do oprogramowania.</li>
-                <li><strong>Program Założycielski:</strong> ekskluzywna oferta pilotażowa ograniczona czasowo (30 dni) i ilościowo (maksymalnie 50 firm).</li>
+                <li><strong>Program Założycielski:</strong> ekskluzywna oferta pilotażowa ograniczona czasowo (30 dni).</li>
                 <li><strong>Depozyt Założycielski:</strong> dobrowolna, kaucja zwrotna wpłacana na rachunek Operatora w celu potwierdzenia intencji aktywacji statusu Członka Założyciela.</li>
                 <li><strong>Pilotaż:</strong> 30-dniowy okres przedpremierowego użytkowania platformy w celu testowania i gromadzenia feedbacku.</li>
               </ul>
@@ -152,7 +152,7 @@ export default function TermsOfService() {
               <ul>
                 <li><strong>User / Applicant:</strong> Any business entity registering for the Founding Program using the website application form.</li>
                 <li><strong>Operator:</strong> QIRE LAB SP. Z O.O., owner of all intellectual property rights to the platform.</li>
-                <li><strong>Founding Member Program:</strong> A time-limited (30 days) and capacity-limited (max 50 companies) early-adopter pilot promotion.</li>
+                <li><strong>Founding Member Program:</strong> A time-limited (30 days) early-adopter pilot promotion.</li>
                 <li><strong>Founding Deposit:</strong> A voluntary, fully refundable security deposit paid to the Operator's account to secure Founding Member status.</li>
                 <li><strong>Pilot:</strong> A 30-day pre-launch phase of the application designed for system testing and gathering feedback.</li>
               </ul>

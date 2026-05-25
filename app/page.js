@@ -726,7 +726,7 @@ export default function Home() {
                   : txt(`Zarezerwuj miejsce — ${currency === 'EUR' ? '99 €' : '$99'} →`, `Reserve your spot — ${currency === 'EUR' ? '€99' : '$99'} →`)}
               </ButtonPrimaryLink>
               <p style={{ textAlign: 'center', marginTop: '0.75rem', fontSize: '0.75rem', color: '#475569' }}>
-                {txt('Miejsca ograniczone. Liczba Członków Założycielskich nie przekroczy 50.', 'Limited spots. Founding Member cohort capped at 50 companies.')}
+                {txt('Zabezpiecz swoje korzyści jako Członek Założyciel.', 'Secure your benefits as a Founding Member.')}
               </p>
             </DepositCard>
           </FoundingLayout>
@@ -784,8 +784,8 @@ export default function Home() {
             </SectionTitle>
             <SectionSub style={{ margin: '0 auto', textAlign: 'center' }}>
               {txt(
-                'Maksymalnie 50 firm. Pilotaż trwa 30 dni. Wypełnij formularz poniżej, aby natychmiast zapisać dane i wygenerować dane do depozytu bankowego.',
-                'Maximum 50 companies. Pilot runs 30 days. Fill the form below to register your details and instantly generate bank deposit details.'
+                'Pilotaż trwa 30 dni. Wypełnij formularz poniżej, aby natychmiast zapisać dane i wygenerować dane do depozytu bankowego.',
+                'Pilot runs 30 days. Fill the form below to register your details and instantly generate bank deposit details.'
               )}
             </SectionSub>
           </div>
@@ -1027,12 +1027,12 @@ export default function Home() {
           </h2>
           <p>
             {txt(
-              'Dołącz do 50 firm, które kształtują przyszłość ESG dla MŚP. Zostań Członkiem Założycielem — 30 dni testu, zero ryzyka, lata korzyści.',
-              'Join 50 companies shaping the future of SME ESG compliance. Become a Founding Member — 30 days of testing, zero risk, years of benefits.'
+              'Dołącz do firm, które kształtują przyszłość ESG dla MŚP. Zostań Członkiem Założycielem — 30 dni testu, zero ryzyka, lata korzyści.',
+              'Join companies shaping the future of SME ESG compliance. Become a Founding Member — 30 days of testing, zero risk, years of benefits.'
             )}
           </p>
           <ButtonPrimaryLink href="#join" style={{ fontSize: '1.05rem', padding: '1rem 2.5rem' }}>
-            {txt('🌿 Zarezerwuj ostatnie miejsca →', '🌿 Reserve the last spots →')}
+            {txt('🌿 Zarezerwuj swoje miejsce →', '🌿 Reserve your spot →')}
           </ButtonPrimaryLink>
           <p style={{ marginTop: '1.5rem', fontSize: '0.8rem', color: '#475569' }}>
             {txt(
