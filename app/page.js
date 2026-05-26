@@ -248,14 +248,14 @@ export default function Home() {
               {txt('Pilotaż dostępny tylko przez 30 dni', 'Pilot available for 30 days only')}
             </HeroEyebrow>
             <HeroTitle>
-              {txt('ESG bez konsultanta.', 'ESG without a consultant.')}
+              {txt('AI Copilot dla Ekspertów ESG.', 'The AI Copilot for ESG Consultants.')}
               <br />
-              <GradientText>{txt('Z AI. W godzinę.', 'With AI. In an hour.')}</GradientText>
+              <GradientText>{txt('Analiza w minutę, decyzje w godzinę.', 'Automate data analysis. Focus on expert decisions.')}</GradientText>
             </HeroTitle>
             <HeroSub>
               {txt(
-                'Wgraj dokumenty swojej firmy. Wybierz regulację. Otrzymaj kompletny raport ESG gotowy na audyt — bez prawnika, bez agencji, bez miesięcy pracy.',
-                'Upload your company documents. Select a regulation. Get a complete, audit-ready ESG report — no lawyers, no agencies, no months of work.'
+                'Wgraj dokumenty źródłowe, skany i bazy ERP Twoich klientów. Nasz agent AI automatycznie wyszuka dane, porówna je z regulacjami i przygotuje audytowalną analizę luk w godzinę zamiast tygodni.',
+                'Upload raw client files, policies, and ERP exports. Our AI agent instantly compares and analyzes scattered sustainability data, producing professional, audit-ready ESG report drafts in hours instead of months.'
               )}
             </HeroSub>
             <HeroCtaGroup>
@@ -273,7 +273,7 @@ export default function Home() {
               </HeroStat>
               <HeroStat>
                 <div className="num">&lt;1h</div>
-                <div className="label">{txt('do pierwszego raportu', 'to your first report')}</div>
+                <div className="label">{txt('do pierwszej analizy', 'to your first analysis')}</div>
               </HeroStat>
               <HeroStat>
                 <div className="num">100%</div>
@@ -338,55 +338,54 @@ export default function Home() {
           <div style={{ textAlign: 'center' }}>
             <Tag>{txt('Problem', 'The Problem')}</Tag>
             <SectionTitle>
-              {txt('Raportowanie ESG to ', 'ESG reporting is a ')}
-              <GradientText>{txt('koszmar', 'nightmare')}</GradientText>
-              {txt(' dla MŚP', ' for SMEs')}
+              {txt('ESG to gąszcz danych i ', 'ESG is a maze of ')}
+              <GradientText>{txt('chaos w komunikacji', 'data & communication chaos')}</GradientText>
             </SectionTitle>
             <SectionSub style={{ margin: '0 auto 3rem auto', textAlign: 'center' }}>
               {txt(
-                'Regulacje brzmią jak inny język. Konsultanci kosztują fortunę. A inspekcja może przyjść w każdej chwili.',
-                'Regulations sound like another language. Consultants cost a fortune. And an audit can show up any time.'
+                'Chasowanie klientów i działów po dane zajmuje tygodnie. Regulacje ewoluują w zawrotnym tempie. Ręczna analiza i porównywanie tabel marnuje Twój cenny czas doradczy.',
+                'Chasing clients or departments for data takes weeks. Sustainability regulations evolve faster than companies can adapt. Manual spreadsheet auditing eats into your high-value advisory time.'
               )}
             </SectionSub>
           </div>
           <ProblemGrid>
             <ProblemCard>
               <div className="problem-icon">😵</div>
-              <h3>{txt('Żargon niemożliwy do opanowania', 'Impenetrable jargon')}</h3>
+              <h3>{txt('Rozproszone dane i chaos w plikach', 'Scattered data & endless chasing')}</h3>
               <p>
                 {txt(
-                  'CSRD, ESRS E1-6, EUDR, ISO 14067 — każda regulacja to setki stron wymagań, które trzeba przełożyć na dane operacyjne firmy.',
-                  'CSRD, ESRS E1-6, EUDR, ISO 14067 — each framework is hundreds of pages of requirements to map to your actual operations.'
+                  'Dane ESG leżą w mailach, dziesiątkach Exceli i systemach ERP. Zbieranie kompletnego zestawu do raportu CSRD lub weryfikacji EUDR to tygodnie gonienia ludzi.',
+                  'Sustainability data is buried in endless email threads, multiple Excel spreadsheets, and legacy ERP systems. Pulling it together is a manual chasing nightmare.'
                 )}
               </p>
             </ProblemCard>
             <ProblemCard>
-              <div className="problem-icon">💸</div>
-              <h3>{txt('Konsultanci: 20 000–80 000 PLN za raport', 'Consultants: €5k–€20k per report')}</h3>
+              <div className="problem-icon">🔄</div>
+              <h3>{txt('Regulacyjny ruchomy cel', 'Regulatory uncertainty')}</h3>
               <p>
                 {txt(
-                  'Zewnętrzni doradcy ESG są poza zasięgiem małych firm. A kolejna regulacja oznacza kolejną fakturę.',
-                  'External ESG advisors are out of reach for small businesses. And every new regulation means a new invoice.'
+                  'Terminy EUDR, standardy ESRS i wytyczne Komisji ciągle się zmieniają. Śledzenie zmian i re-edukacja zespołów marnuje setki godzin, które powinieneś przeznaczyć na strategię.',
+                  'EUDR timelines shift, ESRS standards update, and national guidelines issue short notices. Tracking regulatory updates manually takes up valuable billable hours.'
                 )}
               </p>
             </ProblemCard>
             <ProblemCard>
               <div className="problem-icon">⏳</div>
-              <h3>{txt('Miesiące pracy, by osiągnąć zgodność', 'Months of work to achieve compliance')}</h3>
+              <h3>{txt('Mordercza, powtarzalna praca manualna', 'Overwhelming manual overhead')}</h3>
               <p>
                 {txt(
-                  'Zbieranie danych, wypełnianie szablonów, weryfikacja przez dział prawny — zanim firma ukończy jeden raport, regulacje już się zmieniają.',
-                  'Gathering data, filling templates, legal review — before you finish one report, regulations have already changed.'
+                  'Zamiast skupić się na doradztwie i decyzjach strategicznych, tracisz 80% czasu na manualne przeklejanie danych, sprawdzanie braków i wypełnianie powtarzalnych szablonów.',
+                  'Instead of delivering high-level advisory value and strategy, you waste up to 80% of your time on manual copy-pasting, gap checking, and cross-referencing tables.'
                 )}
               </p>
             </ProblemCard>
             <ProblemCard>
-              <div className="problem-icon">🚨</div>
-              <h3>{txt('Brak zgodności = ryzyko kar i utraty kontraktów', 'Non-compliance = fines and lost contracts')}</h3>
+              <div className="problem-icon">🤝</div>
+              <h3>{txt('Brak zaufania i opór zespołów', 'Stakeholder friction & trust gaps')}</h3>
               <p>
                 {txt(
-                  'Duże firmy wymagają raportów ESG od swoich dostawców. Brak dokumentacji to brak kontraktu — albo kara.',
-                  'Large corporations demand ESG reports from their suppliers. No documentation means no contract — or a penalty.'
+                  'Działy finansowe, zakupowe i logistyczne widzą w ESG tylko zbędne koszty i opóźniają dane. Nasz Agent dostarcza twarde fakty, cytując dokładne źródła, co buduje natychmiastową wiarygodność.',
+                  'Internal departments or suppliers treat ESG requests as low priority. The AI agent extracts verifiable facts with precise source citations, establishing immediate authority and alignment.'
                 )}
               </p>
             </ProblemCard>
@@ -405,39 +404,39 @@ export default function Home() {
             </SectionTitle>
             <SectionSub style={{ margin: '0 auto 3rem auto', textAlign: 'center' }}>
               {txt(
-                'Żadnego kodowania. Żadnych szkoleń. Wystarczy wgrać dokumenty i porozmawiać z agentem.',
-                'No coding. No training. Just upload your documents and talk to the agent.'
+                'Dla profesjonalistów, którzy faktycznie wdrażają ESG. Bez zbędnego żargonu, w pełni profesjonalny workflow.',
+                'Built for professionals who actually do ESG. Professional workflow, zero fluff.'
               )}
             </SectionSub>
           </div>
           <StepsGrid>
             <StepCard>
               <div className="step-num">01</div>
-              <h3>{txt('Wgraj dokumenty firmy', 'Upload company documents')}</h3>
+              <h3>{txt('Wgraj dane źródłowe i operacyjne', 'Upload raw operational data')}</h3>
               <p>
                 {txt(
-                  'Excel, PDF, Word, skany, linki do stron — agent odczytuje wszystko automatycznie, również skany przez OCR. Działa lokalnie — Twoje dane nie opuszczają Twojej infrastruktury.',
-                  'Excel, PDF, Word, scans, links — the agent reads everything automatically, including scans via OCR. Runs locally — your data never leaves your infrastructure.'
+                  'Wgraj surowe pliki finansowe, polityki HR, certyfikaty, skany rachunków za energię czy dane o łańcuchu dostaw. Nasz agent AI odczyta i ustrukturyzuje wszystko automatycznie.',
+                  'Upload raw financial reports, HR policies, certificates, scanned energy bills, or supply chain spreadsheets. The agent instantly parses and structures everything.'
                 )}
               </p>
             </StepCard>
             <StepCard>
               <div className="step-num">02</div>
-              <h3>{txt('Wybierz regulację i zadaj pytania', 'Select a regulation and ask questions')}</h3>
+              <h3>{txt('Uruchom inteligentną analizę i porównania', 'Run automated analysis & comparisons')}</h3>
               <p>
                 {txt(
-                  'Wybierz CSRD VSME, ISO 14067, GRI lub inny standard. Agent analizuje luki, wskazuje brakujące dane i odpowiada na pytania w Twoim języku — jak ekspert, który siedzi obok.',
-                  'Pick CSRD VSME, ISO 14067, GRI or any other standard. The agent analyses gaps, highlights missing data, and answers questions in your language — like an expert sitting next to you.'
+                  'Wybierz CSRD, EUDR, GRI lub inny standard. Agent automatycznie porównuje dokumenty z wymogami prawnymi, wskazuje brakujące dane i natychmiast uzupełnia analizę luk.',
+                  'Select CSRD, EUDR, GRI, or national frameworks. The AI agent automatically analyzes gaps, cross-references files, and answers queries with strict source-backed logic.'
                 )}
               </p>
             </StepCard>
             <StepCard>
               <div className="step-num">03</div>
-              <h3>{txt('Pobierz raport gotowy na audyt', 'Download an audit-ready report')}</h3>
+              <h3>{txt('Wygeneruj profesjonalny raport dla audytora', 'Generate professional, audit-ready drafts')}</h3>
               <p>
                 {txt(
-                  'Jeden klik generuje kompletny raport ESG w DOCX i PDF, zgodny ze strukturą wybranej regulacji. Z cytatami źródeł, listą luk i rekomendacjami.',
-                  'One click generates a complete ESG report in DOCX and PDF, structured to the selected regulation. With source citations, gap list, and recommendations.'
+                  'Wygeneruj kompletny projekt raportu ESG w DOCX i PDF, ze spójną strukturą wybranej regulacji i dokładną listą cytowań źródeł, ułatwiającą pracę biegłym rewidentom.',
+                  'Export complete, fully structured reports in DOCX/PDF formats. Includes a rigorous audit trail of source citations and gap analyses, saving hours of regulatory review.'
                 )}
               </p>
             </StepCard>
@@ -578,11 +577,11 @@ export default function Home() {
             </FeatureCard>
             <FeatureCard>
               <div className="feature-icon">🏢</div>
-              <h3>{txt('Projekty dla kilku spółek / lat', 'Projects for multiple companies / years')}</h3>
+              <h3>{txt('Zarządzanie wieloma klientami i spółkami', 'Multi-Client & Multi-Entity Management')}</h3>
               <p>
                 {txt(
-                  'Zarządzaj kilkoma firmami lub cyklami raportowania naraz. Współdziel projekty z zespołem: księgowym, specjalistą ESG, zarządem — każdy z właściwymi uprawnieniami.',
-                  'Manage multiple companies or reporting cycles at once. Share projects with your team: accountant, ESG officer, management — each with the right access level.'
+                  'Prowadź projekty dla wielu klientów, spółek grupy kapitałowej i różnych okresów sprawozdawczych w jednym miejscu. Współdziel dostęp z asystentami, audytorami czy klientami.',
+                  'Manage multiple clients, capital group entities, or different reporting cycles from a single dashboard. Securely share project-level access with assistants, auditors, or client teams.'
                 )}
               </p>
               <span className="feature-badge">{txt('✓ Role: Owner / Editor / Viewer', '✓ Roles: Owner / Editor / Viewer')}</span>
@@ -601,16 +600,16 @@ export default function Home() {
               ⏱️ {txt('Wersja pilotażowa — ograniczona dostępność przez 30 dni', 'Pilot version — limited availability for 30 days')}
             </PilotCountdown>
             <h2>
-              {txt('Przetestuj produkt teraz.', 'Try the product now.')}
+              {txt('Zautomatyzuj nudną pracę już dziś.', 'Automate manual workloads today.')}
               <br />
-              {txt('Zostań ', 'Become a ')}
-              <GradientText>{txt('Członkiem Założycielem', 'Founding Member')}</GradientText>
+              {txt('Dołącz do ', 'Join the ')}
+              <GradientText>{txt('Programu Założycielskiego', 'Founding Program')}</GradientText>
               .
             </h2>
             <p>
               {txt(
-                'Przez 30 dni udostępniamy pilotażową wersję ESG Compliance Agent wybranej grupie firm. Tylko uczestnicy pilotażu mogą zostać Członkami Założycielami — z dostępem do ekskluzywnych korzyści niedostępnych dla późniejszych użytkowników.',
-                "For 30 days we're opening the pilot version of ESG Compliance Agent to a select group of companies. Only pilot participants can become Founding Members — with access to exclusive benefits unavailable to later users."
+                'Otwieramy pilotażową wersję ESG Compliance Agent dla wybranej grupy doradców i dyrektorów ds. zrównoważonego rozwoju. Zabezpiecz swoje warunki jako Członek Założyciel i odzyskaj cenny czas doradczy.',
+                'We are opening the pilot version of ESG Compliance Agent to a select cohort of ESG consultants and sustainability leaders. Lock in your founding benefits and free up your time for high-level decision making.'
               )}
             </p>
             <ButtonPrimaryLink href="#join">
@@ -1037,14 +1036,14 @@ export default function Home() {
 
             <FaqItem className={openFaq === 4 ? 'open' : ''} onClick={() => toggleFaq(4)}>
               <FaqQuestion>
-                <span>{txt('Dla jakich firm jest ten produkt?', 'Which companies is this product for?')}</span>
+                <span>{txt('Dla kogo przeznaczony jest ten produkt?', 'Who is this product designed for?')}</span>
                 <FaqIcon className="faq-icon">+</FaqIcon>
               </FaqQuestion>
               <FaqAnswer className="faq-a">
                 <p>
                   {txt(
-                    'Przede wszystkim dla MŚP w Polsce i UE, które muszą lub chcą raportować ESG — m.in. dostawcy dużych korporacji, firmy ubiegające się o unijne fundusze, spółki przygotowujące się do obowiązkowego raportowania CSRD. Produkt jest idealny dla firm bez dedykowanego działu ESG.',
-                    'Primarily SMEs in Poland and the EU that need or want ESG reporting — including suppliers to large corporations, companies applying for EU funds, companies preparing for mandatory CSRD reporting. The product is ideal for companies without a dedicated ESG team.'
+                    'Dla niezależnych doradców ESG, butików konsultingowych, biur rachunkowych oraz wewnętrznych dyrektorów i menedżerów ds. zrównoważonego rozwoju (Sustainability Managers) w średnich i dużych firmach, którzy chcą zredukować czas poświęcany na mechaniczną pracę z danymi i skupić się na decyzjach zarządczych i strategicznym doradztwie.',
+                    'It is designed for independent ESG consultants, advisory boutiques, corporate Sustainability Directors, and internal ESG managers who want to automate tedious data analysis, gap mapping, and report generation so they can focus on high-value client advisory and business strategy.'
                   )}
                 </p>
               </FaqAnswer>
@@ -1063,8 +1062,8 @@ export default function Home() {
           </h2>
           <p>
             {txt(
-              'Dołącz do firm, które kształtują przyszłość ESG dla MŚP. Zostań Członkiem Założycielem — 30 dni testu, zero ryzyka, lata korzyści.',
-              'Join companies shaping the future of SME ESG compliance. Become a Founding Member — 30 days of testing, zero risk, years of benefits.'
+              'Dołącz do liderów, którzy kształtują przyszłość doradztwa ESG z AI. Zostań Członkiem Założycielem — 30 dni testu, zero ryzyka, lata korzyści.',
+              'Join the leaders shaping the future of AI-powered ESG consulting. Become a Founding Member — 30 days of testing, zero risk, years of benefits.'
             )}
           </p>
           <ButtonPrimaryLink href="#join" style={{ fontSize: '1.05rem', padding: '1rem 2.5rem' }}>
