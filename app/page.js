@@ -8,6 +8,7 @@ import {
   LangToggle,
   LangBtn,
   NavCta,
+  NavSecondaryCta,
   Container,
   Section,
   SectionSm,
@@ -231,6 +232,9 @@ export default function Home() {
             <LangBtn className={lang === 'pl' ? 'active' : ''} onClick={() => setLang('pl')}>PL</LangBtn>
             <LangBtn className={lang === 'en' ? 'active' : ''} onClick={() => setLang('en')}>EN</LangBtn>
           </LangToggle>
+          <NavSecondaryCta href="https://app.esgsyncpro.qirelab.com" target="_blank">
+            {txt('Uruchom aplikację ↗', 'Launch App ↗')}
+          </NavSecondaryCta>
           <NavCta href="#join">
             {txt('Dołącz do pilotażu →', 'Join pilot →')}
           </NavCta>
@@ -295,7 +299,7 @@ export default function Home() {
         <Container>
           <TrustGrid>
             <TrustTitleCol>
-              <TrustBadge>{txt('Licencjonowany Operator ESG', 'Licensed ESG Operator')}</TrustBadge>
+              <TrustBadge>{txt('Zweryfikowany Operator ESG', 'Verified ESG Operator')}</TrustBadge>
               <h3>{txt('Bezpieczeństwo i legalność gwarantowane', 'Security & compliance guaranteed')}</h3>
               <p>
                 {txt(

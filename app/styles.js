@@ -83,7 +83,45 @@ export const NavCta = styled.a`
     background: ${props => props.theme.colors.green500};
     transform: translateY(-1px);
   }
+
+  @media (max-width: 768px) {
+    padding: 0.4rem 0.85rem;
+    font-size: 0.75rem;
+  }
 `;
+
+export const NavSecondaryCta = styled.a`
+  background: rgba(30, 41, 59, 0.5);
+  color: ${props => props.theme.colors.slate200};
+  border: 1px solid ${props => props.theme.colors.slate700};
+  padding: 0.45rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  &:hover {
+    border-color: ${props => props.theme.colors.green700};
+    color: ${props => props.theme.colors.green300};
+    background: rgba(22, 163, 74, 0.05);
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.4rem 0.85rem;
+    font-size: 0.75rem;
+  }
+
+  @media (max-width: 480px) {
+    display: none;
+  }
+`;
+
+
 
 // ─── STRUCTURAL HELPERS ───
 export const Container = styled.div`
