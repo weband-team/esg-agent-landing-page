@@ -91,7 +91,7 @@ export default function TermsOfService() {
               <h2>3. Warunki Programu Założycielskiego</h2>
               <p>Członkowie Założyciele, którzy dokonają rejestracji i opłacą Depozyt Założycielski, otrzymują następujące, gwarantowane uprawnienia:</p>
               <ol>
-                <li><strong>Darmowy dostęp:</strong> Pełny, bezpłatny dostęp do platformy przez pierwsze 6 miesięcy (pół roku) od dnia jej oficjalnej komercyjnej premiery rynkowej, która zaplanowana jest na 24 czerwca 2026 r.</li>
+                <li><strong>Darmowy dostęp:</strong> Pełny, bezpłatny dostęp do platformy przez pierwsze 6 miesięcy (pół roku) od dnia jej oficjalnej komercyjnej premiery rynkowej, która zaplanowana jest na 1 października 2026 r.</li>
                 <li><strong>Zamrożona cena:</strong> Stała zniżka o wartości 50% na wybrane plany abonamentowe po zakończeniu okresu darmowego — gwarantowana dożywotnio.</li>
                 <li><strong>Dedykowany Onboarding:</strong> Prywatne spotkanie wdrożeniowe, podczas którego pokażemy, jak korzystać z systemu w oparciu o wybrane regulacje i specyfikę firmy.</li>
                 <li><strong>Priorytet Rozwoju:</strong> Bezpośredni kontakt z deweloperami i pierwszeństwo we wdrażaniu sugerowanych modułów regulacyjnych.</li>
@@ -160,7 +160,7 @@ export default function TermsOfService() {
               <h2>3. Founding Member Benefits</h2>
               <p>Founding Members who submit their application and pay the Founding Deposit receive the following guaranteed benefits:</p>
               <ol>
-                <li><strong>Free Access:</strong> Full, unrestricted access to the software for 6 months (half of the year) starting from the official commercial launch date, which is planned for June 24, 2026.</li>
+                <li><strong>Free Access:</strong> Full, unrestricted access to the software for 6 months (half of the year) starting from the official commercial launch date, which is planned for October 1, 2026.</li>
                 <li><strong>Locked Pricing:</strong> A permanent 50% discount on subscription plans after the free trial ends — guaranteed for the lifetime of use.</li>
                 <li><strong>Priority Onboarding:</strong> A private setup and walkthrough call to show you how to use the system based on your specific regulations and company information.</li>
                 <li><strong>Product Influence:</strong> Direct feedback pipeline to product engineers and top priority for custom regulatory feature requests.</li>

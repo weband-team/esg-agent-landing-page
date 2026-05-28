@@ -47,16 +47,16 @@ db.serialize(() => {
  */
 function saveDeposit(deposit) {
   return new Promise((resolve, reject) => {
-    const { name, email, phone, company, industry, standard, currency, amount, reference } = deposit;
+    const { name, email, phone, company, industry, standard, currency, amount, reference, status = 'PRE-REGISTERED' } = deposit;
     const query = `
-      INSERT INTO deposits (name, email, phone, company, industry, standard, currency, amount, reference)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+      INSERT INTO deposits (name, email, phone, company, industry, standard, currency, amount, reference, status)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `;
-    db.run(query, [name, email, phone, company, industry, standard, currency, amount, reference], function(err) {
+    db.run(query, [name, email, phone, company, industry, standard, currency, amount, reference, status], function(err) {
       if (err) {
         return reject(err);
       }
-      resolve({ id: this.lastID, ...deposit });
+      resolve({ id: this.lastID, ...deposit, status });
     });
   });
 }

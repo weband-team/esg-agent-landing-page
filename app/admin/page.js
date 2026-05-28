@@ -472,6 +472,12 @@ const StatusBadge = styled.span`
     font-size: 0.55rem;
   }
 
+  &.pre-registered {
+    background: rgba(14, 165, 233, 0.12);
+    border: 1px solid rgba(14, 165, 233, 0.25);
+    color: #38bdf8;
+  }
+
   &.pending {
     background: rgba(245, 158, 11, 0.12);
     border: 1px solid rgba(245, 158, 11, 0.25);
@@ -681,27 +687,31 @@ export default function AdminPanel() {
 
   // Calculations for Metrics
   const stats = useMemo(() => {
-    let plnTotal = 0;
-    let eurTotal = 0;
-    let usdTotal = 0;
-    let paidCount = 0;
+    let csrdCount = 0;
+    let griCount = 0;
+    let otherCount = 0;
+    let preRegisteredCount = 0;
 
     records.forEach(rec => {
-      const isPaid = rec.status.toUpperCase() === 'PAID';
-      if (isPaid) paidCount++;
+      const statusUpper = rec.status.toUpperCase();
+      if (statusUpper === 'PRE-REGISTERED') preRegisteredCount++;
 
-      const amt = rec.amount || 0;
-      if (rec.currency === 'PLN') plnTotal += amt;
-      else if (rec.currency === 'EUR') eurTotal += amt;
-      else if (rec.currency === 'USD') usdTotal += amt;
+      const std = (rec.standard || '').toUpperCase();
+      if (std.includes('CSRD') || std.includes('VSME')) {
+        csrdCount++;
+      } else if (std.includes('GRI')) {
+        griCount++;
+      } else {
+        otherCount++;
+      }
     });
 
     return {
       total: records.length,
-      paid: paidCount,
-      pln: plnTotal,
-      eur: eurTotal,
-      usd: usdTotal
+      preRegistered: preRegisteredCount,
+      csrd: csrdCount,
+      gri: griCount,
+      other: otherCount
     };
   }, [records]);
 
@@ -722,8 +732,6 @@ export default function AdminPanel() {
       'Company',
       'Industry',
       'Standard',
-      'Currency',
-      'Amount',
       'Reference Code',
       'Status'
     ];
@@ -738,8 +746,6 @@ export default function AdminPanel() {
       `"${rec.company.replace(/"/g, '""')}"`,
       rec.industry || 'Not Specified',
       rec.standard || 'CSRD VSME',
-      rec.currency,
-      rec.amount,
       rec.reference,
       rec.status
     ]);
@@ -754,7 +760,7 @@ export default function AdminPanel() {
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.setAttribute('href', url);
-    link.setAttribute('download', `esg_deposits_export_${new Date().toISOString().split('T')[0]}.csv`);
+    link.setAttribute('download', `esg_registrations_export_${new Date().toISOString().split('T')[0]}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -826,35 +832,35 @@ export default function AdminPanel() {
         <MetricsGrid>
           <MetricCard className="primary">
             <div className="info">
-              <span className="label">Total Registrations</span>
+              <span className="label">Total Pre-Registrations</span>
               <span className="value">{stats.total}</span>
-              <span className="sub">🛡️ {stats.paid} fully activated (PAID)</span>
+              <span className="sub">🚀 {stats.preRegistered} pre-registered (free)</span>
             </div>
             <div className="icon">👥</div>
           </MetricCard>
           <MetricCard>
             <div className="info">
-              <span className="label">PLN Deposits</span>
-              <span className="value">{stats.pln.toLocaleString()} zł</span>
-              <span className="sub">From active PAID deposits</span>
+              <span className="label">CSRD / VSME Interest</span>
+              <span className="value">{stats.csrd}</span>
+              <span className="sub">EU ESG requirements for SMEs</span>
             </div>
-            <div className="icon">🪙</div>
+            <div className="icon">🇪🇺</div>
           </MetricCard>
           <MetricCard>
             <div className="info">
-              <span className="label">EUR Deposits</span>
-              <span className="value">{stats.eur.toLocaleString()} €</span>
-              <span className="sub">From active PAID deposits</span>
+              <span className="label">GRI Standards Interest</span>
+              <span className="value">{stats.gri}</span>
+              <span className="sub">Global sustainability standards</span>
             </div>
-            <div className="icon">💶</div>
+            <div className="icon">📊</div>
           </MetricCard>
           <MetricCard>
             <div className="info">
-              <span className="label">USD Deposits</span>
-              <span className="value">${stats.usd.toLocaleString()}</span>
-              <span className="sub">From active PAID deposits</span>
+              <span className="label">Other ESG Standards</span>
+              <span className="value">{stats.other}</span>
+              <span className="sub">ISO, EU Taxonomy, Undecided</span>
             </div>
-            <div className="icon">💵</div>
+            <div className="icon">🌿</div>
           </MetricCard>
         </MetricsGrid>
 
@@ -876,6 +882,12 @@ export default function AdminPanel() {
               onClick={() => setStatusFilter('ALL')}
             >
               All ({records.length})
+            </FilterBtn>
+            <FilterBtn
+              className={statusFilter === 'PRE-REGISTERED' ? 'active' : ''}
+              onClick={() => setStatusFilter('PRE-REGISTERED')}
+            >
+              Pre-Registered ({records.filter(r => r.status.toUpperCase() === 'PRE-REGISTERED').length})
             </FilterBtn>
             <FilterBtn
               className={statusFilter === 'PENDING' ? 'active' : ''}
@@ -917,7 +929,6 @@ export default function AdminPanel() {
                   <Th>User / Applicant</Th>
                   <Th>Company / Industry</Th>
                   <Th>Standard</Th>
-                  <Th>Deposit Value</Th>
                   <Th>Reference Code</Th>
                   <Th>Status</Th>
                   <Th style={{ textAlign: 'right' }}>Actions</Th>
@@ -954,21 +965,12 @@ export default function AdminPanel() {
                         </span>
                       </Td>
                       <Td>
-                        <div className="primary-text" style={{ fontSize: '1rem', color: '#f59e0b' }}>
-                          {rec.amount}&nbsp;
-                          {rec.currency === 'PLN' ? 'zł' : rec.currency === 'EUR' ? '€' : '$'}
-                        </div>
-                        <div className="secondary-text" style={{ fontSize: '0.75rem' }}>
-                          {rec.currency} Accounts
-                        </div>
-                      </Td>
-                      <Td>
                         <code style={{ background: 'rgba(255,255,255,0.06)', padding: '0.35rem 0.65rem', borderRadius: '6px', fontSize: '0.8rem', color: '#ffffff', border: '1px solid rgba(255,255,255,0.05)' }}>
                           {rec.reference}
                         </code>
                       </Td>
                       <Td>
-                        <StatusBadge className={rec.status.toLowerCase()}>
+                        <StatusBadge className={rec.status.toLowerCase().replace('_', '-')}>
                           {rec.status}
                         </StatusBadge>
                       </Td>
@@ -979,6 +981,7 @@ export default function AdminPanel() {
                             value={rec.status.toUpperCase()}
                             onChange={(e) => handleStatusChange(rec.reference, e.target.value)}
                           >
+                            <option value="PRE-REGISTERED">PRE-REGISTERED</option>
                             <option value="PENDING">PENDING</option>
                             <option value="PAID">PAID</option>
                             <option value="REFUNDED">REFUNDED</option>

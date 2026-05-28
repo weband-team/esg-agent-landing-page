@@ -11,7 +11,7 @@ const inter = Inter({
 
 export const metadata = {
   title: 'ESG Compliance Agent — Pilotaż dla MŚP | Pilot for SMEs',
-  description: 'AI-powered ESG compliance for SMEs. Join the founding pilot — refundable deposit unlocks 6 months free at commercial launch on June 24th.',
+  description: 'AI-powered ESG compliance for SMEs. Join the founding pilot — free pre-launch registration unlocks 6 months free at commercial launch on October 1st.',
 };
 
 export default function RootLayout({ children }) {

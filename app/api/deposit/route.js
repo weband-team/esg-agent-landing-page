@@ -39,57 +39,48 @@ function generateReference() {
   for (let i = 0; i < 6; i++) {
     code += chars.charAt(Math.floor(Math.random() * chars.length));
   }
-  return `ESG-QIRE-${code}`;
+  return `ESG-REG-${code}`;
 }
 
 export async function POST(req) {
   try {
     const body = await req.json();
-    const { name, email, phone, company, industry, standard, currency } = body;
+    const { name, email, phone, company, industry, standard } = body;
 
-    if (!name || !email || !phone || !company) {
+    if (!name || !email || !company) {
       return NextResponse.json(
-        { error: 'Name, email, phone number, and company name are required.' },
+        { error: 'Name, email, and company name are required.' },
         { status: 400 }
       );
     }
-
-    const selectedCurrency = (currency || 'PLN').toUpperCase();
-    const bankDetails = BANK_ACCOUNTS[selectedCurrency] || BANK_ACCOUNTS.PLN;
 
     const reference = generateReference();
 
     const depositData = {
       name,
       email,
-      phone,
+      phone: phone || '-',
       company,
       industry: industry || 'Not Specified',
       standard: standard || 'CSRD / VSME',
-      currency: bankDetails.currencyCode,
-      amount: bankDetails.amount,
-      reference
+      currency: '-',
+      amount: 0.0,
+      reference,
+      status: 'PRE-REGISTERED'
     };
 
     const savedRecord = await db.saveDeposit(depositData);
 
     return NextResponse.json({
       success: true,
-      message: 'Deposit intent successfully registered.',
-      deposit: savedRecord,
-      bankInfo: {
-        ...BANK_INFO,
-        accountNumber: bankDetails.accountNumber,
-        amount: bankDetails.amount,
-        currencySymbol: bankDetails.currencySymbol,
-        currencyCode: bankDetails.currencyCode
-      }
+      message: 'Pre-launch registration successfully completed.',
+      deposit: savedRecord
     });
 
   } catch (error) {
-    console.error('Error handling deposit API:', error);
+    console.error('Error handling pre-registration API:', error);
     return NextResponse.json(
-      { error: 'Failed to process deposit registration. Please try again.' },
+      { error: 'Failed to process pre-registration. Please try again.' },
       { status: 500 }
     );
   }

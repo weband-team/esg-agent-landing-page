@@ -181,10 +181,7 @@ export default function Home() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-          ...formData,
-          currency: currency
-        })
+        body: JSON.stringify(formData)
       });
 
       const data = await response.json();
@@ -195,16 +192,7 @@ export default function Home() {
 
       // Populate modal details from API response
       setModalDetails({
-        reference: data.deposit.reference,
-        amount: data.bankInfo.amount,
-        currencyCode: data.bankInfo.currencyCode,
-        currencySymbol: data.bankInfo.currencySymbol,
-        accountNumber: data.bankInfo.accountNumber,
-        swiftBic: data.bankInfo.swiftBic,
-        bankName: data.bankInfo.bankName,
-        bankAddress: data.bankInfo.bankAddress,
-        companyName: data.bankInfo.companyName,
-        companyAddress: data.bankInfo.companyAddress
+        reference: data.deposit.reference
       });
 
       // Open Modal
@@ -233,10 +221,10 @@ export default function Home() {
             <LangBtn className={lang === 'en' ? 'active' : ''} onClick={() => setLang('en')}>EN</LangBtn>
           </LangToggle>
           <NavSecondaryCta href="https://app.esgsyncpro.qirelab.com" target="_blank">
-            {txt('Uruchom aplikację ↗', 'Launch App ↗')}
+            {txt('Uruchom wersję testową (Pilot) ↗', 'Launch Pilot App ↗')}
           </NavSecondaryCta>
           <NavCta href="#join">
-            {txt('Dołącz do pilotażu →', 'Join pilot →')}
+            {txt('Odbierz darmowy dostęp →', 'Get free access →')}
           </NavCta>
         </div>
       </Nav>
@@ -249,7 +237,7 @@ export default function Home() {
           <HeroContent>
             <HeroEyebrow>
               <div className="dot"></div>
-              {txt('Pilotaż dostępny tylko przez 30 dni', 'Pilot available for 30 days only')}
+              {txt('Wersja pilotażowa dostępna do testów', 'Pilot version available for testing')}
             </HeroEyebrow>
             <HeroTitle>
               {txt('AI Copilot dla Ekspertów ESG.', 'The AI Copilot for ESG Consultants.')}
@@ -258,18 +246,23 @@ export default function Home() {
             </HeroTitle>
             <HeroSub>
               {txt(
-                'Wgraj dokumenty źródłowe, skany i bazy ERP Twoich klientów. Nasz agent AI automatycznie wyszuka dane, porówna je z regulacjami i przygotuje audytowalną analizę luk w godzinę zamiast tygodni.',
-                'Upload raw client files, policies, and ERP exports. Our AI agent instantly compares and analyzes scattered sustainability data, producing professional, audit-ready ESG report drafts in hours instead of months.'
+                'Wgraj dokumenty źródłowe, skany i bazy ERP Twoich klientów. Nasz agent AI automatycznie wyszuka dane, porówna je z regulacjami i przygotuje audytowalną analizę luk w godzinę zamiast tygodni. Wypróbuj pilotażową wersję za darmo.',
+                'Upload raw client files, policies, and ERP exports. Our AI agent instantly compares and analyzes scattered sustainability data, producing professional, audit-ready ESG report drafts in hours instead of months. Try the pilot for free.'
               )}
             </HeroSub>
-            <HeroCtaGroup>
-              <ButtonPrimaryLink href="#join">
-                {txt('🚀 Zarezerwuj miejsce w pilotażu', '🚀 Reserve your pilot spot')}
-              </ButtonPrimaryLink>
-              <ButtonSecondaryLink href="https://app.esgsyncpro.qirelab.com" target="_blank">
-                {txt('Urunom aplikację ↗', 'Launch Application ↗')}
-              </ButtonSecondaryLink>
-            </HeroCtaGroup>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', marginBottom: '3.5rem' }}>
+              <HeroCtaGroup style={{ marginBottom: 0 }}>
+                <ButtonPrimaryLink href="https://app.esgsyncpro.qirelab.com" target="_blank">
+                  {txt('🚀 Wypróbuj wersję testową (Pilot) ↗', '🚀 Try the live Pilot version ↗')}
+                </ButtonPrimaryLink>
+                <ButtonSecondaryLink href="#join">
+                  {txt('🎁 Odbierz darmowy dostęp na 6 mies. ↓', '🎁 Get 6 months free access ↓')}
+                </ButtonSecondaryLink>
+              </HeroCtaGroup>
+              <p style={{ fontSize: '0.8rem', color: '#64748b' }}>
+                {txt('⚠️ System wciąż się doskonali i jest intensywnie rozwijany', '⚠️ The system is in active development and improving daily')}
+              </p>
+            </div>
             <HeroStats>
               <HeroStat>
                 <div className="num">9+</div>
@@ -303,8 +296,8 @@ export default function Home() {
               <h3>{txt('Bezpieczeństwo i legalność gwarantowane', 'Security & compliance guaranteed')}</h3>
               <p>
                 {txt(
-                  'Produkt jest tworzony i obsługiwany przez polską spółkę kapitałową, podlegającą pełnemu nadzorowi prawnemu w Unii Europejskiej. Twoje dane i depozyty są bezpieczne.',
-                  'The product is developed and operated by a Polish joint-stock company, subject to full legal oversight in the European Union. Your data and deposits are safe.'
+                  'Produkt jest tworzony i obsługiwany przez polską spółkę kapitałową, podlegającą pełnemu nadzorowi prawnemu w Unii Europejskiej. Twoje dane i prywatność są w pełni bezpieczne.',
+                  'The product is developed and operated by a Polish joint-stock company, subject to full legal oversight in the European Union. Your data and privacy are fully safe.'
                 )}
               </p>
             </TrustTitleCol>
@@ -617,7 +610,7 @@ export default function Home() {
               )}
             </p>
             <ButtonPrimaryLink href="#join">
-              {txt('Sprawdź warunki Programu Założycielskiego →', 'See the Founding Member program →')}
+              {txt('Zarejestruj się za darmo →', 'Register for free →')}
             </ButtonPrimaryLink>
           </PilotBanner>
         </Container>
@@ -629,9 +622,8 @@ export default function Home() {
           <div style={{ textAlign: 'center' }}>
             <Tag>{txt('Program Założycielski', 'Founding Member Program')}</Tag>
             <SectionTitle style={{ marginBottom: '3rem' }}>
-              {txt('Korzyści, które ', 'Benefits worth ')}
-              <GradientText>{txt('warte są wielokrotność', 'many times')}</GradientText>
-              {txt(' depozytu', ' the deposit')}
+              {txt('Prezent przedpremierowy ', 'Pre-launch gifts ')}
+              <GradientText>{txt('dla Członków Założycielskich', 'for Founding Members')}</GradientText>
             </SectionTitle>
           </div>
           <FoundingLayout>
@@ -642,8 +634,8 @@ export default function Home() {
                   <h4>{txt('Pół roku (6 miesięcy) pełnego dostępu — bezpłatnie', 'Half of the year (6 months) full access — free')}</h4>
                   <p>
                     {txt(
-                      'Gdy produkt zostanie oficjalnie wydany (premiera planowana jest na 24 czerwca), Członkowie Założyciele otrzymają pół roku (6 miesięcy) bezpłatnego użytkowania bez żadnych zobowiązań. Zacznij korzystać od pierwszego dnia premiery.',
-                      'When the product officially launches (release is planned for June 24th), Founding Members get free access for half of the year (6 months) with no strings attached. Start using it from day one of the release.'
+                      'Gdy produkt zostanie oficjalnie wydany (premiera planowana jest na 1 października), Członkowie Założyciele otrzymają pół roku (6 miesięcy) bezpłatnego użytkowania bez żadnych zobowiązań. Zacznij korzystać od pierwszego dnia premiery.',
+                      'When the product officially launches (release is planned for October 1st), Founding Members get free access for half of the year (6 months) with no strings attached. Start using it from day one of the release.'
                     )}
                   </p>
                   <BenefitValueBadge>{txt('Wartość: ~1 800–3 600 PLN', 'Value: ~€450–900')}</BenefitValueBadge>
@@ -652,14 +644,14 @@ export default function Home() {
               <BenefitItem>
                 <BenefitIconWrap>🔐</BenefitIconWrap>
                 <BenefitText>
-                  <h4>{txt('Cena założycielska — zamrożona na zawsze', 'Founder pricing — locked forever')}</h4>
+                  <h4>{txt('40% dożywotniej zniżki na subskrypcję', '40% lifetime subscription discount')}</h4>
                   <p>
                     {txt(
-                      'Po zakończeniu okresu darmowego, płacisz 50% regularnej ceny przez cały okres użytkowania. Nawet gdy ceny wzrosną dla nowych klientów.',
-                      'After your free period ends, you pay 50% of the regular price for as long as you use the product. Even as prices rise for new customers.'
+                      'Po zakończeniu okresu darmowego, płacisz 40% mniej od regularnej ceny subskrypcji przez cały okres użytkowania. Twoja zniżka jest zamrożona na zawsze i gwarantowana, nawet gdy ceny wzrosną dla nowych klientów.',
+                      'After your free period ends, you pay 40% less than the regular price for as long as you use the product. Your discount is locked forever and guaranteed, even as prices rise for new customers.'
                     )}
                   </p>
-                  <BenefitValueBadge>{txt('Oszczędność: 50% na zawsze', 'Saving: 50% forever')}</BenefitValueBadge>
+                  <BenefitValueBadge>{txt('Oszczędność: 40% na zawsze', 'Saving: 40% forever')}</BenefitValueBadge>
                 </BenefitText>
               </BenefitItem>
               <BenefitItem>
@@ -716,56 +708,54 @@ export default function Home() {
             {/* DEPOSIT STICKY CARD */}
             <DepositCard id="deposit-card">
               <div style={{ fontSize: '0.75rem', fontWeight: '700', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#f59e0b', marginBottom: '1rem' }}>
-                {txt('🔑 Depozyt założycielski', '🔑 Founding deposit')}
+                {txt('🔑 Program Założycielski', '🔑 Founding Program')}
               </div>
               <DepositPrice>
                 <DepositAmount>
-                  {currency === 'PLN' ? '399' : '99'}
+                  0
                 </DepositAmount>
-                <DepositCurrency>{currency === 'PLN' ? 'PLN' : currency}</DepositCurrency>
+                <DepositCurrency>{currency === 'PLN' ? 'zł' : currency === 'EUR' ? '€' : '$'}</DepositCurrency>
               </DepositPrice>
               <DepositLabel>
-                {txt('jednorazowy depozyt · w pełni zwrotny w każdej chwili', 'one-time deposit · fully refundable at any time')}
+                {txt('rejestracja bez opłat · bez żadnego ryzyka', 'free pre-registration · zero commitment')}
               </DepositLabel>
               <DepositFeatures>
                 <li>
                   <span className="check">✓</span>
-                  <span>{txt('Dostęp do 30-dniowego pilotażu od razu po potwierdzeniu', 'Immediate access to the 30-day pilot on confirmation')}</span>
+                  <span>{txt('Natychmiastowy dostęp do pilotażu i testów AI', 'Immediate access to the pilot app and AI testing')}</span>
                 </li>
                 <li>
                   <span className="check">✓</span>
-                  <span>{txt('Pół roku (6 miesięcy) bezpłatnego dostępu po premierze (od 24 czerwca)', 'Half of the year (6 months) free access after release (from June 24th)')}</span>
+                  <span>{txt('Pół roku (6 miesięcy) bezpłatnego dostępu po premierze (od 1 października)', 'Half of the year (6 months) free access after release (from October 1st)')}</span>
                 </li>
                 <li>
                   <span className="check">✓</span>
-                  <span>{txt('Cena założycielska 50% przez cały czas korzystania', 'Founder price 50% off for lifetime')}</span>
+                  <span>{txt('Dożywotnia zniżka 40% na subskrypcję po darmowym okresie', '40% lifetime subscription discount after the free period')}</span>
                 </li>
                 <li>
                   <span className="check">✓</span>
-                  <span>{txt('Osobista sesja wdrożeniowa (prezentacja systemu)', 'Personal setup session (system walkthrough)')}</span>
+                  <span>{txt('Osobista sesja wdrożeniowa (prezentacja asystenta)', 'Personal setup session (system walk-through)')}</span>
                 </li>
                 <li>
                   <span className="check">✓</span>
-                  <span>{txt('Depozyt zalicza się na poczet subskrypcji lub jest zwracany', 'Deposit credited to subscription or fully refunded')}</span>
+                  <span>{txt('Rejestracja gwarantuje zablokowanie najlepszych warunków', 'Registration guarantees locking in the best benefits')}</span>
                 </li>
               </DepositFeatures>
               <DepositRefundBanner>
                 🛡️&nbsp;
                 <span>
-                  <strong>{txt('Zero ryzyka.', 'Zero risk.')}</strong>
+                  <strong>{txt('W 100% bezpłatnie.', '100% free.')}</strong>
                   {txt(
-                    ' Depozyt jest zamrożony — nie zostanie pobrany od razu. Możesz go odzyskać w dowolnym momencie w ciągu 30 dni pilotażu. Bez pytań, bez formalności.',
-                    ' The deposit is held — not charged upfront. You can reclaim it at any time within the 30-day pilot. No questions asked, no paperwork.'
+                    ' Rejestracja jest całkowicie darmowa i nie wymaga podpinania kart ani dokonywania płatności. Zyskujesz darmowy dostęp do pilotażu bez żadnych zobowiązań.',
+                    ' Pre-registration is fully free and does not require credit cards or payments. You gain free access to the pilot with zero obligations.'
                   )}
                 </span>
               </DepositRefundBanner>
               <ButtonPrimaryLink href="#join" style={{ width: '100%', justifyContent: 'center', fontSize: '0.95rem' }}>
-                {currency === 'PLN' 
-                  ? txt('Zarezerwuj miejsce — 399 PLN →', 'Reserve your spot — 399 PLN →')
-                  : txt(`Zarezerwuj miejsce — ${currency === 'EUR' ? '99 €' : '$99'} →`, `Reserve your spot — ${currency === 'EUR' ? '€99' : '$99'} →`)}
+                {txt('Zarejestruj się za darmo i odbierz prezenty →', 'Register for free and claim gifts →')}
               </ButtonPrimaryLink>
               <p style={{ textAlign: 'center', marginTop: '0.75rem', fontSize: '0.75rem', color: '#475569' }}>
-                {txt('Zabezpiecz swoje korzyści jako Członek Założyciel.', 'Secure your benefits as a Founding Member.')}
+                {txt('Zabezpiecz swoje korzyści przedpremierowe już teraz.', 'Secure your pre-launch benefits right now.')}
               </p>
             </DepositCard>
           </FoundingLayout>
@@ -776,36 +766,36 @@ export default function Home() {
       <DepositFlowSection>
         <Container>
           <div style={{ textAlign: 'center' }}>
-            <Tag>{txt('Jak działa depozyt', 'How the deposit works')}</Tag>
+            <Tag>{txt('Jak to działa', 'How it works')}</Tag>
             <SectionTitle style={{ marginBottom: '2.5rem' }}>
-              {txt('Przejrzyste zasady. ', 'Transparent rules. ')}
-              <GradientText>{txt('Żadnych pułapek.', 'No tricks.')}</GradientText>
+              {txt('Prosty proces. ', 'Simple process. ')}
+              <GradientText>{txt('Maksimum korzyści.', 'Maximum benefits.')}</GradientText>
             </SectionTitle>
           </div>
           <FlowStepsGrid>
             <FlowStepCard>
               <div className="flow-num">1</div>
-              <h4>{txt('Wypełnij formularz i wybierz walutę', 'Fill the form and choose currency')}</h4>
-              <p>{txt('Podaj dane kontaktowe i zaznacz, że chcesz zostać Członkiem Założycielem. Wybierz region depozytu.', 'Enter your contact details and select Founding Member status. Choose your deposit region.')}</p>
-              <p className="flow-note">{txt('→ Działa jak kaucja, nie abonament', '→ Security deposit, not subscription')}</p>
+              <h4>{txt('Wypełnij krótki formularz', 'Fill in the short form')}</h4>
+              <p>{txt('Podaj swoje dane kontaktowe, nazwę firmy oraz zaznacz standard ESG, który najbardziej Cię interesuje.', 'Provide your basic contact details, company name, and select the ESG standard that matters most to you.')}</p>
+              <p className="flow-note">{txt('→ Rejestracja jest w 100% bezpłatna', '→ Pre-registration is 100% free')}</p>
             </FlowStepCard>
             <FlowStepCard>
               <div className="flow-num">2</div>
-              <h4>{txt('Otrzymaj natychmiastowe instrukcje przelewu', 'Get instant bank transfer details')}</h4>
-              <p>{txt('Po wysłaniu system automatycznie wygeneruje unikalny kod referencyjny i pokaże dedykowane konto bankowe.', 'Upon submission, the system generates a unique reference title and shows the exact bank details.')}</p>
-              <p className="flow-note">{txt('→ Dedykowane konta PLN / EUR / USD', '→ Specific PLN / EUR / USD accounts')}</p>
+              <h4>{txt('Otrzymaj osobisty kod rejestracji', 'Get your unique registration code')}</h4>
+              <p>{txt('Po wysłaniu system automatycznie wygeneruje Twój kod rejestracji (np. ESG-REG-XXXXXX), który blokuje przyznane prezenty.', 'Upon submission, the system generates your registration code (e.g. ESG-REG-XXXXXX), locking in your benefits.')}</p>
+              <p className="flow-note">{txt('→ Kod przypisany na stałe do firmy', '→ Code locked to your company')}</p>
             </FlowStepCard>
             <FlowStepCard>
               <div className="flow-num">3</div>
-              <h4>{txt('Depozyt podlega zwrotowi', 'Full refund protection')}</h4>
-              <p>{txt('Środki są zablokowane na Twoim koncie — możesz żądać zwrotu w każdej chwili podczas pilotażu, bez pytań i bez biurokracji.', 'Funds are protected — request a full refund at any point of the pilot phase, no questions asked.')}</p>
-              <p className="flow-note">{txt('→ 100% zwrotu w 2 dni robocze', '→ 100% refunded in 2 business days')}</p>
+              <h4>{txt('Testuj asystenta w wersji pilotażowej', 'Test the pilot version immediately')}</h4>
+              <p>{txt('Możesz natychmiast przejść do wersji pilotażowej, aby przetestować asystenta AI, wgrać testowe pliki oraz sprawdzić, jak generowany jest gotowy raport.', 'You can instantly launch the pilot application to test the AI assistant, upload raw files, and see how compliance reports are generated.')}</p>
+              <p className="flow-note">{txt('→ Wersja testowa dostępna od razu', '→ Pilot app is ready for testing')}</p>
             </FlowStepCard>
             <FlowStepCard>
               <div className="flow-num flow-num-check">✓</div>
-              <h4>{txt('Korzyści z pełni korzyści Założyciela', 'Enjoy full Founding Member benefits')}</h4>
-              <p>{txt('Pół roku bezpłatnie (od premiery 24 czerwca), cena 50% na zawsze, priorytetowy support i wpływ na kierunek produktu. Warunki gwarantowane.', 'Half of the year free (from release on June 24th), 50% price forever, priority support and direct product influence. Guaranteed in writing.')}</p>
-              <p className="flow-note">{txt('→ Certyfikat statusu Założyciela', '→ Founding Member certificate')}</p>
+              <h4>{txt('Odbierz prezenty po premierze', 'Claim your launch benefits')}</h4>
+              <p>{txt('Gdy produkt wystartuje komercyjnie 1 października, otrzymasz pół roku pełnego darmowego dostępu bez żadnych zobowiązań oraz 40% dożywotniej zniżki.', 'When the product officially launches on October 1st, you get 6 months of free access with zero commitment and a 40% lifetime discount.')}</p>
+              <p className="flow-note">{txt('→ Gwarantowane warunki założycielskie', '→ Guaranteed founding member terms')}</p>
             </FlowStepCard>
           </FlowStepsGrid>
         </Container>
@@ -815,25 +805,25 @@ export default function Home() {
       <FormSection id="join">
         <Container>
           <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-            <Tag>{txt('Dołącz do pilotażu', 'Join the pilot')}</Tag>
+            <Tag>{txt('Rejestracja Pre-Launch', 'Pre-Launch Registration')}</Tag>
             <SectionTitle>
-              {txt('Zarezerwuj swoje miejsce', 'Reserve your spot')}
+              {txt('Zarejestruj się bezpłatnie i ', 'Register for free and ')}
               <br />
-              <GradientText>{txt('wśród Członków Założycielskich', 'among Founding Members')}</GradientText>
+              <GradientText>{txt('odbierz pakiet korzyści', 'claim your benefit package')}</GradientText>
             </SectionTitle>
             <SectionSub style={{ margin: '0 auto', textAlign: 'center' }}>
               {txt(
-                'Pilotaż trwa 30 dni. Wypełnij formularz poniżej, aby natychmiast zapisać dane i wygenerować dane do depozytu bankowego.',
-                'Pilot runs 30 days. Fill the form below to register your details and instantly generate bank deposit details.'
+                'Rejestracja przedpremierowa jest w 100% darmowa. Zabezpiecz 6 miesięcy darmowego dostępu i wypróbuj wersję testową (Pilot) już teraz.',
+                'Pre-launch registration is 100% free. Secure 6 months of free access and try the pilot version right now.'
               )}
             </SectionSub>
           </div>
           <FormWrap>
-            <h3>{txt('Formularz zgłoszeniowy', 'Application form')}</h3>
+            <h3>{txt('Krótki formularz zgłoszeniowy', 'Quick application form')}</h3>
             <p className="form-sub">
               {txt(
-                'Zarezerwuj warunki założycielskie w kilka sekund. Dane zostaną zapisane w bezpiecznej bazie.',
-                'Secure your founder pricing in seconds. Details saved in a secured database.'
+                'Zabezpiecz warunki założycielskie w kilka sekund. Dane zostaną zapisane w bezpiecznej bazie.',
+                'Secure your founder benefits in seconds. Details saved in a secured database.'
               )}
             </p>
             <form onSubmit={handleSubmit}>
@@ -861,11 +851,10 @@ export default function Home() {
               </FormRow>
               <FormRow>
                 <FormGroup>
-                  <label>{txt('Numer telefonu (komórkowy) *', 'Phone number *')}</label>
+                  <label>{txt('Numer telefonu', 'Phone number')}</label>
                   <input
                     type="tel"
-                    required
-                    placeholder="+48 731 270 861"
+                    placeholder={txt('+48 731 270 861 (opcjonalnie)', '+48 731 270 861 (optional)')}
                     value={formData.phone}
                     onChange={(e) => handleInputChange(e, 'phone')}
                   />
@@ -899,45 +888,26 @@ export default function Home() {
                   </select>
                 </FormGroup>
                 <FormGroup>
-                  <label>{txt('Opcja depozytu & Waluta *', 'Deposit region & Currency *')}</label>
+                  <label>{txt('Standard ESG *', 'ESG Standard *')}</label>
                   <select
                     required
-                    value={currency}
-                    onChange={(e) => {
-                      handleInputChange(e, 'currency');
-                      handleCurrencyChange(e.target.value);
-                    }}
+                    value={formData.standard}
+                    onChange={(e) => handleInputChange(e, 'standard')}
                   >
-                    <option value="PLN">{txt('Polska (PLN) — 399 zł', 'Poland (PLN) — 399 PLN')}</option>
-                    <option value="EUR">{txt('Kraje strefy Euro (EUR) — 99 €', 'Eurozone Countries (EUR) — €99')}</option>
-                    <option value="USD">{txt('Inne kraje / USD — 99 $', 'International / USD — $99')}</option>
+                    <option value="CSRD VSME">{txt('CSRD / VSME — wymagania EU dla MŚP', 'CSRD / VSME — EU requirements for SMEs')}</option>
+                    <option value="ISO 14067">ISO 14067 — Carbon Footprint of Products</option>
+                    <option value="GRI Standards">GRI Standards</option>
+                    <option value="EU Taxonomy">EU Taxonomy</option>
+                    <option value="Undecided">{txt('Nie wiem jeszcze — potrzebuję doradztwa', 'Not sure yet — need guidance')}</option>
                   </select>
                 </FormGroup>
               </FormRow>
-              <FormGroup>
-                <label>{txt('Który standard ESG jest dla Ciebie najważniejszy?', 'Which ESG standard matters most to you?')}</label>
-                <select
-                  value={formData.standard}
-                  onChange={(e) => handleInputChange(e, 'standard')}
-                >
-                  <option value="CSRD VSME">{txt('CSRD / VSME — wymagania EU dla MŚP', 'CSRD / VSME — EU requirements for SMEs')}</option>
-                  <option value="ISO 14067">ISO 14067 — Carbon Footprint of Products</option>
-                  <option value="GRI Standards">GRI Standards</option>
-                  <option value="EU Taxonomy">EU Taxonomy</option>
-                  <option value="Undecided">{txt('Nie wiem jeszcze — potrzebuję doradztwa', 'Not sure yet — need guidance')}</option>
-                </select>
-              </FormGroup>
               <FormCheck>
                 <input type="checkbox" required />
                 <span>
                   {txt(
-                    'Chcę zostać ',
-                    'I want to become a '
-                  )}
-                  <strong>{txt('Członkiem Założycielem', 'Founding Member')}</strong>
-                  {txt(
-                    ' i rozumiem, że po przesłaniu zgłoszenia wygenerowane zostaną dane do wpłaty w pełni zwrotnego depozytu w celu aktywacji statusu.*',
-                    ' and understand that upon submission, bank details will be generated to pay a fully refundable deposit to activate my status.*'
+                    'Chcę zarezerwować przedpremierowy pakiet korzyści (6 miesięcy darmowego dostępu oraz 40% zniżki na zawsze) i zgadzam się na warunki udziału w Programie Pre-Launch.*',
+                    'I want to reserve the pre-launch benefit package (6 months of free access and 40% discount forever) and agree to the Pre-Launch Program terms.*'
                   )}
                 </span>
               </FormCheck>
@@ -945,8 +915,8 @@ export default function Home() {
                 <input type="checkbox" required />
                 <span>
                   {txt(
-                    'Wyrażam zgodę na przetwarzanie moich danych w celu rezerwacji depozytu zgodnie z ',
-                    'I consent to the processing of my data for the purpose of deposit reservation in line with the '
+                    'Wyrażam zgodę na przetwarzanie moich danych w celu rezerwacji darmowego pakietu przedpremierowego zgodnie z ',
+                    'I consent to the processing of my data for the purpose of free pre-launch package reservation in line with the '
                   )}
                   <Link href="/privacy" target="_blank">
                     {txt('polityką prywatności', 'privacy policy')}
@@ -957,13 +927,13 @@ export default function Home() {
               <ButtonPrimary type="submit" disabled={isSubmitting} style={{ width: '100%', padding: '1.1rem', fontSize: '1.05rem' }}>
                 {isSubmitting 
                   ? txt('Rejestrowanie...', 'Registering...') 
-                  : txt('🚀 Zarejestruj depozyt i pobierz dane przelewu', '🚀 Register deposit & get bank transfer details')}
+                  : txt('🚀 Odbierz darmowy pakiet korzyści i przejdź do pilotażu', '🚀 Claim free benefits & launch pilot app')}
               </ButtonPrimary>
             </form>
             <FormNote>
               {txt(
-                'Twoje dane są u nas bezpieczne. Rejestracja jest całkowicie bezpłatna i nie zobowiązuje do natychmiastowej zapłaty, ale gwarantuje utrzymanie warunków założycielskich w bazie.',
-                'Your data is safe with us. Registration is free and does not commit you to immediate payment, but guarantees your founding benefits are secured in our system.'
+                'Twoje dane są u nas bezpieczne. Rejestracja jest całkowicie bezpłatna i nie wymaga podpinania kart ani dokonywania płatności.',
+                'Your data is safe with us. Pre-registration is 100% free and does not require credit cards or payments.'
               )}
             </FormNote>
           </FormWrap>
@@ -986,8 +956,8 @@ export default function Home() {
               <FaqAnswer className="faq-a">
                 <p>
                   {txt(
-                    'Tak — mamy działający produkt MVP z pełną funkcjonalnością: wgrywaniem dokumentów, agentem AI, trackerem zgodności i generowaniem raportów. Pilotaż to 30-dniowy okres testowania z prawdziwymi użytkownikami przed oficjalną premierą komercyjną, która zaplanowana jest na 24 czerwca. Zbieramy feedback, aby produkt był doskonały w dniu premiery.',
-                    "Yes — we have a fully working MVP: document upload, AI agent, compliance tracker, and report generation. The pilot is a 30-day testing period with real users before the official commercial release, which is planned for June 24th. We're collecting feedback to make the product perfect on launch day."
+                    'Tak — mamy działający produkt MVP z pełną funkcjonalnością: wgrywaniem dokumentów, agentem AI, trackerem zgodności i generowaniem raportów. Pilotaż to 30-dniowy okres testowania z prawdziwymi użytkownikami przed oficjalną premierą komercyjną, która zaplanowana jest na 1 października. Zbieramy feedback, aby produkt był doskonały w dniu premiery.',
+                    "Yes — we have a fully working MVP: document upload, AI agent, compliance tracker, and report generation. The pilot is a 30-day testing period with real users before the official commercial release, which is planned for October 1st. We're collecting feedback to make the product perfect on launch day."
                   )}
                 </p>
               </FaqAnswer>
@@ -995,14 +965,14 @@ export default function Home() {
 
             <FaqItem className={openFaq === 1 ? 'open' : ''} onClick={() => toggleFaq(1)}>
               <FaqQuestion>
-                <span>{txt('Czy depozyt jest obowiązkowy?', 'Is the deposit mandatory?')}</span>
+                <span>{txt('Czy udział w pilotażu i rejestracja są płatne?', 'Is the pilot participation and registration paid?')}</span>
                 <FaqIcon className="faq-icon">+</FaqIcon>
               </FaqQuestion>
               <FaqAnswer className="faq-a">
                 <p>
                   {txt(
-                    'Depozyt jest wymagany wyłącznie do aktywacji statusu Członka Założyciela i wszystkich związanych z nim korzyści (pół roku bezpłatnego dostępu po premierze od 24 czerwca, cena 50% na zawsze, etc.). Możesz też dołączyć do pilotażu bez depozytu — ale wtedy nie przysługują Ci korzyści założycielskie.',
-                    "The deposit is required only to activate Founding Member status and associated benefits (half of the year of free access after release on June 24th, 50% price forever, etc.). You can also join the pilot without a deposit — but you won't receive the founding benefits."
+                    'Nie, rejestracja i udział w pilotażu są w 100% bezpłatne. Nie wymagamy podpinania kart kredytowych ani dokonywania płatności. Zyskujesz darmowy dostęp do pilotażu i gwarancję korzyści założycielskich po premierze bez żadnych zobowiązań.',
+                    'No, registration and pilot participation are 100% free. We do not require credit cards or any payments. You get free access to the pilot and a guarantee of founding benefits upon launch with zero commitment.'
                   )}
                 </p>
               </FaqAnswer>
@@ -1010,14 +980,14 @@ export default function Home() {
 
             <FaqItem className={openFaq === 2 ? 'open' : ''} onClick={() => toggleFaq(2)}>
               <FaqQuestion>
-                <span>{txt('Co się stanie z depozytem, jeśli zdecyduję się nie korzystać z produktu?', 'What happens to the deposit if I decide not to use the product?')}</span>
+                <span>{txt('Jakie prezenty otrzymam w ramach rejestracji przedpremierowej?', 'What gifts do I receive for pre-launch registration?')}</span>
                 <FaqIcon className="faq-icon">+</FaqIcon>
               </FaqQuestion>
               <FaqAnswer className="faq-a">
                 <p>
                   {txt(
-                    'Zwrot 100% depozytu na Twoje konto — bez pytań, bez opłat, bez formalności. Możesz wnioskować o zwrot w dowolnym momencie w ciągu 30-dniowego pilotażu i przez 30 dni po jego zakończeniu.',
-                    '100% deposit refund to your account — no questions, no fees, no paperwork. You can request a refund at any time during the 30-day pilot and for 30 days after it ends.'
+                    'Jako uczestnik rejestracji przedpremierowej otrzymasz 6 miesięcy pełnego darmowego dostępu do komercyjnej wersji asystenta (od premiery 1 października 2026 r.) oraz 40% zniżki na zawsze na dowolny plan abonamentowy.',
+                    'As a pre-launch registrant, you get 6 months of full, free access to the commercial version of the assistant (from launch on October 1, 2026) and 40% off forever on any subscription plan.'
                   )}
                 </p>
               </FaqAnswer>
@@ -1066,17 +1036,17 @@ export default function Home() {
           </h2>
           <p>
             {txt(
-              'Dołącz do liderów, którzy kształtują przyszłość doradztwa ESG z AI. Zostań Członkiem Założycielem — 30 dni testu, zero ryzyka, lata korzyści.',
-              'Join the leaders shaping the future of AI-powered ESG consulting. Become a Founding Member — 30 days of testing, zero risk, years of benefits.'
+              'Dołącz do liderów, którzy kształtują przyszłość doradztwa ESG z AI. Zostań Członkiem Założycielem — 100% za darmo, zero ryzyka, lata korzyści.',
+              'Join the leaders shaping the future of AI-powered ESG consulting. Become a Founding Member — 100% free, zero risk, years of benefits.'
             )}
           </p>
           <ButtonPrimaryLink href="#join" style={{ fontSize: '1.05rem', padding: '1rem 2.5rem' }}>
-            {txt('🌿 Zarezerwuj swoje miejsce →', '🌿 Reserve your spot →')}
+            {txt('🌿 Zarejestruj się za darmo teraz →', '🌿 Register for free now →')}
           </ButtonPrimaryLink>
           <p style={{ marginTop: '1.5rem', fontSize: '0.8rem', color: '#475569' }}>
             {txt(
-              '* Pół roku (6 miesięcy) bezpłatnego dostępu dla Członków Założycielskich po oficjalnej premierze produktu, która zaplanowana jest na 24 czerwca. Warunki gwarantowane pisemnie dla wszystkich uczestników Programu Założycielskiego.',
-              '* Half of the year (6 months) free access for Founding Members upon official product launch, which is planned for June 24th. Conditions guaranteed in writing for all Founding Member program participants.'
+              '* Pół roku (6 miesięcy) bezpłatnego dostępu dla Członków Założycielskich po oficjalnej premierze produktu, która zaplanowana jest na 1 października 2026 r. Warunki gwarantowane dla wszystkich uczestników Programu Przedpremierowego.',
+              '* Half of the year (6 months) free access for Founding Members upon official product launch, which is planned for October 1st, 2026. Conditions guaranteed for all Pre-Launch Program participants.'
             )}
           </p>
         </Container>
@@ -1107,18 +1077,18 @@ export default function Home() {
         </Container>
       </Footer>
 
-      {/* DEPOSIT INSTRUCTIONS MODAL */}
+      {/* REGISTRATION SUCCESS MODAL */}
       <ModalOverlay className={isModalOpen ? 'active' : ''}>
         <ModalCard>
           <ModalClose onClick={() => setIsModalOpen(false)}>×</ModalClose>
           <ModalHeader>
-            <ModalIcon>🏦</ModalIcon>
+            <ModalIcon style={{ background: 'rgba(34, 197, 94, 0.1)', border: '1px solid rgba(34, 197, 94, 0.2)', boxShadow: '0 4px 15px rgba(34, 197, 94, 0.1)' }}>🎉</ModalIcon>
             <div>
-              <h3>{txt('Instrukcja Depozytu Bankowego', 'Bank Transfer Instructions')}</h3>
+              <h3>{txt('Gratulacje! Twoje miejsce jest bezpieczne', 'Congratulations! Your spot is secured')}</h3>
               <p>
                 {txt(
-                  'Zgłoszenie pomyślnie zapisane w bazie! Dokonaj przelewu, aby zatwierdzić status.',
-                  'Application saved! Complete your transfer to activate your founding status.'
+                  'Pomyślnie zarejestrowaliśmy Twoje zgłoszenie. Twój przedpremierowy pakiet korzyści został zablokowany!',
+                  'We have successfully registered your application. Your pre-launch benefit package is officially locked in!'
                 )}
               </p>
             </div>
@@ -1128,96 +1098,18 @@ export default function Home() {
             🛡️{' '}
             <span>
               {txt(
-                'Wpłacasz do zweryfikowanego podmiotu: ',
-                'Paying a verified legal entity: '
+                'Status Członka Założyciela zarezerwowany dla firmy: ',
+                'Founding Member status reserved for: '
               )}
-              <strong>QIRE LAB SP. Z O.O.</strong> (KRS: 0001197301, NIP: 5423505856)
+              <strong>{formData.company || '-'}</strong>
             </span>
           </ModalTrustBanner>
 
           <ModalFields>
             <ModalFieldRow>
-              <div className="field-label">{txt('Odbiorca (Nazwa Spółki)', 'Beneficiary Name')}</div>
+              <div className="field-label">{txt('Twój kod rejestracji (Pre-Launch Code)', 'Your Registration Code')}</div>
               <FieldValueWrap>
-                <FieldValue id="modal-company-name">{modalDetails.companyName}</FieldValue>
-                <CopyBtn
-                  className={copiedId === 'company-name' ? 'copied' : ''}
-                  onClick={() => copyToClipboard('company-name', modalDetails.companyName)}
-                >
-                  {copiedId === 'company-name' ? txt('Skopiowano!', 'Copied!') : txt('Kopiuj', 'Copy')}
-                </CopyBtn>
-              </FieldValueWrap>
-            </ModalFieldRow>
-
-            <ModalFieldRow>
-              <div className="field-label">{txt('Adres Odbiorcy', 'Beneficiary Address')}</div>
-              <FieldValueWrap>
-                <FieldValue id="modal-company-address">{modalDetails.companyAddress}</FieldValue>
-                <CopyBtn
-                  className={copiedId === 'company-address' ? 'copied' : ''}
-                  onClick={() => copyToClipboard('company-address', modalDetails.companyAddress)}
-                >
-                  {copiedId === 'company-address' ? txt('Skopiowano!', 'Copied!') : txt('Kopiuj', 'Copy')}
-                </CopyBtn>
-              </FieldValueWrap>
-            </ModalFieldRow>
-
-            <ModalFieldRow>
-              <div className="field-label">{txt('Bank Odbiorcy', 'Receiving Bank')}</div>
-              <FieldValueWrap>
-                <FieldValue id="modal-bank-name">{modalDetails.bankName}</FieldValue>
-                <CopyBtn
-                  className={copiedId === 'bank-name' ? 'copied' : ''}
-                  onClick={() => copyToClipboard('bank-name', modalDetails.bankName)}
-                >
-                  {copiedId === 'bank-name' ? txt('Skopiowano!', 'Copied!') : txt('Kopiuj', 'Copy')}
-                </CopyBtn>
-              </FieldValueWrap>
-            </ModalFieldRow>
-
-            <ModalFieldRow>
-              <div className="field-label">{txt('Adres Banku', 'Bank Address')}</div>
-              <FieldValueWrap>
-                <FieldValue id="modal-bank-address">{modalDetails.bankAddress}</FieldValue>
-                <CopyBtn
-                  className={copiedId === 'bank-address' ? 'copied' : ''}
-                  onClick={() => copyToClipboard('bank-address', modalDetails.bankAddress)}
-                >
-                  {copiedId === 'bank-address' ? txt('Skopiowano!', 'Copied!') : txt('Kopiuj', 'Copy')}
-                </CopyBtn>
-              </FieldValueWrap>
-            </ModalFieldRow>
-
-            <ModalFieldRow>
-              <div className="field-label">{txt('Numer Konta (IBAN)', 'Account Number (IBAN)')}</div>
-              <FieldValueWrap>
-                <FieldValue className="highlight-value" id="modal-iban">{modalDetails.accountNumber}</FieldValue>
-                <CopyBtn
-                  className={copiedId === 'iban' ? 'copied' : ''}
-                  onClick={() => copyToClipboard('iban', modalDetails.accountNumber)}
-                >
-                  {copiedId === 'iban' ? txt('Skopiowano!', 'Copied!') : txt('Kopiuj', 'Copy')}
-                </CopyBtn>
-              </FieldValueWrap>
-            </ModalFieldRow>
-
-            <ModalFieldRow>
-              <div className="field-label">BIC / SWIFT</div>
-              <FieldValueWrap>
-                <FieldValue className="highlight-value" id="modal-swift">{modalDetails.swiftBic}</FieldValue>
-                <CopyBtn
-                  className={copiedId === 'swift' ? 'copied' : ''}
-                  onClick={() => copyToClipboard('swift', modalDetails.swiftBic)}
-                >
-                  {copiedId === 'swift' ? txt('Skopiowano!', 'Copied!') : txt('Kopiuj', 'Copy')}
-                </CopyBtn>
-              </FieldValueWrap>
-            </ModalFieldRow>
-
-            <ModalFieldRow>
-              <div className="field-label">{txt('Tytuł przelewu (Niezbędny do weryfikacji!)', 'Transfer Title / Reference (Required!)')}</div>
-              <FieldValueWrap>
-                <FieldValue className="highlight-value" id="modal-reference" style={{ color: '#fcd34d', fontWeight: 800 }}>
+                <FieldValue className="highlight-value" id="modal-reference" style={{ color: '#22c55e', fontWeight: 800, fontSize: '1.25rem' }}>
                   {modalDetails.reference}
                 </FieldValue>
                 <CopyBtn
@@ -1230,34 +1122,37 @@ export default function Home() {
             </ModalFieldRow>
 
             <ModalFieldRow>
-              <div className="field-label">{txt('Kwota do przelewu', 'Transfer Amount')}</div>
-              <FieldValueWrap>
-                <FieldValue className="highlight-value" id="modal-amount">
-                  {modalDetails.amount} {modalDetails.currencySymbol === 'zł' ? 'PLN' : modalDetails.currencyCode}
-                </FieldValue>
-                <CopyBtn
-                  className={copiedId === 'amount' ? 'copied' : ''}
-                  onClick={() => copyToClipboard('amount', `${modalDetails.amount} ${modalDetails.currencySymbol === 'zł' ? 'PLN' : modalDetails.currencyCode}`)}
-                >
-                  {copiedId === 'amount' ? txt('Skopiowano!', 'Copied!') : txt('Kopiuj', 'Copy')}
-                </CopyBtn>
-              </FieldValueWrap>
+              <div className="field-label">{txt('Zabezpieczone korzyści', 'Secured Benefits')}</div>
+              <div style={{ padding: '0.5rem 0', fontSize: '0.88rem', color: '#cbd5e1', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <span style={{ color: '#22c55e' }}>🌿</span>
+                  <span><strong>{txt('6 miesięcy bezpłatnego dostępu', '6 months of free access')}</strong> {txt('po premierze (od 1 października 2026 r.)', 'upon official launch (October 1, 2026)')}</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <span style={{ color: '#22c55e' }}>🏷️</span>
+                  <span><strong>{txt('40% dożywotnego rabatu', '40% lifetime discount')}</strong> {txt('na dowolny abonament', 'on any subscription plan')}</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <span style={{ color: '#22c55e' }}>💬</span>
+                  <span><strong>{txt('Priorytetowy feedback', 'Priority product feedback')}</strong> {txt('i wpływ na kierunek rozwoju AI', 'and direct influence on AI features')}</span>
+                </div>
+              </div>
             </ModalFieldRow>
           </ModalFields>
 
           <ModalFooter>
-            <p>
+            <p style={{ fontSize: '0.85rem', color: '#94a3b8', lineHeight: 1.5, marginBottom: '1.5rem' }}>
               {txt(
-                'Instrukcja przelewu została również wysłana na Twój adres e-mail. Po dokonaniu wpłaty możesz przejść do aplikacji.',
-                'Transfer details were also sent to your email. Once the transfer is sent, you can access the application.'
+                'Możesz już teraz bezpłatnie przetestować asystenta AI w wersji pilotażowej. Przesyłaj dokumenty, zadawaj pytania i generuj darmowe raporty zgodności.',
+                'You can instantly test the AI assistant in the pilot version for free. Upload source documents, ask questions, and draft compliance reports.'
               )}
             </p>
-            <div style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem', justifyContent: 'flex-end' }}>
+            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'flex-end', flexWrap: 'wrap' }}>
               <ButtonSecondary onClick={() => setIsModalOpen(false)}>
                 {txt('Zamknij', 'Close')}
               </ButtonSecondary>
               <ButtonPrimaryLink href="https://app.esgsyncpro.qirelab.com" target="_blank" style={{ boxShadow: 'none' }}>
-                {txt('Przejdź do Aplikacji ↗', 'Go to App ↗')}
+                {txt('🚀 Uruchom Wersję Testową (Pilot) ↗', '🚀 Launch Pilot App (Live) ↗')}
               </ButtonPrimaryLink>
             </div>
           </ModalFooter>
