@@ -101,7 +101,15 @@ import {
   CopyBtn,
   ModalFooter,
   VideoSection,
-  VideoWrapper
+  VideoWrapper,
+  FullAppBanner,
+  FullAppBannerBgLight,
+  FullAppBannerTextWrap,
+  FullAppBannerBadge,
+  FullAppBannerTitle,
+  FullAppBannerDesc,
+  FullAppBannerBtnWrap,
+  FullAppBannerBtn
 } from './styles';
 
 export default function Home() {
@@ -221,6 +229,7 @@ export default function Home() {
           🌿 <span>ESG</span> Compliance Agent
         </NavLogo>
         <NavMenu>
+          <NavMenuLink href="/">{txt('Strona główna', 'Home')}</NavMenuLink>
           <NavMenuLink href="/benchmark">{txt('Benchmark', 'Benchmark')}</NavMenuLink>
           <NavMenuLink href="/regulations-search">{txt('Wyszukiwarka Regulacji', 'Regulations Search')}</NavMenuLink>
         </NavMenu>
@@ -386,26 +395,34 @@ export default function Home() {
                 {txt('Uruchom moduł Szukaj Regulacji →', 'Launch Regulations Search →')}
               </ButtonPrimaryLink>
             </ModuleCard>
-
-            <ModuleCard style={{ border: '1px solid rgba(16, 185, 129, 0.25)', background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.6) 0%, rgba(16, 185, 129, 0.05) 100%)' }}>
-              <span className="module-tag" style={{ background: 'rgba(16, 185, 129, 0.15)', border: '1px solid rgba(16, 185, 129, 0.3)', color: '#34d399' }}>
-                {txt('Pełna wersja', 'Full platform')}
-              </span>
-              <div>
-                <div className="module-icon" style={{ background: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.2)' }}>✨</div>
-                <h3>{txt('Więcej modułów w aplikacji', 'More modules in the app')}</h3>
-                <p>
-                  {txt(
-                    'Zaloguj się do pełnej platformy ESG Sync Pro, aby uzyskać dostęp do zaawansowanych modułów regulacyjnych (CSRD, EUDR, GRI), zarządzania zespołem, automatycznego zbierania danych oraz pełnego asystenta AI.',
-                    'Log in to the full ESG Sync Pro platform to access advanced regulatory modules (CSRD, EUDR, GRI), team collaboration, automated data gathering, and the full AI copilot.'
-                  )}
-                </p>
-              </div>
-              <ButtonPrimaryLink href="https://app.esgsyncpro.qirelab.com/" target="_blank" rel="noopener noreferrer" style={{ width: '100%', justifyContent: 'center', background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', borderColor: '#34d399' }}>
-                {txt('Przejdź do aplikacji ↗', 'Go to the App ↗')}
-              </ButtonPrimaryLink>
-            </ModuleCard>
           </ModulesGrid>
+          
+          <FullAppBanner>
+            <FullAppBannerBgLight />
+            <FullAppBannerTextWrap>
+              <FullAppBannerBadge>
+                {txt('Pełna Platforma Enterprise', 'Full Enterprise Platform')}
+              </FullAppBannerBadge>
+              <FullAppBannerTitle>
+                {txt('Zarządzaj kompletnym procesem ESG w ESG Sync Pro', 'Manage Complete ESG Compliance in ESG Sync Pro')}
+              </FullAppBannerTitle>
+              <FullAppBannerDesc>
+                {txt(
+                  'Zyskaj dostęp do zaawansowanego asystenta AI, dedykowanych modułów regulacyjnych (CSRD, EUDR, GRI), zbierania dowodów audytowych oraz kooperacji zespołowej.',
+                  'Get access to the advanced AI copilot, dedicated regulatory modules (CSRD, EUDR, GRI), automated audit evidence collection, and multi-user team collaboration.'
+                )}
+              </FullAppBannerDesc>
+            </FullAppBannerTextWrap>
+            <FullAppBannerBtnWrap>
+              <FullAppBannerBtn 
+                href="https://app.esgsyncpro.qirelab.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                {txt('Przejdź do aplikacji ESG Sync Pro ↗', 'Open ESG Sync Pro App ↗')}
+              </FullAppBannerBtn>
+            </FullAppBannerBtnWrap>
+          </FullAppBanner>
         </Container>
       </ModulesSection>
 

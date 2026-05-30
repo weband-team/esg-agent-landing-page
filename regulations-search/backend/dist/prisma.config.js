@@ -2,10 +2,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 require("dotenv/config");
 const config_1 = require("prisma/config");
+const isPostgres = process.env["DB_PROVIDER"] === "postgresql";
 exports.default = (0, config_1.defineConfig)({
-    schema: "prisma/schema.prisma",
+    schema: isPostgres
+        ? "prisma/schema.postgres.prisma"
+        : "prisma/schema.prisma",
     migrations: {
-        path: "prisma/migrations",
+        path: isPostgres ? "prisma/migrations-postgres" : "prisma/migrations",
         seed: "ts-node prisma/seed.ts",
     },
     datasource: {

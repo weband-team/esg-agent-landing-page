@@ -9,6 +9,7 @@ A fast, highly secure, and beautifully styled bilingual (Polish/English) landing
 - **Bilingual Interface**: Seamless, single-click toggle between Polish and English languages across the entire landing page, FAQs, and pricing models.
 - **Deposit Registration**: Real-time validation form collecting user contact, company details, industry, reporting standards, and payment currencies.
 - **Dynamic Bank Transfer Modal**: After registration, users instantly receive a fully generated, unique reference code (`ESG-QIRE-XXXXXX`) alongside Swift/BIC and localized bank accounts for PLN, EUR, or USD deposit transfers.
+- **Interactive ESG Benchmark**: Real-time maturity scoring (Environment, Social, Governance, Supply Chain) based on the proprietary **Relevance Engine v1** with instant report PDF downloads and automatic email dispatch. Fully documented in [docs/benchmark.md](file:///Users/sergiusz/Documents/repo/esg-agent-landing-page/docs/benchmark.md).
 - **Secure Admin Panel (`/admin`)**:
   - Secure login interface protected by administrative credentials.
   - Interactive grid metrics reflecting total sign-ups and total verified funding amounts grouped by currencies (PLN, EUR, USD).
@@ -48,6 +49,8 @@ esg-agent-landing-page/
 │   ├── layout.js               # Global application layout and fonts
 │   ├── page.js                 # Landing Page client & bilingual copy
 │   └── styles.js               # Styled-components global style registry
+├── docs/                       # Project and Module Documentation
+│   └── benchmark.md            # Detailed ESG Benchmark module docs
 ├── lib/                        # Design configuration & utilities
 │   ├── registry.js             # Styled-components SSR style sheet injection
 │   └── theme.js                # Sleek dark-mode aesthetic palette
@@ -98,7 +101,7 @@ npm run start
 
 ## 🗄️ Database & Schema
 
-All registrations are securely recorded locally inside `deposits.db`.
+All registrations, benchmark submissions, and regulation check reports are securely recorded locally inside `deposits.db`. The database is self-initializing and auto-migrating on server startup (no manual migrations required).
 
 ### `deposits` Table Schema
 
@@ -116,6 +119,30 @@ All registrations are securely recorded locally inside `deposits.db`.
 | `reference` | `TEXT` | `UNIQUE NOT NULL` | Generated Reference string: `ESG-QIRE-XXXXXX` |
 | `status` | `TEXT` | `'PENDING'` | Status indicator (`PENDING`, `PAID`, `REFUNDED`) |
 | `created_at` | `DATETIME`| `CURRENT_TIMESTAMP` | Registration date and time |
+
+### `benchmarks` Table Schema
+
+| Column Field | Type | Default Value | Description |
+| :--- | :--- | :--- | :--- |
+| `id` | `INTEGER` | `PRIMARY KEY AUTOINCREMENT` | Auto-incrementing identifier |
+| `name` | `TEXT` | `NOT NULL` | Representative Full Name |
+| `email` | `TEXT` | `NOT NULL` | Business email address |
+| `company` | `TEXT` | `NOT NULL` | Registered Company Name |
+| `score` | `REAL` | `NOT NULL` | Overall maturity score (0-100) |
+| `answers` | `TEXT` | `NOT NULL` | Stringified JSON object of questionnaire responses |
+| `created_at` | `DATETIME`| `CURRENT_TIMESTAMP` | Assessment completion date and time |
+
+### `regulation_reports` Table Schema
+
+| Column Field | Type | Default Value | Description |
+| :--- | :--- | :--- | :--- |
+| `id` | `INTEGER` | `PRIMARY KEY AUTOINCREMENT` | Auto-incrementing identifier |
+| `name` | `TEXT` | `NOT NULL` | User Full Name |
+| `email` | `TEXT` | `NOT NULL` | User email address |
+| `company` | `TEXT` | `NOT NULL` | Checked Company Name |
+| `nip` | `TEXT` | `NOT NULL` | Polish Tax Identification Number (NIP) |
+| `matched_count` | `INTEGER`| `NOT NULL` | Total matched applicable regulations |
+| `created_at` | `DATETIME`| `CURRENT_TIMESTAMP` | Check date and time |
 
 ---
 

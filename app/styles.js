@@ -1683,3 +1683,109 @@ export const ModuleCard = styled.div`
     flex-grow: 1;
   }
 `;
+
+export const FullAppBanner = styled.div`
+  margin-top: 4.5rem;
+  padding: 2.5rem 3rem;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.06) 0%, rgba(15, 23, 42, 0.8) 100%);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 2.25rem 2rem;
+    gap: 2rem;
+    text-align: center;
+  }
+`;
+
+export const FullAppBannerBgLight = styled.div`
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.15) 0%, rgba(34, 197, 94, 0) 70%);
+  z-index: 0;
+  pointer-events: none;
+`;
+
+export const FullAppBannerTextWrap = styled.div`
+  flex: 1;
+  z-index: 1;
+`;
+
+export const FullAppBannerBadge = styled.span`
+  display: inline-block;
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  color: ${props => props.theme.colors.green400};
+  padding: 0.35rem 0.9rem;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.25rem;
+`;
+
+export const FullAppBannerTitle = styled.h3`
+  color: ${props => props.theme.colors.white};
+  font-size: clamp(1.35rem, 3.5vw, 1.75rem);
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+`;
+
+export const FullAppBannerDesc = styled.p`
+  color: ${props => props.theme.colors.slate400};
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin: 0;
+`;
+
+export const FullAppBannerBtnWrap = styled.div`
+  z-index: 1;
+  flex-shrink: 0;
+`;
+
+export const FullAppBannerBtn = styled.a`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: ${props => props.theme.gradients.primaryBtn};
+  color: ${props => props.theme.colors.white};
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 1rem 2.25rem;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(34, 197, 94, 0.25);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(34, 197, 94, 0.4);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  @media (max-width: 900px) {
+    width: 100%;
+  }
+`;
+

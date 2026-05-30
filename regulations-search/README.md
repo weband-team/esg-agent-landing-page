@@ -1,289 +1,354 @@
 # 🇵🇱 Regulator: Polish Company ESG & Legal Compliance Checker
 
-**Regulator** is a premium, enterprise-grade RegTech compliance platform designed to help Polish companies instantly identify their national and European legal, ESG, and operational obligations.
-
-By inputting a Polish **NIP (Tax Identification Number)**, the platform automatically validates the checksum, retrieves official corporate records (using the live Polish Ministry of Finance Whitelist API or local database models), analyzes company profile metrics (revenue, employees, assets, legal form, and PKD industry codes), and runs a **7-step Matching Engine** to generate a highly detailed, bilingual compliance roadmap and printable PDF report.
+**Regulator** is a premium, enterprise-grade RegTech (Regulatory Technology) compliance platform designed to help Polish companies instantly identify their national and European legal, ESG (Environmental, Social, and Governance), and operational obligations.
 
 ---
 
-## 🚀 Key Features
+## 💼 Business Perspective & Value Proposition
 
-*   **⚡ Real-Time Progress Stream (SSE)**: Fully interactive, animated stepper streaming progress logs from the backend matching engine down to a retro-themed RegTech terminal dashboard.
-*   **🔍 Live Ministry of Finance KAS White List API**: Built-in async integration to query live Polish taxpayer registers with smart timezone adjustment to guarantee high uptime.
-*   **🛠️ Advanced Sizing Parameters Accordion**: An interactive configuration panel that allows users to manually override headcount, revenue, and balance sheet assets to test regulatory implications.
-*   **🧩 Hybrid Database Layer (Prisma ORM)**: Supports SQLite for rapid local development and PostgreSQL or MySQL for production. Out-of-the-box offline resilience automatically falls back to local JSON flat-file storage if the database is unconfigured.
-*   **📄 High-Fidelity Text-Selectable PDF Reports**: Generates pixel-perfect corporate compliance reports with nested tables, custom margins, and full Polish diacritic (`ą, ć, ę, ł, ń, ó, ś, ź, ż`) font embeds.
-*   **♿ Accessible & Responsive Design**: Custom glassmorphism layout, WCAG 2.1 AA compliant semantic HTML, and full viewport responsiveness down to 360px.
+In the modern economic landscape, regulatory compliance is one of the most significant operational challenges for businesses, particularly Small and Medium Enterprises (SMEs) and growing enterprises.
 
----
+### The Problem
+* **Dense Regulatory Web**: Companies operating in Poland must navigate a complex, overlapping matrix of European directives (e.g., **CSRD**, **CBAM**, **GDPR**, **EU Taxonomy**) and national statutes (e.g., Polish environmental registry **BDO**, air emissions reporting **KOBiZE**, mandatory employee capital plans **PPK**, and upcoming electronic invoicing **KSeF**).
+* **Catastrophic Financial Risks**: Unintentional non-compliance carries severe legal and financial penalties, including fines up to **4% of global annual turnover** for GDPR violations, or millions of PLN/EUR for missing environmental filings and tax ledger audits.
+* **Prohibitive Advisory Costs**: Retaining specialized compliance legal firms or ESG audit consultants to perform manual regulatory mapping costs tens of thousands of PLN/EUR—making proactive compliance financially prohibitive for most SMEs.
 
-## 📂 Repository Architecture
+### The Solution: Automated RegTech
+The **Regulations Search** module disrupts this model by providing a self-serve, automated matching engine that does the heavy lifting in seconds. By inputting a Polish **NIP (Tax Identification Number)**, the platform:
+1. **Performs Real-Time Corporate Profiling**: Validates and queries corporate record databases to extract headcount, annual revenue, balance sheet assets, legal forms, and PKD industry codes.
+2. **Runs a 7-Step Matching Engine**: Maps the company's profile against an active, codified database of national and European environmental, social, labor, and fiscal regulations.
+3. **Instantly Generates a Personalized Compliance Roadmap**: Categorizes exact duties, outlines specific filing thresholds, defines key deadlines, lists responsible supervisory authorities (e.g., KAS, GIODO/UODO, GIOŚ), and details the required audit evidence.
+4. **Outputs Premium Audit Reports**: Generates high-fidelity, text-selectable PDF compliance checklists that can be printed or emailed instantly.
 
-The project is structured as an integrated monorepo using **npm workspaces**:
-
-```
-esg-agent-regulation-search/
-├── backend/                  # NestJS API & Matching Engine
-│   ├── prisma/               # Database Schema, Migrations, and Seed script
-│   │   ├── schema.prisma     # Prisma datasource & model mapping (bilingual JSON fields)
-│   │   └── seed.ts           # Seeding script for regulations and sandbox companies
-│   ├── src/
-│   │   ├── database/         # PrismaService & JSON database catalogs
-│   │   ├── modules/
-│   │   │   ├── lookup/       # NIP validator & live government API search
-│   │   │   ├── matching/     # 7-Step regulation matching engine
-│   │   │   └── pdf/          # Dynamic PDF generation engine
-│   │   └── main.ts           # NestJS Server Entrypoint (Default Port 3000)
-│   └── package.json
-│
-├── frontend/                 # Next.js Interactive Dashboard
-│   ├── src/
-│   │   ├── app/              # Next.js App Router (Bilingual Polish/English UI)
-│   │   └── components/       # Steppers, Glassmorphic Cards, Terminal Console
-│   └── package.json
-│
-├── package.json              # Monorepo Workspace Config & Universal Scripts
-└── README.md                 # Project Documentation
-```
+### Business & Compliance Benefits
+* **🚀 Zero-to-One Compliance Clarity**: Replaces weeks of manual regulatory research with an interactive, 3-second automated checklist tailored to the company's size and industry.
+* **💰 Drastic Cost Savings**: Empowers businesses to audit themselves before engaging consultants, eliminating initial consultation costs and reducing ongoing compliance overhead.
+* **🛡️ Proactive Risk Mitigation**: Identifies compliance gaps before they trigger official inspections, mitigating the risk of devastating regulatory fines and operational suspensions.
+* **🏆 Commercial & Procurement Edge**: Allows companies to generate and present robust compliance checklists during enterprise procurement bids, bank financing requests, and investor due diligence.
+* **📅 Actionable Operational Calendar**: Lists precise filing thresholds and deadlines so internal HR, finance, and operations teams know exactly what to report and when.
 
 ---
 
-## 🛠️ Local Development Quickstart
+## 🏗️ Integrated Architecture
+
+The application is split into two co-dependent parts running on your development or production environment:
+
+1. **Frontend UI (Next.js)**: Integrated directly into the main ESG Landing Page project under `/app/regulations-search/page.tsx`. It runs on port **3000** (default) and provides the retro-themed RegTech dashboard, real-time Server-Sent Events (SSE) stepper, sizing manual overrides, and PDF downloader.
+2. **Backend API (NestJS)**: A standalone NestJS service located under `/regulations-search/backend`. It runs on port **3001** and contains the live Ministry of Finance KAS White List client, the 7-step matching engine, and the dynamic PDF document compiler.
+3. **Alternative Standalone Frontend (Next.js)**: Located under `/regulations-search/frontend`. It is an independent Next.js workspace that can be run on port **3002** if developers prefer to host or test the Regulations Search module entirely separate from the main landing page.
+
+---
+
+## 🛠️ Local Development Setup
+
+To run the Regulations Search tool locally on your computer, follow these step-by-step instructions.
 
 ### Prerequisites
-*   **Node.js**: `v18.x` or higher
-*   **npm**: `v9.x` or higher
+* **Node.js**: `v18.x` or higher (tested on `v20.x`)
+* **npm**: `v9.x` or higher
 
-### 1. Installation
-Clone the repository and install all dependencies from the root directory:
+### 1. Install Dependencies
+Install dependencies for both the main landing page and the `regulations-search` monorepo workspaces:
 ```bash
+# Install root dependencies (Landing Page & Integrated Frontend)
 npm install
-```
 
-### 2. Configure Environment Variables
-Create a `.env` file in the `backend/` folder (or use the preconfigured local defaults):
-```env
-PORT=3000
-DATABASE_URL="file:./dev.db"
-```
-
-### 3. Database Migrations & Seeding
-Set up your SQLite database, apply schema migrations, generate the client typings, and seed the regulations catalogue and sandbox companies:
-```bash
-# Move to the backend folder
-cd backend
-
-# Run Prisma migrations to initialize dev.db
-npx prisma migrate dev --name init
-
-# Generate local Prisma Client typings
-npx prisma generate
-
-# Seed the database from local JSON catalogues
-npx prisma db seed
-
-# Return to root directory
+# Install regulations-search monorepo workspace dependencies
+cd regulations-search
+npm install
 cd ..
 ```
 
+### 2. Configure Environment Variables
+Verify or create a `.env` file inside the `regulations-search/backend` directory:
+```env
+# Path: regulations-search/backend/.env
+DATABASE_URL="file:./dev.db"
+PORT=3001
+```
+
+### 3. Initialize & Seed the Database (SQLite)
+The backend uses **Prisma ORM** to connect to an SQLite database (`dev.db`). This database must be initialized, migrated, and seeded with the regulations catalogue and test profiles.
+
+You can do this in one single step by running the setup script inside the backend directory:
+```bash
+# Navigate to the backend directory
+cd regulations-search/backend
+
+# Generate Prisma Client, run migrations, and seed the SQLite database
+npm run db:setup
+```
+This command runs:
+* `prisma generate` to compile high-performance TypeScript query typings.
+* `prisma migrate deploy` to create the SQLite database file (`dev.db`) and apply schema migrations.
+* `prisma db seed` to parse JSON catalogs and populate the database with **42 core legal regulations** and **4 preconfigured sandbox companies**.
+
+*To return to the workspace root:*
+```bash
+cd ../..
+```
+
 ### 4. Start Development Servers
-Boot both the backend NestJS server (`http://localhost:3000`) and the Next.js frontend app (`http://localhost:3001`) concurrently:
+To run the system locally, you must start both the frontend Next.js server and the backend NestJS service.
+
+#### Run Frontend (Port 3000)
+In the root workspace directory, run:
 ```bash
 npm run dev
 ```
+The Next.js landing page and integrated search tool will be available at: [http://localhost:3000/regulations-search](http://localhost:3000/regulations-search)
+
+#### Run Backend (Port 3001)
+In a separate terminal window, run:
+```bash
+cd regulations-search/backend
+npm run start:dev
+```
+The NestJS API microservice will start on port **3001** and watch for file changes.
 
 ---
 
-## 🏁 Production Launch & Server Deployment
+## 🗄️ Database Migrations
 
-To host this application in production environments, use the following operational procedures.
+Prisma serves as the data mapping layer. The schema is stored in `regulations-search/backend/prisma/schema.prisma`.
 
-### 🌐 Environment Configurations
-Always configure these environment variables on your production server:
+### Applying Changes to SQLite Schema
+If you modify the database models in `schema.prisma` during development, perform the following commands to synchronize the SQLite database:
+```bash
+cd regulations-search/backend
 
-| Environment Variable | Description | Default Value | Example Production Value |
-| :--- | :--- | :--- | :--- |
-| `NODE_ENV` | Running node environment context | `development` | `production` |
-| `PORT` | Backend application listening port | `3000` | `8080` |
-| `DATABASE_URL` | Prisma Database connection URL | `file:./dev.db` | `postgresql://user:pass@host:5432/esg_regulator` |
-| `NEXT_PUBLIC_API_URL` | Public frontend endpoint of the backend API | `http://localhost:3000/api` | `https://api.regulator.domain.com/api` |
+# Create a new migration file and apply it to dev.db
+npx prisma migrate dev --name <describe-your-change>
 
-### 🗄️ Production Database Setup (PostgreSQL Example)
-Prisma 7 uses optimized driver adapters to talk to production databases securely.
-When running with a PostgreSQL database:
+# Regenerate the Prisma Client
+npx prisma generate
+```
 
-The database engine is selected at deploy time via the `DB_PROVIDER` env var.
-It defaults to `sqlite` (local dev); set it to `postgresql` for production. The
-data model lives in a single source of truth (`prisma/schema.prisma`); the
-PostgreSQL schema (`prisma/schema.postgres.prisma`) and its migrations
-(`prisma/migrations-postgres/`) are kept in sync from it automatically.
+### Production Migrations (PostgreSQL Example)
+For production environments, **PostgreSQL** is recommended. The backend includes automated scripts to derive a PostgreSQL-compatible schema and deploy it.
 
-1. Update your backend `.env` configuration to use your PostgreSQL URI and engine:
+1. Configure your production environment variables:
    ```env
    DB_PROVIDER="postgresql"
-   DATABASE_URL="postgresql://esg_user:secure_password@postgres-db-host:5432/esg_regulator?schema=public"
+   DATABASE_URL="postgresql://db_user:secure_pass@db_host:5432/db_name?schema=public"
    ```
-2. Install the necessary runtime packages inside the backend folder:
+2. Build, migrate, and seed the PostgreSQL database:
    ```bash
-   cd backend
-   npm install @prisma/adapter-pg pg
-   npm install --save-dev @types/pg
-   ```
-3. Generate the client, apply migrations, and seed the production database in one step:
-   ```bash
-   # Sync the pg schema, generate the client, migrate deploy, and seed
+   cd regulations-search/backend
+   
+   # Setup PostgreSQL (Compiles PG schema, applies migrations, and seeds catalog)
    npm run db:setup:pg
    ```
-   …or run the individual steps:
-   ```bash
-   npm run db:generate:pg   # sync pg schema + generate Prisma Client
-   npm run db:deploy:pg     # apply migrations to the PostgreSQL database
-   npm run db:seed:pg       # populate regulations catalogue & sandbox companies
-   ```
-
-> **Note:** Whenever you change `prisma/schema.prisma`, regenerate the PostgreSQL
-> schema and create a matching migration:
-> ```bash
-> npm run db:pg:sync       # regenerate prisma/schema.postgres.prisma
-> DB_PROVIDER=postgresql npx prisma migrate dev --name <change>   # against a Postgres dev DB
-> ```
+   *Under the hood, this compiles `prisma/schema.postgres.prisma` from your SQLite model source, generates the pg Prisma Client, executes the deployment, and runs the seed script.*
 
 ---
 
-### 🚀 Production Launch Option A: PM2 (Node Process Manager)
-PM2 is the recommended process manager for clustering and launching the Node servers in production.
+## 🏁 Production Server Deployment
+
+To run this system in a production or staging environment, use one of the following setups.
+
+### Environment Variable Requirements
+Always configure these environment variables on your production hosting server:
+
+| Environment Variable | Description | Default Local Value | Example Production Value |
+| :--- | :--- | :--- | :--- |
+| `NODE_ENV` | running process environment context | `development` | `production` |
+| `PORT` | NestJS backend server port | `3001` | `3001` (or customized) |
+| `DATABASE_URL` | Prisma DB connection endpoint | `file:./dev.db` | `postgresql://user:pass@host:5432/esg` |
+| `NEXT_PUBLIC_API_URL` | Endpoint where frontend reaches the API | `http://localhost:3001/api` | `https://api.yourdomain.com/api` |
+
+---
+
+### Deploy Option A: PM2 (Process Manager)
+PM2 is recommended to manage, cluster, and keep both services alive on a Linux or macOS virtual server (VPS).
 
 1. Build both projects:
    ```bash
+   # From root workspace directory, build Next.js frontend
    npm run build
+   
+   # Build NestJS backend
+   cd regulations-search/backend
+   npm run build
+   cd ../..
    ```
 2. Install PM2 globally:
    ```bash
    npm install -g pm2
    ```
-3. Create a `ecosystem.config.js` file in the root directory:
+3. Create a process management file `ecosystem.config.js` in your root directory:
    ```javascript
    module.exports = {
      apps: [
        {
-         name: "regulator-backend",
-         script: "dist/main.js",
-         cwd: "./backend",
+         name: "esg-landing-frontend",
+         script: "node_modules/next/dist/bin/next",
+         args: "start -p 3000",
+         cwd: "./",
          env: {
            NODE_ENV: "production",
-           PORT: 3000,
-           DATABASE_URL: "file:./dev.db"
+           PORT: 3000
          }
        },
        {
-         name: "regulator-frontend",
-         script: "node_modules/next/dist/bin/next",
-         args: "start -p 3001",
-         cwd: "./frontend",
+         name: "esg-regulations-backend",
+         script: "dist/src/main.js",
+         cwd: "./regulations-search/backend",
          env: {
            NODE_ENV: "production",
            PORT: 3001,
-           NEXT_PUBLIC_API_URL: "http://localhost:3000/api"
+           DATABASE_URL: "file:./dev.db" // or PostgreSQL connection URL
          }
        }
      ]
    };
    ```
-4. Start the servers with PM2:
+4. Setup DB & Launch via PM2:
    ```bash
+   # Deploy migrations and seed SQLite (or pg)
+   cd regulations-search/backend
+   npm run db:setup
+   cd ../..
+
+   # Start both services
    pm2 start ecosystem.config.js
    ```
 
 ---
 
-### 🐳 Production Launch Option B: Docker Compose
-To containerize the application, you can orchestrate multi-tier containers with this simple `docker-compose.yml` config.
+### Deploy Option B: Reverse Proxy Configuration (Nginx)
+To expose both ports securely over standard SSL (port 443), set up Nginx as a reverse proxy:
 
-Create `docker-compose.yml` in the root:
+```nginx
+server {
+    listen 80;
+    server_name compliance.yourdomain.com;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name compliance.yourdomain.com;
+
+    ssl_certificate /etc/letsencrypt/live/compliance.yourdomain.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/compliance.yourdomain.com/privkey.pem;
+
+    # Frontend Route (Next.js)
+    location / {
+        proxy_pass http://127.0.0.1:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+    # Backend API & SSE Route (NestJS)
+    location /api {
+        proxy_pass http://127.0.0.1:3001;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+        
+        # Required settings for Server-Sent Events (SSE) streaming support
+        proxy_set_header X-Accel-Buffering no;
+        proxy_read_timeout 600s;
+        proxy_send_timeout 600s;
+    }
+}
+```
+
+---
+
+### Deploy Option C: Docker Compose
+For containerized microservice management, create a `docker-compose.yml` file in the repository root:
+
 ```yaml
 version: '3.8'
 
 services:
   postgres:
     image: postgres:15-alpine
-    container_name: regulator-db
+    container_name: esg-postgres
     environment:
       POSTGRES_USER: esg_user
       POSTGRES_PASSWORD: secure_password
-      POSTGRES_DB: esg_regulator
+      POSTGRES_DB: esg_regulations
     ports:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U esg_user -d esg_regulator"]
+      test: ["CMD-SHELL", "pg_isready -U esg_user -d esg_regulations"]
       interval: 5s
       timeout: 5s
       retries: 5
 
   backend:
     build:
-      context: ./backend
+      context: ./regulations-search/backend
       dockerfile: Dockerfile
-    container_name: regulator-backend
-    ports:
-      - "3000:3000"
-    environment:
-      PORT: 3000
-      DB_PROVIDER: "postgresql"
-      DATABASE_URL: "postgresql://esg_user:secure_password@postgres:5432/esg_regulator?schema=public"
-    depends_on:
-      postgres:
-        condition: service_healthy
-    command: >
-      sh -c "npm run db:deploy:pg && npm run db:seed:pg && npm run start:prod"
-
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    container_name: regulator-frontend
+    container_name: esg-backend
     ports:
       - "3001:3001"
     environment:
       PORT: 3001
-      NEXT_PUBLIC_API_URL: "http://backend:3000/api"
+      DB_PROVIDER: "postgresql"
+      DATABASE_URL: "postgresql://esg_user:secure_password@postgres:5432/esg_regulations?schema=public"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: >
+      sh -c "npm run db:setup:pg && npm run start:prod"
+
+  frontend:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: esg-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      NEXT_PUBLIC_API_URL: "http://backend:3001/api"
     depends_on:
       - backend
 ```
 
 ---
 
-## 🔍 Interactive Live Testing Profiles (Sandbox NIPs)
+## 🔍 Interactive Sandbox NIP Profiles
 
-Use these test numbers inside the search dashboard to observe targeted triggers:
+To test the 7-step matching engine in action without invoking live APIs, use these preconfigured sandbox Polish tax identification numbers (NIPs) in the search input:
 
-1.  **F-Suite Sp. z o.o. (`5252625123`)**
-    *   *Sector*: Software & Cloud hosting (PKD 62.01.Z).
-    *   *Scope*: 15 employees, 4.5M PLN turnover.
-    *   *Focus*: Universal taxes (CIT-8, JPK_V7M, KSeF), PPK (ZUS), and basic GDPR data protection.
-2.  **PolMetal S.A. (`7251892345`)**
-    *   *Sector*: Heavy Metal Manufacturing (PKD 24.10.Z).
-    *   *Scope*: 320 employees, 185M PLN turnover (Large enterprise).
-    *   *Focus*: Heavy EHS triggers (KOBiZE Air Emissions, BDO Waste Registry, F-Gas log, UDT Boiler logs), Whistleblower Protection, and European **CSRD Sustainability Reporting**.
-3.  **Restauracja Smak Sp. j. (`1234567890`)**
-    *   *Sector*: Restaurant & Gastronomy (PKD 56.10.A).
-    *   *Scope*: 4 employees, 820K PLN.
-    *   *Focus*: Food safety compliance (Sanepid HACCP approvals), biological kitchen waste handling, and partnership tax.
-4.  **TransLogistic Sp. z o.o. (`9012345678`)**
-    *   *Sector*: Road Freight Transport & Logistics (PKD 49.41.Z).
-    *   *Scope*: 85 employees, 42M PLN.
-    *   *Focus*: Road freight licenses (GITD), tachograph log auditing, Sentinel/SENT monitoring, whistleblower policies, and company fleet KOBiZE reports.
+1. **F-Suite Sp. z o.o. (`5252625123`)**
+   * **Profile**: 15 employees, 4.5M PLN annual revenue (Micro/Small).
+   * **Sector**: IT & Cloud Hosting (PKD 62.01.Z).
+   * **Focal Points**: Base corporate taxes (CIT-8, JPK_V7M, KSeF), Employee Capital Plans (PPK), and basic GDPR data protection.
+2. **PolMetal S.A. (`7251892345`)**
+   * **Profile**: 320 employees, 185M PLN annual revenue (Large Enterprise).
+   * **Sector**: Heavy Metal Manufacturing (PKD 24.10.Z).
+   * **Focal Points**: High environmental impacts (**KOBiZE** Air Emissions, **BDO** Waste Registry, **F-Gas** log, **UDT** Boiler logs), European **CSRD Sustainability Reporting**, and Whistleblower Protection guidelines.
+3. **Restauracja Smak Sp. j. (`1234567890`)**
+   * **Profile**: 4 employees, 820K PLN annual revenue (Micro-business).
+   * **Sector**: Gastronomy & Catering (PKD 56.10.A).
+   * **Focal Points**: Food safety standards (**Sanepid HACCP** certifications), bio-waste handling, and simplified partnership taxation.
+4. **TransLogistic Sp. z o.o. (`9012345678`)**
+   * **Profile**: 85 employees, 42M PLN annual revenue (Medium Enterprise).
+   * **Sector**: Road Freight Transport & Logistics (PKD 49.41.Z).
+   * **Focal Points**: Transport licenses (GITD), tachograph log compliance, Sentinel (**SENT**) transit tracking, whistleblower policies, and corporate vehicle fleet KOBiZE reports.
 
 ---
 
-## ♿ Accessibility Compliance
+## ♿ Accessibility & UX Compliance
 
-The design respects **WCAG 2.1 Level AA** standards:
-*   **Contrast ratios**: Minimum contrast ratios of 4.5:1 on all dashboard textual cards.
-*   **Focus Management**: Custom focus rings for key components, ensuring fully accessible keyboard navigations (`Tab` and standard enter key selects).
-*   **ARIA Attributes**: Interactive parts utilize explicit labels and state flags (e.g. `role="tablist"`, `role="tab"`, `aria-selected="..."`).
-*   **Semantic Markup**: Uses native semantic tags (`<header>`, `<main>`, `<section>`, `<button>`) to ensure assistive screen-reader compatibility.
+The user interface of the Regulations Search module adheres strictly to **WCAG 2.1 Level AA** standards:
+* **Enhanced Contrast**: Achieves a minimum contrast ratio of 4.5:1 across all background cards and typography.
+* **Full Keyboard Accessibility**: All inputs, interactive steppers, and sizing manual override panels are navigable using standard keyboard (`Tab`, `Shift+Tab`, `Space`, `Enter`).
+* **ARIA Integrity**: Uses appropriate ARIA markup roles (e.g., `role="status"`, `aria-expanded`, `aria-live="polite"`) to facilitate screen readers.
+* **Semantic HTML**: Built with native HTML5 elements (`<main>`, `<header>`, `<section>`, `<article>`) to support accessibility trees.
 
 ---
 

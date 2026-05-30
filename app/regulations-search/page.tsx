@@ -323,6 +323,11 @@ const ObligationWrapper = styled.div<{ $confidence: string }>`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
 
   &:hover {
     border-color: rgba(255, 255, 255, 0.1);
@@ -335,6 +340,10 @@ const DetailField = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
 
   .title {
     font-size: 0.68rem;
@@ -378,12 +387,14 @@ const SpinLoader = styled.div`
 
 const DashboardGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 2rem;
   align-items: start;
+  width: 100%;
+  max-width: 100%;
 
   @media (min-width: 1024px) {
-    grid-template-columns: 350px 1fr;
+    grid-template-columns: 350px minmax(0, 1fr);
   }
 `;
 
@@ -414,6 +425,9 @@ const ProcessingScreenContainer = styled.div`
 
 const ResultsScreenContainer = styled.div`
   animation: ${fadeIn} 0.6s ease-out;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 `;
 
 const DialogueBackdrop = styled.div`
@@ -947,9 +961,9 @@ export default function RegulationsSearch() {
           🌿 <span>ESG</span> Compliance Agent
         </NavLogo>
         <NavMenu>
-          <NavMenuLink href="/#modules">{lang === 'pl' ? 'Moduły' : 'Modules'}</NavMenuLink>
+          <NavMenuLink href="/">{lang === 'pl' ? 'Strona główna' : 'Home'}</NavMenuLink>
           <NavMenuLink href="/benchmark">{lang === 'pl' ? 'Benchmark' : 'Benchmark'}</NavMenuLink>
-          <NavMenuLink href="/regulations-search" className="active">{lang === 'pl' ? 'Szukaj Regulacji' : 'Regulations Search'}</NavMenuLink>
+          <NavMenuLink href="/regulations-search">{lang === 'pl' ? 'Wyszukiwarka Regulacji' : 'Regulations Search'}</NavMenuLink>
         </NavMenu>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <LangToggle>
@@ -1252,7 +1266,7 @@ export default function RegulationsSearch() {
                         <div style={{ fontSize: '0.68rem', textTransform: 'uppercase', color: theme.colors.slate500, marginBottom: '0.25rem' }}>
                           {lang === 'pl' ? 'Nazwa firmy' : 'Company name'}
                         </div>
-                        <div style={{ fontWeight: 800, color: theme.colors.white, fontSize: '0.95rem', lineHeight: 1.3 }}>
+                        <div style={{ fontWeight: 800, color: theme.colors.white, fontSize: '0.95rem', lineHeight: 1.3, wordBreak: 'break-word', overflowWrap: 'break-word' }}>
                           {resultsData.company.name}
                         </div>
                       </div>
@@ -1287,9 +1301,9 @@ export default function RegulationsSearch() {
 
                       <div>
                         <div style={{ fontSize: '0.68rem', textTransform: 'uppercase', color: theme.colors.slate500, marginBottom: '0.25rem' }}>{t[lang].address}</div>
-                        <div style={{ fontWeight: 600, color: theme.colors.slate300, display: 'flex', alignItems: 'flex-start', gap: '0.4rem', lineHeight: 1.4 }}>
+                        <div style={{ fontWeight: 600, color: theme.colors.slate300, display: 'flex', alignItems: 'flex-start', gap: '0.4rem', lineHeight: 1.4, minWidth: 0 }}>
                           <MapPin size={14} style={{ color: theme.colors.slate500, marginTop: '0.15rem', flexShrink: 0 }} />
-                          <span>
+                          <span style={{ wordBreak: 'break-word', overflowWrap: 'break-word' }}>
                             {resultsData.company.address.street}, {resultsData.company.address.postal_code} {resultsData.company.address.city}
                           </span>
                         </div>
@@ -1441,7 +1455,7 @@ export default function RegulationsSearch() {
                           </div>
 
                           {/* Obligation Grid Parameters */}
-                          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
+                          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '1rem', width: '100%' }}>
                             <DetailField>
                               <span className="title">{t[lang].legalBasis}</span>
                               <span className="value">{lang === 'pl' ? reg.legal_basis.pl : reg.legal_basis.en}</span>
@@ -1465,10 +1479,10 @@ export default function RegulationsSearch() {
                           </div>
 
                           {/* Sanction risk warning & Link at bottom */}
-                          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem', borderTop: '1px solid rgba(255, 255, 255, 0.04)', paddingTop: '0.75rem', fontSize: '0.75rem' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#fca5a5' }}>
-                              <ShieldAlert size={14} style={{ flexShrink: 0 }} />
-                              <span>
+                          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-start', justifyContent: 'space-between', gap: '0.75rem', borderTop: '1px solid rgba(255, 255, 255, 0.04)', paddingTop: '0.75rem', fontSize: '0.75rem', width: '100%' }}>
+                            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.4rem', color: '#fca5a5', flex: '1 1 300px', minWidth: 0 }}>
+                              <ShieldAlert size={14} style={{ flexShrink: 0, marginTop: '0.15rem' }} />
+                              <span style={{ wordBreak: 'break-word', overflowWrap: 'break-word' }}>
                                 <strong style={{ textTransform: 'uppercase', fontSize: '0.68rem', marginRight: '0.25rem' }}>{t[lang].penalty}:</strong>
                                 {lang === 'pl' ? reg.penalty_description.pl : reg.penalty_description.en}
                               </span>

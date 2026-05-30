@@ -5,8 +5,11 @@ import Link from 'next/link';
 import {
   Nav,
   NavLogo,
+  NavMenu,
+  NavMenuLink,
   LangToggle,
   LangBtn,
+  NavSecondaryCta,
   NavCta,
   Container,
   LegalContainer,
@@ -38,13 +41,21 @@ export default function TermsOfService() {
         <NavLogo href="/">
           🌿 <span>ESG</span> Compliance Agent
         </NavLogo>
+        <NavMenu>
+          <NavMenuLink href="/">{txt('Strona główna', 'Home')}</NavMenuLink>
+          <NavMenuLink href="/benchmark">{txt('Benchmark', 'Benchmark')}</NavMenuLink>
+          <NavMenuLink href="/regulations-search">{txt('Wyszukiwarka Regulacji', 'Regulations Search')}</NavMenuLink>
+        </NavMenu>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <LangToggle>
             <LangBtn className={lang === 'pl' ? 'active' : ''} onClick={() => setLang('pl')}>PL</LangBtn>
             <LangBtn className={lang === 'en' ? 'active' : ''} onClick={() => setLang('en')}>EN</LangBtn>
           </LangToggle>
+          <NavSecondaryCta href="https://app.esgsyncpro.qirelab.com" target="_blank">
+            {txt('Uruchom wersję testową (Pilot) ↗', 'Launch Pilot App ↗')}
+          </NavSecondaryCta>
           <NavCta href="/#join">
-            {txt('Dołącz do pilotażu →', 'Join pilot →')}
+            {txt('Odbierz darmowy dostęp →', 'Get free access →')}
           </NavCta>
         </div>
       </Nav>

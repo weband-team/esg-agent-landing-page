@@ -1399,6 +1399,9 @@ export default function BenchmarkPage() {
           🌿 <span>ESG</span> Compliance Agent
         </NavLogo>
         <NavMenu>
+          <NavMenuLink href="/">
+            {lang === 'pl' ? 'Strona główna' : 'Home'}
+          </NavMenuLink>
           <NavMenuLink href="/benchmark">Benchmark</NavMenuLink>
           <NavMenuLink href="/regulations-search">
             {lang === 'pl' ? 'Wyszukiwarka Regulacji' : 'Regulations Search'}
