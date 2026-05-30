@@ -68,7 +68,7 @@ export default function TermsOfService() {
             <div>
               <h2>1. Postanowienia ogólne</h2>
               <p>
-                Niniejszy regulamin określa zasady i warunki uczestnictwa w <strong>Programie Założycielskim</strong> platformy <strong>ESG Compliance Agent</strong>, procedurę wnoszenia i zabezpieczania dobrowolnego <strong>Depozytu Założycielskiego</strong> oraz zasady wnioskowania o jego pełny zwrot.
+                Niniejszy regulamin określa zasady i warunki uczestnictwa w bezpłatnym <strong>Programie Założycielskim (Pre-Launch)</strong> platformy <strong>ESG Compliance Agent</strong> oraz zasady rezerwacji przedpremierowego pakietu korzyści.
               </p>
               <p>
                 Operatorem platformy oraz organizatorem Programu Założycielskiego jest:
@@ -81,63 +81,57 @@ export default function TermsOfService() {
 
               <h2>2. Definicje</h2>
               <ul>
-                <li><strong>Użytkownik / Aplikant:</strong> podmiot prowadzący działalność gospodarczą, który zarejestrował się w Programie Założycielskim za pośrednictwem formularza.</li>
+                <li><strong>Użytkownik / Aplikant:</strong> podmiot prowadzący działalność gospodarczą, który dokonał zgłoszenia w Programie Założycielskim za pośrednictwem formularza.</li>
                 <li><strong>Operator:</strong> spółka QIRE LAB SP. Z O.O., właściciel autorskich praw majątkowych do oprogramowania.</li>
-                <li><strong>Program Założycielski:</strong> ekskluzywna oferta pilotażowa ograniczona czasowo (30 dni).</li>
-                <li><strong>Depozyt Założycielski:</strong> dobrowolna, kaucja zwrotna wpłacana na rachunek Operatora w celu potwierdzenia intencji aktywacji statusu Członka Założyciela.</li>
-                <li><strong>Pilotaż:</strong> 30-dniowy okres przedpremierowego użytkowania platformy w celu testowania i gromadzenia feedbacku.</li>
+                <li><strong>Program Założycielski (Pre-Launch):</strong> bezpłatna oferta pilotażowa i program rezerwacji przedpremierowych korzyści przed oficjalnym wydaniem komercyjnym.</li>
+                <li><strong>Kod Rejestracji:</strong> unikalny kod referencyjny wygenerowany automatycznie przez system po rejestracji, potwierdzający zablokowanie korzyści przedpremierowych.</li>
+                <li><strong>Pilotaż:</strong> okres przedpremierowego użytkowania platformy w celu testowania i gromadzenia feedbacku.</li>
               </ul>
 
               <h2>3. Warunki Programu Założycielskiego</h2>
-              <p>Członkowie Założyciele, którzy dokonają rejestracji i opłacą Depozyt Założycielski, otrzymują następujące, gwarantowane uprawnienia:</p>
+              <p>Członkowie Założyciele, którzy dokonają bezpłatnej rejestracji, otrzymują następujące, gwarantowane uprawnienia:</p>
               <ol>
-                <li><strong>Darmowy dostęp:</strong> Pełny, bezpłatny dostęp do platformy przez pierwsze 6 miesięcy (pół roku) od dnia jej oficjalnej komercyjnej premiery rynkowej, która zaplanowana jest na 1 października 2026 r.</li>
-                <li><strong>Zamrożona cena:</strong> Stała zniżka o wartości 50% na wybrane plany abonamentowe po zakończeniu okresu darmowego — gwarantowana dożywotnio.</li>
-                <li><strong>Dedykowany Onboarding:</strong> Prywatne spotkanie wdrożeniowe, podczas którego pokażemy, jak korzystać z systemu w oparciu o wybrane regulacje i specyfikę firmy.</li>
-                <li><strong>Priorytet Rozwoju:</strong> Bezpośredni kontakt z deweloperami i pierwszeństwo we wdrażaniu sugerowanych modułów regulacyjnych.</li>
+                <li><strong>Darmowy dostęp:</strong> Pełny, bezpłatny dostęp do komercyjnej wersji platformy przez pierwsze 6 miesięcy (pół roku) od dnia jej oficjalnej premiery rynkowej, która zaplanowana jest na 1 października 2026 r.</li>
+                <li><strong>Zamrożona cena:</strong> Stała zniżka o wartości 40% na wybrane plany abonamentowe po zakończeniu okresu darmowego — gwarantowana dożywotnio.</li>
+                <li><strong>Dedykowany Onboarding:</strong> Prywatna sesja wdrożeniowa online, podczas której zaprezentujemy działanie asystenta w oparciu o wybrane regulacje i specyfikę firmy.</li>
+                <li><strong>Priorytet Rozwoju:</strong> Bezpośredni wpływ na kierunek rozwoju AI i pierwszeństwo we wdrażaniu sugerowanych modułów regulacyjnych.</li>
               </ol>
 
-              <h2>4. Kwoty i Realizacja Depozytu</h2>
-              <p>Wysokość Depozytu Założycielskiego jest jednorazowa i zależy od wybranej przez Użytkownika strefy walutowej:</p>
-              <ul>
-                <li>Dla podmiotów z Polski (rachunek PLN): <strong>399 PLN</strong></li>
-                <li>Dla podmiotów ze strefy Euro (rachunek EUR): <strong>99 EUR</strong></li>
-                <li>Dla podmiotów międzynarodowych (rachunek USD): <strong>99 USD</strong></li>
-              </ul>
+              <h2>4. Opłaty i Brak Zobowiązań</h2>
               <p>
-                Wpłata dokonywana jest przelewem tradycyjnym na unikalny rachunek bankowy wygenerowany automatycznie przez system po przesłaniu formularza zgłoszeniowego. W tytule przelewu należy bezwzględnie podać wygenerowany kod referencyjny (np. <em>ESG-QIRE-XXXXXX</em>).
+                Rejestracja przedpremierowa oraz udział w Programie Założycielskim i pilotażu są <strong>w 100% bezpłatne</strong>. Operator nie pobiera żadnych opłat, kaucji ani depozytów. W celu rejestracji i zablokowania benefitów nie jest wymagane podpinanie kart płatniczych ani dokonywanie jakichkolwiek płatności.
               </p>
 
-              <h2>5. Procedura Gwarantowanego Zwrotu (Refund Policy)</h2>
-              <p style={{ color: '#fcd34d', fontWeight: 600 }}>
-                Depozyt ma charakter kaucji i podlega pełnemu zwrotowi (100% wpłaconej kwoty) w dowolnym momencie, na pierwsze żądanie Użytkownika.
+              <h2>5. Rezygnacja i Usunięcie Danych (Opt-out)</h2>
+              <p>
+                Udział w programie jest w pełni dobrowolny i nie nakłada na Użytkownika żadnego zobowiązania do zakupu płatnej subskrypcji w przyszłości.
               </p>
-              <p>W celu odzyskania depozytu należy:</p>
+              <p>Użytkownik może w każdej chwili zrezygnować z udziału w programie i zażądać usunięcia swoich danych oraz kodu rejestracyjnego:</p>
               <ol>
-                <li>Wyrazić wolę zwrotu poprzez wysłanie wiadomości e-mail na adres: <strong>INFO@F-SUITE.COM</strong>.</li>
-                <li>W treści wiadomości podać nazwę firmy, kod referencyjny rezerwacji oraz numer rachunku bankowego, na który mają zostać odesłane środki (dla ułatwienia powinien być to ten sam rachunek, z którego dokonano wpłaty).</li>
+                <li>Wysyłając wiadomość e-mail o rezygnacji na adres: <strong>INFO@F-SUITE.COM</strong>.</li>
+                <li>W treści wiadomości podając nazwę firmy oraz wygenerowany kod rejestracji.</li>
               </ol>
               <p>
-                Operator gwarantuje realizację przelewu zwrotnego w ciągu <strong>2 dni roboczych</strong> od dnia otrzymania zgłoszenia. Zwrot dokonywany jest bez potrącania jakichkolwiek opłat manipulacyjnych, prowizji czy kar umownych. Wnioskowanie o zwrot depozytu oznacza rezygnację z przywilejów Członka Założyciela.
+                Operator zobowiązuje się do usunięcia danych i potwierdzenia rezygnacji w ciągu <strong>2 dni roboczych</strong> od otrzymania zgłoszenia. Rezygnacja oznacza anulowanie przyznanych przywilejów Członka Założyciela.
               </p>
 
               <h2>6. Prawa i obowiązki stron</h2>
               <ul>
-                <li>Operator zobowiązuje się do utrzymania najwyższych standardów bezpieczeństwa serwisu oraz nienaruszalności zgromadzonych środków depozytowych.</li>
+                <li>Operator zobowiązuje się do utrzymania najwyższych standardów bezpieczeństwa serwisu oraz ochrony danych rejestracyjnych Użytkowników.</li>
                 <li>Użytkownik zobowiązuje się do korzystania z platformy w sposób zgodny z prawem oraz dobrymi obyczajami, a także do zachowania poufności swoich danych uwierzytelniających.</li>
                 <li>Z uwagi na pilotażowy charakter oprogramowania, Operator zastrzega, że niektóre funkcje mogą być aktualizowane w trybie ciągłym.</li>
               </ul>
 
               <h2>7. Reklamacje i kontakt</h2>
               <p>
-                Wszelkie reklamacje, zapytania techniczne, prośby o wsparcie oraz wnioski o zwrot środków mogą być zgłaszane bezpośrednio na adres mailowy: <strong>INFO@F-SUITE.COM</strong> lub drogą telefoniczną pod numerem: <strong>+48 731 270 861</strong>. Operator rozpatruje zgłoszenia reklamacyjne w terminie do 14 dni, przy czym zgłoszenia dotyczące zwrotu depozytu realizowane są priorytetowo (do 2 dni roboczych).
+                Wszelkie reklamacje, zapytania techniczne, prośby o wsparcie oraz wnioski o rezygnację mogą być zgłaszane bezpośrednio na adres mailowy: <strong>INFO@F-SUITE.COM</strong> lub drogą telefoniczną pod numerem: <strong>+48 731 270 861</strong>. Operator rozpatruje zgłoszenia reklamacyjne w terminie do 14 dni, przy czym zgłoszenia dotyczące rezygnacji z programu realizowane są priorytetowo (do 2 dni roboczych).
               </p>
             </div>
           ) : (
             <div>
               <h2>1. General Provisions</h2>
               <p>
-                These Terms of Service outline the rules and conditions for participating in the <strong>Founding Member Program</strong> of the <strong>ESG Compliance Agent</strong> platform, the procedure for making and securing the voluntary <strong>Founding Deposit</strong>, and the rules for requesting its full refund.
+                These Terms of Service outline the rules and conditions for participating in the free <strong>Pre-Launch Founding Member Program</strong> of the <strong>ESG Compliance Agent</strong> platform and securing your pre-launch benefit package.
               </p>
               <p>
                 The operator of the platform and organizer of the Founding Program is:
@@ -152,54 +146,48 @@ export default function TermsOfService() {
               <ul>
                 <li><strong>User / Applicant:</strong> Any business entity registering for the Founding Program using the website application form.</li>
                 <li><strong>Operator:</strong> QIRE LAB SP. Z O.O., owner of all intellectual property rights to the platform.</li>
-                <li><strong>Founding Member Program:</strong> A time-limited (30 days) early-adopter pilot promotion.</li>
-                <li><strong>Founding Deposit:</strong> A voluntary, fully refundable security deposit paid to the Operator's account to secure Founding Member status.</li>
-                <li><strong>Pilot:</strong> A 30-day pre-launch phase of the application designed for system testing and gathering feedback.</li>
+                <li><strong>Founding Program (Pre-Launch):</strong> A free, time-limited early-adopter pilot and benefit reservation promotion.</li>
+                <li><strong>Registration Code:</strong> A unique reference code generated automatically upon registration, confirming the reservation of founding benefits.</li>
+                <li><strong>Pilot:</strong> A pre-launch phase of the application designed for system testing and gathering feedback.</li>
               </ul>
 
               <h2>3. Founding Member Benefits</h2>
-              <p>Founding Members who submit their application and pay the Founding Deposit receive the following guaranteed benefits:</p>
+              <p>Founding Members who submit their free registration receive the following guaranteed benefits:</p>
               <ol>
                 <li><strong>Free Access:</strong> Full, unrestricted access to the software for 6 months (half of the year) starting from the official commercial launch date, which is planned for October 1, 2026.</li>
-                <li><strong>Locked Pricing:</strong> A permanent 50% discount on subscription plans after the free trial ends — guaranteed for the lifetime of use.</li>
-                <li><strong>Priority Onboarding:</strong> A private setup and walkthrough call to show you how to use the system based on your specific regulations and company information.</li>
+                <li><strong>Locked Pricing:</strong> A permanent 40% discount on subscription plans after the free trial ends — guaranteed for the lifetime of use.</li>
+                <li><strong>Priority Onboarding:</strong> A personal online setup and walkthrough session to demonstrate the AI assistant's capabilities tailored to your requirements.</li>
                 <li><strong>Product Influence:</strong> Direct feedback pipeline to product engineers and top priority for custom regulatory feature requests.</li>
               </ol>
 
-              <h2>4. Deposit Amounts & Bank Details</h2>
-              <p>The Founding Deposit is a one-off payment based on the preferred currency zone selected in the form:</p>
-              <ul>
-                <li>For Polish entities (PLN account): <strong>399 PLN</strong></li>
-                <li>For Eurozone entities (EUR account): <strong>99 EUR</strong></li>
-                <li>For International entities (USD account): <strong>99 USD</strong></li>
-              </ul>
+              <h2>4. Fees & Zero Commitment</h2>
               <p>
-                The deposit is paid via standard bank transfer to the unique account details generated upon form submission. The transfer title must contain the system-generated unique reference code (e.g., <em>ESG-QIRE-XXXXXX</em>) to automatically secure the spot.
+                Pre-registration, participation in the Founding Program, and pilot testing are <strong>100% free</strong>. The Operator does not collect any fees, deposits, or credit card details. No payment or bank transfer of any kind is required to secure your benefits.
               </p>
 
-              <h2>5. Guaranteed Refund Procedure (Refund Policy)</h2>
-              <p style={{ color: '#fcd34d', fontWeight: 600 }}>
-                The deposit functions as a secure escrow and is 100% refundable at any time, upon first demand of the User.
+              <h2>5. Cancellation & Opt-out</h2>
+              <p>
+                Participation is fully voluntary and carries zero obligation to purchase a paid subscription in the future.
               </p>
-              <p>To request a refund, follow these simple steps:</p>
+              <p>The User can opt out and request the deletion of their registration details and code at any time:</p>
               <ol>
-                <li>Send an email expressing your intent to: <strong>INFO@F-SUITE.COM</strong>.</li>
-                <li>Provide your company name, the booking reference code, and the bank account number for the refund transfer (preferably the same bank account from which the initial payment originated).</li>
+                <li>By sending an email expressing your intent to: <strong>INFO@F-SUITE.COM</strong>.</li>
+                <li>Providing your company name and the unique registration code in the email body.</li>
               </ol>
               <p>
-                The Operator guarantees the execution of the refund bank transfer within <strong>2 business days</strong> from receiving the email request. Refunds are executed in full, with no handling fees, processing deductions, or cancellation penalties. Reclaiming the deposit terminates the active Founding Member status and its corresponding benefits.
+                The Operator guarantees the deletion of data and processing of opt-out requests within <strong>2 business days</strong> of receipt. Opting out terminates active Founding Member status and its corresponding benefits.
               </p>
 
               <h2>6. Rights and Obligations</h2>
               <ul>
-                <li>The Operator agrees to maintain maximum security standards on the platform and absolute protection of deposit funds.</li>
+                <li>The Operator agrees to maintain maximum security standards on the platform and absolute protection of registration data.</li>
                 <li>The User agrees to use the software in a lawful manner, respecting copyright and intellectual property policies.</li>
                 <li>Due to the pilot nature of the launch, the Operator reserves the right to make continuous software and feature updates.</li>
               </ul>
 
               <h2>7. Complaints & Contact</h2>
               <p>
-                Any complaints, technical inquiries, support requests, or refund notifications should be submitted directly via email to: <strong>INFO@F-SUITE.COM</strong> or by phone at: <strong>+48 731 270 861</strong>. The Operator reviews standard complaints within 14 days, while deposit refund requests are expedited and handled within 2 business days.
+                Any complaints, technical inquiries, support requests, or opt-out notifications should be submitted directly via email to: <strong>INFO@F-SUITE.COM</strong> or by phone at: <strong>+48 731 270 861</strong>. The Operator reviews standard complaints within 14 days, while opt-out and data deletion requests are expedited and handled within 2 business days.
               </p>
             </div>
           )}

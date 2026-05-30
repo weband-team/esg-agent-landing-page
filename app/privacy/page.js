@@ -69,7 +69,7 @@ export default function PrivacyPolicy() {
             <div>
               <h2>1. Kto zarządza Twoimi danymi (Administrator)?</h2>
               <p>
-                Administratorem Twoich danych osobowych zebranych za pośrednictwem serwisu internetowego oraz podczas rezerwacji depozytu założycielskiego jest spółka:
+                Administratorem Twoich danych osobowych zebranych za pośrednictwem serwisu internetowego oraz podczas bezpłatnej rejestracji przedpremierowej jest spółka:
               </p>
               
               <LegalMetaTable>
@@ -108,35 +108,32 @@ export default function PrivacyPolicy() {
               <h2>2. Jakie dane zbieramy i po co to robimy?</h2>
               <p>Przetwarzamy wyłącznie dane niezbędne do realizacji celów biznesowych i komunikacyjnych:</p>
               <ul>
-                <li><strong>Imię i nazwisko oraz nazwa firmy:</strong> aby wiedzieć, z kim zawieramy umowę rezerwacyjną i komu wystawiamy dokumenty.</li>
-                <li><strong>Adres e-mail oraz numer telefonu:</strong> w celu przesłania instrukcji depozytowych, kontaktu w sprawie pilotażu oraz przesyłania istotnych powiadomień technicznych.</li>
-                <li><strong>Dane dotyczące wybranej waluty i standardu ESG:</strong> aby poprawnie skonfigurować Twoje konto pilotażowe.</li>
-                <li><strong>Informacje o płatnościach (konta bankowe):</strong> rejestrowane podczas dokonywania zwrotnego depozytu wyłącznie w celu ewentualnego wykonania zwrotu środków na to samo konto.</li>
+                <li><strong>Imię i nazwisko oraz nazwa firmy:</strong> aby wiedzieć, dla kogo rezerwujemy bezpłatny pakiet korzyści i komu udostępniamy konto pilotażowe.</li>
+                <li><strong>Adres e-mail oraz numer telefonu:</strong> w celu przesłania potwierdzenia rejestracji, unikalnego kodu, kontaktu w sprawie pilotażu oraz przesyłania istotnych powiadomień technicznych.</li>
+                <li><strong>Dane dotyczące standardu ESG:</strong> aby poprawnie skonfigurować Twoje konto pilotażowe i dostosować asystenta AI do Twoich potrzeb.</li>
               </ul>
 
               <h2>3. Podstawa prawna przetwarzania danych (zgodnie z RODO)</h2>
               <p>Twoje dane przetwarzamy w oparciu o następujące podstawy prawne:</p>
               <ol>
-                <li><strong>Art. 6 ust. 1 lit. b RODO (Niezbędność do wykonania umowy):</strong> przetwarzanie jest konieczne do podjęcia działań na Twoje żądanie przed zawarciem umowy (rejestracja w programie pilotażowym) oraz do realizacji samej umowy rezerwacji depozytu.</li>
+                <li><strong>Art. 6 ust. 1 lit. b RODO (Niezbędność do wykonania umowy):</strong> przetwarzanie jest konieczne do podjęcia działań na Twoje żądanie przed zawarciem umowy (rejestracja w programie pilotażowym) oraz do rezerwacji bezpłatnego pakietu korzyści założycielskich.</li>
                 <li><strong>Art. 6 ust. 1 lit. f RODO (Prawnie uzasadniony interes):</strong> utrzymywanie relacji biznesowej, zbieranie opinii i feedbacku dotyczących działania oprogramowania ESG w fazie pilotażu oraz obsługa zgłoszeń.</li>
-                <li><strong>Art. 6 ust. 1 lit. c RODO (Obowiązek prawny):</strong> przechowywanie danych finansowych i księgowych w celu spełnienia wymogów prawa podatkowego w Polsce i UE.</li>
+                <li><strong>Art. 6 ust. 1 lit. c RODO (Obowiązek prawny):</strong> przechowywanie danych w celu spełnienia ewentualnych obowiązków sprawozdawczych wynikających z przepisów prawa w Polsce i UE.</li>
               </ol>
 
               <h2>4. Jak długo przechowujemy Twoje dane?</h2>
               <p>Okres przechowywania danych zależy od celu ich zebrania:</p>
               <ul>
-                <li>Dane podane w formularzu rezerwacji przechowujemy przez czas trwania Programu Założycielskiego i pilotażu (30 dni), a w przypadku dokonania wpłaty – przez cały czas trwania aktywnego uczestnictwa oraz okres przedawnienia roszczeń (standardowo 3 lata).</li>
-                <li>Dane finansowe i księgowe dotyczące transakcji depozytowych przechowujemy przez wymagany przepisami prawa polskiego okres 5 lat od końca roku podatkowego, w którym dokonano transakcji.</li>
+                <li>Dane podane w formularzu darmowej rejestracji przechowujemy przez czas trwania Programu Założycielskiego i pilotażu oraz okres aktywnego uczestnictwa w programie przedpremierowym, a po premierze komercyjnej – przez czas świadczenia usługi lub do momentu rezygnacji i zgłoszenia żądania usunięcia danych.</li>
               </ul>
 
               <h2>5. Komu udostępniamy Twoje dane?</h2>
               <p>
-                Twoje dane nie są sprzedawane ani przekazywane podmiotom trzecim w celach marketingowych. Dostęp do nich mają wyłącznie podmioty wspierające nas w obsłudze technicznej i prawnej:
+                Twoje dane nie są sprzedawane ani przekazywane podmiotom trzecim w celach marketingowych. Dostęp do nich mają wyłącznie podmioty wspierające nas w obsłudze technicznej:
               </p>
               <ul>
                 <li>Dostawcy usług hostingowych oraz infrastruktury serwerowej zlokalizowanej w Unii Europejskiej.</li>
-                <li>Podmiot obsługujący nasze usługi księgowe oraz prawne.</li>
-                <li>Banki obsługujące nasze rachunki depozytowe (PKO Bank Polski) wyłącznie w celu procesowania wpłat i zwrotów.</li>
+                <li>Dedykowane narzędzia wspierające wysyłkę powiadomień e-mail związanych z rejestracją.</li>
               </ul>
 
               <h2>6. Twoje prawa (Zgodnie z RODO)</h2>
@@ -144,7 +141,7 @@ export default function PrivacyPolicy() {
               <ul>
                 <li>Dostępu do swoich danych oraz otrzymania ich kopii.</li>
                 <li>Sprostowania (poprawienia) swoich danych.</li>
-                <li>Usunięcia danych („prawo do bycia zapomnianym”) – chyba że ich przechowywanie jest wymagane przez prawo podatkowe.</li>
+                <li>Usunięcia danych („prawo do bycia zapomnianym”).</li>
                 <li>Ograniczenia przetwarzania danych.</li>
                 <li>Wniesienia sprzeciwu wobec przetwarzania.</li>
                 <li>Przenoszenia danych do innego administratora.</li>
@@ -167,7 +164,7 @@ export default function PrivacyPolicy() {
             <div>
               <h2>1. Who is the Data Controller?</h2>
               <p>
-                The controller of your personal data collected through the website and during the reservation of the founding deposit is:
+                The controller of your personal data collected through the website and during the free pre-launch registration is:
               </p>
               
               <LegalMetaTable>
@@ -206,35 +203,32 @@ export default function PrivacyPolicy() {
               <h2>2. What Data We Process and Why</h2>
               <p>We process only the data necessary to achieve business and communication goals:</p>
               <ul>
-                <li><strong>Full name & Company name:</strong> To identify who is reserving the spot and to issue deposit confirmation documents.</li>
-                <li><strong>Email address & Phone number:</strong> To send deposit instructions, contact you regarding the pilot, and deliver critical technical updates.</li>
-                <li><strong>Preferred currency & ESG standard:</strong> To properly set up and configure your pilot experience.</li>
-                <li><strong>Payment information (bank accounts):</strong> Recorded during your deposit transfer solely to execute the refund to the exact same account if requested.</li>
+                <li><strong>Full name & Company name:</strong> To identify who is reserving the spot and to set up your pilot application access.</li>
+                <li><strong>Email address & Phone number:</strong> To send registration confirmations, your unique code, contact you regarding the pilot, and deliver critical technical updates.</li>
+                <li><strong>Preferred ESG standard:</strong> To properly set up and configure your pilot experience.</li>
               </ul>
 
               <h2>3. Legal Grounds for Processing (under GDPR)</h2>
               <p>We process your personal data based on the following provisions:</p>
               <ol>
-                <li><strong>Art. 6(1)(b) GDPR (Performance of a contract):</strong> Processing is necessary to take steps at your request prior to entering into a contract (pilot registration) and to perform the deposit reservation agreement.</li>
+                <li><strong>Art. 6(1)(b) GDPR (Performance of a contract):</strong> Processing is necessary to take steps at your request prior to entering into a contract (pilot registration) and to reserve your free pre-launch benefit package.</li>
                 <li><strong>Art. 6(1)(f) GDPR (Legitimate interests):</strong> Maintaining business relationships, collecting feedback on the ESG software performance during the pilot phase, and handling inquiries.</li>
-                <li><strong>Art. 6(1)(c) GDPR (Legal compliance):</strong> Keeping financial and accounting records to comply with Polish and EU tax regulations.</li>
+                <li><strong>Art. 6(1)(c) GDPR (Legal compliance):</strong> Keeping records to comply with any legal or regulatory obligations.</li>
               </ol>
 
               <h2>4. Data Retention Period</h2>
               <p>The period for storing data depends on the purpose of its collection:</p>
               <ul>
-                <li>Form registration data is stored for the duration of the Founding Program and pilot (30 days); if a deposit is paid, for the duration of active participation plus the period of limitation for claims (typically 3 years).</li>
-                <li>Financial and transaction data is archived for the legally required period of 5 years from the end of the tax year in which the transaction took place.</li>
+                <li>Form registration data is stored for the duration of the Founding Program and pilot phase, and for as long as you participate in the pre-launch program. After commercial release, it is kept for the duration of active service provision or until you request its deletion.</li>
               </ul>
 
               <h2>5. Data Disclosure</h2>
               <p>
-                We do not sell or share your personal data with third parties for marketing purposes. Only service providers supporting our technical and business operations have access:
+                We do not sell or share your personal data with third parties for marketing purposes. Only service providers supporting our technical operations have access:
               </p>
               <ul>
                 <li>Hosting and server infrastructure providers located inside the European Union.</li>
-                <li>Professional accounting and legal advisors.</li>
-                <li>The bank managing our deposit accounts (PKO Bank Polski) solely to process deposit payments and refunds.</li>
+                <li>Transactional email delivery services to handle registration notifications.</li>
               </ul>
 
               <h2>6. Your Rights under GDPR</h2>
@@ -242,7 +236,7 @@ export default function PrivacyPolicy() {
               <ul>
                 <li>Access your personal data and obtain a copy of it.</li>
                 <li>Rectify (correct) incorrect or outdated data.</li>
-                <li>Erase your data ("the right to be forgotten") — unless storage is legally required (e.g., tax records).</li>
+                <li>Erase your data ("the right to be forgotten").</li>
                 <li>Restrict data processing.</li>
                 <li>Object to the processing of your data.</li>
                 <li>Request data portability.</li>
