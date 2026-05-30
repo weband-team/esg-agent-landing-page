@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === 'production') {
   db = global.cachedDb;
 }
 
-// Initialize table
+// Initialize tables
 db.serialize(() => {
   db.run(`
     CREATE TABLE IF NOT EXISTS deposits (
@@ -38,6 +38,22 @@ db.serialize(() => {
   `, (err) => {
     if (err) {
       console.error('Error creating deposits table:', err.message);
+    }
+  });
+
+  db.run(`
+    CREATE TABLE IF NOT EXISTS benchmarks (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT NOT NULL,
+      email TEXT NOT NULL,
+      company TEXT NOT NULL,
+      score REAL NOT NULL,
+      answers TEXT NOT NULL,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    )
+  `, (err) => {
+    if (err) {
+      console.error('Error creating benchmarks table:', err.message);
     }
   });
 });
@@ -103,9 +119,29 @@ function updateDepositStatus(reference, status) {
   });
 }
 
+/**
+ * Save a new ESG benchmark assessment to the database
+ */
+function saveBenchmark(benchmark) {
+  return new Promise((resolve, reject) => {
+    const { name, email, company, score, answers } = benchmark;
+    const query = `
+      INSERT INTO benchmarks (name, email, company, score, answers)
+      VALUES (?, ?, ?, ?, ?)
+    `;
+    db.run(query, [name, email, company, score, answers], function(err) {
+      if (err) {
+        return reject(err);
+      }
+      resolve({ id: this.lastID, ...benchmark });
+    });
+  });
+}
+
 module.exports = {
   saveDeposit,
   getAllDeposits,
   getDepositByReference,
-  updateDepositStatus
+  updateDepositStatus,
+  saveBenchmark
 };
