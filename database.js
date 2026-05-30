@@ -56,6 +56,22 @@ db.serialize(() => {
       console.error('Error creating benchmarks table:', err.message);
     }
   });
+
+  db.run(`
+    CREATE TABLE IF NOT EXISTS regulation_reports (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT NOT NULL,
+      email TEXT NOT NULL,
+      company TEXT NOT NULL,
+      nip TEXT NOT NULL,
+      matched_count INTEGER NOT NULL,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    )
+  `, (err) => {
+    if (err) {
+      console.error('Error creating regulation_reports table:', err.message);
+    }
+  });
 });
 
 /**
@@ -138,10 +154,30 @@ function saveBenchmark(benchmark) {
   });
 }
 
+/**
+ * Save a new regulation search report to the database
+ */
+function saveRegulationReport(report) {
+  return new Promise((resolve, reject) => {
+    const { name, email, company, nip, matched_count } = report;
+    const query = `
+      INSERT INTO regulation_reports (name, email, company, nip, matched_count)
+      VALUES (?, ?, ?, ?, ?)
+    `;
+    db.run(query, [name, email, company, nip, matched_count], function(err) {
+      if (err) {
+        return reject(err);
+      }
+      resolve({ id: this.lastID, ...report });
+    });
+  });
+}
+
 module.exports = {
   saveDeposit,
   getAllDeposits,
   getDepositByReference,
   updateDepositStatus,
-  saveBenchmark
+  saveBenchmark,
+  saveRegulationReport
 };

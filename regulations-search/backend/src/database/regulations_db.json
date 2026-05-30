@@ -1,0 +1,2292 @@
+[
+  {
+    "regulation_id": "PL_CORE_001",
+    "area": "corporate_registration",
+    "name": {
+      "pl": "Rejestracja i aktualizacja danych w CEIDG / KRS",
+      "en": "Business Registration and Updates in CEIDG / KRS"
+    },
+    "obligation_name": {
+      "pl": "Obowiązek rejestracji i zgłaszania zmian",
+      "en": "Registration and Change Notification Obligation"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa z dnia 6 marca 2018 r. o Centralnej Ewidencji i Informacji o Działalności Gospodarczej i Punkcie Informacji dla Przedsiębiorcy / Ustawa z dnia 20 sierpnia 1997 r. o Krajowym Rejestrze Sądowym",
+      "en": "Act of 6 March 2018 on CEIDG and Entrepreneur Information Point / Act of 20 August 1997 on the National Court Register (KRS)"
+    },
+    "authority": {
+      "pl": "Ministerstwo Rozwoju i Technologii / Sąd Rejestrowy (KRS)",
+      "en": "Ministry of Development and Technology / Registry Court (KRS)"
+    },
+    "official_source": "https://www.biznes.gov.pl/",
+    "trigger_logic": {
+      "pl": "Dotyczy wszystkich podmiotów rozpoczynających lub prowadzących działalność gospodarczą w Polsce. Zmiany muszą być zgłaszane w terminie 7 dni (CEIDG) lub 7 dni od zdarzenia (KRS).",
+      "en": "Applies to all entities starting or conducting business in Poland. Changes must be reported within 7 days (CEIDG) or 7 days from the event (KRS)."
+    },
+    "trigger_data_fields": ["is_registered_in_poland"],
+    "thresholds": null,
+    "obligation_type": "registration",
+    "output_required": {
+      "pl": "Wpis w rejestrze CEIDG lub KRS",
+      "en": "CEIDG or KRS registry entry"
+    },
+    "portal_or_submission": {
+      "pl": "Portal Biznes.gov.pl / Portal Rejestrów Sądowych (PRS)",
+      "en": "Biznes.gov.pl Portal / Registry Courts Portal (PRS)"
+    },
+    "frequency": "event_based",
+    "deadline": {
+      "pl": "Zgłoszenie zmian w ciągu 7 dni od zaistnienia zmiany",
+      "en": "Notification of changes within 7 days of the occurrence of the change"
+    },
+    "evidence_to_keep": {
+      "pl": "Potwierdzenie złożenia wniosku, odpis aktualny KRS/CEIDG",
+      "en": "Application submission confirmation, current KRS/CEIDG extract"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Grzywna, wykreślenie z rejestru, odpowiedzialność osobista członków zarządu za niezgłoszenie zmian",
+      "en": "Fine, removal from register, personal liability of board members for failure to report changes"
+    },
+    "owner_role": "legal",
+    "confidence_level": "certain"
+  },
+  {
+    "regulation_id": "PL_CORE_002",
+    "area": "corporate_registration",
+    "name": {
+      "pl": "Klasyfikacja Działalności (PKD)",
+      "en": "Classification of Business Activities (PKD)"
+    },
+    "obligation_name": {
+      "pl": "Aktualizacja kodów PKD w rejestrze",
+      "en": "Updating PKD Codes in the Register"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa z dnia 29 czerwca 1995 r. o statystyce publicznej",
+      "en": "Act of 29 June 1995 on Public Statistics"
+    },
+    "authority": {
+      "pl": "Główny Urząd Statystyczny (GUS)",
+      "en": "Statistics Poland (GUS)"
+    },
+    "official_source": "https://stat.gov.pl/klasyfikacje/pkd-2007/",
+    "trigger_logic": {
+      "pl": "Dotyczy wszystkich podmiotów prowadzących działalność gospodarczą. Zgłoszone kody PKD muszą odzwierciedlać faktycznie wykonywaną działalność przedsiębiorstwa.",
+      "en": "Applies to all business entities. Registered PKD codes must reflect the actual activities performed by the enterprise."
+    },
+    "trigger_data_fields": ["is_registered_in_poland"],
+    "thresholds": null,
+    "obligation_type": "registration",
+    "output_required": {
+      "pl": "Zaktualizowana lista kodów PKD w rejestrze REGON/KRS/CEIDG",
+      "en": "Updated list of PKD codes in REGON/KRS/CEIDG register"
+    },
+    "portal_or_submission": {
+      "pl": "Portal Biznes.gov.pl / PRS",
+      "en": "Biznes.gov.pl Portal / PRS"
+    },
+    "frequency": "event_based",
+    "deadline": {
+      "pl": "Zgłoszenie zmian w ciągu 7 dni od rozpoczęcia nowej działalności",
+      "en": "Notification of changes within 7 days of starting new business activity"
+    },
+    "evidence_to_keep": {
+      "pl": "Potwierdzenie rejestracji kodów PKD we wpisie KRS/CEIDG",
+      "en": "Confirmation of PKD codes registration in KRS/CEIDG entry"
+    },
+    "penalty_risk": "low",
+    "penalty_description": {
+      "pl": "Ryzyko niezgodności z prawem podatkowym (odliczenia kosztów) oraz utraty prawa do ubiegania się o dotacje rzędowe i pomoc publiczną",
+      "en": "Risk of non-compliance with tax law (cost deductions) and loss of eligibility for government grants and state aid"
+    },
+    "owner_role": "legal",
+    "confidence_level": "certain"
+  },
+  {
+    "regulation_id": "PL_CRBR_001",
+    "area": "corporate_registration",
+    "name": {
+      "pl": "Zgłoszenie do Centralnego Rejestru Beneficjentów Rzeczywistych (CRBR)",
+      "en": "Reporting to the Central Register of Ultimate Beneficial Owners (CRBR)"
+    },
+    "obligation_name": {
+      "pl": "Zgłaszanie beneficjentów rzeczywistych",
+      "en": "Reporting Ultimate Beneficial Owners"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa z dnia 1 marca 2018 r. o przeciwdziałaniu praniu pieniędzy oraz finansowaniu terroryzmu",
+      "en": "Act of 1 March 2018 on Counteracting Money Laundering and Terrorist Financing"
+    },
+    "authority": {
+      "pl": "Ministerstwo Finansów / Generalny Inspektor Informacji Finansowej (GIIF)",
+      "en": "Ministry of Finance / General Inspector of Financial Information (GIIF)"
+    },
+    "official_source": "https://crbr.podatki.gov.pl/",
+    "trigger_logic": {
+      "pl": "Dotyczy wszystkich spółek handlowych (sp. z o.o., S.A., spółki jawne, komandytowe itp.). Wyłączone są jednoosobowe działalności gospodarcze zarejestrowane w CEIDG.",
+      "en": "Applies to all commercial companies (sp. z o.o., S.A., partnerships, etc.). Sole proprietorships registered in CEIDG are exempt."
+    },
+    "trigger_data_fields": ["legal_form"],
+    "thresholds": {
+      "pl": "Dotyczy wszystkich form prawnych z wyjątkiem jednoosobowych działalności gospodarczych (CEIDG)",
+      "en": "Applies to all legal forms except sole proprietorships (CEIDG)"
+    },
+    "obligation_type": "reporting",
+    "output_required": {
+      "pl": "Zgłoszenie informacji o beneficjentach rzeczywistych spółki",
+      "en": "Submission of ultimate beneficial owners details for the company"
+    },
+    "portal_or_submission": {
+      "pl": "System Teleinformatyczny CRBR",
+      "en": "CRBR IT System"
+    },
+    "frequency": "event_based",
+    "deadline": {
+      "pl": "W terminie 14 dni od wpisu spółki do KRS lub zmiany danych beneficjentów",
+      "en": "Within 14 days of registering the company in KRS or changing UBO details"
+    },
+    "evidence_to_keep": {
+      "pl": "Urzędowe Poświadczenie Odbioru (UPO) z systemu CRBR",
+      "en": "Official Confirmation of Receipt (UPO) from the CRBR system"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Kara pieniężna nakładana na spółkę do wysokości 1 000 000 PLN oraz odpowiedzialność karna beneficjentów",
+      "en": "Financial penalty imposed on the company up to 1,000,000 PLN and criminal liability of beneficial owners"
+    },
+    "owner_role": "legal",
+    "confidence_level": "certain",
+    "legal_forms": ["sp_z_o_o", "sa", "sp_j", "sp_k", "s_a", "spolka_akcyjna", "spolka_jawna", "spolka_komandytowa"]
+  },
+  {
+    "regulation_id": "PL_TAX_CIT",
+    "area": "tax_finance",
+    "name": {
+      "pl": "Rozliczanie podatku dochodowego od osób prawnych (CIT)",
+      "en": "Corporate Income Tax (CIT) Settlement"
+    },
+    "obligation_name": {
+      "pl": "Roczne zeznanie CIT-8",
+      "en": "Annual CIT-8 Tax Return"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa z dnia 15 lutego 1992 r. o podatku dochodowym od osób prawnych",
+      "en": "Act of 15 February 1992 on Corporate Income Tax"
+    },
+    "authority": {
+      "pl": "Krajowa Administracja Skarbowa (KAS) / Urząd Skarbowy",
+      "en": "National Revenue Administration (KAS) / Tax Office"
+    },
+    "official_source": "https://www.podatki.gov.pl/cit/",
+    "trigger_logic": {
+      "pl": "Dotyczy osób prawnych (sp. z o.o., S.A.) oraz niektórych spółek osobowych (np. spółki komandytowe, komandytowo-akcyjne).",
+      "en": "Applies to legal entities (sp. z o.o., S.A.) and certain partnerships (e.g., limited partnerships, joint-stock partnerships)."
+    },
+    "trigger_data_fields": ["legal_form"],
+    "thresholds": null,
+    "obligation_type": "fee",
+    "output_required": {
+      "pl": "Zeznanie CIT-8 + wpłata podatku dochodowego",
+      "en": "CIT-8 return + corporate tax payment"
+    },
+    "portal_or_submission": {
+      "pl": "System e-Deklaracje / Portal e-Urząd Skarbowy",
+      "en": "e-Deklaracje System / e-Tax Office Portal"
+    },
+    "frequency": "annual",
+    "deadline": {
+      "pl": "Do końca trzeciego miesiąca roku następnego (standardowo do 31 marca)",
+      "en": "By the end of the third month of the following year (typically by 31 March)"
+    },
+    "evidence_to_keep": {
+      "pl": "Księgi rachunkowe, deklaracja CIT-8 z UPO, dowody wpłat",
+      "en": "Accounting books, CIT-8 declaration with UPO, payment receipts"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Odsetki za zwłokę, kary karne skarbowe dla osób odpowiedzialnych za finanse spółki (KKS)",
+      "en": "Default interest, fiscal penal sanctions for persons responsible for company finance (KKS)"
+    },
+    "owner_role": "finance",
+    "confidence_level": "certain",
+    "legal_forms": ["sp_z_o_o", "sa", "sp_k", "s_a", "spolka_akcyjna", "spolka_komandytowa"]
+  },
+  {
+    "regulation_id": "PL_TAX_VAT",
+    "area": "tax_finance",
+    "name": {
+      "pl": "Podatek od towarów i usług (VAT) & Biała Lista",
+      "en": "Value Added Tax (VAT) & White List"
+    },
+    "obligation_name": {
+      "pl": "Rejestracja VAT, weryfikacja kontrahentów",
+      "en": "VAT Registration and Contractor Verification"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa z dnia 11 marca 2004 r. o podatku od towarów i usług",
+      "en": "Act of 11 March 2004 on Value Added Tax"
+    },
+    "authority": {
+      "pl": "Krajowa Administracja Skarbowa (KAS) / Urząd Skarbowy",
+      "en": "National Revenue Administration (KAS) / Tax Office"
+    },
+    "official_source": "https://www.podatki.gov.pl/vat/wykaz-podatnikow-vat-baza-szukaj/",
+    "trigger_logic": {
+      "pl": "Dotyczy czynnych podatników VAT (lub zwolnionych po przekroczeniu progu obrotów 200 000 PLN). Wymaga zgłoszenia rachunku bankowego na Białą Listę i weryfikacji partnerów.",
+      "en": "Applies to active VAT taxpayers (or exempt ones once turnover threshold of 200,000 PLN is exceeded). Requires registering bank account on the White List and verifying partners."
+    },
+    "trigger_data_fields": ["is_vat_taxpayer", "revenue_pln"],
+    "thresholds": {
+      "pl": "Obowiązkowa rejestracja po przekroczeniu 200 000 PLN obrotu rocznego",
+      "en": "Mandatory registration once annual turnover exceeds 200,000 PLN"
+    },
+    "obligation_type": "registration",
+    "output_required": {
+      "pl": "Zgłoszenie VAT-R, zgłoszenie rachunku na Białą Listę",
+      "en": "VAT-R registration, registering bank account on the White List"
+    },
+    "portal_or_submission": {
+      "pl": "e-Urząd Skarbowy / Biznes.gov.pl",
+      "en": "e-Tax Office / Biznes.gov.pl"
+    },
+    "frequency": "event_based",
+    "deadline": {
+      "pl": "Przed wykonaniem pierwszej czynności podlegającej opodatkowaniu",
+      "en": "Before performing the first taxable transaction"
+    },
+    "evidence_to_keep": {
+      "pl": "Potwierdzenie rejestracji VAT-R, zrzuty ekranu z Białej Listy z weryfikacji",
+      "en": "VAT-R registration confirmation, verification screenshots from the White List"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Brak możliwości zaliczenia wydatków powyżej 15 000 PLN do kosztów uzyskania przychodów w przypadku przelewu na konto spoza Białej Listy, solidarna odpowiedzialność za VAT",
+      "en": "Inability to count expenses above 15,000 PLN as tax-deductible costs if transferred to accounts outside the White List, joint liability for VAT"
+    },
+    "owner_role": "finance",
+    "confidence_level": "certain"
+  },
+  {
+    "regulation_id": "PL_TAX_JPK",
+    "area": "tax_finance",
+    "name": {
+      "pl": "Jednolity Plik Kontrolny (JPK_V7M/K) & KSeF",
+      "en": "Standard Audit File for Tax (JPK_V7M/K) & KSeF Invoicing"
+    },
+    "obligation_name": {
+      "pl": "Miesięczne raportowanie JPK_V7",
+      "en": "Monthly JPK_V7 Reporting"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa z dnia 29 sierpnia 1997 r. - Ordynacja podatkowa / Ustawa o podatku od towarów i usług",
+      "en": "Act of 29 August 1997 - Tax Ordinance / Act on Value Added Tax"
+    },
+    "authority": {
+      "pl": "Krajowa Administracja Skarbowa (KAS)",
+      "en": "National Revenue Administration (KAS)"
+    },
+    "official_source": "https://www.podatki.gov.pl/jednolity-plik-kontrolny/",
+    "trigger_logic": {
+      "pl": "Dotyczy wszystkich zarejestrowanych podatników VAT. Wymaga comiesięcznego przesyłania struktury JPK_V7M (lub kwartalnego JPK_V7K) oraz przygotowania do e-fakturowania w KSeF.",
+      "en": "Applies to all registered VAT taxpayers. Requires monthly submission of the JPK_V7M structure (or quarterly JPK_V7K) and preparation for e-invoicing in KSeF."
+    },
+    "trigger_data_fields": ["is_vat_taxpayer"],
+    "thresholds": null,
+    "obligation_type": "reporting",
+    "output_required": {
+      "pl": "Wysyłka pliku JPK XML zawierającego ewidencję i deklarację",
+      "en": "Submission of JPK XML file containing records and declaration"
+    },
+    "portal_or_submission": {
+      "pl": "Bramka Ministerstwa Finansów / e-Urząd Skarbowy",
+      "en": "Ministry of Finance Gateway / e-Tax Office"
+    },
+    "frequency": "monthly",
+    "deadline": {
+      "pl": "Do 25. dnia każdego miesiąca za miesiąc poprzedni",
+      "en": "By the 25th day of each month for the previous month"
+    },
+    "evidence_to_keep": {
+      "pl": "Pliki XML JPK_V7, Urzędowe Poświadczenie Odbioru (UPO)",
+      "en": "JPK_V7 XML files, Official Confirmation of Receipt (UPO)"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Kara administracyjna 500 PLN za każdy błąd w pliku JPK uniemożliwiający weryfikację, kary karnoskarbowe",
+      "en": "Administrative fine of 500 PLN for each error in JPK file preventing verification, fiscal penal sanctions"
+    },
+    "owner_role": "finance",
+    "confidence_level": "certain"
+  },
+  {
+    "regulation_id": "PL_TAX_WHT",
+    "area": "tax_finance",
+    "name": {
+      "pl": "Podatek u źródła (Withholding Tax - WHT)",
+      "en": "Withholding Tax (WHT)"
+    },
+    "obligation_name": {
+      "pl": "Weryfikacja beneficjenta rzeczywistego należności transgranicznych",
+      "en": "Ultimate Beneficial Owner Verification of Cross-Border Payments"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa o podatku dochodowym od osób prawnych / Ustawa o podatku dochodowym od osób fizycznych",
+      "en": "Act on Corporate Income Tax / Act on Personal Income Tax"
+    },
+    "authority": {
+      "pl": "Urząd Skarbowy (Krajowa Administracja Skarbowa)",
+      "en": "Tax Office (National Revenue Administration)"
+    },
+    "official_source": "https://www.podatki.gov.pl/cit/podatek-u-zrodla/",
+    "trigger_logic": {
+      "pl": "Dotyczy przedsiębiorstw dokonujących transgranicznych płatności (odsetki, dywidendy, licencje, opłaty za usługi niematerialne jak IT, doradztwo) na rzecz podmiotów zagranicznych.",
+      "en": "Applies to enterprises making cross-border payments (interest, dividends, royalties, payments for intangible services like IT, consulting) to foreign entities."
+    },
+    "trigger_data_fields": ["has_cross_border_payments"],
+    "thresholds": {
+      "pl": "Obowiązek poboru podatku lub zastosowania zwolnienia. Szczególne wymogi powyżej 2 000 000 PLN rocznych płatności na rzecz jednego odbiorcy (procedura Pay and Refund).",
+      "en": "Duty to withhold tax or apply exemption. Strict requirements above 2,000,000 PLN of annual payments to a single recipient (Pay and Refund procedure)."
+    },
+    "obligation_type": "audit",
+    "output_required": {
+      "pl": "Pobór i wpłata podatku WHT, deklaracja CIT-10R/IFT-2R",
+      "en": "Withholding and payment of WHT, CIT-10R/IFT-2R declaration"
+    },
+    "portal_or_submission": {
+      "pl": "System e-Deklaracje",
+      "en": "e-Deklaracje System"
+    },
+    "frequency": "event_based",
+    "deadline": {
+      "pl": "Wpłata do 7. dnia miesiąca następującego po miesiącu poboru; deklaracje do końca stycznia lub marca roku następnego",
+      "en": "Payment by the 7th day of the month following the month of withholding; declarations by end of January or March of the following year"
+    },
+    "evidence_to_keep": {
+      "pl": "Certyfikat rezydencji podatkowej odbiorcy należności, oświadczenia WH-OSC, analiza 'due diligence' odbiorcy",
+      "en": "Tax residency certificate of the recipient, WH-OSC statements, due diligence analysis of the recipient"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Odsetki skarbowe, dodatkowe zobowiązanie podatkowe (dodatkowy podatek do 30% kwoty należności), grzywny dla zarządu",
+      "en": "Fiscal interest, additional tax liability (extra tax up to 30% of payment amount), fines for the board"
+    },
+    "owner_role": "finance",
+    "confidence_level": "likely"
+  },
+  {
+    "regulation_id": "PL_TAX_TPR",
+    "area": "tax_finance",
+    "name": {
+      "pl": "Ceny transferowe (Transfer Pricing - local file & TPR)",
+      "en": "Transfer Pricing Reporting (Local File & TPR)"
+    },
+    "obligation_name": {
+      "pl": "Raportowanie cen transferowych TPR-C",
+      "en": "Transfer Pricing TPR-C Reporting"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa o podatku dochodowym od osób prawnych / Ordynacja podatkowa",
+      "en": "Act on Corporate Income Tax / Tax Ordinance"
+    },
+    "authority": {
+      "pl": "Szef Krajowej Administracji Skarbowej",
+      "en": "Head of the National Revenue Administration"
+    },
+    "official_source": "https://www.podatki.gov.pl/ceny-transferowe/",
+    "trigger_logic": {
+      "pl": "Dotyczy podmiotów realizujących transakcje kontrolowane z podmiotami powiązanymi (krajowymi lub zagranicznymi) lub transakcje z podmiotami z rajów podatkowych.",
+      "en": "Applies to entities carrying out controlled transactions with related parties (domestic or foreign) or transactions with tax haven entities."
+    },
+    "trigger_data_fields": ["has_related_party_transactions"],
+    "thresholds": {
+      "pl": "Transakcje jednorodne przekraczające progi: 10 000 000 PLN (rzeczowe, finansowe), 2 000 000 PLN (usługowe), 100 000 PLN (raje podatkowe)",
+      "en": "Homogeneous transactions exceeding thresholds: 10,000,000 PLN (tangible, financial), 2,000,000 PLN (services), 100,000 PLN (tax havens)"
+    },
+    "obligation_type": "reporting",
+    "output_required": {
+      "pl": "Informacja o cenach transferowych TPR-C, opcjonalnie lokalna dokumentacja cen transferowych (Local File)",
+      "en": "Transfer pricing information TPR-C, optionally Local File documentation"
+    },
+    "portal_or_submission": {
+      "pl": "Interaktywny formularz TPR na portalu Ministerstwa Finansów",
+      "en": "Interactive TPR form on the Ministry of Finance portal"
+    },
+    "frequency": "annual",
+    "deadline": {
+      "pl": "Do końca 11. miesiąca po zakończeniu roku podatkowego (standardowo do 30 listopada)",
+      "en": "By the end of the 11th month after the end of the tax year (typically by 30 November)"
+    },
+    "evidence_to_keep": {
+      "pl": "Analizy porównawcze (benchmarking), Local File, pliki xml TPR z potwierdzeniem UPO",
+      "en": "Benchmarking analyses, Local File, TPR XML files with UPO receipt"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Wysokie kary z Kodeksu Karnego Skarbowego dla zarządu (do kilkunastu milionów PLN) oraz ryzyko doszacowania dochodu i nałożenia karnego podatku",
+      "en": "High fines from the Fiscal Penal Code for the board (up to several million PLN) and risk of profit adjustment and penal tax imposition"
+    },
+    "owner_role": "finance",
+    "confidence_level": "likely"
+  },
+  {
+    "regulation_id": "PL_ZUS_001",
+    "area": "employment_social",
+    "name": {
+      "pl": "Obowiązki płatnika składek ZUS",
+      "en": "ZUS Social Security Contribution Payer Duties"
+    },
+    "obligation_name": {
+      "pl": "Rozliczanie składek pracowniczych i zgłoszenia ZUS",
+      "en": "Employee Contributions and ZUS Declarations"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa z dnia 13 października 1998 r. o systemie ubezpieczeń społecznych",
+      "en": "Act of 13 October 1998 on the Social Security System"
+    },
+    "authority": {
+      "pl": "Zakład Ubezpieczeń Społecznych (ZUS)",
+      "en": "Social Insurance Institution (ZUS)"
+    },
+    "official_source": "https://www.zus.pl/",
+    "trigger_logic": {
+      "pl": "Dotyczy każdego przedsiębiorcy zatrudniającego pracowników (umowa o pracę, zlecenie) lub opłacającego składki za siebie (jednoosobowa działalność).",
+      "en": "Applies to every entrepreneur employing staff (employment contract, mandate contract) or paying contributions for themselves (sole proprietorship)."
+    },
+    "trigger_data_fields": ["employee_count", "has_contractors", "is_sole_trader"],
+    "thresholds": null,
+    "obligation_type": "reporting",
+    "output_required": {
+      "pl": "Deklaracje rozliczeniowe ZUS DRA, RCA, RSA oraz wpłata składek",
+      "en": "ZUS DRA, RCA, RSA settlement declarations and payment of contributions"
+    },
+    "portal_or_submission": {
+      "pl": "Program Płatnik / Platforma Usług Elektronicznych ZUS (PUE ZUS)",
+      "en": "Płatnik Program / ZUS Electronic Services Platform (PUE ZUS)"
+    },
+    "frequency": "monthly",
+    "deadline": {
+      "pl": "Do 15. dnia (dla JDG) lub 20. dnia miesiąca (dla spółek) za miesiąc poprzedni",
+      "en": "By the 15th day (for sole traders) or 20th day of the month (for companies) for the previous month"
+    },
+    "evidence_to_keep": {
+      "pl": "Potwierdzenia wysyłki deklaracji ZUS, dowody przelewów składek",
+      "en": "ZUS declarations dispatch confirmations, contribution transfer receipts"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Naliczenie odsetek za zwłokę, grzywna do 5000 PLN nakładana przez ZUS, przymusowe ściągnięcie składek",
+      "en": "Default interest, fine up to 5,000 PLN imposed by ZUS, compulsory collection of contributions"
+    },
+    "owner_role": "hr",
+    "confidence_level": "certain"
+  },
+  {
+    "regulation_id": "PL_HR_LABOUR",
+    "area": "employment_social",
+    "name": {
+      "pl": "Kodeks Pracy i Dokumentacja Pracownicza",
+      "en": "Labour Code and Employee Documentation"
+    },
+    "obligation_name": {
+      "pl": "Prowadzenie akt osobowych i ewidencji czasu pracy",
+      "en": "Keeping Personal Files and Working Time Records"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa z dnia 26 czerwca 1974 r. - Kodeks pracy / Rozporządzenie MRiPS w sprawie dokumentacji pracowniczej",
+      "en": "Act of 26 June 1974 - Labour Code / Regulation of the MRiPS on Employee Documentation"
+    },
+    "authority": {
+      "pl": "Państwowa Inspekcja Pracy (PIP)",
+      "en": "National Labour Inspectorate (PIP)"
+    },
+    "official_source": "https://www.pip.gov.pl/",
+    "trigger_logic": {
+      "pl": "Dotyczy pracodawców zatrudniających co najmniej jedną osobę na umowę o pracę.",
+      "en": "Applies to employers employing at least one person under an employment contract."
+    },
+    "trigger_data_fields": ["employee_count"],
+    "thresholds": {
+      "pl": "Zatrudnianie minimum 1 pracownika na umowę o pracę. Dodatkowe obowiązki (regulamin pracy, regulamin wynagradzania, ZFŚS) przy zatrudnieniu powyżej 50 pracowników.",
+      "en": "Employing at least 1 employee under an employment contract. Additional obligations (work regulations, remuneration regulations, ZFŚS social fund) when employing over 50 employees."
+    },
+    "obligation_type": "recordkeeping",
+    "output_required": {
+      "pl": "Akta osobowe (części A, B, C, D, E), ewidencja czasu pracy, karty urlopowe",
+      "en": "Personal files (parts A, B, C, D, E), working time records, leave cards"
+    },
+    "portal_or_submission": {
+      "pl": "Brak (dokumentacja przechowywana wewnętrznie w formie papierowej lub elektronicznej)",
+      "en": "None (documentation stored internally in paper or electronic form)"
+    },
+    "frequency": "event_based",
+    "deadline": {
+      "pl": "Bieżące prowadzenie dokumentacji od pierwszego dnia zatrudnienia",
+      "en": "Ongoing documentation maintenance from the first day of employment"
+    },
+    "evidence_to_keep": {
+      "pl": "Archiwum akt osobowych pracowników (przez 10 lat od końca roku, w którym ustał stosunek pracy)",
+      "en": "Archive of employee personal files (for 10 years from the end of the year in which the employment relationship ended)"
+    },
+    "penalty_risk": "medium",
+    "penalty_description": {
+      "pl": "Grzywna nakładana przez PIP w wysokości od 1 000 do 30 000 PLN za naruszenie praw pracowniczych lub brak dokumentacji",
+      "en": "Fine imposed by PIP ranging from 1,000 to 30,000 PLN for violation of employee rights or lack of documentation"
+    },
+    "owner_role": "hr",
+    "confidence_level": "certain"
+  },
+  {
+    "regulation_id": "PL_HR_OHS",
+    "area": "employment_social",
+    "name": {
+      "pl": "Bezpieczeństwo i Higiena Pracy (BHP)",
+      "en": "Occupational Health and Safety (OHS / BHP)"
+    },
+    "obligation_name": {
+      "pl": "Szkolenia BHP i ocena ryzyka zawodowego",
+      "en": "OHS Training and Occupational Risk Assessment"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa - Kodeks pracy (Dział Dziesiąty: Bezpieczeństwo i higiena pracy)",
+      "en": "Act - Labour Code (Division Ten: Occupational Health and Safety)"
+    },
+    "authority": {
+      "pl": "Państwowa Inspekcja Pracy (PIP) / Państwowa Inspekcja Sanitarna",
+      "en": "National Labour Inspectorate (PIP) / State Sanitary Inspectorate"
+    },
+    "official_source": "https://www.pip.gov.pl/pl/dla-pracodawcow/bhp",
+    "trigger_logic": {
+      "pl": "Dotyczy wszystkich pracodawców zatrudniających pracowników. Pracodawca zobowiązany jest przeszkolić każdego pracownika, sporządzić kartę oceny ryzyka zawodowego oraz zapewnić badania profilaktyczne (medycyna pracy).",
+      "en": "Applies to all employers employing staff. The employer is obliged to train every employee, prepare an occupational risk assessment sheet, and provide preventive medical examinations (occupational medicine)."
+    },
+    "trigger_data_fields": ["employee_count"],
+    "thresholds": null,
+    "obligation_type": "audit",
+    "output_required": {
+      "pl": "Karty szkoleń BHP (wstępne i okresowe), dokument oceny ryzyka zawodowego, orzeczenia lekarskie medycyny pracy",
+      "en": "OHS training cards (induction and periodic), occupational risk assessment document, occupational medicine doctor certifications"
+    },
+    "portal_or_submission": {
+      "pl": "Brak (przechowywanie w aktach osobowych)",
+      "en": "None (stored in personal files)"
+    },
+    "frequency": "event_based",
+    "deadline": {
+      "pl": "Szkolenie wstępne przed dopuszczeniem do pracy; szkolenia okresowe cyklicznie w zależności od stanowiska; ocena ryzyka przed rozpoczęciem pracy",
+      "en": "Induction training before admission to work; periodic training cyclically depending on position; risk assessment before starting work"
+    },
+    "evidence_to_keep": {
+      "pl": "Certyfikaty szkoleń BHP, podpisany przez pracownika odbiór informacji o ryzyku zawodowym, aktualne skierowania i orzeczenia lekarskie",
+      "en": "OHS training certificates, employee-signed acknowledgment of occupational risk, current doctor referrals and certifications"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Grzywna PIP od 1000 PLN do 30 000 PLN, nakaz natychmiastowego odsunięcia pracownika od pracy, w skrajnych przypadkach (wypadek) odpowiedzialność karna",
+      "en": "PIP fine from 1,000 PLN to 30,000 PLN, order to immediately suspend the employee from work, in extreme cases (accidents) criminal liability"
+    },
+    "owner_role": "hr",
+    "confidence_level": "certain"
+  },
+  {
+    "regulation_id": "PL_HR_PPK",
+    "area": "employment_social",
+    "name": {
+      "pl": "Pracownicze Plany Kapitałowe (PPK)",
+      "en": "Employee Capital Plans (PPK)"
+    },
+    "obligation_name": {
+      "pl": "Wdrożenie i obsługa programu PPK",
+      "en": "Implementation and Management of PPK Program"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa z dnia 4 października 2018 r. o pracowniczych planach kapitałowych",
+      "en": "Act of 4 October 2018 on Employee Capital Plans"
+    },
+    "authority": {
+      "pl": "Polski Fundusz Rozwoju (PFR) / Państwowa Inspekcja Pracy (PIP)",
+      "en": "Polish Development Fund (PFR) / National Labour Inspectorate (PIP)"
+    },
+    "official_source": "https://www.mojeppk.pl/",
+    "trigger_logic": {
+      "pl": "Dotyczy wszystkich podmiotów zatrudniających co najmniej jedną osobę, która podlega obowiązkowo ubezpieczeniom emerytalnemu i rentowym (ZUS).",
+      "en": "Applies to all entities employing at least one person who is subject to mandatory old-age and disability pensions insurance (ZUS)."
+    },
+    "trigger_data_fields": ["employee_count", "has_contractors"],
+    "thresholds": {
+      "pl": "Dowolny podmiot zatrudniający co najmniej 1 osobę podlegającą ubezpieczeniom ZUS. Wyłączone są mikroprzedsiębiorstwa, jeśli wszystkie osoby zatrudnione złożą deklarację o rezygnacji.",
+      "en": "Any entity employing at least 1 person subject to ZUS insurance. Micro-enterprises are exempt if all employed persons submit a declaration of resignation."
+    },
+    "obligation_type": "policy",
+    "output_required": {
+      "pl": "Umowa o zarządzanie PPK, umowa o prowadzenie PPK, comiesięczne odprowadzanie wpłat",
+      "en": "PPK management contract, PPK operation contract, monthly transfer of contributions"
+    },
+    "portal_or_submission": {
+      "pl": "Dedykowane systemy wybranej instytucji finansowej",
+      "en": "Dedicated systems of the selected financial institution"
+    },
+    "frequency": "monthly",
+    "deadline": {
+      "pl": "Nawiązanie umowy o zarządzanie w ciągu kilku miesięcy od zatrudnienia pierwszej osoby; comiesięczne wpłaty do 15. dnia kolejnego miesiąca",
+      "en": "PPK management contract within a few months of employing the first person; monthly contributions by the 15th day of the following month"
+    },
+    "evidence_to_keep": {
+      "pl": "Umowy PPK, pisemne deklaracje pracowników o rezygnacji (autozapis co 4 lata), raporty z przelewów",
+      "en": "PPK contracts, written employee resignation declarations (auto-enrollment every 4 years), contribution transfer reports"
+    },
+    "penalty_risk": "medium",
+    "penalty_description": {
+      "pl": "Niedopełnienie obowiązku zawarcia umowy o zarządzanie PPK podlega karze grzywny do 1,5% funduszu płac; nakłanianie do rezygnacji podlega grzywnie do 1 000 000 PLN",
+      "en": "Failure to conclude PPK management contract is subject to a fine up to 1.5% of payroll; encouraging resignation is subject to a fine up to 1,000,000 PLN"
+    },
+    "owner_role": "hr",
+    "confidence_level": "certain"
+  },
+  {
+    "regulation_id": "PL_HR_FOREIGN",
+    "area": "employment_social",
+    "name": {
+      "pl": "Zatrudnianie Cudzoziemców w Polsce",
+      "en": "Employing Foreigners in Poland"
+    },
+    "obligation_name": {
+      "pl": "Zezwolenia na pracę, oświadczenia o powierzeniu pracy",
+      "en": "Work Permits, Declarations on Entrusting Work"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa z dnia 20 kwietnia 2004 r. o promocji zatrudnienia i instytucjach rynku pracy",
+      "en": "Act of 20 April 2004 on Employment Promotion and Labour Market Institutions"
+    },
+    "authority": {
+      "pl": "Wojewoda / Powiatowy Urząd Pracy (PUP) / Straż Graniczna",
+      "en": "Voivode / County Labour Office (PUP) / Border Guard"
+    },
+    "official_source": "https://www.biznes.gov.pl/pl/opisy-procedur/-/proc/1614",
+    "trigger_logic": {
+      "pl": "Dotyczy pracodawców zatrudniających obywateli krajów spoza UE/EOG/Szwajcarii. Wymaga legalizacji pobytu i pracy w Polsce.",
+      "en": "Applies to employers employing citizens of non-EU/EEA/Swiss countries. Requires legalization of stay and work in Poland."
+    },
+    "trigger_data_fields": ["has_foreign_workers"],
+    "thresholds": null,
+    "obligation_type": "permit",
+    "output_required": {
+      "pl": "Zezwolenie na pracę (typ A-E) lub oświadczenie o powierzeniu wykonywania pracy wpisane do rejestru urzędu pracy",
+      "en": "Work permit (type A-E) or declaration of entrusting work entered in the labor office register"
+    },
+    "portal_or_submission": {
+      "pl": "Portal Praca.gov.pl / Urząd Wojewódzki",
+      "en": "Praca.gov.pl Portal / Voivodeship Office"
+    },
+    "frequency": "event_based",
+    "deadline": {
+      "pl": "Przed faktycznym rozpoczęciem pracy przez obcokrajowca",
+      "en": "Before the actual start of work by the foreigner"
+    },
+    "evidence_to_keep": {
+      "pl": "Kopia ważnego dokumentu pobytowego cudzoziemca (wiza, karta pobytu), oryginał zezwolenia/oświadczenia, zgłoszenie ZUS",
+      "en": "Copy of foreigner's valid residence document (visa, residence card), original permit/declaration, ZUS registration"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Grzywna za nielegalne powierzenie pracy od 1 000 do 30 000 PLN, ryzyko zakazu zatrudniania cudzoziemców, deportacja pracownika",
+      "en": "Fine for illegal work entrustment from 1,000 to 30,000 PLN, risk of ban on hiring foreigners, employee deportation"
+    },
+    "owner_role": "hr",
+    "confidence_level": "certain"
+  },
+  {
+    "regulation_id": "PL_GDPR_001",
+    "area": "data_privacy",
+    "name": {
+      "pl": "Ogólne Obowiązki Administratora Danych Osobowych (RODO)",
+      "en": "General Obligations of Data Controller (GDPR / RODO)"
+    },
+    "obligation_name": {
+      "pl": "Polityka prywatności, rejestry i upoważnienia RODO",
+      "en": "GDPR Privacy Policy, Registers, and Authorizations"
+    },
+    "legal_level": "eu",
+    "legal_basis": {
+      "pl": "Rozporządzenie Parlamentu Europejskiego i Rady (UE) 2016/679 (RODO) / Ustawa z dnia 10 maja 2018 r. o ochronie danych osobowych",
+      "en": "Regulation (EU) 2016/679 (GDPR) / Act of 10 May 2018 on Personal Data Protection"
+    },
+    "authority": {
+      "pl": "Urząd Ochrony Danych Osobowych (UODO)",
+      "en": "President of the Personal Data Protection Office (UODO)"
+    },
+    "official_source": "https://uodo.gov.pl/",
+    "trigger_logic": {
+      "pl": "Dotyczy wszystkich firm przetwarzających jakiekolwiek dane osobowe (pracowników, klientów, kontrahentów B2B, użytkowników stron internetowych).",
+      "en": "Applies to all companies processing any personal data (employees, clients, B2B contractors, website users)."
+    },
+    "trigger_data_fields": ["processes_personal_data"],
+    "thresholds": null,
+    "obligation_type": "policy",
+    "output_required": {
+      "pl": "Rejestr Czynności Przetwarzania (RCP), klauzule informacyjne, umowy powierzenia danych (MADA), upoważnienia do przetwarzania",
+      "en": "Record of Processing Activities (RoPA), informational clauses, data processing agreements (DPA), authorizations to process"
+    },
+    "portal_or_submission": {
+      "pl": "Brak (dokumentacja przechowywana wewnętrznie, udostępniana na wezwanie UODO)",
+      "en": "None (stored internally, shared upon UODO demand)"
+    },
+    "frequency": "one_off",
+    "deadline": {
+      "pl": "Wdrożenie przed rozpoczęciem pierwszych operacji przetwarzania danych; stała aktualizacja",
+      "en": "Implementation before commencing first data processing operations; ongoing update"
+    },
+    "evidence_to_keep": {
+      "pl": "Wewnętrzne polityki bezpieczeństwa, spis zawartych umów powierzenia, rejestr naruszeń",
+      "en": "Internal security policies, list of DPAs concluded, breach register"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Administracyjne kary pieniężne nakładane przez UODO do wysokości 20 000 000 EUR lub 4% globalnego rocznego obrotu",
+      "en": "Administrative fines imposed by UODO up to 20,000,000 EUR or 4% of global annual turnover"
+    },
+    "owner_role": "it_security",
+    "confidence_level": "certain"
+  },
+  {
+    "regulation_id": "PL_GDPR_DPO",
+    "area": "data_privacy",
+    "name": {
+      "pl": "Wyznaczenie Inspektora Ochrony Danych (IOD)",
+      "en": "Appointment of Data Protection Officer (DPO)"
+    },
+    "obligation_name": {
+      "pl": "Wyznaczenie i zgłoszenie IOD do UODO",
+      "en": "Appointment and Notification of DPO to UODO"
+    },
+    "legal_level": "eu",
+    "legal_basis": {
+      "pl": "Artykuł 37 RODO (Rozporządzenie 2016/679)",
+      "en": "Article 37 of GDPR (Regulation 2016/679)"
+    },
+    "authority": {
+      "pl": "Urząd Ochrony Danych Osobowych (UODO)",
+      "en": "President of the Personal Data Protection Office (UODO)"
+    },
+    "official_source": "https://uodo.gov.pl/pl/130",
+    "trigger_logic": {
+      "pl": "Dotyczy firm, których główna działalność polega na operacjach przetwarzania wymagających systematycznego i na dużą skalę monitorowania osób, lub przetwarzaniu na dużą skalę szczególnych kategorii danych (wrażliwych, zdrowotnych itp.).",
+      "en": "Applies to companies whose core activities consist of processing operations requiring systematic monitoring of data subjects on a large scale, or large-scale processing of special categories of data (sensitive, health data, etc.)."
+    },
+    "trigger_data_fields": ["processes_sensitive_data_large_scale", "monitors_subjects_large_scale"],
+    "thresholds": null,
+    "obligation_type": "appointment",
+    "output_required": {
+      "pl": "Zgłoszenie wyznaczenia IOD na formularzu elektronicznym",
+      "en": "Notification of DPO appointment on an electronic form"
+    },
+    "portal_or_submission": {
+      "pl": "Dedykowana e-usługa na portalu biznes.gov.pl lub epuap.gov.pl",
+      "en": "Dedicated e-service on the biznes.gov.pl or epuap.gov.pl portal"
+    },
+    "frequency": "event_based",
+    "deadline": {
+      "pl": "Zgłoszenie w terminie 14 dni od wyznaczenia Inspektora",
+      "en": "Notification within 14 days of appointing the Officer"
+    },
+    "evidence_to_keep": {
+      "pl": "Akt powołania IOD, potwierdzenie wysłania zgłoszenia z UPO",
+      "en": "DPO appointment act, submission confirmation with UPO receipt"
+    },
+    "penalty_risk": "medium",
+    "penalty_description": {
+      "pl": "Kara administracyjna UODO za brak powołania IOD mimo istnienia takiego obowiązku ustawowego (do 10 000 000 EUR lub 2% obrotu)",
+      "en": "UODO administrative fine for failure to appoint a DPO despite legal obligation (up to 10,000,000 EUR or 2% of turnover)"
+    },
+    "owner_role": "it_security",
+    "confidence_level": "likely"
+  },
+  {
+    "regulation_id": "PL_GDPR_BREACH",
+    "area": "data_privacy",
+    "name": {
+      "pl": "Zgłaszanie Naruszeń Ochrony Danych Osobowych",
+      "en": "Reporting Personal Data Breaches"
+    },
+    "obligation_name": {
+      "pl": "Zgłaszanie incydentów bezpieczeństwa danych do UODO",
+      "en": "Reporting Data Security Incidents to UODO"
+    },
+    "legal_level": "eu",
+    "legal_basis": {
+      "pl": "Artykuł 33 RODO (Rozporządzenie 2016/679)",
+      "en": "Article 33 of GDPR (Regulation 2016/679)"
+    },
+    "authority": {
+      "pl": "Urząd Ochrony Danych Osobowych (UODO)",
+      "en": "President of the Personal Data Protection Office (UODO)"
+    },
+    "official_source": "https://uodo.gov.pl/pl/134",
+    "trigger_logic": {
+      "pl": "Dotyczy każdego administratora danych w przypadku wystąpienia naruszenia ochrony danych osobowych, które niesie za sobą ryzyko naruszenia praw lub wolności osób fizycznych.",
+      "en": "Applies to any data controller in the event of a personal data breach which is likely to result in a risk to the rights and freedoms of natural persons."
+    },
+    "trigger_data_fields": ["processes_personal_data"],
+    "thresholds": null,
+    "obligation_type": "reporting",
+    "output_required": {
+      "pl": "Elektroniczny formularz zgłoszenia naruszenia",
+      "en": "Electronic data breach notification form"
+    },
+    "portal_or_submission": {
+      "pl": "Portal biznes.gov.pl / e-PUAP / e-UODO",
+      "en": "Biznes.gov.pl Portal / e-PUAP / e-UODO"
+    },
+    "frequency": "event_based",
+    "deadline": {
+      "pl": "Bez zbędnej zwłoki, nie później niż w ciągu 72 godzin po stwierdzeniu naruszenia",
+      "en": "Without undue delay, no later than 72 hours after becoming aware of the breach"
+    },
+    "evidence_to_keep": {
+      "pl": "Analiza wewnętrzna incydentu, rejestr naruszeń, potwierdzenie wysyłki e-zgłoszenia",
+      "en": "Internal incident analysis, breach register, e-submission confirmation"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Surowe kary finansowe do 20M EUR za niezgłoszenie incydentu w wymaganym terminie 72h lub brak powiadomienia dotkniętych osób",
+      "en": "Severe financial penalties up to 20M EUR for failure to report the incident within 72h or failure to notify affected individuals"
+    },
+    "owner_role": "it_security",
+    "confidence_level": "certain"
+  },
+  {
+    "regulation_id": "PL_CYBER_KSC",
+    "area": "data_privacy",
+    "name": {
+      "pl": "Krajowy System Cyberbezpieczeństwa (KSC / NIS2)",
+      "en": "National Cybersecurity System (KSC / NIS2)"
+    },
+    "obligation_name": {
+      "pl": "Audyty bezpieczeństwa i raportowanie incydentów",
+      "en": "Security Audits and Incident Reporting"
+    },
+    "legal_level": "eu",
+    "legal_basis": {
+      "pl": "Ustawa z dnia 5 lipca 2018 r. o krajowym systemie cyberbezpieczeństwa (implementująca dyrektywę NIS2)",
+      "en": "Act of 5 July 2018 on the National Cybersecurity System (implementing NIS2 Directive)"
+    },
+    "authority": {
+      "pl": "Ministerstwo Cyfryzacji / CSIRT MON / CSIRT NASK / CSIRT GOV",
+      "en": "Ministry of Digital Affairs / CSIRT MON / CSIRT NASK / CSIRT GOV"
+    },
+    "official_source": "https://www.gov.pl/web/cyfryzacja/krajowy-system-cyberbezpieczenstwa",
+    "trigger_logic": {
+      "pl": "Dotyczy podmiotów kluczowych i ważnych w sektorach strategicznych (energia, transport, bankowość, ochrona zdrowia, infrastruktura cyfrowa, produkcja, dostawcy usług cyfrowych itp.) o rozmiarach średnich i dużych.",
+      "en": "Applies to essential and important entities in strategic sectors (energy, transport, banking, healthcare, digital infrastructure, manufacturing, digital service providers, etc.) of medium and large size."
+    },
+    "trigger_data_fields": ["is_nis2_applicable", "company_size"],
+    "thresholds": {
+      "pl": "Dotyczy średnich i dużych przedsiębiorstw zatrudniających > 50 pracowników oraz z obrotem > 10M EUR w wyznaczonych sektorach",
+      "en": "Applies to medium and large enterprises with > 50 employees and turnover > 10M EUR in designated sectors"
+    },
+    "obligation_type": "audit",
+    "output_required": {
+      "pl": "Wdrożenie systemu zarządzania bezpieczeństwem, przeprowadzanie audytów, zgłaszanie poważnych incydentów w ciągu 24h",
+      "en": "Implementation of a security management system, conducting audits, reporting significant incidents within 24 hours"
+    },
+    "portal_or_submission": {
+      "pl": "System teleinformatyczny właściwego CSIRT",
+      "en": "IT system of the competent CSIRT"
+    },
+    "frequency": "annual",
+    "deadline": {
+      "pl": "Zgłoszenie incydentu wczesnego ostrzegania w ciągu 24 godzin; audyty cyklicznie co 2 lata",
+      "en": "Submission of early warning incident within 24 hours; periodic audits every 2 years"
+    },
+    "evidence_to_keep": {
+      "pl": "Polityki bezpieczeństwa informacji, raporty z audytów bezpieczeństwa, dowody analizy ryzyka",
+      "en": "Information security policies, security audit reports, risk assessment evidence"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Kary pieniężne dla podmiotów ważnych (do 7 000 000 EUR lub 1.4% obrotu) oraz dla podmiotów kluczowych (do 10 000 000 EUR lub 2% obrotu)",
+      "en": "Financial fines for important entities (up to 7,000,000 EUR or 1.4% of turnover) and for essential entities (up to 10,000,000 EUR or 2% of turnover)"
+    },
+    "owner_role": "it_security",
+    "confidence_level": "likely"
+  },
+  {
+    "regulation_id": "PL_CON_CONSUMER",
+    "area": "consumer_competition",
+    "name": {
+      "pl": "Prawa Konsumenta i E-commerce",
+      "en": "Consumer Rights and E-commerce"
+    },
+    "obligation_name": {
+      "pl": "Dostosowanie regulaminów i procedury zwrotów",
+      "en": "Adjustment of Terms and Return Procedures"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa z dnia 30 maja 2014 r. o prawach konsumenta / Dyrektywa Omnibus (UE)",
+      "en": "Act of 30 May 2014 on Consumer Rights / Omnibus Directive (EU)"
+    },
+    "authority": {
+      "pl": "Urząd Ochrony Konkurencji i Konsumentów (UOKiK)",
+      "en": "Office of Competition and Consumer Protection (UOKiK)"
+    },
+    "official_source": "https://uokik.gov.pl/prawa_konsumenta.php",
+    "trigger_logic": {
+      "pl": "Dotyczy wszystkich przedsiębiorców sprzedających produkty lub usługi na rzecz konsumentów (B2C), ze szczególnym uwzględnieniem handlu elektronicznego (sklepy internetowe, aplikacje mobilne).",
+      "en": "Applies to all entrepreneurs selling products or services to consumers (B2C), with special emphasis on electronic commerce (online stores, mobile apps)."
+    },
+    "trigger_data_fields": ["has_b2c_sales", "is_ecommerce"],
+    "thresholds": null,
+    "obligation_type": "policy",
+    "output_required": {
+      "pl": "Regulamin sklepu zgodny z prawem konsumenckim, przejrzysta informacja o najniższej cenie z 30 dni przed obniżką (Omnibus), obsługa zwrotów w ciągu 14 dni",
+      "en": "Store terms compliant with consumer law, clear information about the lowest price from the last 30 days (Omnibus), handling returns within 14 days"
+    },
+    "portal_or_submission": {
+      "pl": "Brak (publikacja na stronie internetowej przedsiębiorstwa)",
+      "en": "None (publication on the enterprise's website)"
+    },
+    "frequency": "one_off",
+    "deadline": {
+      "pl": "Przed rozpoczęciem sprzedaży B2C / uruchomieniem platformy e-commerce",
+      "en": "Before starting B2C sales / launching e-commerce platform"
+    },
+    "evidence_to_keep": {
+      "pl": "Regulaminy, polityki zwrotów, logi zmian cen w bazie danych (kontrola Omnibus)",
+      "en": "Terms, return policies, price history logs in the database (Omnibus control)"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Kary nakładane przez UOKiK do wysokości 10% obrotu firmy za klauzule niedozwolone lub naruszanie zbiorowych interesów konsumentów",
+      "en": "Fines imposed by UOKiK up to 10% of company turnover for prohibited clauses or violating collective interests of consumers"
+    },
+    "owner_role": "product",
+    "confidence_level": "certain"
+  },
+  {
+    "regulation_id": "PL_CON_UOKIK",
+    "area": "consumer_competition",
+    "name": {
+      "pl": "Ochrona Konkurencji i Konsumentów",
+      "en": "Protection of Competition and Consumers"
+    },
+    "obligation_name": {
+      "pl": "Przeciwdziałanie praktykom monopolistycznym i zatorom płatniczym",
+      "en": "Counteracting Monopolistic Practices and Payment Backlogs"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa z dnia 16 lutego 2007 r. o ochronie konkurencji i konsumentów",
+      "en": "Act of 16 February 2007 on Competition and Consumer Protection"
+    },
+    "authority": {
+      "pl": "Urząd Ochrony Konkurencji i Konsumentów (UOKiK)",
+      "en": "Office of Competition and Consumer Protection (UOKiK)"
+    },
+    "official_source": "https://uokik.gov.pl/",
+    "trigger_logic": {
+      "pl": "Dotyczy wszystkich przedsiębiorstw. Zakazuje zmów cenowych, nadużywania pozycji dominującej, nieuczciwego wykorzystywania przewagi kontraktowej oraz opóźniania płatności w transakcjach handlowych (zatory płatnicze).",
+      "en": "Applies to all enterprises. Prohibits price fixing, abuse of dominant position, unfair contract advantage, and late payments in commercial transactions (payment backlogs)."
+    },
+    "trigger_data_fields": ["is_registered_in_poland"],
+    "thresholds": null,
+    "obligation_type": "policy",
+    "output_required": {
+      "pl": "Zgodność z przepisami konkurencji, sprawozdawczość o terminach zapłaty dla dużych spółek",
+      "en": "Compliance with competition rules, reporting on payment practices for large companies"
+    },
+    "portal_or_submission": {
+      "pl": "Brak / Portal Ministerstwa Rozwoju dla zatorów płatniczych",
+      "en": "None / Ministry of Development Portal for payment practices"
+    },
+    "frequency": "annual",
+    "deadline": {
+      "pl": "Stała zgodność; raporty o zatorach płatniczych do końca stycznia (dotyczy tylko największych firm)",
+      "en": "Ongoing compliance; reports on payment backlogs by end of January (applies only to the largest companies)"
+    },
+    "evidence_to_keep": {
+      "pl": "Wewnętrzne polityki compliance, analizy umów handlowych, raporty płatności faktur",
+      "en": "Internal compliance policies, commercial agreements analyses, invoice payment reports"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Kary finansowe do 10% obrotu przedsiębiorstwa, a także kary osobiste dla menedżerów do 2 000 000 PLN nakładane przez UOKiK",
+      "en": "Financial fines up to 10% of company turnover, and personal fines for managers up to 2,000,000 PLN imposed by UOKiK"
+    },
+    "owner_role": "legal",
+    "confidence_level": "certain"
+  },
+  {
+    "regulation_id": "EU_CE_MARKING",
+    "area": "eu_compliance",
+    "name": {
+      "pl": "Oznakowanie CE i Deklaracja Zgodności UE",
+      "en": "CE Marking and EU Declaration of Conformity"
+    },
+    "obligation_name": {
+      "pl": "Ocena zgodności i znakowanie CE produktów",
+      "en": "Conformity Assessment and CE Marking of Products"
+    },
+    "legal_level": "eu",
+    "legal_basis": {
+      "pl": "Dyrektywy Nowego Podejścia / Rozporządzenie Parlamentu Europejskiego i Rady (UE) 2019/1020 w sprawie nadzoru rynku",
+      "en": "New Approach Directives / Regulation (EU) 2019/1020 on Market Surveillance"
+    },
+    "authority": {
+      "pl": "Polskie Centrum Akredytacji / Urząd Ochrony Konkurencji i Konsumentów (UOKiK) / Wojewódzkie Inspektoraty Inspekcji Handlowej",
+      "en": "Polish Centre for Accreditation / UOKiK / Trade Inspectorates"
+    },
+    "official_source": "https://www.biznes.gov.pl/pl/portal/0078",
+    "trigger_logic": {
+      "pl": "Dotyczy producentów, importerów lub dystrybutorów wprowadzających do obrotu towary podlegające dyrektywom unijnym (np. elektronika, maszyny, zabawki, wyroby medyczne, materiały budowlane, sprzęt AGD).",
+      "en": "Applies to manufacturers, importers, or distributors placing goods subject to EU directives on the market (e.g., electronics, machinery, toys, medical devices, construction materials, household appliances)."
+    },
+    "trigger_data_fields": ["introduces_ce_goods_to_market"],
+    "thresholds": null,
+    "obligation_type": "permit",
+    "output_required": {
+      "pl": "Deklaracja zgodności UE (DoC), dokumentacja techniczna, umieszczenie znaku CE na produkcie",
+      "en": "EU Declaration of Conformity (DoC), technical documentation, CE marking on the product"
+    },
+    "portal_or_submission": {
+      "pl": "Brak (dokumentacja przechowywana przez 10 lat od momentu wprowadzenia towaru na rynek)",
+      "en": "None (documentation stored for 10 years after product placement on the market)"
+    },
+    "frequency": "event_based",
+    "deadline": {
+      "pl": "Przed wprowadzeniem pierwszego produktu danej serii na rynek unijny",
+      "en": "Before placing the first product of a series on the EU market"
+    },
+    "evidence_to_keep": {
+      "pl": "Plik techniczny produktu (wyniki badań, schematy), certyfikaty jednostek notyfikowanych, Deklaracja DoC",
+      "en": "Product technical file (test results, diagrams), notified body certificates, Declaration of Conformity"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Nakaz wycofania produktów z rynku na koszt przedsiębiorcy, wysokie kary pieniężne (do 100 000 PLN za sztukę) oraz ryzyko odpowiedzialności karnej",
+      "en": "Order to withdraw products from the market at the entrepreneur's expense, heavy financial fines (up to 100,000 PLN per unit), and risk of criminal liability"
+    },
+    "owner_role": "product",
+    "confidence_level": "certain"
+  },
+  {
+    "regulation_id": "PL_PROD_SAFETY",
+    "area": "consumer_competition",
+    "name": {
+      "pl": "Ogólne Bezpieczeństwo Produktów",
+      "en": "General Product Safety"
+    },
+    "obligation_name": {
+      "pl": "Nadzór nad bezpieczeństwem produktów konsumenckich",
+      "en": "Safety Surveillance of Consumer Products"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa z dnia 12 grudnia 2003 r. o ogólnym bezpieczeństwie produktów",
+      "en": "Act of 12 December 2003 on General Product Safety"
+    },
+    "authority": {
+      "pl": "Urząd Ochrony Konkurencji i Konsumentów (UOKiK) / Inspekcja Handlowa",
+      "en": "Office of Competition and Consumer Protection (UOKiK) / Trade Inspectorate"
+    },
+    "official_source": "https://uokik.gov.pl/bezpieczenstwo_produktow.php",
+    "trigger_logic": {
+      "pl": "Dotyczy wszystkich producentów i dystrybutorów towarów konsumenckich wprowadzanych na polski rynek. Zobowiązuje do natychmiastowego powiadomienia organów w przypadku wykrycia niebezpieczeństwa w produkcie.",
+      "en": "Applies to all manufacturers and distributors of consumer goods placed on the Polish market. Obliges immediate notification of authorities if a product is found to be dangerous."
+    },
+    "trigger_data_fields": ["places_consumer_goods_to_market"],
+    "thresholds": null,
+    "obligation_type": "reporting",
+    "output_required": {
+      "pl": "Zgłoszenie o niebezpiecznym produkcie (system RAPEX / Safety Gate), procedura wycofania produktu",
+      "en": "Dangerous product notification (RAPEX / Safety Gate system), product recall procedure"
+    },
+    "portal_or_submission": {
+      "pl": "Dedykowany formularz zgłoszeniowy UOKiK",
+      "en": "Dedicated UOKiK notification form"
+    },
+    "frequency": "event_based",
+    "deadline": {
+      "pl": "Niezwłocznie po uzyskaniu informacji o zagrożeniu generowanym przez produkt",
+      "en": "Immediately upon becoming aware of a threat generated by the product"
+    },
+    "evidence_to_keep": {
+      "pl": "Procedury testowe, certyfikaty jakościowe, dokumenty logistyczne dystrybucji",
+      "en": "Testing procedures, quality certificates, distribution logistical documentation"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Grzywna nakładana przez Prezesa UOKiK do wysokości 100 000 PLN na producentów lub dystrybutorów, przymusowe wycofanie partii towarów",
+      "en": "Fine imposed by the President of UOKiK up to 100,000 PLN on manufacturers or distributors, forced recall of product batches"
+    },
+    "owner_role": "product",
+    "confidence_level": "likely"
+  },
+  {
+    "regulation_id": "PL_BDO_REG",
+    "area": "environmental_ehs",
+    "name": {
+      "pl": "Rejestracja w Bazie Danych Odpadowych (BDO)",
+      "en": "BDO Waste Database Registration"
+    },
+    "obligation_name": {
+      "pl": "Wpis do rejestru BDO",
+      "en": "BDO Registry Entry"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa z dnia 14 grudnia 2012 r. o odpadach (rozdział 2)",
+      "en": "Act of 14 December 2012 on Waste (Chapter 2)"
+    },
+    "authority": {
+      "pl": "Marszałek Województwa właściwy ze względu na siedzibę firmy",
+      "en": "Voivodeship Marshal competent for the company headquarters"
+    },
+    "official_source": "https://bdo.mos.gov.pl/",
+    "trigger_logic": {
+      "pl": "Dotyczy podmiotów, które generują odpady inne niż komunalne (np. odpady produkcyjne, niebezpieczne, medyczne), wprowadzają na rynek produkty w opakowaniach, pojazdy, sprzęt elektryczny, baterie lub akumulatory.",
+      "en": "Applies to entities that generate waste other than municipal waste (e.g., manufacturing, hazardous, medical waste), place products in packaging on the market, vehicles, electrical equipment, batteries or accumulators."
+    },
+    "trigger_data_fields": ["generates_industrial_waste", "introduces_packaged_goods", "introduces_electronics_or_batteries"],
+    "thresholds": null,
+    "obligation_type": "registration",
+    "output_required": {
+      "pl": "Uzyskanie numeru rejestrowego BDO, uiszczenie opłaty rejestracyjnej/rocznej",
+      "en": "Obtaining a BDO registration number, payment of registration/annual fee"
+    },
+    "portal_or_submission": {
+      "pl": "System BDO (Rejestr-bdo.mos.gov.pl)",
+      "en": "BDO System (Rejestr-bdo.mos.gov.pl)"
+    },
+    "frequency": "one_off",
+    "deadline": {
+      "pl": "Przed rozpoczęciem działalności generującej odpady lub wprowadzania produktów/opakowań",
+      "en": "Before starting waste-generating activities or placing products/packaging on the market"
+    },
+    "evidence_to_keep": {
+      "pl": "Potwierdzenie nadania numeru BDO, dowody opłat rocznych (standardowo 100 PLN lub 300 PLN)",
+      "en": "BDO number allocation confirmation, annual fee payment receipts (standardly 100 PLN or 300 PLN)"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Prowadzenie działalności bez wymaganego wpisu do BDO podlega administracyjnej karze pieniężnej od 5 000 do 1 000 000 PLN lub karze aresztu",
+      "en": "Conducting activity without the required BDO entry is subject to an administrative fine ranging from 5,000 to 1,000,000 PLN or arrest"
+    },
+    "owner_role": "ehs",
+    "confidence_level": "certain"
+  },
+  {
+    "regulation_id": "PL_BDO_LOG",
+    "area": "environmental_ehs",
+    "name": {
+      "pl": "Bieżąca Ewidencja Odpadów w BDO",
+      "en": "Ongoing Waste Recordkeeping in BDO"
+    },
+    "obligation_name": {
+      "pl": "Wystawianie Kart Przekazania Odpadu (KPO)",
+      "en": "Issuing Waste Transfer Cards (KPO)"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa o odpadach",
+      "en": "Act on Waste"
+    },
+    "authority": {
+      "pl": "Główny Inspektorat Ochrony Środowiska (GIOŚ) / Wojewódzki Inspektorat Ochrony Środowiska (WIOŚ)",
+      "en": "Chief Inspectorate for Environmental Protection (GIOŚ) / Voivodeship Inspectorate (WIOŚ)"
+    },
+    "official_source": "https://bdo.mos.gov.pl/instrukcje-kpo/",
+    "trigger_logic": {
+      "pl": "Dotyczy wszystkich wytwórców odpadów zobowiązanych do prowadzenia ewidencji. Każdy transport odpadów do firmy utylizacyjnej musi być zarejestrowany w systemie.",
+      "en": "Applies to all waste generators obliged to keep records. Each waste transport to a disposal company must be registered in the system."
+    },
+    "trigger_data_fields": ["generates_industrial_waste"],
+    "thresholds": {
+      "pl": "Zwolnienia dla małych ilości niektórych odpadów (np. poniżej 100 kg rocznie dla wybranych kodów)",
+      "en": "Exemptions for small quantities of certain waste (e.g., under 100 kg annually for selected codes)"
+    },
+    "obligation_type": "recordkeeping",
+    "output_required": {
+      "pl": "Karta Przekazania Odpadu (KPO) oraz Karta Ewidencji Odpadu (KEO) generowane w systemie",
+      "en": "Waste Transfer Card (KPO) and Waste Record Card (KEO) generated in the system"
+    },
+    "portal_or_submission": {
+      "pl": "Portal BDO",
+      "en": "BDO Portal"
+    },
+    "frequency": "event_based",
+    "deadline": {
+      "pl": "Generowanie KPO w systemie przed rozpoczęciem transportu odpadów",
+      "en": "Generating KPO in the system before commencing waste transport"
+    },
+    "evidence_to_keep": {
+      "pl": "Elektroniczne karty KPO zatwierdzone przez transportującego i przejmującego odpady",
+      "en": "Electronic KPO cards approved by the transporter and the recipient of the waste"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Brak prowadzenia ewidencji lub ewidencja niezgodna ze stanem faktycznym skutkuje karami pieniężnymi od 1 000 do 1 000 000 PLN",
+      "en": "Failure to keep records or keeping incorrect records results in fines ranging from 1,000 to 1,000,000 PLN"
+    },
+    "owner_role": "ehs",
+    "confidence_level": "certain"
+  },
+  {
+    "regulation_id": "PL_BDO_REP",
+    "area": "environmental_ehs",
+    "name": {
+      "pl": "Roczne Sprawozdanie o Wytworzonych Odpadach",
+      "en": "Annual Report on Generated Waste"
+    },
+    "obligation_name": {
+      "pl": "Sprawozdanie roczne o odpadach w BDO",
+      "en": "Annual Waste Report in BDO"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa o odpadach (rozdział 4)",
+      "en": "Act on Waste (Chapter 4)"
+    },
+    "authority": {
+      "pl": "Marszałek Województwa właściwy dla miejsca wytwarzania odpadów",
+      "en": "Voivodeship Marshal competent for the place of waste generation"
+    },
+    "official_source": "https://bdo.mos.gov.pl/sprawozdawczosc/",
+    "trigger_logic": {
+      "pl": "Dotyczy wszystkich wytwórców odpadów, którzy są zobowiązani do prowadzenia ewidencji (z wyjątkiem odpadów komunalnych).",
+      "en": "Applies to all waste generators who are obliged to keep records (except for municipal waste)."
+    },
+    "trigger_data_fields": ["generates_industrial_waste"],
+    "thresholds": null,
+    "obligation_type": "reporting",
+    "output_required": {
+      "pl": "Roczne sprawozdanie o wytworzonych odpadach i o gospodarowaniu odpadami",
+      "en": "Annual report on generated waste and waste management"
+    },
+    "portal_or_submission": {
+      "pl": "Moduł Sprawozdawczości w systemie BDO",
+      "en": "Reporting Module in the BDO system"
+    },
+    "frequency": "annual",
+    "deadline": {
+      "pl": "Do 15 marca roku następnego",
+      "en": "By 15 March of the following year"
+    },
+    "evidence_to_keep": {
+      "pl": "Podsumowanie sprawozdania złożone w systemie BDO, status 'Złożone'",
+      "en": "BDO annual report summary submitted, status 'Submitted'"
+    },
+    "penalty_risk": "medium",
+    "penalty_description": {
+      "pl": "Niezłożenie sprawozdania w terminie podlega grzywnie do 10 000 PLN, a za złożenie fałszywych danych grozi kara administracyjna",
+      "en": "Failure to submit the report on time is subject to a fine up to 10,000 PLN, and submitting false data risks administrative fines"
+    },
+    "owner_role": "ehs",
+    "confidence_level": "certain"
+  },
+  {
+    "regulation_id": "PL_EPR_PACK",
+    "area": "eu_compliance",
+    "name": {
+      "pl": "Opłata Produktowa i Sprawozdawczość Opakowaniowa (EPR)",
+      "en": "Product Fee and Packaging Reporting (EPR)"
+    },
+    "obligation_name": {
+      "pl": "Rozliczanie wprowadzonych opakowań i opłat produktowych",
+      "en": "Settlement of Packaged Products and Product Fees"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa z dnia 13 czerwca 2013 r. o gospodarce opakowaniami i odpadami opakowaniowymi",
+      "en": "Act of 13 June 2013 on Packaging and Packaging Waste Management"
+    },
+    "authority": {
+      "pl": "Marszałek Województwa / Organizacja Odzysku Opakowań",
+      "en": "Voivodeship Marshal / Packaging Recovery Organization"
+    },
+    "official_source": "https://www.biznes.gov.pl/pl/opisy-procedur/-/proc/1608",
+    "trigger_logic": {
+      "pl": "Dotyczy podmiotów wprowadzających na terytorium kraju produkty w opakowaniach (zarówno producentów towarów, jak i podmiotów importujących / realizujących wewnątrzwspólnotowe nabycie towarów w opakowaniach).",
+      "en": "Applies to entities introducing products in packaging onto the national territory (both manufacturers of goods and entities importing / carrying out intra-Community acquisition of packaged goods)."
+    },
+    "trigger_data_fields": ["introduces_packaged_goods"],
+    "thresholds": {
+      "pl": "Zwolnienie z opłat (pomoc de minimis) dla firm wprowadzających poniżej 1 tony opakowań rocznie, przy czym obowiązek rejestracji i sprawozdawczości w BDO pozostaje bez zmian",
+      "en": "Fee exemption (de minimis aid) for companies placing under 1 tonne of packaging on the market annually, though BDO registration and reporting obligations remain mandatory"
+    },
+    "obligation_type": "fee",
+    "output_required": {
+      "pl": "Roczne sprawozdanie o masie opakowań, wniesienie opłaty produktowej lub sfinansowanie poziomów odzysku",
+      "en": "Annual report on packaging weight, payment of product fee or financing recovery levels"
+    },
+    "portal_or_submission": {
+      "pl": "System BDO (Moduł Sprawozdawczości)",
+      "en": "BDO System (Reporting Module)"
+    },
+    "frequency": "annual",
+    "deadline": {
+      "pl": "Do 15 marca roku następnego",
+      "en": "By 15 March of the following year"
+    },
+    "evidence_to_keep": {
+      "pl": "Złożone sprawozdanie BDO, faktury z Organizacji Odzysku, dowody wyliczenia mas opakowań",
+      "en": "BDO report submitted, invoices from Recovery Organization, proof of packaging weight calculations"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Niewykonanie obowiązku odzysku i recyklingu skutkuje koniecznością wniesienia karnej opłaty produktowej powiększonej o 50% odsetek, kary pieniężne WIOŚ",
+      "en": "Failure to perform recovery and recycling results in having to pay a penal product fee increased by 50% interest, WIOŚ financial fines"
+    },
+    "owner_role": "ehs",
+    "confidence_level": "certain"
+  },
+  {
+    "regulation_id": "PL_KOBIZE_REP",
+    "area": "environmental_ehs",
+    "name": {
+      "pl": "Raportowanie do Krajowej Bazy (KOBiZE)",
+      "en": "Reporting to the National Database (KOBiZE)"
+    },
+    "obligation_name": {
+      "pl": "Roczny raport o emisjach gazów cieplarnianych",
+      "en": "Annual Report on Greenhouse Gas Emissions"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa z dnia 17 lipca 2009 r. o systemie zarządzania emisjami gazów cieplarnianych i innych substancji",
+      "en": "Act of 17 July 2009 on the System for Managing Greenhouse Gas and Other Substance Emissions"
+    },
+    "authority": {
+      "pl": "Krajowy Ośrodek Bilansowania i Zarządzania Emisjami (KOBiZE)",
+      "en": "National Centre for Emissions Balancing and Management (KOBiZE)"
+    },
+    "official_source": "https://www.kobize.pl/",
+    "trigger_logic": {
+      "pl": "Dotyczy wszystkich podmiotów korzystających ze środowiska, których działalność powoduje emisję gazów cieplarnianych lub innych substancji do powietrza. Triggery: posiadanie samochodów służbowych, kotłów grzewczych, klimatyzacji, agregatów lub procesów technologicznych.",
+      "en": "Applies to all entities using the environment whose activities cause greenhouse gas or other substance emissions into the air. Triggers: owning company vehicles, heating boilers, air conditioning, aggregates, or technological processes."
+    },
+    "trigger_data_fields": ["has_combustion", "has_company_vehicles", "has_boilers", "has_process_emissions"],
+    "thresholds": null,
+    "obligation_type": "reporting",
+    "output_required": {
+      "pl": "Roczny raport o wielkościach emisji wprowadzony do systemu KOBiZE",
+      "en": "Annual report on emissions volumes entered into the KOBiZE system"
+    },
+    "portal_or_submission": {
+      "pl": "Krajowa baza KOBiZE (Krajowabaza.kobize.pl)",
+      "en": "KOBiZE National Database (Krajowabaza.kobize.pl)"
+    },
+    "frequency": "annual",
+    "deadline": {
+      "pl": "Do końca lutego roku następnego",
+      "en": "By the end of February of the following year"
+    },
+    "evidence_to_keep": {
+      "pl": "Potwierdzenie wysłania raportu KOBiZE, pliki pdf z raportem, faktury za zużycie paliw, gazu, energii",
+      "en": "KOBiZE report dispatch confirmation, report PDF files, fuel, gas, and energy invoices"
+    },
+    "penalty_risk": "medium",
+    "penalty_description": {
+      "pl": "Brak bezpośredniej kary za sam brak raportu, lecz dane z KOBiZE muszą być tożsame z opłatami środowiskowymi (WIOŚ nakłada kary za rozbieżności lub brak ewidencji)",
+      "en": "No direct penalty for lack of report, but KOBiZE data must match environmental fee calculations (WIOŚ imposes fines for discrepancies or lack of records)"
+    },
+    "owner_role": "ehs",
+    "confidence_level": "likely"
+  },
+  {
+    "regulation_id": "PL_ENV_FEES",
+    "area": "environmental_ehs",
+    "name": {
+      "pl": "Opłaty za Korzystanie ze Środowiska",
+      "en": "Environmental Use Fees"
+    },
+    "obligation_name": {
+      "pl": "Naliczanie i wnoszenie opłat środowiskowych",
+      "en": "Calculation and Payment of Environmental Fees"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa z dnia 27 kwietnia 2001 r. - Prawo ochrony środowiska (Dział V)",
+      "en": "Act of 27 April 2001 - Environmental Protection Law (Part V)"
+    },
+    "authority": {
+      "pl": "Urząd Marszałkowski właściwy dla miejsca korzystania ze środowiska",
+      "en": "Marshal Office competent for the place of environmental use"
+    },
+    "official_source": "https://www.biznes.gov.pl/pl/opisy-procedur/-/proc/208",
+    "trigger_logic": {
+      "pl": "Dotyczy wszystkich podmiotów wprowadzających gazy lub pyły do powietrza (spalanie paliw w pojazdach, kotłach grzewczych, procesy technologiczne) lub składowanie odpadów.",
+      "en": "Applies to all entities releasing gases or dust into the air (fuel combustion in vehicles, boilers, technological processes) or landfilling waste."
+    },
+    "trigger_data_fields": ["has_combustion", "has_company_vehicles", "has_boilers", "has_process_emissions"],
+    "thresholds": {
+      "pl": "Zwolnienie z obowiązku przedkładania wykazów i wpłat, jeśli roczna wysokość opłaty dla jednego komponentu (np. powietrze) nie przekracza 100 PLN. Zwolnienie tylko z wpłaty (raport wymagany), jeśli opłata mieści się w granicach 100-800 PLN.",
+      "en": "Exemption from submitting lists and payments if the annual fee for a single component (e.g., air) does not exceed 100 PLN. Exemption from payment only (report still required) if the fee is between 100-800 PLN."
+    },
+    "obligation_type": "fee",
+    "output_required": {
+      "pl": "Przedłożenie wykazu opłat środowiskowych Marszałkowi oraz wpłata na rachunek Urzędu",
+      "en": "Submission of environmental fees breakdown to the Marshal and payment to the Office account"
+    },
+    "portal_or_submission": {
+      "pl": "Złożenie wykazu papierowo, poprzez e-PUAP lub regionalne systemy marszałkowskie (np. Ekopłatnik)",
+      "en": "Submission of the breakdown on paper, via e-PUAP, or regional marshal systems (e.g., Ekopłatnik)"
+    },
+    "frequency": "annual",
+    "deadline": {
+      "pl": "Do 31 marca roku następnego",
+      "en": "By 31 March of the following year"
+    },
+    "evidence_to_keep": {
+      "pl": "Wykaz opłat środowiskowych z dowodem wysłania, wyliczenia oparte o wskaźniki Ministerstwa Środowiska, dowód przelewu",
+      "en": "Environmental fees breakdown with dispatch proof, calculations based on Ministry of Environment indices, transfer receipt"
+    },
+    "penalty_risk": "medium",
+    "penalty_description": {
+      "pl": "Naliczenie odsetek podatkowych za zaległości, podwyższone opłaty karne nakładane wstecznie przez WIOŚ w przypadku kontroli (do 500% stawki)",
+      "en": "Tax interest on arrears, increased penalty fees imposed retroactively by WIOŚ in the event of an audit (up to 500% of the rate)"
+    },
+    "owner_role": "ehs",
+    "confidence_level": "likely"
+  },
+  {
+    "regulation_id": "PL_WATER_PERMIT",
+    "area": "environmental_ehs",
+    "name": {
+      "pl": "Zgłoszenia i Pozwolenia Wodnoprawne",
+      "en": "Water-Law Notifications and Permits"
+    },
+    "obligation_name": {
+      "pl": "Uzyskanie pozwolenia wodnoprawnego",
+      "en": "Obtaining a Water-Law Permit"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa z dnia 20 lipca 2017 r. - Prawo wodne",
+      "en": "Act of 20 July 2017 - Water Law"
+    },
+    "authority": {
+      "pl": "Państwowe Gospodarstwo Wodne Wody Polskie",
+      "en": "State Water Holding Polish Waters (Wody Polskie)"
+    },
+    "official_source": "https://www.wody.gov.pl/",
+    "trigger_logic": {
+      "pl": "Dotyczy podmiotów wykonujących usługi wodne: pobór wód powierzchniowych lub podziemnych, odprowadzanie ścieków przemysłowych, odprowadzanie wód opadowych do wód lub urządzeń wodnych, budowę urządzeń wodnych.",
+      "en": "Applies to entities performing water services: withdrawal of surface or groundwater, discharge of industrial wastewater, discharge of rainwater into waters or water facilities, construction of water facilities."
+    },
+    "trigger_data_fields": ["uses_water_services", "discharges_industrial_wastewater", "discharges_rainwater"],
+    "thresholds": null,
+    "obligation_type": "permit",
+    "output_required": {
+      "pl": "Decyzja - Pozwolenie wodnoprawne lub przyjęcie zgłoszenia wodnoprawnego",
+      "en": "Decision - Water-law permit or acceptance of water-law notification"
+    },
+    "portal_or_submission": {
+      "pl": "Złożenie wniosku w wersji papierowej do właściwego Nadzoru Wodnego lub Zarządu Zlewni Wód Polskich",
+      "en": "Submission of the application on paper to the competent Water Supervision or Catchment Area Board of Polish Waters"
+    },
+    "frequency": "event_based",
+    "deadline": {
+      "pl": "Przed rozpoczęciem budowy urządzeń wodnych lub rozpoczęciem korzystania z usług wodnych (uzyskanie decyzji trwa zazwyczaj 2-4 miesiące)",
+      "en": "Before starting construction of water facilities or commencing use of water services (obtaining the decision typically takes 2-4 months)"
+    },
+    "evidence_to_keep": {
+      "pl": "Operat wodnoprawny, prawomocna decyzja pozwolenia wodnoprawnego",
+      "en": "Water-law study (operat), final water-law permit decision"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Opłaty podwyższone za korzystanie bez pozwolenia, kary pieniężne, w skrajnych przypadkach nakaz rozbiórki urządzeń wodnych lub wstrzymanie działalności",
+      "en": "Increased fees for use without permit, financial fines, in extreme cases orders to demolish water facilities or suspend operations"
+    },
+    "owner_role": "ehs",
+    "confidence_level": "likely"
+  },
+  {
+    "regulation_id": "PL_REACH_CHEM",
+    "area": "environmental_ehs",
+    "name": {
+      "pl": "Karty Charakterystyki i Bezpieczeństwo Chemiczne (REACH/CLP)",
+      "en": "Safety Data Sheets and Chemical Safety (REACH / CLP)"
+    },
+    "obligation_name": {
+      "pl": "Ewidencja chemikaliów i kart charakterystyki",
+      "en": "Chemicals Inventory and Safety Data Sheets"
+    },
+    "legal_level": "eu",
+    "legal_basis": {
+      "pl": "Rozporządzenie REACH (WE) nr 1907/2006 / Rozporządzenie CLP (WE) nr 1272/2008 / Ustawa z dnia 25 lutego 2011 r. o substancjach chemicznych i ich mieszaninach",
+      "en": "REACH Regulation (EC) No 1907/2006 / CLP Regulation (EC) No 1272/2008 / Act of 25 February 2011 on Chemical Substances and Their Mixtures"
+    },
+    "authority": {
+      "pl": "Biuro do spraw Substancji Chemicznych / Państwowa Inspekcja Sanitarna / Państwowa Inspekcja Pracy",
+      "en": "Bureau for Chemical Substances / State Sanitary Inspectorate / National Labour Inspectorate"
+    },
+    "official_source": "https://www.chemikalia.gov.pl/",
+    "trigger_logic": {
+      "pl": "Dotyczy podmiotów produkujących, importujących, dystrybuujących lub wykorzystujących w procesach produkcyjnych substancje lub mieszaniny chemiczne. Wymaga posiadania aktualnych Kart Charakterystyki (SDS).",
+      "en": "Applies to entities manufacturing, importing, distributing, or using chemical substances or mixtures in manufacturing processes. Requires holding current Safety Data Sheets (SDS)."
+    },
+    "trigger_data_fields": ["uses_hazardous_chemicals", "imports_chemicals_non_eu"],
+    "thresholds": null,
+    "obligation_type": "recordkeeping",
+    "output_required": {
+      "pl": "Spis stosowanych substancji, aktualne Karty Charakterystyki w języku polskim, szkolenia stanowiskowe, zgłoszenia do bazy ELiS",
+      "en": "Inventory of used substances, current Safety Data Sheets in Polish, workstation training, submissions to the ELiS database"
+    },
+    "portal_or_submission": {
+      "pl": "Wewnętrzne archiwum / Portal ELiS dla importu chemikaliów",
+      "en": "Internal archive / ELiS Portal for chemical imports"
+    },
+    "frequency": "event_based",
+    "deadline": {
+      "pl": "Dostępność kart charakterystyki od pierwszego dnia wprowadzenia lub użycia substancji w zakładzie",
+      "en": "Availability of safety data sheets from the first day of introducing or using the substance in the facility"
+    },
+    "evidence_to_keep": {
+      "pl": "Kolekcja kart charakterystyki SDS (wersje pl), rejestr substancji niebezpiecznych, protokoły szkoleń BHP",
+      "en": "Collection of SDS safety data sheets (Polish versions), hazardous substances register, OHS training protocols"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Grzywna nakładana przez Inspektora Sanitarnego lub PIP do 50 000 PLN za brak kart charakterystyki, nieprawidłowe etykietowanie CLP lub brak środków ochrony",
+      "en": "Fine imposed by the Sanitary Inspector or PIP up to 50,000 PLN for lack of safety data sheets, incorrect CLP labeling, or lack of protective equipment"
+    },
+    "owner_role": "ehs",
+    "confidence_level": "certain"
+  },
+  {
+    "regulation_id": "PL_FGAS_LOG",
+    "area": "environmental_ehs",
+    "name": {
+      "pl": "Rejestr Urządzeń Chłodniczych i F-gazów (CRO)",
+      "en": "Refrigeration Equipment and F-Gases Register (CRO)"
+    },
+    "obligation_name": {
+      "pl": "Zakładanie Kart Urządzeń w Centralnym Rejestrze Operatorów",
+      "en": "Creating Equipment Cards in the Central Operators Register"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa z dnia 15 maja 2015 r. o substancjach zubożających warstwę ozonową oraz o niektórych fluorowanych gazach cieplarnianych",
+      "en": "Act of 15 May 2015 on Ozone-Depleting Substances and Certain Fluorinated Greenhouse Gases"
+    },
+    "authority": {
+      "pl": "Instytut Chemii Przemysłowej / Biuro Ochrony Warstwy Ozonowej i Klimatu (BOWiK) / WIOŚ",
+      "en": "Institute of Industrial Chemistry / Ozone Layer and Climate Protection Office (BOWiK) / WIOŚ"
+    },
+    "official_source": "https://www.cro.ichp.pl/",
+    "trigger_logic": {
+      "pl": "Dotyczy podmiotów (operatorów) posiadających urządzenia chłodnicze, klimatyzacyjne, pompy ciepła lub systemy przeciwpożarowe zawierające 5 ton ekwiwalentu CO2 lub więcej fluorowanych gazów cieplarnianych (F-gazów).",
+      "en": "Applies to entities (operators) owning refrigeration, air conditioning equipment, heat pumps or fire protection systems containing fluorinated greenhouse gases (F-gases) in quantities of 5 tonnes of CO2 equivalent or more."
+    },
+    "trigger_data_fields": ["has_fgas_installations"],
+    "thresholds": {
+      "pl": "Granica rejestracji: napełnienie urządzenia f-gazami ≥ 5 ton ekwiwalentu CO2 (np. około 1.3 kg dla czynnika R410A)",
+      "en": "Registration threshold: equipment f-gas charge ≥ 5 tonnes of CO2 equivalent (e.g., about 1.3 kg for R410A refrigerant)"
+    },
+    "obligation_type": "recordkeeping",
+    "output_required": {
+      "pl": "Utworzenie Karty Urządzenia w systemie CRO, wykonywanie okresowych prób szczelności przez certyfikowanych serwisantów",
+      "en": "Creating an Equipment Card in the CRO system, conducting periodic leakage checks by certified technicians"
+    },
+    "portal_or_submission": {
+      "pl": "Elektroniczny Centralny Rejestr Operatorów (Cro.ichp.pl)",
+      "en": "Electronic Central Operators Register (Cro.ichp.pl)"
+    },
+    "frequency": "event_based",
+    "deadline": {
+      "pl": "Rejestracja karty w terminie 15 dni od dostarczenia lub zainstalowania urządzenia",
+      "en": "Card registration within 15 days of equipment delivery or installation"
+    },
+    "evidence_to_keep": {
+      "pl": "Wpisy w systemie CRO, protokoły z okresowych kontroli szczelności podpisane przez certyfikowanego technika",
+      "en": "Entries in the CRO system, periodic leakage control protocols signed by a certified technician"
+    },
+    "penalty_risk": "medium",
+    "penalty_description": {
+      "pl": "Administracyjna kara pieniężna nakładana przez WIOŚ od 600 PLN do 30 000 PLN za niedopełnienie obowiązku rejestracji, brak kontroli szczelności lub zatrudnienie technika bez certyfikatu F-gazowego",
+      "en": "Administrative fine imposed by WIOŚ ranging from 600 PLN to 30,000 PLN for failure to register, lack of leakage checks, or employing a technician without an F-gas certificate"
+    },
+    "owner_role": "operations",
+    "confidence_level": "likely"
+  },
+  {
+    "regulation_id": "PL_FOOD_SANEPID",
+    "area": "sector_specific",
+    "name": {
+      "pl": "Zatwierdzenie i Rejestracja w Sanepidzie",
+      "en": "Approval and Registration with Sanepid"
+    },
+    "obligation_name": {
+      "pl": "Zgłoszenie zakładu do rejestru i wdrożenie HACCP",
+      "en": "Premises Notification to Register and HACCP Implementation"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa z dnia 25 sierpnia 2006 r. o bezpieczeństwie żywności i żywienia",
+      "en": "Act of 25 August 2006 on Food and Nutrition Safety"
+    },
+    "authority": {
+      "pl": "Państwowa Inspekcja Sanitarna (Sanepid)",
+      "en": "State Sanitary Inspectorate (Sanepid)"
+    },
+    "official_source": "https://www.gov.pl/web/psse-warszawa/rejestracja-i-zatwierdzanie-zakladow",
+    "trigger_logic": {
+      "pl": "Dotyczy wszelkich podmiotów produkujących, przechowujących, transportujących, importujących lub sprzedających żywność (restauracje, catering, sklepy spożywcze, magazyny żywności).",
+      "en": "Applies to any entities manufacturing, storing, transporting, importing or selling food (restaurants, catering, grocery stores, food warehouses)."
+    },
+    "trigger_data_fields": ["is_food_business"],
+    "thresholds": null,
+    "obligation_type": "permit",
+    "output_required": {
+      "pl": "Decyzja Sanepidu o zatwierdzeniu zakładu i wpis do rejestru, księga dobrych praktyk higienicznych (GHP/GMP) oraz system HACCP",
+      "en": "Sanepid decision approving premises and entry in the register, good hygienic practice book (GHP/GMP), and HACCP system"
+    },
+    "portal_or_submission": {
+      "pl": "Wniosek papierowy lub e-PUAP składany do Powiatowej Stacji Sanitarno-Epidemiologicznej (PSSE)",
+      "en": "Paper or e-PUAP application submitted to the County Sanitary-Epidemiological Station (PSSE)"
+    },
+    "frequency": "one_off",
+    "deadline": {
+      "pl": "Co najmniej 14 dni przed planowanym rozpoczęciem działalności gastronomicznej/spożywczej",
+      "en": "At least 14 days before the planned start of food/catering activity"
+    },
+    "evidence_to_keep": {
+      "pl": "Decyzja Państwowego Inspektora Sanitarnego, wdrożona dokumentacja HACCP, orzeczenia lekarskie pracowników (badania do celów sanitarno-epidemiologicznych)",
+      "en": "Decision of the State Sanitary Inspector, implemented HACCP documentation, medical health books of employees"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Prowadzenie działalności bez wpisu do rejestru podlega karze pieniężnej od 1000 do 5000 PLN, ryzyko natychmiastowego zamknięcia zakładu przez Inspektora",
+      "en": "Conducting activity without entry in the register is subject to a fine from 1,000 to 5,000 PLN, risk of immediate closure of the premises by the Inspector"
+    },
+    "owner_role": "operations",
+    "confidence_level": "certain",
+    "pkd_codes": ["56", "47.2", "46.3", "10", "11"]
+  },
+  {
+    "regulation_id": "PL_UDT_INSP",
+    "area": "sector_specific",
+    "name": {
+      "pl": "Dozór Techniczny Urządzeń (UDT)",
+      "en": "Technical Inspection of Equipment (UDT)"
+    },
+    "obligation_name": {
+      "pl": "Zgłoszenie urządzeń do badania i odbioru UDT",
+      "en": "Submitting Equipment for UDT Inspection and Acceptance"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa z dnia 21 grudnia 2000 r. o dozorze technicznym",
+      "en": "Act of 21 December 2000 on Technical Inspection"
+    },
+    "authority": {
+      "pl": "Urząd Dozoru Technicznego (UDT) / Wojskowy / Transportowy Dozór Techniczny",
+      "en": "Office of Technical Inspection (UDT) / Military / Transport Technical Inspection"
+    },
+    "official_source": "https://www.udt.gov.pl/",
+    "trigger_logic": {
+      "pl": "Dotyczy podmiotów eksploatujących urządzenia podlegające dozorowi technicznemu (np. wózki widłowe, suwnice, dźwigi osobowe i towarowe, kotły ciśnieniowe, zbiorniki gazów płynnych/paliw).",
+      "en": "Applies to entities operating equipment subject to technical inspection (e.g., forklifts, overhead cranes, passenger and freight elevators, pressure boilers, LPG/fuel tanks)."
+    },
+    "trigger_data_fields": ["has_lifting_equipment", "has_pressure_equipment"],
+    "thresholds": null,
+    "obligation_type": "permit",
+    "output_required": {
+      "pl": "Decyzja zezwalająca na eksploatację urządzenia, zielona naklejka UDT, uprawnienia operatorów",
+      "en": "Decision authorizing the operation of the device, green UDT sticker, operators qualifications"
+    },
+    "portal_or_submission": {
+      "pl": "Portal eUDT (Eudt.gov.pl) lub pisemny wniosek do oddziału UDT",
+      "en": "eUDT Portal (Eudt.gov.pl) or written application to the UDT branch"
+    },
+    "frequency": "annual",
+    "deadline": {
+      "pl": "Przed rozpoczęciem użytkowania urządzenia w firmie; badania okresowe corocznie lub co kilka lat w zależności od typu urządzenia",
+      "en": "Before starting to use the device in the company; periodic inspections annually or every few years depending on device type"
+    },
+    "evidence_to_keep": {
+      "pl": "Księga rewizyjna urządzenia, aktualna decyzja i protokół z badania UDT, certyfikaty kwalifikacji operatorów (np. legitymacje UDT)",
+      "en": "Equipment history book, current UDT decision and inspection protocol, operators qualification certificates (e.g., UDT ID cards)"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Eksploatacja urządzenia bez ważnej decyzji UDT jest przestępstwem podlegającym grzywnie lub karze ograniczenia wolności, ryzyko odmowy wypłaty odszkodowania przez ubezpieczyciela",
+      "en": "Operating a device without a valid UDT decision is a crime subject to a fine or restriction of liberty, risk of insurance payout refusal"
+    },
+    "owner_role": "operations",
+    "confidence_level": "certain"
+  },
+  {
+    "regulation_id": "PL_TRANS_GITD",
+    "area": "sector_specific",
+    "name": {
+      "pl": "Licencje i Zezwolenia Transportowe (GITD)",
+      "en": "Transport Licenses and Permits (GITD)"
+    },
+    "obligation_name": {
+      "pl": "Uzyskanie zezwolenia na wykonywanie zawodu przewoźnika drogowego",
+      "en": "Obtaining Permit to Practice the Occupation of Road Transport Operator"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa z dnia 6 września 2001 r. o transporcie drogowym",
+      "en": "Act of 6 September 2001 on Road Transport"
+    },
+    "authority": {
+      "pl": "Główny Inspektorat Transportu Drogowego (GITD) / Starostwo Powiatowe",
+      "en": "Chief Inspectorate of Road Transport (GITD) / District Office (Starostwo)"
+    },
+    "official_source": "https://www.gov.pl/web/gitd/biuro-do-spraw-transportu-miedzynarodowego",
+    "trigger_logic": {
+      "pl": "Dotyczy podmiotów wykonujących komercyjny przewóz drogowy rzeczy lub osób (krajowy lub międzynarodowy) pojazdami o dopuszczalnej masie całkowitej (DMC) powyżej 2.5 t (rzeczy) lub dla przewozu osób.",
+      "en": "Applies to entities carrying out commercial road transport of goods or passengers (domestic or international) with vehicles over 2.5 tonnes maximum permissible weight (goods) or for passenger transport."
+    },
+    "trigger_data_fields": ["is_commercial_transport_operator"],
+    "thresholds": {
+      "pl": "DMC pojazdów > 2.5 tony (transport międzynarodowy rzeczy) lub DMC > 3.5 tony (transport krajowy)",
+      "en": "Vehicles maximum weight > 2.5 tonnes (international transport of goods) or maximum weight > 3.5 tonnes (domestic transport)"
+    },
+    "obligation_type": "permit",
+    "output_required": {
+      "pl": "Licencja wspólnotowa (Community Licence), zezwolenie na wykonywanie zawodu przewoźnika, certyfikat kompetencji zawodowych",
+      "en": "Community License, road transport operator permit, certificate of professional competence"
+    },
+    "portal_or_submission": {
+      "pl": "Wniosek papierowy lub e-PUAP do Starostwa (przewóz krajowy) lub do GITD (międzynarodowy)",
+      "en": "Paper or e-PUAP application to the Starostwo (domestic) or to GITD (international)"
+    },
+    "frequency": "event_based",
+    "deadline": {
+      "pl": "Przed rozpoczęciem zarobkowego świadczenia usług transportowych",
+      "en": "Before starting commercial provision of transport services"
+    },
+    "evidence_to_keep": {
+      "pl": "Odpisy wypisów z licencji na każdy pojazd, zabezpieczenie finansowe (9000 EUR na pierwszy pojazd, 5000/900 EUR na kolejne), dane z tachografów cyfrowych",
+      "en": "Copies of license extracts for each vehicle, financial standing proof (9000 EUR for first vehicle, 5000/900 EUR for subsequent ones), digital tachograph data"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Wykonywanie transportu bez licencji podlega administracyjnej karze pieniężnej w wysokości 12 000 PLN na firmę oraz osobnym grzywnom dla zarządzającego transportem",
+      "en": "Carrying out transport without a license is subject to an administrative fine of 12,000 PLN on the company and separate fines for the transport manager"
+    },
+    "owner_role": "operations",
+    "confidence_level": "certain",
+    "pkd_codes": ["49.4", "49.3"]
+  },
+  {
+    "regulation_id": "PL_AML_OBLIGED",
+    "area": "sector_specific",
+    "name": {
+      "pl": "Przeciwdziałanie Praniu Pieniędzy (AML/CFT)",
+      "en": "Anti-Money Laundering Compliance (AML / CFT)"
+    },
+    "obligation_name": {
+      "pl": "Procedury KYC, AML oraz raportowanie transakcji",
+      "en": "KYC, AML Procedures, and Transaction Reporting"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa z dnia 1 marca 2018 r. o przeciwdziałaniu praniu pieniędzy oraz finansowaniu terroryzmu (implementująca unijne dyrektywy AMLD)",
+      "en": "Act of 1 March 2018 on Counteracting Money Laundering and Terrorist Financing (implementing EU AMLD Directives)"
+    },
+    "authority": {
+      "pl": "Generalny Inspektor Informacji Finansowej (GIIF)",
+      "en": "General Inspector of Financial Information (GIIF)"
+    },
+    "official_source": "https://www.gov.pl/web/finanse/giif",
+    "trigger_logic": {
+      "pl": "Dotyczy podmiotów zaklasyfikowanych jako 'instytucje obowiązane'. Triggery: biura rachunkowe, doradcy podatkowi, pośrednicy nieruchomości, kantory, prawnicy, a także wszelkie przedsiębiorstwa przyjmujące płatności w gotówce o wartości równej lub większej niż 10 000 EUR.",
+      "en": "Applies to entities classified as 'obliged institutions'. Triggers: accounting offices, tax advisors, real estate agents, currency exchange offices, lawyers, as well as any enterprises accepting cash payments equal to or exceeding 10,000 EUR."
+    },
+    "trigger_data_fields": ["is_aml_obliged_institution", "accepts_cash_above_10k_eur"],
+    "thresholds": {
+      "pl": "Obowiązkowe dla wybranych sektorów niezależnie od obrotu. Dla innych branż: przy płatnościach gotówkowych ≥ 10 000 EUR (jednorazowo lub w powiązanych transakcjach)",
+      "en": "Mandatory for selected sectors regardless of turnover. For other industries: during cash payments ≥ 10,000 EUR (single or linked transactions)"
+    },
+    "obligation_type": "policy",
+    "output_required": {
+      "pl": "Wewnętrzna procedura AML, analiza ryzyka klientów (KYC/CDD), szkolenia personelu, raportowanie transakcji ponadprogowych (>15k EUR) do GIIF",
+      "en": "Internal AML procedure, customer risk assessment (KYC/CDD), staff training, reporting over-threshold transactions (>15k EUR) to GIIF"
+    },
+    "portal_or_submission": {
+      "pl": "Dedykowany portal transakcyjny GIIF",
+      "en": "Dedicated GIIF transaction portal"
+    },
+    "frequency": "event_based",
+    "deadline": {
+      "pl": "Wdrożenie procedury przed rozpoczęciem obsługi pierwszego klienta; zgłoszenia transakcji do GIIF w ciągu 7 dni od transakcji",
+      "en": "Procedure implementation before handling the first client; transaction reporting to GIIF within 7 days of transaction"
+    },
+    "evidence_to_keep": {
+      "pl": "Karty oceny ryzyka klienta, skany dokumentów tożsamości (weryfikacja PEP), certyfikaty ze szkoleń pracowników",
+      "en": "Customer risk assessment cards, identity document scans (PEP verification), staff training certificates"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Administracyjne kary pieniężne do 1 000 000 EUR lub 10% obrotu, cofnięcie koncesji/licencji, odpowiedzialność karna zarządu do lat 5 pozbawienia wolności",
+      "en": "Administrative fines up to 1,000,000 EUR or 10% of turnover, revocation of concession/license, criminal liability of the board up to 5 years of imprisonment"
+    },
+    "owner_role": "legal",
+    "confidence_level": "certain",
+    "pkd_codes": ["69.1", "69.2", "68.31", "66.1"]
+  },
+  {
+    "regulation_id": "EU_CSRD_ESG",
+    "area": "eu_compliance",
+    "name": {
+      "pl": "Raportowanie Zrównoważonego Rozwoju (CSRD / ESG)",
+      "en": "Sustainability Reporting (CSRD / ESG)"
+    },
+    "obligation_name": {
+      "pl": "Ujawnienia ESG w sprawozdaniu z działalności",
+      "en": "ESG Disclosures in the Activity Report"
+    },
+    "legal_level": "eu",
+    "legal_basis": {
+      "pl": "Dyrektywa CSRD (UE) 2022/2464 / Ustawa o rachunkowości",
+      "en": "CSRD Directive (EU) 2022/2464 / Act on Accounting"
+    },
+    "authority": {
+      "pl": "Ministerstwo Finansów / Polska Komisja Nadzoru Audytowego (PIBR) / KRS",
+      "en": "Ministry of Finance / Polish Audit Supervision Commission (PIBR) / KRS"
+    },
+    "official_source": "https://finance.ec.europa.eu/capital-markets-union-and-financial-services/sustainable-finance/corporate-sustainability-reporting_en",
+    "trigger_logic": {
+      "pl": "Dotyczy dużych spółek kapitałowych oraz grup kapitałowych spełniających kryteria wielkościowe. Wdrażana etapami (od 2024 r. dla największych, sukcesywnie rozszerzana na mniejsze podmioty giełdowe).",
+      "en": "Applies to large joint-stock companies and capital groups meeting size criteria. Phased implementation (from 2024 for the largest, gradually extended to smaller listed entities)."
+    },
+    "trigger_data_fields": ["company_size", "employee_count", "revenue_pln", "assets_pln", "is_listed_entity"],
+    "thresholds": {
+      "pl": "Spełnienie co najmniej 2 z 3 kryteriów (duże jednostki interesu publicznego): zatrudnienie > 250 pracowników, obroty > 110M PLN (25M EUR), suma bilansowa > 55M PLN (12.5M EUR)",
+      "en": "Meeting at least 2 of 3 criteria (large public-interest entities): employees > 250, turnover > 110M PLN (25M EUR), balance sheet total > 55M PLN (12.5M EUR)"
+    },
+    "obligation_type": "reporting",
+    "output_required": {
+      "pl": "Dedykowana sekcja o zrównoważonym rozwoju w sprawozdaniu z działalności, zgodna ze standardami ESRS, zbadana przez audytora",
+      "en": "Dedicated sustainability section in the activity report, compliant with ESRS standards, audited by an independent auditor"
+    },
+    "portal_or_submission": {
+      "pl": "Portal Rejestrów Sądowych (KRS) - jako część rocznego sprawozdania finansowego",
+      "en": "Registry Courts Portal (KRS) - as part of the annual financial report"
+    },
+    "frequency": "annual",
+    "deadline": {
+      "pl": "Razem ze sprawozdaniem rocznym (w terminie 3 miesięcy od zakończenia roku obrotowego)",
+      "en": "Together with the annual report (within 3 months of the end of the financial year)"
+    },
+    "evidence_to_keep": {
+      "pl": "Raport ESG, dane źródłowe (ślad węglowy Scope 1-3, struktura płac), opinia biegłego rewidenta z badania",
+      "en": "ESG report, source data (Scope 1-3 carbon footprint, pay structure), statutory auditor's audit opinion"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Brak zatwierdzenia sprawozdania finansowego, wysokie kary administracyjne nakładane na członków zarządu, ryzyko wykluczenia z łańcucha dostaw dużych kontrahentów",
+      "en": "Failure to approve financial statements, heavy administrative fines imposed on board members, risk of exclusion from the supply chain of large corporate clients"
+    },
+    "owner_role": "legal",
+    "confidence_level": "likely",
+    "legal_forms": ["sp_z_o_o", "sa", "s_a", "spolka_akcyjna"]
+  },
+  {
+    "regulation_id": "EU_PPWR_PACK",
+    "area": "eu_compliance",
+    "name": {
+      "pl": "Rozporządzenie w Sprawie Opakowań i Odpadów Opakowaniowych (EU PPWR)",
+      "en": "Packaging and Packaging Waste Regulation (EU PPWR)"
+    },
+    "obligation_name": {
+      "pl": "Spełnienie wymogów przydatności do recyklingu i redukcji opakowań",
+      "en": "Meeting Recycling and Packaging Reduction Requirements"
+    },
+    "legal_level": "eu",
+    "legal_basis": {
+      "pl": "Rozporządzenie Parlamentu Europejskiego i Rady (UE) w sprawie opakowań i odpadów opakowaniowych (PPWR) - wejście w życie w 2025, stosowanie od 12 sierpnia 2026 r.",
+      "en": "Regulation of the European Parliament and of the Council (EU) on packaging and packaging waste (PPWR) - entry into force in 2025, application from 12 August 2026"
+    },
+    "authority": {
+      "pl": "Marszałek Województwa / Główny Inspektorat Ochrony Środowiska (GIOŚ)",
+      "en": "Voivodeship Marshal / Chief Inspectorate for Environmental Protection (GIOŚ)"
+    },
+    "official_source": "https://environment.ec.europa.eu/topics/waste-and-recycling/packaging-waste_en",
+    "trigger_logic": {
+      "pl": "Dotyczy wszystkich podmiotów wprowadzających opakowania na rynek UE. Wprowadza rygorystyczne wymogi dotyczące przydatności do recyklingu, obowiązkowej zawartości materiałów z recyklingu w nowych opakowaniach plastikowych oraz ograniczenia pustej przestrzeni.",
+      "en": "Applies to all entities placing packaging on the EU market. Introduces stringent requirements regarding recyclability, mandatory recycled content in new plastic packaging, and empty space restrictions."
+    },
+    "trigger_data_fields": ["introduces_packaged_goods"],
+    "thresholds": null,
+    "obligation_type": "policy",
+    "output_required": {
+      "pl": "Certyfikaty przydatności opakowań do recyklingu (Design for Recycling), deklaracja o zawartości recyklatów",
+      "en": "Packaging recyclability certificates (Design for Recycling), declaration of recycled content"
+    },
+    "portal_or_submission": {
+      "pl": "BDO (integracja z unijnym systemem raportowania)",
+      "en": "BDO (integration with the EU reporting system)"
+    },
+    "frequency": "event_based",
+    "deadline": {
+      "pl": "Wdrożenie systemowe do 12 sierpnia 2026 roku (data rozpoczęcia stosowania rozporządzenia)",
+      "en": "Systemic implementation by 12 August 2026 (date of application of the regulation)"
+    },
+    "evidence_to_keep": {
+      "pl": "Karty techniczne opakowań, deklaracje zgodności od dostawców opakowań, obliczenia współczynników pustej przestrzeni",
+      "en": "Packaging technical sheets, declarations of conformity from packaging suppliers, empty space ratio calculations"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Wysokie unijne kary finansowe, zakaz wprowadzania niekompatybilnych opakowań na rynek całej Unii Europejskiej, kary administracyjne WIOŚ",
+      "en": "High EU financial penalties, ban on placing non-compliant packaging on the market of the entire European Union, WIOŚ administrative fines"
+    },
+    "owner_role": "ehs",
+    "confidence_level": "likely"
+  },
+  {
+    "regulation_id": "PL_ENERGY_CONCESSION",
+    "area": "sector_specific",
+    "name": {
+      "pl": "Koncesje Urzędu Regulacji Energetyki (URE)",
+      "en": "Energy Regulatory Office (URE) Concessions"
+    },
+    "obligation_name": {
+      "pl": "Uzyskanie i rozliczanie koncesji energetycznej",
+      "en": "Obtaining and Settling Energy Concessions"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa z dnia 10 kwietnia 1997 r. – Prawo energetyczne",
+      "en": "Act of 10 April 1997 – Energy Law"
+    },
+    "authority": {
+      "pl": "Prezes Urzędu Regulacji Energetyki (URE)",
+      "en": "President of the Energy Regulatory Office (URE)"
+    },
+    "official_source": "https://www.ure.gov.pl/",
+    "trigger_logic": {
+      "pl": "Dotyczy podmiotów wykonujących działalność gospodarczą w zakresie wytwarzania, magazynowania, przesyłania, dystrybucji lub obrotu paliwami bądź energią (np. handel paliwami, produkcja energii z OZE powyżej określonych progów).",
+      "en": "Applies to entities conducting business activities in generation, storage, transmission, distribution, or trade of fuels or energy (e.g., fuel trade, renewable energy generation above specific thresholds)."
+    },
+    "trigger_data_fields": ["has_energy_activities"],
+    "thresholds": {
+      "pl": "Koncesja wymagana m.in. dla instalacji OZE o mocy powyżej 1 MW lub obrotu paliwami/energią",
+      "en": "Concession required, among others, for RES installations with capacity above 1 MW or fuel/energy trade"
+    },
+    "obligation_type": "permit",
+    "output_required": {
+      "pl": "Decyzja o udzieleniu koncesji, sprawozdania roczne oraz opłata koncesyjna",
+      "en": "Concession decision, annual reports, and concession fee"
+    },
+    "portal_or_submission": {
+      "pl": "Portal URE / Elektroniczna Skrzynka Podawcza URE",
+      "en": "URE Portal / URE Electronic Inbox"
+    },
+    "frequency": "annual",
+    "deadline": {
+      "pl": "Opłata koncesyjna do 15 kwietnia każdego roku; sprawozdania terminowo według warunków koncesji",
+      "en": "Concession fee by 15 April each year; reports on dates specified in concession terms"
+    },
+    "evidence_to_keep": {
+      "pl": "Decyzja koncesyjna, dowody wniesienia opłat koncesyjnych, kopie sprawozdań rocznych",
+      "en": "Concession decision, concession fee payment receipts, copies of annual reports"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Kary pieniężne do 15% przychodu koncesjonowanego przedsiębiorcy, ryzyko cofnięcia koncesji, odpowiedzialność karna",
+      "en": "Financial penalties up to 15% of the concessioned revenue, risk of concession revocation, criminal liability"
+    },
+    "owner_role": "legal",
+    "confidence_level": "likely",
+    "pkd_codes": ["35.11", "35.14", "46.71", "35.21", "35.23"]
+  },
+  {
+    "regulation_id": "PL_UKE_TELECOM",
+    "area": "sector_specific",
+    "name": {
+      "pl": "Rejestracja Przedsiębiorców Telekomunikacyjnych (UKE)",
+      "en": "Registration of Telecommunications Undertakings (UKE)"
+    },
+    "obligation_name": {
+      "pl": "Wpis do rejestru przedsiębiorców telekomunikacyjnych",
+      "en": "Entry into the Register of Telecommunications Undertakings"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa z dnia 16 lipca 2004 r. - Prawo telekomunikacyjne / Prawo komunikacji elektronicznej",
+      "en": "Act of 16 July 2004 - Telecommunications Law / Electronic Communications Law"
+    },
+    "authority": {
+      "pl": "Prezes Urzędu Komunikacji Elektronicznej (UKE)",
+      "en": "President of the Office of Electronic Communications (UKE)"
+    },
+    "official_source": "https://www.uke.gov.pl/",
+    "trigger_logic": {
+      "pl": "Dotyczy podmiotów wykonujących działalność telekomunikacyjną, polegającą na dostarczaniu publicznych sieci telekomunikacyjnych lub świadczeniu publicznie dostępnych usług telekomunikacyjnych.",
+      "en": "Applies to entities conducting telecommunications activities, consisting in providing public telecommunications networks or providing publicly available telecommunications services."
+    },
+    "trigger_data_fields": ["has_telecom_activities"],
+    "thresholds": null,
+    "obligation_type": "registration",
+    "output_required": {
+      "pl": "Zgłoszenie o wpis do rejestru przedsiębiorców telekomunikacyjnych, roczne sprawozdanie z działalności",
+      "en": "Application for entry into the register of telecommunications undertakings, annual activity report"
+    },
+    "portal_or_submission": {
+      "pl": "Platforma Usług Elektronicznych UKE (PUE UKE)",
+      "en": "UKE Electronic Services Platform (PUE UKE)"
+    },
+    "frequency": "annual",
+    "deadline": {
+      "pl": "Zgłoszenie przed rozpoczęciem działalności; sprawozdanie z przychodów telekomunikacyjnych do 31 marca za poprzedni rok",
+      "en": "Notification before starting activity; telecommunications revenue report by 31 March for the previous year"
+    },
+    "evidence_to_keep": {
+      "pl": "Zaświadczenie o wpisie do rejestru, kopie rocznych sprawozdań dla UKE, potwierdzenie opłat",
+      "en": "Certificate of entry in the register, copies of annual reports to UKE, payment confirmations"
+    },
+    "penalty_risk": "medium",
+    "penalty_description": {
+      "pl": "Kary pieniężne nakładane przez Prezesa UKE do wysokości 3% rocznego przychodu, zakaz prowadzenia działalności",
+      "en": "Financial penalties imposed by the President of UKE up to 3% of annual revenue, prohibition of conducting activity"
+    },
+    "owner_role": "legal",
+    "confidence_level": "likely",
+    "pkd_codes": ["61.10", "61.20", "61.30", "61.90"]
+  },
+  {
+    "regulation_id": "PL_KNF_FINANCE",
+    "area": "sector_specific",
+    "name": {
+      "pl": "Rejestr Małych Instytucji Płatniczych (KNF)",
+      "en": "Register of Small Payment Institutions (KNF)"
+    },
+    "obligation_name": {
+      "pl": "Wpis do rejestru Małych Instytucji Płatniczych (MIP)",
+      "en": "Entry into the Register of Small Payment Institutions (MIP)"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa z dnia 19 sierpnia 2011 r. o usługach płatniczych",
+      "en": "Act of 19 August 2011 on Payment Services"
+    },
+    "authority": {
+      "pl": "Komisja Nadzoru Finansowego (KNF)",
+      "en": "Polish Financial Supervision Authority (KNF)"
+    },
+    "official_source": "https://www.knf.gov.pl/",
+    "trigger_logic": {
+      "pl": "Dotyczy podmiotów zamierzających świadczyć usługi płatnicze jako małe instytucje płatnicze (MIP), w których średnia z łącznej kwoty transakcji płatniczych nie przekracza 1 500 000 EUR miesięcznie.",
+      "en": "Applies to entities intending to provide payment services as small payment institutions (MIP), where the average total amount of payment transactions does not exceed 1,500,000 EUR per month."
+    },
+    "trigger_data_fields": ["has_payment_services"],
+    "thresholds": {
+      "pl": "Maksymalny obrót transakcji do 1,5 mln EUR miesięcznie. Powyżej tego progu wymagana pełna licencja Krajowej Instytucji Płatniczej.",
+      "en": "Maximum transaction volume up to 1.5 million EUR monthly. Above this threshold, a full National Payment Institution license is required."
+    },
+    "obligation_type": "permit",
+    "output_required": {
+      "pl": "Zgłoszenie o wpis do rejestru MIP, kwartalne sprawozdania statystyczne",
+      "en": "Application for entry into the MIP register, quarterly statistical reports"
+    },
+    "portal_or_submission": {
+      "pl": "System KNF / Portal e-Urząd KNF",
+      "en": "KNF System / e-KNF Portal"
+    },
+    "frequency": "quarterly",
+    "deadline": {
+      "pl": "Przed rozpoczęciem działalności; sprawozdania do końca miesiąca następującego po kwartale",
+      "en": "Before starting activity; reports by the end of the month following the quarter"
+    },
+    "evidence_to_keep": {
+      "pl": "Potwierdzenie wpisu do rejestru MIP, polisy ubezpieczeniowe OC, kwartalne raporty sprawozdawcze",
+      "en": "MIP registry entry confirmation, professional indemnity insurance policies, quarterly reporting files"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Prowadzenie działalności bez wpisu podlega grzywnie do 5 000 000 PLN lub karze pozbawienia wolności; wysokie kary administracyjne KNF",
+      "en": "Conducting activities without entry is subject to a fine up to 5,000,000 PLN or imprisonment; heavy KNF administrative fines"
+    },
+    "owner_role": "finance",
+    "confidence_level": "likely",
+    "pkd_codes": ["64.19", "64.92", "66.19"]
+  },
+  {
+    "regulation_id": "PL_WHISTLEBLOWER",
+    "area": "employment_social",
+    "name": {
+      "pl": "Ochrona Sygnalistów",
+      "en": "Whistleblower Protection"
+    },
+    "obligation_name": {
+      "pl": "Wdrożenie procedury zgłoszeń wewnętrznych dla sygnalistów",
+      "en": "Implementation of Internal Whistleblowing Channels"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa z dnia 14 czerwca 2024 r. o ochronie sygnalistów (implementująca Dyrektywę UE 2019/1937)",
+      "en": "Act of 14 June 2024 on Whistleblower Protection (implementing EU Directive 2019/1937)"
+    },
+    "authority": {
+      "pl": "Państwowa Inspekcja Pracy (PIP) / Rzecznik Praw Obywatelskich (RPO)",
+      "en": "National Labour Inspectorate (PIP) / Commissioner for Human Rights (RPO)"
+    },
+    "official_source": "https://www.gov.pl/web/sprawiedliwosc/ustawa-o-ochronie-sygnalistow",
+    "trigger_logic": {
+      "pl": "Dotyczy wszystkich podmiotów prawnych, na rzecz których wykonuje pracę co najmniej 50 osób (stan na 1 stycznia lub 1 lipca danego roku). Bez względu na liczbę pracowników dotyczy podmiotów w branży usług finansowych, przeciwdziałania praniu pieniędzy itp.",
+      "en": "Applies to all legal entities for which at least 50 persons perform work (as of 1 January or 1 July of a given year). Regardless of employee count, it applies to entities in financial services, AML, etc."
+    },
+    "trigger_data_fields": ["employee_count", "is_aml_obliged_institution"],
+    "thresholds": {
+      "pl": "Zatrudnianie co najmniej 50 osób (licząc pracowników oraz zleceniobiorców), lub brak progu dla sektora finansowego/AML",
+      "en": "Employing at least 50 persons (including employees and contractors), or no threshold for the financial/AML sector"
+    },
+    "obligation_type": "policy",
+    "output_required": {
+      "pl": "Procedura zgłoszeń wewnętrznych, rejestr zgłoszeń wewnętrznych, bezpieczne kanały komunikacji",
+      "en": "Internal reporting procedure, register of internal reports, secure communication channels"
+    },
+    "portal_or_submission": {
+      "pl": "Brak (wdrożenie wewnętrzne po konsultacjach ze związkami zawodowymi lub przedstawicielami pracowników)",
+      "en": "None (internal implementation after consultations with trade unions or employee representatives)"
+    },
+    "frequency": "one_off",
+    "deadline": {
+      "pl": "Stałe wdrożenie i utrzymanie kanałów (wejście w życie ustawy 25 września 2024 r.)",
+      "en": "Permanent implementation and channel maintenance (entry into force of the Act on 25 September 2024)"
+    },
+    "evidence_to_keep": {
+      "pl": "Treść ustalonej procedury, dowody przeprowadzenia konsultacji z pracownikami, rejestr zgłoszeń",
+      "en": "Content of established procedure, evidence of consultations with staff, reports register"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Kary grzywny, ograniczenia wolności lub pozbawienia wolności dla osób odpowiedzialnych za brak procedury lub utrudnianie zgłoszeń",
+      "en": "Fines, restriction of liberty, or imprisonment for persons responsible for lack of procedure or obstructing reports"
+    },
+    "owner_role": "hr",
+    "confidence_level": "likely"
+  },
+  {
+    "regulation_id": "PL_WASTE_HAZARDOUS",
+    "area": "environmental_ehs",
+    "name": {
+      "pl": "Magazynowanie i Ewidencja Odpadów Niebezpiecznych",
+      "en": "Hazardous Waste Storage and Records"
+    },
+    "obligation_name": {
+      "pl": "Wymogi techniczne i rejestracja odpadów niebezpiecznych",
+      "en": "Technical Requirements and Registration of Hazardous Waste"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa z dnia 14 grudnia 2012 r. o odpadach / Rozporządzenie Ministra Klimatu w sprawie szczegółowych wymagań dla magazynowania odpadów",
+      "en": "Act of 14 December 2012 on Waste / Regulation of the Minister of Climate on detailed requirements for waste storage"
+    },
+    "authority": {
+      "pl": "Wojewódzki Inspektorat Ochrony Środowiska (WIOŚ) / Marszałek Województwa",
+      "en": "Voivodeship Inspectorate for Environmental Protection (WIOŚ) / Voivodeship Marshal"
+    },
+    "official_source": "https://bdo.mos.gov.pl/",
+    "trigger_logic": {
+      "pl": "Dotyczy podmiotów wytwarzających odpady sklasyfikowane jako niebezpieczne (np. zużyty sprzęt elektroniczny, świetlówki, baterie, oleje przepracowane, chemikalia w przemyśle lub serwisach samochodowych).",
+      "en": "Applies to entities generating waste classified as hazardous (e.g., used electronic equipment, fluorescent lamps, batteries, waste oils, chemicals in industry or car services)."
+    },
+    "trigger_data_fields": ["generates_hazardous_waste"],
+    "thresholds": null,
+    "obligation_type": "recordkeeping",
+    "output_required": {
+      "pl": "Karty przekazania odpadów (KPO) oraz karty ewidencji odpadów niebezpiecznych w systemie BDO",
+      "en": "Waste transfer notes (KPO) and hazardous waste record sheets in the BDO system"
+    },
+    "portal_or_submission": {
+      "pl": "Baza Danych o Produktach i Opakowaniach oraz o Gospodarce Odpadami (BDO)",
+      "en": "Database on Products and Packaging and Waste Management (BDO)"
+    },
+    "frequency": "event_based",
+    "deadline": {
+      "pl": "Generowanie KPO w BDO przed każdym transportem odpadu ze spółki",
+      "en": "Generating KPO in BDO before each waste transport from the company"
+    },
+    "evidence_to_keep": {
+      "pl": "Zatwierdzone elektronicznie KPO z podpisem odbiorcy odpadu, roczne sprawozdanie odpadowe",
+      "en": "Electronically approved KPO with the waste recipient's signature, annual waste report"
+    },
+    "penalty_risk": "high",
+    "penalty_description": {
+      "pl": "Administracyjne kary pieniężne nakładane przez WIOŚ od 5 000 PLN do 1 000 000 PLN, ryzyko odpowiedzialności karnej",
+      "en": "Administrative fines imposed by WIOŚ from 5,000 PLN to 1,000,000 PLN, risk of criminal liability"
+    },
+    "owner_role": "ehs",
+    "confidence_level": "likely",
+    "pkd_codes": ["45.20", "25.", "26.", "27.", "28.", "29.", "30.", "38.2"]
+  },
+  {
+    "regulation_id": "PL_ZUS_IWA",
+    "area": "employment_social",
+    "name": {
+      "pl": "Informacja o Danych do Ustalenia Składki na Ubezpieczenie Wypadkowe (ZUS IWA)",
+      "en": "Information on Social Security Accident Insurance Rates (ZUS IWA)"
+    },
+    "obligation_name": {
+      "pl": "Złożenie formularza ZUS IWA",
+      "en": "Submission of ZUS IWA Form"
+    },
+    "legal_level": "national",
+    "legal_basis": {
+      "pl": "Ustawa z dnia 30 października 2002 r. o ubezpieczeniu społecznym z tytułu wypadków przy pracy i chorób zawodowych",
+      "en": "Act of 30 October 2002 on Social Security for Occupational Accidents and Occupational Diseases"
+    },
+    "authority": {
+      "pl": "Zakład Ubezpieczeń Społecznych (ZUS)",
+      "en": "Social Insurance Institution (ZUS)"
+    },
+    "official_source": "https://www.zus.pl/firmy/rozliczenia-z-zus/skladka-na-ubezpieczenie-wypadkowe/zus-iwa",
+    "trigger_logic": {
+      "pl": "Dotyczy płatników składek, którzy podlegali obowiązkowi ubezpieczenia wypadkowego nieprzerwanie w danym roku oraz zgłaszali do ubezpieczenia wypadkowego co najmniej 10 ubezpieczonych i byli wpisani do rejestru REGON.",
+      "en": "Applies to contribution payers who were subject to mandatory accident insurance continuously in a given year, reported at least 10 insured persons for accident insurance, and were registered in REGON."
+    },
+    "trigger_data_fields": ["employee_count"],
+    "thresholds": {
+      "pl": "Zatrudnianie i zgłaszanie do ubezpieczenia wypadkowego minimum 10 osób",
+      "en": "Employing and reporting for accident insurance at least 10 persons"
+    },
+    "obligation_type": "reporting",
+    "output_required": {
+      "pl": "Prawidłowo wypełniony i wysłany formularz ZUS IWA",
+      "en": "Correctly completed and sent ZUS IWA form"
+    },
+    "portal_or_submission": {
+      "pl": "Program Płatnik / Portal PUE ZUS",
+      "en": "Płatnik Program / ZUS PUE Portal"
+    },
+    "frequency": "annual",
+    "deadline": {
+      "pl": "Do 31 stycznia roku następującego po roku, którego dotyczy informacja",
+      "en": "By 31 January of the year following the year to which the information relates"
+    },
+    "evidence_to_keep": {
+      "pl": "Urzędowe potwierdzenie odbioru (UPO) z systemu PUE ZUS dla formularza ZUS IWA",
+      "en": "Official confirmation of receipt (UPO) from the ZUS PUE system for the ZUS IWA form"
+    },
+    "penalty_risk": "medium",
+    "penalty_description": {
+      "pl": "ZUS może samodzielnie ustalić wyższą stawkę ubezpieczenia wypadkowego (podwyższoną o 150%) oraz nałożyć grzywnę",
+      "en": "ZUS can independently set a higher accident insurance rate (increased by 150%) and impose a fine"
+    },
+    "owner_role": "hr",
+    "confidence_level": "likely"
+  }
+]

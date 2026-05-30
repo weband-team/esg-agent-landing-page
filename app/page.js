@@ -222,6 +222,7 @@ export default function Home() {
         </NavLogo>
         <NavMenu>
           <NavMenuLink href="/benchmark">{txt('Benchmark', 'Benchmark')}</NavMenuLink>
+          <NavMenuLink href="/regulations-search">{txt('Wyszukiwarka Regulacji', 'Regulations Search')}</NavMenuLink>
         </NavMenu>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <LangToggle>
@@ -370,21 +371,20 @@ export default function Home() {
               </ButtonPrimaryLink>
             </ModuleCard>
 
-            <ModuleCard className="coming-soon">
-              <span className="module-tag">{txt('Wkrótce', 'Coming soon')}</span>
+            <ModuleCard style={{ border: '1px solid rgba(34, 197, 94, 0.25)' }}>
               <div>
-                <div className="module-icon coming-soon-icon">🍃</div>
-                <h3>{txt('Analiza Śladu Węglowego (Carbon)', 'Carbon Footprint Calculator')}</h3>
+                <div className="module-icon">🔍</div>
+                <h3>{txt('Wyszukiwarka Regulacji (Regulations search)', 'Regulations Search (Compliance Radar)')}</h3>
                 <p>
                   {txt(
-                    'Precyzyjny moduł wyliczania śladu węglowego firmy (Emisje Zakresów 1, 2, 3) zgodny z GHG Protocol oraz normą ISO 14067. Automatyczne importowanie faktur za prąd, paliwo oraz tabele transportowe i wyliczenie śladu węglowego w kilka minut.',
-                    'Advanced carbon accounting module for greenhouse gas emissions (Scope 1, 2, 3) compliant with the GHG Protocol and ISO 14067. Auto-import fuel & power invoices to compute carbon footprints instantly.'
+                    'Sprawdź, którym unijnym i krajowym regulacjom ESG (CSRD, EUDR, CBAM, CSDDD, SFDR) podlega Twoje przedsiębiorstwo. Wprowadź NIP i uzyskaj natychmiastową, zindywidualizowaną analizę prawną wraz z pełnym raportem PDF.',
+                    'Identify which EU and national ESG regulations (CSRD, EUDR, CBAM, CSDDD, SFDR) apply to your enterprise. Input a Polish Tax ID (NIP) for an instant legal analysis and download a custom PDF compliance report.'
                   )}
                 </p>
               </div>
-              <ButtonPrimary disabled style={{ width: '100%', justifyContent: 'center' }}>
-                {txt('Moduł zablokowany', 'Module locked')}
-              </ButtonPrimary>
+              <ButtonPrimaryLink as={Link} href="/regulations-search" style={{ width: '100%', justifyContent: 'center' }}>
+                {txt('Uruchom moduł Szukaj Regulacji →', 'Launch Regulations Search →')}
+              </ButtonPrimaryLink>
             </ModuleCard>
           </ModulesGrid>
         </Container>

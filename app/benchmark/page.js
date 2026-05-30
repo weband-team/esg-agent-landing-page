@@ -1385,6 +1385,9 @@ export default function BenchmarkPage() {
         </NavLogo>
         <NavMenu>
           <NavMenuLink href="/benchmark">Benchmark</NavMenuLink>
+          <NavMenuLink href="/regulations-search">
+            {lang === 'pl' ? 'Wyszukiwarka Regulacji' : 'Regulations Search'}
+          </NavMenuLink>
         </NavMenu>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <LangToggle>
