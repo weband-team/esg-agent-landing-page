@@ -221,11 +221,7 @@ export default function Home() {
           🌿 <span>ESG</span> Compliance Agent
         </NavLogo>
         <NavMenu>
-          <NavMenuLink href="#problem">{txt('O asystencie', 'About')}</NavMenuLink>
-          <NavMenuLink href="#modules">{txt('Dostępne moduły', 'Modules')}</NavMenuLink>
           <NavMenuLink href="/benchmark">{txt('Benchmark', 'Benchmark')}</NavMenuLink>
-          <NavMenuLink href="#founding">{txt('Program Założycielski', 'Founder Program')}</NavMenuLink>
-          <NavMenuLink href="#faq">{txt('FAQ', 'FAQ')}</NavMenuLink>
         </NavMenu>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <LangToggle>

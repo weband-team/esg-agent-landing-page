@@ -1384,11 +1384,7 @@ export default function BenchmarkPage() {
           🌿 <span>ESG</span> Compliance Agent
         </NavLogo>
         <NavMenu>
-          <NavMenuLink href="/#problem">{t('nav.about', 'About')}</NavMenuLink>
-          <NavMenuLink href="/#modules" className="active">{t('nav.mvp', 'Modules')}</NavMenuLink>
           <NavMenuLink href="/benchmark">Benchmark</NavMenuLink>
-          <NavMenuLink href="/#founding">{t('nav.pricing', 'Founder Program')}</NavMenuLink>
-          <NavMenuLink href="/#faq">FAQ</NavMenuLink>
         </NavMenu>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <LangToggle>
