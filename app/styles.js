@@ -29,6 +29,33 @@ export const Nav = styled.nav`
   }
 `;
 
+export const NavMenu = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
+`;
+
+export const NavMenuLink = styled.a`
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: ${props => props.theme.colors.slate300};
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    color: ${props => props.theme.colors.green400};
+  }
+
+  &.active {
+    color: ${props => props.theme.colors.green400};
+    font-weight: 700;
+  }
+`;
+
 export const NavLogo = styled.a`
   font-size: 1.1rem;
   font-weight: 800;
@@ -1557,5 +1584,102 @@ export const VideoWrapper = styled.div`
     width: 100%;
     height: 100%;
     border: none;
+  }
+`;
+
+// ─── AVAILABLE MODULES COMPONENTS ───
+export const ModulesSection = styled.section`
+  padding: 6rem 0;
+  background: linear-gradient(180deg, ${props => props.theme.colors.slate900} 0%, ${props => props.theme.colors.slate950} 100%);
+
+  @media (max-width: 768px) {
+    padding: 4.5rem 0;
+  }
+`;
+
+export const ModulesGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+`;
+
+export const ModuleCard = styled.div`
+  background: ${props => props.theme.gradients.cardGradient};
+  border: 1px solid ${props => props.theme.colors.slate800};
+  border-radius: 20px;
+  padding: 2.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    border-color: rgba(34, 197, 94, 0.35);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 25px rgba(34, 197, 94, 0.05);
+  }
+
+  &.coming-soon {
+    border-style: dashed;
+    border-color: ${props => props.theme.colors.slate700};
+    opacity: 0.85;
+
+    &:hover {
+      border-color: ${props => props.theme.colors.slate500};
+      transform: none;
+      box-shadow: none;
+    }
+  }
+
+  .module-tag {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    color: ${props => props.theme.colors.gold};
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    text-transform: uppercase;
+  }
+
+  .module-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .coming-soon-icon {
+    background: rgba(148, 163, 184, 0.06);
+    border: 1px solid rgba(148, 163, 184, 0.15);
+    color: ${props => props.theme.colors.slate400};
+  }
+
+  h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: ${props => props.theme.colors.white};
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: ${props => props.theme.colors.slate400};
+    line-height: 1.65;
+    margin-bottom: 2rem;
+    flex-grow: 1;
   }
 `;

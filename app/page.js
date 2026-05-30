@@ -68,6 +68,11 @@ import {
   BenefitValueBadge,
   FormSection,
   FormWrap,
+  NavMenu,
+  NavMenuLink,
+  ModulesSection,
+  ModulesGrid,
+  ModuleCard,
   FormGroup,
   FormRow,
   FormCheck,
@@ -215,6 +220,13 @@ export default function Home() {
         <NavLogo href="/">
           🌿 <span>ESG</span> Compliance Agent
         </NavLogo>
+        <NavMenu>
+          <NavMenuLink href="#problem">{txt('O asystencie', 'About')}</NavMenuLink>
+          <NavMenuLink href="#modules">{txt('Dostępne moduły', 'Modules')}</NavMenuLink>
+          <NavMenuLink href="/benchmark">{txt('Benchmark', 'Benchmark')}</NavMenuLink>
+          <NavMenuLink href="#founding">{txt('Program Założycielski', 'Founder Program')}</NavMenuLink>
+          <NavMenuLink href="#faq">{txt('FAQ', 'FAQ')}</NavMenuLink>
+        </NavMenu>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <LangToggle>
             <LangBtn className={lang === 'pl' ? 'active' : ''} onClick={() => setLang('pl')}>PL</LangBtn>
@@ -326,6 +338,63 @@ export default function Home() {
           </TrustGrid>
         </Container>
       </TrustStrip>
+
+      <Divider />
+
+      {/* AVAILABLE MODULES SECTION */}
+      <ModulesSection id="modules">
+        <Container>
+          <div style={{ textAlign: 'center' }}>
+            <Tag>{txt('Moduły platformy', 'Platform Modules')}</Tag>
+            <SectionTitle>
+              {txt('Dostępne ', 'Available ')}
+              <GradientText>{txt('bezpłatne moduły', 'free modules')}</GradientText>
+            </SectionTitle>
+            <SectionSub style={{ margin: '0 auto 3rem auto', textAlign: 'center' }}>
+              {txt(
+                'Wybierz moduł, aby uruchomić dedykowanego asystenta AI, przeprowadzić szybką ocenę dojrzałości ESG lub wygenerować wymagane sprawozdania i raporty.',
+                'Select a module to run a dedicated AI copilot, perform rapid ESG maturity assessments, or generate audit-ready reports.'
+              )}
+            </SectionSub>
+          </div>
+          <ModulesGrid>
+            <ModuleCard style={{ border: '1px solid rgba(34, 197, 94, 0.25)' }}>
+              <div>
+                <div className="module-icon">📊</div>
+                <h3>{txt('ESG Benchmark (Maturity Assessment)', 'ESG Benchmark (Maturity Assessment)')}</h3>
+                <p>
+                  {txt(
+                    'Interaktywny test dojrzałości ESG Twojego przedsiębiorstwa. Oceń obszary E, S i G, poznaj swój poziom zaawansowania oraz pobierz kompletny raport PDF z gotowymi rekomendacjami wdrożeniowymi i wyślij go na e-mail.',
+                    'An interactive ESG maturity assessment of your enterprise. Evaluate E, S, and G categories, view your maturity tier, download a complete recommendations report in PDF format, and receive it via email.'
+                  )}
+                </p>
+              </div>
+              <Link href="/benchmark" passHref legacyBehavior>
+                <ButtonPrimaryLink style={{ width: '100%', justifyContent: 'center' }}>
+                  {txt('Uruchom moduł Benchmark →', 'Launch Benchmark Module →')}
+                </ButtonPrimaryLink>
+              </Link>
+            </ModuleCard>
+
+            <ModuleCard className="coming-soon">
+              <span className="module-tag">{txt('Wkrótce', 'Coming soon')}</span>
+              <div>
+                <div className="module-icon coming-soon-icon">🍃</div>
+                <h3>{txt('Analiza Śladu Węglowego (Carbon)', 'Carbon Footprint Calculator')}</h3>
+                <p>
+                  {txt(
+                    'Precyzyjny moduł wyliczania śladu węglowego firmy (Emisje Zakresów 1, 2, 3) zgodny z GHG Protocol oraz normą ISO 14067. Automatyczne importowanie faktur za prąd, paliwo oraz tabele transportowe i wyliczenie śladu węglowego w kilka minut.',
+                    'Advanced carbon accounting module for greenhouse gas emissions (Scope 1, 2, 3) compliant with the GHG Protocol and ISO 14067. Auto-import fuel & power invoices to compute carbon footprints instantly.'
+                  )}
+                </p>
+              </div>
+              <ButtonPrimary disabled style={{ width: '100%', justifyContent: 'center' }}>
+                {txt('Moduł zablokowany', 'Module locked')}
+              </ButtonPrimary>
+            </ModuleCard>
+          </ModulesGrid>
+        </Container>
+      </ModulesSection>
 
       <Divider />
 
