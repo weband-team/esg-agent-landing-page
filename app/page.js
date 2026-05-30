@@ -369,11 +369,9 @@ export default function Home() {
                   )}
                 </p>
               </div>
-              <Link href="/benchmark" passHref legacyBehavior>
-                <ButtonPrimaryLink style={{ width: '100%', justifyContent: 'center' }}>
-                  {txt('Uruchom moduł Benchmark →', 'Launch Benchmark Module →')}
-                </ButtonPrimaryLink>
-              </Link>
+              <ButtonPrimaryLink as={Link} href="/benchmark" style={{ width: '100%', justifyContent: 'center' }}>
+                {txt('Uruchom moduł Benchmark →', 'Launch Benchmark Module →')}
+              </ButtonPrimaryLink>
             </ModuleCard>
 
             <ModuleCard className="coming-soon">
