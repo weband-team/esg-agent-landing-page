@@ -1,0 +1,22 @@
+{
+  "core_states": [
+    { "id": "good", "label_pl": "Dobry", "label_en": "Good", "severity": 1, "color_token": "green" },
+    { "id": "moderate", "label_pl": "Umiarkowany", "label_en": "Moderate", "severity": 2, "color_token": "yellow" },
+    { "id": "elevated", "label_pl": "Podwyższone ryzyko", "label_en": "Elevated risk", "severity": 3, "color_token": "orange" },
+    { "id": "critical", "label_pl": "Krytyczny", "label_en": "Critical", "severity": 4, "color_token": "red" },
+    { "id": "unknown", "label_pl": "Nieokreślony", "label_en": "Unknown", "severity": 99, "color_token": "gray" }
+  ],
+  "color_map": {
+    "green": "#22C55E",
+    "yellow": "#F59E0B",
+    "orange": "#F97316",
+    "red": "#EF4444",
+    "gray": "#6B7280"
+  },
+  "thresholds": {
+    "good": 81,
+    "moderate": 51,
+    "elevated": 31,
+    "critical": 0
+  }
+}

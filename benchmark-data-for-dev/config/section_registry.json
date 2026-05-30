@@ -1,0 +1,60 @@
+{
+  "page1": [
+    { "section_id": "exec_summary", "state_source": "computed:core.state_id" },
+    { "section_id": "risks", "state_source": "inherited_from:exec_summary" }
+  ],
+  "narratives": {
+    "exec_summary": {
+      "title_pl": "Co oznacza Twój wynik?",
+      "title_en": "What does your score mean?",
+      "texts": {
+        "good": {
+          "pl": "Twój wynik ESG wskazuje na wysoki poziom dojrzałości w zakresie zrównoważonego rozwoju. Firma posiada solidne fundamenty zarządcze, procesy są ustrukturyzowane, a działania ESG są zintegrowane ze strategią biznesową.",
+          "en": "Your ESG score indicates a high level of sustainability maturity. The company has solid management foundations, processes are structured, and ESG activities are integrated with business strategy."
+        },
+        "moderate": {
+          "pl": "Twój wynik ESG pokazuje średni poziom dojrzałości w zakresie zrównoważonego rozwoju. Masz już podstawy, ale istnieją obszary wymagające poprawy. Skup się na standaryzacji procesów zbierania danych, uzupełnieniu brakujących polityk oraz regularnym przeglądzie celów ESG przez zarząd.",
+          "en": "Your ESG score shows a moderate level of sustainability maturity. You already have the basics, but there are areas that need improvement. Focus on standardizing data collection processes, filling in missing policies, and regular ESG goal review by management."
+        },
+        "elevated": {
+          "pl": "Twój wynik ESG wskazuje na podwyższone ryzyko. Istnieją znaczące luki w systemach zarządzania ESG. Priorytetem powinno być wdrożenie podstawowych polityk i procedur, wyznaczenie odpowiedzialnych osób oraz rozpoczęcie systematycznego zbierania danych.",
+          "en": "Your ESG score indicates elevated risk. There are significant gaps in ESG management systems. Priority should be implementing basic policies and procedures, assigning responsible persons, and starting systematic data collection."
+        },
+        "critical": {
+          "pl": "Twój wynik ESG wskazuje na krytyczny stan gotowości. Brak jest podstawowych elementów zarządzania ESG. Konieczne jest pilne wdrożenie fundamentalnych struktur zarządczych i rozpoczęcie budowy świadomości ESG w organizacji.",
+          "en": "Your ESG score indicates a critical state of readiness. Basic ESG management elements are missing. Urgent implementation of fundamental management structures and building ESG awareness in the organization is necessary."
+        },
+        "unknown": {
+          "pl": "Nie udało się określić stanu na podstawie dostępnych danych.",
+          "en": "Could not determine status based on available data."
+        }
+      }
+    },
+    "risks": {
+      "title_pl": "Ryzyko ESG",
+      "title_en": "ESG Risk",
+      "texts": {
+        "good": {
+          "pl": "Niskie ryzyko ESG. Firma jest dobrze przygotowana do wymagań regulacyjnych i oczekiwań interesariuszy.",
+          "en": "Low ESG risk. The company is well prepared for regulatory requirements and stakeholder expectations."
+        },
+        "moderate": {
+          "pl": "Umiarkowane ryzyko ESG. Operacje są opłacalne z jasnym planem redukcji wpływu na środowisko.",
+          "en": "Moderate ESG risk. Operations are viable with a clear plan to reduce environmental impact."
+        },
+        "elevated": {
+          "pl": "Podwyższone ryzyko ESG. Wymagane są pilne działania naprawcze w celu ograniczenia ekspozycji na ryzyka regulacyjne i reputacyjne.",
+          "en": "Elevated ESG risk. Urgent corrective actions are required to limit exposure to regulatory and reputational risks."
+        },
+        "critical": {
+          "pl": "Krytyczne ryzyko ESG. Firma jest narażona na poważne konsekwencje regulacyjne, finansowe i reputacyjne. Natychmiastowe działania są konieczne.",
+          "en": "Critical ESG risk. The company is exposed to serious regulatory, financial, and reputational consequences. Immediate action is necessary."
+        },
+        "unknown": {
+          "pl": "Nie można określić poziomu ryzyka.",
+          "en": "Risk level cannot be determined."
+        }
+      }
+    }
+  }
+}

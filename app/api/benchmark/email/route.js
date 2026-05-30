@@ -49,12 +49,53 @@ export async function POST(req) {
           body: formData.toString()
         });
 
+        const resText = await response.text();
+
         if (response.ok) {
-          emailSent = true;
-          emailDetails = 'PDF sent successfully via Google Apps Script';
+          // Even if response is OK (HTTP 200), check if it's a GAS error page (HTML)
+          const isHtml = resText.trim().startsWith('<!DOCTYPE html>') || resText.includes('<html');
+          if (isHtml) {
+            emailSent = false;
+            // Try to extract the error message from the Google Apps Script error page
+            let errMsg = 'Google Apps Script execution error (HTML response)';
+            
+            // Extract text from the error div: <div style="text-align:center;font-family:monospace;...
+            const monospaceMatch = resText.match(/<div style="[^"]*font-family:\s*monospace[^"]*">([\s\S]*?)<\/div>/i);
+            const errorMessageMatch = resText.match(/class="errorMessage">([\s\S]*?)<\/div>/i);
+            
+            if (monospaceMatch && monospaceMatch[1]) {
+              errMsg = monospaceMatch[1].replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').trim();
+            } else if (errorMessageMatch && errorMessageMatch[1]) {
+              errMsg = errorMessageMatch[1].trim();
+            } else {
+              // General body extraction or title
+              const titleMatch = resText.match(/<title>([\s\S]*?)<\/title>/i);
+              if (titleMatch && titleMatch[1]) {
+                errMsg = `Google Apps Script Error: ${titleMatch[1].trim()}`;
+              }
+            }
+            
+            console.error('Google Apps Script crashed:', errMsg);
+            emailDetails = errMsg;
+          } else {
+            // Check if it's JSON and has success
+            try {
+              const resJson = JSON.parse(resText);
+              if (resJson && resJson.status === 'error') {
+                emailSent = false;
+                emailDetails = `Apps Script failed: ${resJson.message || 'unknown error'}`;
+              } else {
+                emailSent = true;
+                emailDetails = 'PDF sent successfully via Google Apps Script';
+              }
+            } catch (e) {
+              // Not JSON, but not HTML - assume successful text response
+              emailSent = true;
+              emailDetails = 'PDF sent successfully via Google Apps Script';
+            }
+          }
         } else {
-          const errText = await response.text();
-          console.error('Google Apps Script response error:', response.status, errText);
+          console.error('Google Apps Script response error:', response.status, resText);
           emailDetails = `Failed sending via Apps Script: status ${response.status}`;
         }
       } catch (fetchError) {

@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="article.title">Article - ESGSyncPRO</title>
+    <meta name="description" content="Article about ESGSyncPRO and ESG reporting.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://esgsync.pro/pages/article.html" />
+    <meta property="og:title" content="Article - ESGSyncPRO" />
+    <meta property="og:description" content="Article about ESGSyncPRO and ESG reporting." />
+    <meta property="og:image" content="https://esgsync.pro/public/assets/images/og-image.jpg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Article - ESGSyncPRO" />
+    <meta name="twitter:description" content="Article about ESGSyncPRO and ESG reporting." />
+    <meta name="twitter:image" content="https://esgsync.pro/public/assets/images/og-image.jpg" />
+
+    <link rel="icon" href="../public/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        .mobile-menu-transition {
+            transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        /* Responsive menu styles */
+        @media (min-width: 1024px) {
+            .lg\:hidden { display: none !important; }
+            .hidden.lg\:flex { display: flex !important; }
+            .hidden.lg\:block { display: block !important; }
+        }
+        
+        @media (max-width: 1023px) {
+            .lg\:hidden { display: flex !important; }
+            .hidden.lg\:flex { display: none !important; }
+            .hidden.lg\:block { display: none !important; }
+        }
+        
+        /* Additional responsive padding */
+        @media (min-width: 768px) {
+            .md\:px-12 { padding-left: 3rem; padding-right: 3rem; }
+            .md\:py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+        }
+        
+        @media (min-width: 1024px) {
+            .lg\:px-28 { padding-left: 7rem; padding-right: 7rem; }
+        }
+        
+        /* Increase top padding for article content container */
+        section > div.px-6 {
+            padding-top: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            section > div.px-6 {
+                padding-top: 1.5rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            section > div.px-6 {
+                padding-top: 2rem;
+            }
+        }
+        
+        /* Article page styles */
+        .article-image {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .article-title {
+            font-size: 2.125rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 2rem;
+        }
+        
+        h2.article-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Mobile: smaller h1 */
+        @media (max-width: 767px) {
+            h1.article-title {
+                font-size: 1.5rem;
+            }
+        }
+        
+        .article-author-section {
+            margin-bottom: 3rem;
+        }
+        
+        .article-text {
+            margin-top: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .article-text p {
+            color: #4b5563;
+            font-size: 1.3rem;
+            line-height: 1.75;
+            margin: 0;
+        }
+        
+        .text-gray-700.leading-relaxed {
+            font-size: 1.125rem;
+        }
+        
+        .author-card {
+            border: 1px solid #B3B3B3;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .more-articles-section {
+            margin-top: 4rem;
+        }
+        
+        .more-articles-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 2rem;
+        }
+        
+        .more-article-card {
+            background: white;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .more-article-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            border-color: #95CE24;
+        }
+        
+        .more-article-card:hover .more-article-image {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .more-article-card:hover .more-article-title {
+            color: #95CE24;
+            transition: color 0.3s ease;
+        }
+        
+        .more-article-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .more-article-content {
+            padding: 1.5rem 1.5rem 1.5rem 1rem;
+        }
+        
+        .more-article-date {
+            color: #95CE24;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .more-article-title {
+            font-size: 1.125rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 0.75rem;
+            transition: color 0.3s ease;
+        }
+        
+        .more-article-description {
+            color: #4b5563;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 767px) {
+            .more-articles-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+                margin-bottom: 3rem;
+            }
+            
+            .more-article-date,
+            .more-article-title,
+            .more-article-description {
+                text-align: left;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .more-articles-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+                margin-bottom: 3rem;
+            }
+            
+            .article-title {
+                font-size: 2.75rem;
+            }
+            
+            h2.article-title {
+                font-size: 2rem;
+            }
+            
+            .article-image {
+                margin: 2rem 0;
+            }
+        }
+        /* Fix scrolling issue on mobile and tablet */
+        body, html {
+            overflow-x: hidden;
+            overflow-y: auto;
+            height: auto;
+        }
+        
+        @media (max-width: 767px) {
+            section {
+                padding-bottom: 2rem !important;
+            }
+            
+            .more-articles-section {
+                padding-bottom: 1rem !important;
+            }
+        }
+        
+        @media (min-width: 768px) and (max-width: 1023px) {
+            section {
+                padding-bottom: 1rem !important;
+            }
+            
+            .more-articles-section {
+                padding-bottom: 1rem !important;
+            }
+            
+            .more-articles-grid {
+                margin-bottom: 1.5rem;
+            }
+            
+            main {
+                padding-bottom: 0 !important;
+            }
+            
+            #footer-container {
+                display: block !important;
+                visibility: visible !important;
+                width: 100% !important;
+            }
+            
+            #footer-container footer {
+                display: block !important;
+                visibility: visible !important;
+                width: 100% !important;
+            }
+        }
+        
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+    <!-- Header will be loaded here -->
+    <div id="header-container"></div>
+
+    <!-- Main Content -->
+    <main style="margin-top: 73px;">
+        <!-- Article Section -->
+        <section class="pt-4 pb-0 md:pt-12 md:pb-0 lg:pt-16 lg:pb-20 bg-white">
+            <div class="px-6 md:px-12 lg:px-28">
+                <div class="max-w-6xl mx-auto">
+                    <article>
+                        <!-- Title -->
+                        <h1 class="article-title" data-translate="article.main.title">
+                            The Secret to Sub-Millisecond Latency: A Deep Dive
+                        </h1>
+                        
+                        <!-- Author and Date -->
+                        <div class="article-author-section">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full mr-4" style="background-color: #000000;"></div>
+                                <div>
+                                    <p class="text-base text-gray-900 font-semibold">Samantha Smith</p>
+                                    <p class="text-sm text-[#4B5563]"><span data-translate="article.published">Published on</span> <span data-translate="article.date.main">February 11, 2025</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Article Image -->
+                        <img src="../public/assets/images/articles(1).png" 
+                             alt="Article image" 
+                             class="article-image">
+                        
+                        <!-- Article Text -->
+                        <div class="article-text">
+                            <p data-translate="article.main.text1">Explore the advanced techniques and hardware necessary to minimize input lag and achieve true synchronization in demanding applications. Explore the advanced techniques and hardware necessary to minimize input lag and achieve true synchronization in demanding applications. Explore the advanced techniques and hardware necessary to minimize input lag and achieve true synchronization in demanding applications. Explore the advanced techniques and hardware necessary to minimize input lag and achieve true synchronization in demanding applications. Explore the advanced techniques and hardware necessary to minimize input lag and achieve true synchronization in demanding applications.</p>
+                        </div>
+                        
+                        <!-- H2 Heading -->
+                        <h2 class="article-title mt-8" data-translate="article.h2.title">
+                            The Secret to Sub-Millisecond Latency: A Deep Dive
+                        </h2>
+                        
+                        <!-- Text after H2 -->
+                        <div class="article-text">
+                            <p data-translate="article.h2.text">Explore the advanced techniques and hardware necessary to minimize input lag and achieve true synchronization in demanding applications. Explore the advanced techniques and hardware necessary to minimize input lag and achieve true synchronization in demanding applications.</p>
+                        </div>
+                        
+                        <!-- Image after text -->
+                        <img src="../public/assets/images/card.png" 
+                             alt="Article image" 
+                             class="article-image">
+                        
+                        <!-- Author Card Section -->
+                        <div class="author-card">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-8 h-8 rounded-full mr-4" style="background-color: #000000;"></div>
+                                <div>
+                                    <p class="text-base text-gray-900 font-semibold"><span data-translate="article.written">Written by</span> Samantha Smith</p>
+                                    <p class="text-sm text-[#4B5563]" data-translate="article.date.author">February 11, 2025</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed" data-translate="article.author.bio">
+                                Join us on an interactive tour through the wonders of the cosmos. Discover the secrets of the stars, the mysteries of black holes, and the beauty of the galaxies.
+                            </p>
+                        </div>
+                    </article>
+                    
+                    <!-- More Articles Section -->
+                    <div class="more-articles-section">
+                        <h2 class="more-articles-title" data-translate="article.more.title">More Article</h2>
+                        <div class="more-articles-grid">
+                            <!-- Article Card 1 -->
+                            <div class="more-article-card">
+                                <img src="../public/assets/images/articles(2).png" 
+                                     alt="Article image" 
+                                     class="more-article-image">
+                                <div class="more-article-content">
+                                    <p class="more-article-date" data-translate="article.date.more">February 11, 2025</p>
+                                    <h3 class="more-article-title" data-translate="article.more.1.title">The Secret to Sub-Millisecond Latency: A Deep Dive</h3>
+                                    <p class="more-article-description" data-translate="article.more.1.description">Explore the advanced techniques and hardware necessary to minimize input lag and achieve true synchronization in demanding applications.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Article Card 2 -->
+                            <div class="more-article-card">
+                                <img src="../public/assets/images/articles(3).png" 
+                                     alt="Article image" 
+                                     class="more-article-image">
+                                <div class="more-article-content">
+                                    <p class="more-article-date" data-translate="article.date.more">February 11, 2025</p>
+                                    <h3 class="more-article-title" data-translate="article.more.1.title">The Secret to Sub-Millisecond Latency: A Deep Dive</h3>
+                                    <p class="more-article-description" data-translate="article.more.1.description">Explore the advanced techniques and hardware necessary to minimize input lag and achieve true synchronization in demanding applications.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Article Card 3 -->
+                            <div class="more-article-card">
+                                <img src="../public/assets/images/articles(4).png" 
+                                     alt="Article image" 
+                                     class="more-article-image">
+                                <div class="more-article-content">
+                                    <p class="more-article-date" data-translate="article.date.more">February 11, 2025</p>
+                                    <h3 class="more-article-title" data-translate="article.more.1.title">The Secret to Sub-Millisecond Latency: A Deep Dive</h3>
+                                    <p class="more-article-description" data-translate="article.more.1.description">Explore the advanced techniques and hardware necessary to minimize input lag and achieve true synchronization in demanding applications.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-container"></div>
+
+    <script>
+        // Translations object
+        const translations = {
+            en: {
+                "article.title": "Article - ESGSyncPRO",
+                "article.main.title": "The Secret to Sub-Millisecond Latency: A Deep Dive",
+                "article.published": "Published on",
+                "article.main.text1": "Explore the advanced techniques and hardware necessary to minimize input lag and achieve true synchronization in demanding applications. Explore the advanced techniques and hardware necessary to minimize input lag and achieve true synchronization in demanding applications. Explore the advanced techniques and hardware necessary to minimize input lag and achieve true synchronization in demanding applications. Explore the advanced techniques and hardware necessary to minimize input lag and achieve true synchronization in demanding applications. Explore the advanced techniques and hardware necessary to minimize input lag and achieve true synchronization in demanding applications.",
+                "article.h2.title": "The Secret to Sub-Millisecond Latency: A Deep Dive",
+                "article.h2.text": "Explore the advanced techniques and hardware necessary to minimize input lag and achieve true synchronization in demanding applications. Explore the advanced techniques and hardware necessary to minimize input lag and achieve true synchronization in demanding applications.",
+                "article.written": "Written by",
+                "article.author.bio": "Join us on an interactive tour through the wonders of the cosmos. Discover the secrets of the stars, the mysteries of black holes, and the beauty of the galaxies.",
+                "article.more.title": "More Article",
+                "article.more.1.title": "The Secret to Sub-Millisecond Latency: A Deep Dive",
+                "article.more.1.description": "Explore the advanced techniques and hardware necessary to minimize input lag and achieve true synchronization in demanding applications.",
+                "article.date.main": "February 11, 2025",
+                "article.date.author": "February 11, 2025",
+                "article.date.more": "February 11, 2025",
+                // Navigation
+                "nav.demo": "Demo",
+                "nav.features": "Features",
+                "nav.howItWorks": "How It Works",
+                "nav.calculator": "Calculator",
+                "nav.article": "Article",
+                "nav.about": "About",
+                // CTA
+                "cta.getStarted": "Get Started",
+                // Footer
+                "footer.description": "Transform fuel data into actionable emission insights.",
+                "footer.product": "Product",
+                "footer.about": "About",
+                "footer.about.mission": "Mission",
+                "footer.about.ceo": "CEO & Product",
+                "footer.about.values": "Values",
+                "footer.about.technology": "Technology",
+                "footer.connect": "Connect",
+                "footer.copyright": "© 2025 ESGSyncPRO. All rights reserved.",
+                "footer.privacy": "Privacy Policy"
+            },
+            pl: {
+                "article.title": "Artykuł - ESGSyncPRO",
+                "article.main.title": "Sekret opóźnienia poniżej milisekundy: Szczegółowa analiza",
+                "article.published": "Opublikowano",
+                "article.main.text1": "Poznaj zaawansowane techniki i sprzęt niezbędny do minimalizacji opóźnień wejściowych i osiągnięcia prawdziwej synchronizacji w wymagających aplikacjach. Poznaj zaawansowane techniki i sprzęt niezbędny do minimalizacji opóźnień wejściowych i osiągnięcia prawdziwej synchronizacji w wymagających aplikacjach. Poznaj zaawansowane techniki i sprzęt niezbędny do minimalizacji opóźnień wejściowych i osiągnięcia prawdziwej synchronizacji w wymagających aplikacjach. Poznaj zaawansowane techniki i sprzęt niezbędny do minimalizacji opóźnień wejściowych i osiągnięcia prawdziwej synchronizacji w wymagających aplikacjach. Poznaj zaawansowane techniki i sprzęt niezbędny do minimalizacji opóźnień wejściowych i osiągnięcia prawdziwej synchronizacji w wymagających aplikacjach.",
+                "article.h2.title": "Sekret opóźnienia poniżej milisekundy: Szczegółowa analiza",
+                "article.h2.text": "Poznaj zaawansowane techniki i sprzęt niezbędny do minimalizacji opóźnień wejściowych i osiągnięcia prawdziwej synchronizacji w wymagających aplikacjach. Poznaj zaawansowane techniki i sprzęt niezbędny do minimalizacji opóźnień wejściowych i osiągnięcia prawdziwej synchronizacji w wymagających aplikacjach.",
+                "article.written": "Napisane przez",
+                "article.author.bio": "Dołącz do nas na interaktywnej wycieczce po cudach kosmosu. Odkryj sekrety gwiazd, tajemnice czarnych dziur i piękno galaktyk.",
+                "article.more.title": "Więcej artykułów",
+                "article.more.1.title": "Sekret opóźnienia poniżej milisekundy: Szczegółowa analiza",
+                "article.more.1.description": "Poznaj zaawansowane techniki i sprzęt niezbędny do minimalizacji opóźnień wejściowych i osiągnięcia prawdziwej synchronizacji w wymagających aplikacjach.",
+                "article.date.main": "11 lutego 2025",
+                "article.date.author": "11 lutego 2025",
+                "article.date.more": "11 lutego 2025",
+                // Navigation
+                "nav.demo": "Demo",
+                "nav.features": "Funkcje",
+                "nav.howItWorks": "Jak to działa",
+                "nav.calculator": "Kalkulator",
+                "nav.article": "Artykuł",
+                "nav.about": "O nas",
+                // CTA
+                "cta.getStarted": "Rozpocznij",
+                // Footer
+                "footer.description": "Przekształć dane o paliwach w praktyczne wglądy w emisje.",
+                "footer.product": "Produkt",
+                "footer.about": "O nas",
+                "footer.about.mission": "Misja",
+                "footer.about.ceo": "CEO i Produkt",
+                "footer.about.values": "Wartości",
+                "footer.about.technology": "Technologia",
+                "footer.connect": "Połącz się",
+                "footer.copyright": "© 2025 ESGSyncPRO. Wszelkie prawa zastrzeżone.",
+                "footer.privacy": "Polityka prywatności"
+            }
+        };
+
+        // Current language state
+        let currentLanguage = 'en'; // Default to English
+        
+        // Initialize language from URL parameter or localStorage
+        function initializeLanguage() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlLang = urlParams.get('lang');
+            
+            if (urlLang && (urlLang === 'en' || urlLang === 'pl')) {
+                currentLanguage = urlLang;
+            } else {
+                const storedLang = localStorage.getItem('esgsyncp-language');
+                if (storedLang && (storedLang === 'en' || storedLang === 'pl')) {
+                    currentLanguage = storedLang;
+                } else {
+                    currentLanguage = 'en';
+                }
+            }
+            
+            // Update URL with current language if not present
+            if (!urlLang && currentLanguage !== 'en') {
+                const url = new URL(window.location);
+                url.searchParams.set('lang', currentLanguage);
+                window.history.replaceState({}, '', url);
+            }
+        }
+        
+        // Update all translations
+        function updateTranslations() {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[currentLanguage] && translations[currentLanguage][key]) {
+                    element.textContent = translations[currentLanguage][key];
+                }
+            });
+        }
+        
+        // Update language selectors to show current language
+        function updateLanguageSelectors() {
+            const currentLanguageElement = document.getElementById('current-language');
+            const mobileCurrentLanguageElement = document.getElementById('mobile-current-language');
+            
+            if (currentLanguageElement) {
+                currentLanguageElement.textContent = currentLanguage === 'en' ? 'English' : 'Polish';
+            }
+            
+            if (mobileCurrentLanguageElement) {
+                mobileCurrentLanguageElement.textContent = currentLanguage === 'en' ? 'English' : 'Polish';
+            }
+        }
+        
+        // Define language dropdown functions early so they're available when header loads
+        window.toggleLanguageDropdown = function() {
+            const dropdown = document.getElementById('language-dropdown');
+            const mobileDropdown = document.getElementById('mobile-language-dropdown');
+            const arrow = document.getElementById('language-arrow');
+            const mobileArrow = document.getElementById('mobile-language-arrow');
+            
+            if (dropdown && arrow) {
+                const isVisible = dropdown.style.opacity === '1' && dropdown.style.visibility === 'visible';
+                
+                if (isVisible) {
+                    // Close dropdown
+                    dropdown.style.opacity = '0';
+                    dropdown.style.visibility = 'hidden';
+                    dropdown.style.transform = 'translateY(-10px)';
+                    arrow.style.transform = 'rotate(0deg)';
+                } else {
+                    // Open dropdown
+                    dropdown.style.opacity = '1';
+                    dropdown.style.visibility = 'visible';
+                    dropdown.style.transform = 'translateY(0)';
+                    arrow.style.transform = 'rotate(180deg)';
+                }
+            }
+            
+            if (mobileDropdown && mobileArrow) {
+                const isVisible = mobileDropdown.style.opacity === '1' && mobileDropdown.style.visibility === 'visible';
+                
+                if (isVisible) {
+                    // Close mobile dropdown
+                    mobileDropdown.style.opacity = '0';
+                    mobileDropdown.style.visibility = 'hidden';
+                    mobileDropdown.style.transform = 'translateY(-10px)';
+                    mobileArrow.style.transform = 'rotate(0deg)';
+                } else {
+                    // Open mobile dropdown
+                    mobileDropdown.style.opacity = '1';
+                    mobileDropdown.style.visibility = 'visible';
+                    mobileDropdown.style.transform = 'translateY(0)';
+                    mobileArrow.style.transform = 'rotate(180deg)';
+                }
+            }
+        };
+        
+        window.closeAllLanguageDropdowns = function() {
+            const dropdown = document.getElementById('language-dropdown');
+            const mobileDropdown = document.getElementById('mobile-language-dropdown');
+            const arrow = document.getElementById('language-arrow');
+            const mobileArrow = document.getElementById('mobile-language-arrow');
+            
+            if (dropdown && arrow) {
+                dropdown.style.opacity = '0';
+                dropdown.style.visibility = 'hidden';
+                dropdown.style.transform = 'translateY(-10px)';
+                arrow.style.transform = 'rotate(0deg)';
+            }
+            
+            if (mobileDropdown && mobileArrow) {
+                mobileDropdown.style.opacity = '0';
+                mobileDropdown.style.visibility = 'hidden';
+                mobileDropdown.style.transform = 'translateY(-10px)';
+                mobileArrow.style.transform = 'rotate(0deg)';
+            }
+        };
+        
+        window.changeLanguage = function(lang) {
+            currentLanguage = lang;
+            
+            // Update language display
+            const currentLanguageElement = document.getElementById('current-language');
+            const mobileCurrentLanguageElement = document.getElementById('mobile-current-language');
+            
+            if (currentLanguageElement) {
+                currentLanguageElement.textContent = lang === 'en' ? 'English' : 'Polish';
+            }
+            
+            if (mobileCurrentLanguageElement) {
+                mobileCurrentLanguageElement.textContent = lang === 'en' ? 'English' : 'Polish';
+            }
+            
+            // Save language to localStorage
+            localStorage.setItem('esgsyncp-language', lang);
+            
+            // Update URL with language parameter
+            const url = new URL(window.location);
+            url.searchParams.set('lang', lang);
+            window.history.pushState({}, '', url);
+            
+            // Close dropdown
+            if (typeof window.closeAllLanguageDropdowns === 'function') {
+                window.closeAllLanguageDropdowns();
+            }
+            
+            // Update translations
+            updateTranslations();
+        };
+        
+        // Load header from external file
+        async function loadHeader() {
+            try {
+                const response = await fetch('/pages/header.html');
+                const headerHtml = await response.text();
+                document.getElementById('header-container').innerHTML = headerHtml;
+                
+                // Re-initialize feather icons after loading header
+                feather.replace();
+                
+                // Ensure header is properly positioned and styled
+                const header = document.querySelector('header');
+                if (header) {
+                    header.style.position = 'fixed';
+                    header.style.top = '0';
+                    header.style.left = '0';
+                    header.style.right = '0';
+                    header.style.zIndex = '9999';
+                    header.style.backgroundColor = 'white';
+                    header.style.height = '73px';
+                    header.style.borderBottom = '1px solid #d1d5db';
+                }
+                
+                // Update translations for header elements
+                if (typeof updateTranslations === 'function') {
+                    updateTranslations();
+                }
+                
+                // Update language selectors
+                if (typeof updateLanguageSelectors === 'function') {
+                    updateLanguageSelectors();
+                }
+                
+                // Ensure dropdowns are closed on load
+                setTimeout(() => {
+                    if (typeof window.closeAllLanguageDropdowns === 'function') {
+                        window.closeAllLanguageDropdowns();
+                    }
+                }, 100);
+            } catch (error) {
+                console.error('Error loading header:', error);
+            }
+        }
+        
+        // Load footer from external file
+        async function loadFooter() {
+            try {
+                const response = await fetch('/pages/footer.html');
+                const footerHtml = await response.text();
+                const footerContainer = document.getElementById('footer-container');
+                if (footerContainer) {
+                    footerContainer.innerHTML = footerHtml;
+                    
+                    // Ensure footer is visible after loading
+                    footerContainer.style.display = 'block';
+                    footerContainer.style.visibility = 'visible';
+                    footerContainer.style.opacity = '1';
+                    
+                    const footer = footerContainer.querySelector('footer');
+                    if (footer) {
+                        footer.style.display = 'block';
+                        footer.style.visibility = 'visible';
+                        footer.style.opacity = '1';
+                    }
+                }
+                
+                // Update translations for footer elements
+                if (typeof updateTranslations === 'function') {
+                    updateTranslations();
+                }
+            } catch (error) {
+                console.error('Error loading footer:', error);
+            }
+        }
+
+        // Setup click handlers for article cards
+        function setupArticleCards() {
+            const articleCards = document.querySelectorAll('.more-article-card');
+            articleCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    window.location.href = 'article.html';
+                });
+            });
+        }
+
+        // Load header and footer when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize language first
+            initializeLanguage();
+            
+            loadHeader();
+            loadFooter();
+            setupArticleCards();
+            
+            // Update translations and language selectors after header/footer are loaded
+            setTimeout(() => {
+                updateTranslations();
+                updateLanguageSelectors();
+            }, 200);
+        });
+    </script>
+</body>
+</html>
+

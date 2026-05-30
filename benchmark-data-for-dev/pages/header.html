@@ -1,0 +1,760 @@
+<style>
+    .mobile-menu-transition {
+        transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 950;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .mobile-menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    .mobile-menu-sidebar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 320px;
+        max-width: 85vw;
+        height: 100vh;
+        background-color: white;
+        z-index: 960;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .mobile-menu-sidebar.open {
+        transform: translateX(0);
+    }
+    .mobile-menu-header {
+        background-color: #93cd25;
+        padding: 1.5rem;
+        color: white;
+    }
+    .mobile-menu-header img {
+        filter: brightness(0) invert(1);
+    }
+    .mobile-menu-nav-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 1.5rem;
+        color: #1f2937;
+        font-size: 1.125rem;
+        font-weight: 400;
+        transition: all 0.2s;
+        border-bottom: 1px solid #f3f4f6;
+    }
+    .mobile-menu-nav-item:hover {
+        background-color: #f9fafb;
+        color: #93cd25;
+    }
+    .mobile-menu-nav-item svg {
+        width: 24px;
+        height: 24px;
+        stroke: currentColor;
+        flex-shrink: 0;
+    }
+    .mobile-menu-cta {
+        margin-top: auto;
+        padding: 1.5rem;
+    }
+    
+    /* Ensure mobile menu button is visible on mobile devices */
+    @media (max-width: 1023px) {
+        #mobile-menu-button {
+            display: flex !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+        .mobile-menu-overlay {
+            display: block !important;
+        }
+        #mobile-menu {
+            display: flex !important;
+        }
+    }
+    
+    @media (min-width: 1024px) {
+        #mobile-menu-button {
+            display: none !important;
+            visibility: hidden !important;
+        }
+        .mobile-menu-overlay {
+            display: none !important;
+        }
+        #mobile-menu {
+            display: none !important;
+        }
+    }
+    
+    /* Override any page-specific styles that might hide burger lines */
+    #mobile-menu-button span#burger-line-1,
+    #mobile-menu-button span#burger-line-2,
+    #mobile-menu-button span#burger-line-3 {
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: block !important;
+    }
+    
+    /* Force mobile menu button visibility - override any page-specific styles */
+    button#mobile-menu-button {
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 2.5rem !important;
+        height: 2.5rem !important;
+        border-radius: 0.5rem !important;
+        background-color: #f3f4f6 !important;
+        border: none !important;
+        cursor: pointer !important;
+        transition: all 0.2s !important;
+        padding: 0 !important;
+    }
+    
+    button#mobile-menu-button:hover {
+        background-color: #e5e7eb !important;
+    }
+    
+    /* Ensure burger lines are visible - match index.html style */
+    #burger-line-1, #burger-line-2, #burger-line-3 {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        transform-origin: center !important;
+        display: block !important;
+        background-color: #1f2937 !important;
+        width: 20px !important;
+        height: 2px !important;
+        margin: 2px 0 !important;
+        border-radius: 0 !important;
+    }
+    
+    /* Mobile menu button gap - match index.html */
+    #mobile-menu-button {
+        gap: 2px !important;
+    }
+</style>
+
+<!-- Header -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-white h-[73px]" role="banner" id="main-header" style="position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; z-index: 900 !important; border-bottom: 1px solid #d1d5db !important;">
+    <div class="flex items-center justify-between h-full px-6 md:px-12 lg:px-28">
+        <!-- Logo -->
+        <img src="../public/assets/images/img_headerlogo.svg" alt="ESGSyncPRO Logo" class="h-[40px] w-[71px] cursor-pointer hover:opacity-80 transition-opacity" onclick="window.location.href='/'" />
+            
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center space-x-8" role="navigation">
+            <a href="/#video" class="text-gray-700 text-base font-normal hover:text-green-500 transition-colors" data-translate="nav.demo">Demo</a>
+            <a href="/#features" class="text-gray-700 text-base font-normal hover:text-green-500 transition-colors" data-translate="nav.features">Features</a>
+            <a href="/#how-it-works" class="text-gray-700 text-base font-normal hover:text-green-500 transition-colors" data-translate="nav.howItWorks">How It Works</a>
+            <a href="/#calculator" class="text-gray-700 text-base font-normal hover:text-green-500 transition-colors" data-translate="nav.calculator">Calculator</a>
+            <!-- TEMPORARILY HIDDEN: Articles page is hidden until database integration is complete -->
+            <!-- To re-enable: uncomment the line below and remove the redirect protection in articles.html -->
+            <!-- <a href="articles.html" class="text-gray-700 text-base font-normal hover:text-green-500 transition-colors" data-translate="nav.article">Article</a> -->
+            <a href="/about" class="text-gray-700 text-base font-normal hover:text-green-500 transition-colors" data-translate="nav.about">About</a>
+        </nav>
+            
+        <!-- Language Selector & CTA Button (Desktop) -->
+        <div class="hidden lg:flex items-center space-x-4 mt-2">
+            <!-- Language Selector -->
+            <div class="flex items-center gap-4">
+                <!-- Language Icon (Globe) -->
+                <i data-feather="globe" class="w-5 h-5 text-gray-400"></i>
+                
+                <!-- Custom Language Button & Dropdown -->
+                <div class="relative">
+                    <button type="button" 
+                            class="flex items-center justify-between w-[140px] px-4 py-2 text-gray-700 bg-white border border-green-500 rounded-lg hover:bg-gray-50 transition-colors"
+                            onclick="toggleLanguageDropdown()"
+                            id="language-selector">
+                        <span id="current-language" class="text-base font-normal">English</span>
+                        <svg class="w-4 h-4 transition-transform text-gray-900" id="language-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    
+                     <!-- Language Dropdown -->
+                     <div class="absolute top-full left-0 mt-1 w-[140px] bg-white border border-gray-200 rounded-lg shadow-lg transition-all duration-200 z-50"
+                          id="language-dropdown" style="opacity: 0; visibility: hidden; transform: translateY(-10px);">
+                        <button type="button" 
+                                class="w-full text-left px-4 py-3 text-base text-gray-700 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg"
+                                onclick="if(typeof window.changeLanguage === 'function') { window.changeLanguage('en'); } else if(typeof changeLanguage === 'function') { changeLanguage('en'); }"
+                                id="lang-option-en">
+                            English
+                        </button>
+                        <button type="button" 
+                                class="w-full text-left px-4 py-3 text-base text-gray-700 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg"
+                                onclick="if(typeof window.changeLanguage === 'function') { window.changeLanguage('pl'); } else if(typeof changeLanguage === 'function') { changeLanguage('pl'); }"
+                                id="lang-option-pl">
+                            Polish
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- CTA Button -->
+                <a href="/#esgmvp" class="bg-[#93cd25] text-white px-6 py-2 rounded-lg text-base font-medium hover:bg-[#7fb01f] transition-all duration-200 hover:scale-105 active:scale-95" data-translate="cta.getStarted">
+                    Get Started
+                </a>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Button -->
+        <button type="button" 
+                class="lg:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-300 transition-all duration-200" 
+                onclick="if(typeof window.toggleMobileMenu === 'function') { window.toggleMobileMenu(); } else if(typeof toggleMobileMenu === 'function') { toggleMobileMenu(); }"
+                aria-label="Toggle mobile menu"
+                id="mobile-menu-button">
+            <span id="burger-line-1"></span>
+            <span id="burger-line-2"></span>
+            <span id="burger-line-3"></span>
+        </button>
+        
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay lg:hidden" id="mobile-menu-overlay" onclick="if(typeof window.toggleMobileMenu === 'function') { window.toggleMobileMenu(); } else if(typeof toggleMobileMenu === 'function') { toggleMobileMenu(); }"></div>
+    
+    <!-- Mobile Navigation Menu Sidebar -->
+    <div class="lg:hidden mobile-menu-sidebar" id="mobile-menu">
+        <!-- Green Header with Logo and Close Button -->
+        <div class="mobile-menu-header">
+            <div class="flex items-center justify-between mb-4">
+                <img src="../public/assets/images/img_headerlogo.svg" 
+                     alt="ESGSyncPRO Logo" 
+                     class="h-8 w-auto cursor-pointer hover:opacity-80 transition-opacity" 
+                     onclick="window.location.href='/'; if(typeof window.toggleMobileMenu === 'function') { window.toggleMobileMenu(); }" />
+                <button type="button" 
+                        class="flex items-center justify-center w-8 h-8 rounded-lg hover:bg-white/20 transition-colors"
+                        onclick="if(typeof window.toggleMobileMenu === 'function') { window.toggleMobileMenu(); } else if(typeof toggleMobileMenu === 'function') { toggleMobileMenu(); }"
+                        aria-label="Close mobile menu"
+                        id="mobile-menu-close">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Navigation Items with Icons -->
+        <nav class="flex-1" role="navigation">
+            <a href="/#video" class="mobile-menu-nav-item" data-translate="nav.demo" onclick="toggleMobileMenu()">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                </svg>
+                <span>Demo</span>
+            </a>
+            <a href="/#features" class="mobile-menu-nav-item" data-translate="nav.features" onclick="toggleMobileMenu()">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span>Features</span>
+            </a>
+            <a href="/#how-it-works" class="mobile-menu-nav-item" data-translate="nav.howItWorks" onclick="toggleMobileMenu()">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+                <span>How It Works</span>
+            </a>
+            <a href="/#calculator" class="mobile-menu-nav-item" data-translate="nav.calculator" onclick="toggleMobileMenu()">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-5m-6 5h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                </svg>
+                <span>Calculator</span>
+            </a>
+            <!-- TEMPORARILY HIDDEN: Articles page is hidden until database integration is complete -->
+            <!-- To re-enable: uncomment the block below and remove the redirect protection in articles.html -->
+            <!--
+            <a href="articles.html" class="mobile-menu-nav-item" data-translate="nav.article" onclick="toggleMobileMenu()">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path>
+                </svg>
+                <span>Article</span>
+            </a>
+            -->
+            <a href="/about" class="mobile-menu-nav-item" data-translate="nav.about" onclick="toggleMobileMenu()">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span>About</span>
+            </a>
+            
+            <!-- Language Selector -->
+            <div class="mobile-menu-nav-item" style="border-bottom: none;">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+                </svg>
+                <div class="relative flex-1">
+                    <button type="button" 
+                            class="flex items-center justify-between w-full px-4 py-2 text-gray-700 bg-white border border-green-500 rounded-lg hover:bg-gray-50 transition-colors"
+                            onclick="if(typeof window.toggleLanguageDropdown === 'function') { window.toggleLanguageDropdown(); } else if(typeof toggleLanguageDropdown === 'function') { toggleLanguageDropdown(); }"
+                            id="mobile-language-selector">
+                        <span id="mobile-current-language" class="text-base font-normal">English</span>
+                        <svg class="w-4 h-4 transition-transform text-gray-900" id="mobile-language-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    
+                     <!-- Mobile Language Dropdown -->
+                     <div class="absolute top-full left-0 mt-1 w-full bg-white border border-gray-200 rounded-lg shadow-lg transition-all duration-200 z-50"
+                          id="mobile-language-dropdown" style="opacity: 0; visibility: hidden; transform: translateY(-10px);">
+                        <button type="button" 
+                                class="w-full text-left px-4 py-3 text-base text-gray-700 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg"
+                                onclick="if(typeof window.changeLanguage === 'function') { window.changeLanguage('en'); } else if(typeof changeLanguage === 'function') { changeLanguage('en'); }"
+                                id="mobile-lang-option-en">
+                            English
+                        </button>
+                        <button type="button" 
+                                class="w-full text-left px-4 py-3 text-base text-gray-700 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg"
+                                onclick="if(typeof window.changeLanguage === 'function') { window.changeLanguage('pl'); } else if(typeof changeLanguage === 'function') { changeLanguage('pl'); }"
+                                id="mobile-lang-option-pl">
+                            Polish
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- CTA Button at Bottom -->
+        <div class="mobile-menu-cta">
+            <a href="/#esgmvp" class="block w-full bg-[#93cd25] text-white px-6 py-4 rounded-lg text-base font-medium hover:bg-[#7fb01f] transition-all duration-200 text-center" data-translate="cta.getStarted" onclick="if(typeof window.toggleMobileMenu === 'function') { window.toggleMobileMenu(); }">
+                Get Started
+            </a>
+        </div>
+    </div>
+</header>
+
+<script>
+    // Header-specific JavaScript functions
+
+    // Change language function (local implementation)
+    function changeLanguageLocal(lang) {
+        // Fallback: update language display and save to localStorage
+        const currentLanguageElement = document.getElementById('current-language');
+        const mobileCurrentLanguageElement = document.getElementById('mobile-current-language');
+        
+        if (currentLanguageElement) {
+            currentLanguageElement.textContent = lang === 'en' ? 'English' : 'Polish';
+        }
+        
+        if (mobileCurrentLanguageElement) {
+            mobileCurrentLanguageElement.textContent = lang === 'en' ? 'English' : 'Polish';
+        }
+        
+        // Save language to localStorage
+        localStorage.setItem('esgsyncp-language', lang);
+        
+        // Update URL with language parameter
+        const url = new URL(window.location);
+        url.searchParams.set('lang', lang);
+        window.history.pushState({}, '', url);
+        
+        // Try to update translations if available
+        if (typeof updateTranslations === 'function') {
+            updateTranslations();
+        }
+        
+        // Also try updatePageLanguage if available (for index.html)
+        if (typeof updatePageLanguage === 'function') {
+            updatePageLanguage();
+        }
+        
+        if (typeof window.toggleLanguageDropdown === 'function') {
+            window.toggleLanguageDropdown();
+        } else {
+            toggleLanguageDropdown();
+        }
+    }
+    
+    // Local changeLanguage function (will be wrapped)
+    function changeLanguage(lang) {
+        // This function is replaced by changeLanguageWrapper above
+        // Fallback to local implementation
+        changeLanguageLocal(lang);
+    }
+    
+    // Toggle language dropdown
+    function toggleLanguageDropdown() {
+        // Use global function if available, otherwise use local
+        if (typeof window.toggleLanguageDropdown === 'function' && window.toggleLanguageDropdown !== toggleLanguageDropdown) {
+            window.toggleLanguageDropdown();
+            return;
+        }
+        
+        const dropdown = document.getElementById('language-dropdown');
+        const mobileDropdown = document.getElementById('mobile-language-dropdown');
+        const arrow = document.getElementById('language-arrow');
+        const mobileArrow = document.getElementById('mobile-language-arrow');
+        
+        if (dropdown && arrow) {
+            const isVisible = dropdown.style.opacity === '1' && dropdown.style.visibility === 'visible';
+            
+            if (isVisible) {
+                // Close dropdown
+                dropdown.style.opacity = '0';
+                dropdown.style.visibility = 'hidden';
+                dropdown.style.transform = 'translateY(-10px)';
+                arrow.style.transform = 'rotate(0deg)';
+            } else {
+                // Open dropdown
+                dropdown.style.opacity = '1';
+                dropdown.style.visibility = 'visible';
+                dropdown.style.transform = 'translateY(0)';
+                arrow.style.transform = 'rotate(180deg)';
+            }
+        }
+        
+        if (mobileDropdown && mobileArrow) {
+            const isVisible = mobileDropdown.style.opacity === '1' && mobileDropdown.style.visibility === 'visible';
+            
+            if (isVisible) {
+                // Close mobile dropdown
+                mobileDropdown.style.opacity = '0';
+                mobileDropdown.style.visibility = 'hidden';
+                mobileDropdown.style.transform = 'translateY(-10px)';
+                mobileArrow.style.transform = 'rotate(0deg)';
+            } else {
+                // Open mobile dropdown
+                mobileDropdown.style.opacity = '1';
+                mobileDropdown.style.visibility = 'visible';
+                mobileDropdown.style.transform = 'translateY(0)';
+                mobileArrow.style.transform = 'rotate(180deg)';
+            }
+        }
+    }
+    
+    // Close all language dropdowns
+    function closeAllLanguageDropdowns() {
+        // Use global function if available, otherwise use local
+        if (typeof window.closeAllLanguageDropdowns === 'function' && window.closeAllLanguageDropdowns !== closeAllLanguageDropdowns) {
+            window.closeAllLanguageDropdowns();
+            return;
+        }
+        
+        const dropdown = document.getElementById('language-dropdown');
+        const mobileDropdown = document.getElementById('mobile-language-dropdown');
+        const arrow = document.getElementById('language-arrow');
+        const mobileArrow = document.getElementById('mobile-language-arrow');
+        
+        if (dropdown && arrow) {
+            dropdown.style.opacity = '0';
+            dropdown.style.visibility = 'hidden';
+            dropdown.style.transform = 'translateY(-10px)';
+            arrow.style.transform = 'rotate(0deg)';
+        }
+        
+        if (mobileDropdown && mobileArrow) {
+            mobileDropdown.style.opacity = '0';
+            mobileDropdown.style.visibility = 'hidden';
+            mobileDropdown.style.transform = 'translateY(-10px)';
+            mobileArrow.style.transform = 'rotate(0deg)';
+        }
+    }
+    
+    // Toggle mobile menu
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const burgerButton = document.getElementById('mobile-menu-button');
+        
+        if (!menu || !overlay) {
+            console.warn('Mobile menu elements not found');
+            return;
+        }
+        
+        const isOpen = menu.classList.contains('open');
+        
+        if (isOpen) {
+            // Close menu
+            menu.classList.remove('open');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+            
+            // Reset burger icon
+            if (burgerButton) {
+                const lines = burgerButton.querySelectorAll('span');
+                lines.forEach((line, index) => {
+                    line.style.transform = '';
+                    if (index === 1) {
+                        line.style.opacity = '1';
+                    }
+                });
+            }
+        } else {
+            // Open menu
+            menu.classList.add('open');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Transform burger icon to X
+            if (burgerButton) {
+                const lines = burgerButton.querySelectorAll('span');
+                if (lines.length >= 3) {
+                    lines[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                    lines[1].style.opacity = '0';
+                    lines[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+                }
+            }
+        }
+    }
+    
+    // Make functions globally available immediately - BEFORE DOMContentLoaded
+    window.toggleMobileMenu = toggleMobileMenu;
+    
+    // For changeLanguage: we need a wrapper that always calls the page's function
+    // Save page's function BEFORE we assign our wrapper
+    const savedPageChangeLanguage = (typeof window.changeLanguage === 'function') ? window.changeLanguage : null;
+    
+    // Store it so wrapper can call it
+    if (savedPageChangeLanguage) {
+        window._pageChangeLanguage = savedPageChangeLanguage;
+    }
+    
+    // Create wrapper function
+    const changeLanguageWrapper = function(lang) {
+        // First, try to get the page's function from saved reference
+        let pageFunction = window._pageChangeLanguage;
+        
+        // If no saved function, try to get it from current window.changeLanguage
+        // (in case page function was defined after header script ran)
+        if (!pageFunction) {
+            const currentFunc = window.changeLanguage;
+            if (currentFunc && typeof currentFunc === 'function' && currentFunc !== changeLanguageWrapper) {
+                pageFunction = currentFunc;
+                window._pageChangeLanguage = currentFunc;
+            }
+        }
+        
+        // Call page function if available
+        if (pageFunction && typeof pageFunction === 'function' && pageFunction !== changeLanguageWrapper) {
+            pageFunction(lang);
+            // Close dropdown
+            if (typeof window.toggleLanguageDropdown === 'function') {
+                window.toggleLanguageDropdown();
+            } else {
+                toggleLanguageDropdown();
+            }
+        } else {
+            // Fallback to local implementation
+            changeLanguageLocal(lang);
+        }
+    };
+    
+    // Assign wrapper, but page will restore its function after eval()
+    // When page restores, it should also update window._pageChangeLanguage
+    window.changeLanguage = changeLanguageWrapper;
+    
+    window.toggleLanguageDropdown = toggleLanguageDropdown;
+    window.closeAllLanguageDropdowns = closeAllLanguageDropdowns;
+    
+    // Close language dropdowns when clicking outside
+    document.addEventListener('click', function(event) {
+        const languageSelector = document.getElementById('language-selector');
+        const languageDropdown = document.getElementById('language-dropdown');
+        const mobileLanguageSelector = document.getElementById('mobile-language-selector');
+        const mobileLanguageDropdown = document.getElementById('mobile-language-dropdown');
+        
+        if (languageSelector && languageDropdown && 
+            !languageSelector.contains(event.target) && 
+            !languageDropdown.contains(event.target)) {
+            closeAllLanguageDropdowns();
+        }
+        
+        if (mobileLanguageSelector && mobileLanguageDropdown && 
+            !mobileLanguageSelector.contains(event.target) && 
+            !mobileLanguageDropdown.contains(event.target)) {
+            closeAllLanguageDropdowns();
+        }
+    });
+    
+    // Function to setup mobile menu event handlers
+    function setupMobileMenuHandlers() {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-nav-item, .mobile-menu-cta a');
+        
+        if (mobileMenuButton) {
+            mobileMenuButton.onclick = function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                if (typeof window.toggleMobileMenu === 'function') {
+                    window.toggleMobileMenu();
+                }
+            };
+        }
+        
+        if (mobileMenuClose) {
+            mobileMenuClose.onclick = function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                if (typeof window.toggleMobileMenu === 'function') {
+                    window.toggleMobileMenu();
+                }
+            };
+        }
+        
+        if (mobileOverlay) {
+            mobileOverlay.onclick = function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                if (typeof window.toggleMobileMenu === 'function') {
+                    window.toggleMobileMenu();
+                }
+            };
+        }
+        
+        mobileMenuLinks.forEach(link => {
+            link.onclick = function(e) {
+                if (typeof window.toggleMobileMenu === 'function') {
+                    window.toggleMobileMenu();
+                }
+            };
+        });
+        
+        // Setup language selector handlers
+        const mobileLanguageSelector = document.getElementById('mobile-language-selector');
+        const mobileLangOptionEn = document.getElementById('mobile-lang-option-en');
+        const mobileLangOptionPl = document.getElementById('mobile-lang-option-pl');
+        
+        if (mobileLanguageSelector) {
+            mobileLanguageSelector.onclick = function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                if (typeof window.toggleLanguageDropdown === 'function') {
+                    window.toggleLanguageDropdown();
+                } else if (typeof toggleLanguageDropdown === 'function') {
+                    toggleLanguageDropdown();
+                }
+            };
+        }
+        
+        if (mobileLangOptionEn) {
+            mobileLangOptionEn.onclick = function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                if (typeof window.changeLanguage === 'function') {
+                    window.changeLanguage('en');
+                } else if (typeof changeLanguage === 'function') {
+                    changeLanguage('en');
+                }
+            };
+        }
+        
+        if (mobileLangOptionPl) {
+            mobileLangOptionPl.onclick = function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                if (typeof window.changeLanguage === 'function') {
+                    window.changeLanguage('pl');
+                } else if (typeof changeLanguage === 'function') {
+                    changeLanguage('pl');
+                }
+            };
+        }
+        
+        // Setup desktop header language selector handlers
+        const languageSelector = document.getElementById('language-selector');
+        const langOptionEn = document.getElementById('lang-option-en');
+        const langOptionPl = document.getElementById('lang-option-pl');
+        
+        if (languageSelector) {
+            languageSelector.onclick = function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                if (typeof window.toggleLanguageDropdown === 'function') {
+                    window.toggleLanguageDropdown();
+                } else if (typeof toggleLanguageDropdown === 'function') {
+                    toggleLanguageDropdown();
+                }
+            };
+        }
+        
+        if (langOptionEn) {
+            langOptionEn.onclick = function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                if (typeof window.changeLanguage === 'function') {
+                    window.changeLanguage('en');
+                } else if (typeof changeLanguage === 'function') {
+                    changeLanguage('en');
+                }
+            };
+        }
+        
+        if (langOptionPl) {
+            langOptionPl.onclick = function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                if (typeof window.changeLanguage === 'function') {
+                    window.changeLanguage('pl');
+                } else if (typeof changeLanguage === 'function') {
+                    changeLanguage('pl');
+                }
+            };
+        }
+    }
+    
+    // Make setup function globally available
+    window.setupMobileMenuHandlers = setupMobileMenuHandlers;
+    
+    // Initialize header after load
+    document.addEventListener('DOMContentLoaded', function() {
+        // Re-initialize feather icons
+        if (typeof feather !== 'undefined') {
+            feather.replace();
+        }
+        
+        // Setup mobile menu handlers
+        setupMobileMenuHandlers();
+        
+        // Ensure dropdowns are closed on load
+        setTimeout(() => {
+            closeAllLanguageDropdowns();
+        }, 100);
+        
+        // Ensure mobile menu button is visible on mobile
+        function updateMobileMenuVisibility() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileOverlay = document.getElementById('mobile-menu-overlay');
+            
+            if (window.innerWidth < 1024) {
+                // Mobile view
+                if (mobileMenuButton) {
+                    mobileMenuButton.style.display = 'flex';
+                    mobileMenuButton.style.visibility = 'visible';
+                }
+                if (mobileMenu) {
+                    mobileMenu.style.display = 'flex';
+                }
+                if (mobileOverlay) {
+                    mobileOverlay.style.display = 'block';
+                }
+            } else {
+                // Desktop view
+                if (mobileMenuButton) {
+                    mobileMenuButton.style.display = 'none';
+                    mobileMenuButton.style.visibility = 'hidden';
+                }
+                if (mobileMenu) {
+                    mobileMenu.style.display = 'none';
+                }
+                if (mobileOverlay) {
+                    mobileOverlay.style.display = 'none';
+                }
+            }
+        }
+        
+        // Update on load
+        updateMobileMenuVisibility();
+        
+        // Update on resize
+        window.addEventListener('resize', updateMobileMenuVisibility);
+    });
+</script>

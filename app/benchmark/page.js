@@ -1110,13 +1110,28 @@ export default function BenchmarkPage() {
     setActiveStepIndex(1);
   };
 
-  // ─── SCORING COMPUTATION ───
   const computeScoreData = () => {
     if (!scriptsLoaded || !window.ESGScoring) return null;
-    return window.ESGScoring.computeScores(answers, {
+    const coreScores = window.ESGScoring.computeScores(answers, {
       profile: orgProfile,
       industry: userData.industry
     });
+    if (!coreScores) return null;
+
+    // Compute R and C values from answers for Relevance Engine
+    const R = window.ESGScoring.computeR ? window.ESGScoring.computeR(answers) : 0;
+    const C = window.ESGScoring.computeC ? window.ESGScoring.computeC(answers) : 0;
+
+    // Compute Relevance Engine metrics
+    const relevance = window.ESGScoring.computeRelevance ? window.ESGScoring.computeRelevance(answers, coreScores, {
+      industry: userData.industry,
+      R: R,
+      C: C,
+      includeExtendedTasks: extendedMode
+    }) : null;
+
+    coreScores.relevance = relevance;
+    return coreScores;
   };
 
   const scores = computeScoreData();
@@ -1385,6 +1400,9 @@ export default function BenchmarkPage() {
         </NavLogo>
         <NavMenu>
           <NavMenuLink href="/benchmark">Benchmark</NavMenuLink>
+          <NavMenuLink href="/regulations-search">
+            {lang === 'pl' ? 'Wyszukiwarka Regulacji' : 'Regulations Search'}
+          </NavMenuLink>
         </NavMenu>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <LangToggle>

@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="article.title">Article - ESGSyncPRO</title>
+    <meta name="description" content="Articles about ESGSyncPRO and ESG reporting.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://esgsync.pro/pages/articles.html" />
+    <meta property="og:title" content="Articles - ESGSyncPRO" />
+    <meta property="og:description" content="Articles about ESGSyncPRO and ESG reporting." />
+    <meta property="og:image" content="https://esgsync.pro/public/assets/images/og-image.jpg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Articles - ESGSyncPRO" />
+    <meta name="twitter:description" content="Articles about ESGSyncPRO and ESG reporting." />
+    <meta name="twitter:image" content="https://esgsync.pro/public/assets/images/og-image.jpg" />
+
+    <link rel="icon" href="../public/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+    
+    <!-- 
+        TEMPORARILY HIDDEN: This page is currently hidden from navigation and direct access.
+        
+        REASON: The page uses mock/test data and requires:
+        1. Database integration (Neon DB PostgreSQL)
+        2. Backend API endpoints for fetching real article data
+        3. Frontend integration to replace mock data with real data from database
+        
+        TO RE-ENABLE:
+        1. Uncomment navigation links in header.html (desktop and mobile)
+        2. Remove or comment out the redirect script below
+        3. Connect to database and implement API endpoints
+        4. Replace mock data with real data fetching logic
+        
+        See ARTICLES.md for detailed requirements and integration steps.
+    -->
+    <script>
+        // Redirect to home page if accessed directly
+        // Remove this script block to re-enable the page
+        (function() {
+            // Allow access only if explicitly enabled via feature flag
+            // To enable: set window.ENABLE_ARTICLES_PAGE = true before this script runs
+            if (!window.ENABLE_ARTICLES_PAGE) {
+                window.location.href = 'index.html';
+            }
+        })();
+    </script>
+    <style>
+        .mobile-menu-transition {
+            transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        /* Responsive menu styles */
+        @media (min-width: 1024px) {
+            .lg\:hidden { display: none !important; }
+            .hidden.lg\:flex { display: flex !important; }
+            .hidden.lg\:block { display: block !important; }
+        }
+        
+        @media (max-width: 1023px) {
+            .lg\:hidden { display: flex !important; }
+            .hidden.lg\:flex { display: none !important; }
+            .hidden.lg\:block { display: none !important; }
+        }
+        
+        /* Additional responsive padding */
+        @media (min-width: 768px) {
+            .md\:px-12 { padding-left: 3rem; padding-right: 3rem; }
+            .md\:py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+        }
+        
+        @media (min-width: 1024px) {
+            .lg\:px-28 { padding-left: 7rem; padding-right: 7rem; }
+        }
+        
+        /* Article card styles */
+        .article-thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+        
+        .article-thumbnail-container {
+            width: 100%;
+            height: 280px;
+            margin-left: 1rem;
+            margin-right: 1rem;
+            margin-top: 1rem;
+            margin-bottom: 1.25rem;
+        }
+        
+        .article-content {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        
+        .article-content-inner {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+        }
+        
+        /* Mobile: author/button before text */
+        .article-author-section {
+            order: 2;
+        }
+        
+        .article-text-section {
+            order: 3;
+        }
+        
+        /* Mobile: more top margin for h2 */
+        @media (max-width: 767px) {
+            .article-text-section h2 {
+                margin-top: 2rem;
+            }
+            
+            .article-thumbnail-container {
+                margin-left: 1rem;
+                margin-right: 1rem;
+                width: calc(100% - 2rem);
+                height: auto;
+                min-height: 200px;
+            }
+            
+            .article-thumbnail {
+                width: 100%;
+                height: auto;
+                min-height: 200px;
+            }
+        }
+        
+        /* Tablet styles */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .article-thumbnail-container {
+                margin-left: 0;
+                margin-right: 0;
+                width: 100%;
+                height: auto;
+                min-height: 250px;
+            }
+            
+            .article-thumbnail {
+                width: 100%;
+                height: auto;
+                min-height: 250px;
+            }
+        }
+        
+        /* Desktop version - horizontal layout */
+        @media (min-width: 768px) {
+            .article-content {
+                flex-direction: row;
+            }
+            
+            .article-thumbnail-container {
+                width: 300px;
+                height: 280px;
+                margin-left: 1rem;
+                margin-right: 0;
+                margin-top: 1rem;
+                margin-bottom: 1.25rem;
+                flex-shrink: 0;
+            }
+            
+            .article-content-inner {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+                padding-top: 3rem;
+                padding-bottom: 1.5rem;
+            }
+            
+            /* Desktop: text before author/button */
+            .article-author-section {
+                order: 3;
+                margin-top: 1.5rem;
+            }
+            
+            .article-text-section {
+                order: 2;
+            }
+        }
+        
+        .article-border-container {
+            border: 1px solid #B3B3B3;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        
+        /* Article description paragraph styles */
+        .article-text-section p.text-gray-600 {
+            color: #9CA3AF !important;
+            line-height: 1.75;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        @media (max-width: 767px) {
+            .article-text-section p.text-gray-600 {
+                font-size: 0.875rem;
+                line-height: 1.6;
+            }
+        }
+        
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .article-text-section p.text-gray-600 {
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+        }
+        
+        /* Pagination styles */
+        .article-card {
+            display: block;
+        }
+        
+        .article-card.hidden {
+            display: none;
+        }
+        
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .pagination-button {
+            padding: 0.5rem 1rem;
+            border: 1px solid #B3B3B3;
+            background: white;
+            color: #1f2937;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+        }
+        
+        .pagination-button:hover:not(:disabled) {
+            background: #95CE24;
+            color: white;
+            border-color: #95CE24;
+        }
+        
+        .pagination-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .pagination-button.active {
+            background: #95CE24;
+            color: white;
+            border-color: #95CE24;
+        }
+        
+        .pagination-ellipsis {
+            padding: 0.5rem;
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+    <!-- Header will be loaded here -->
+    <div id="header-container"></div>
+
+    <!-- Main Content -->
+    <main class="min-h-screen" style="margin-top: 73px;">
+        <!-- Articles Section -->
+        <section class="py-12 md:py-16 lg:py-20 bg-white">
+            <div class="px-6 md:px-12 lg:px-28">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Page Header -->
+                    <header class="mb-8 md:mb-12">
+                        <h1 class="text-3xl md:text-4xl font-bold text-gray-900" data-translate="articles.title">Articles</h1>
+                        <p class="text-gray-600 mt-4 text-lg" data-translate="articles.subtitle">Latest insights and updates on ESG reporting and sustainability</p>
+                    </header>
+                    
+                    <!-- Articles List Container -->
+                    <div class="space-y-6">
+                        <!-- Article Card 1 -->
+                        <article class="article-card bg-white overflow-hidden">
+                            <div class="article-border-container pl-4 pt-0 pb-4">
+                                <div class="article-content">
+                                    <div class="article-thumbnail-container overflow-hidden">
+                                        <img src="../public/assets/images/articles(1).png" 
+                                             alt="Article thumbnail" 
+                                             class="article-thumbnail w-full h-full">
+                                    </div>
+                                    <div class="article-content-inner">
+                                        <div class="article-author-section flex items-center justify-between mt-6 md:mt-0">
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-8 h-8 rounded-full mr-4" style="background-color: #000000;"></div>
+                                                <div>
+                                                    <p class="text-sm text-gray-900 font-semibold">by Samantha Smith</p>
+                                                    <p class="text-xs text-[#4B5563]" data-translate="articles.1.date">February 11, 2025</p>
+                                                </div>
+                                            </div>
+                                            <button class="bg-[#93cd25] text-white px-6 py-2 rounded-lg text-sm font-bold hover:bg-[#7fb01f] transition-all duration-300 ease-in-out hover:scale-105 active:scale-95" data-translate="articles.read">
+                                                Read
+                                            </button>
+                                        </div>
+                                        <div class="article-text-section">
+                                            <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-4" data-translate="articles.1.title">
+                                                The Secret to Sub-Millisecond Latency: A Deep Dive
+                                            </h2>
+                                            <p class="text-gray-600 text-base md:text-lg mb-4 leading-relaxed" data-translate="articles.1.description">
+                                                Explore the advanced techniques and hardware necessary to minimize input lag and achieve true synchronization in demanding applications. Explore the advanced techniques and hardware necessary to minimize input lag and achieve true synchronization in demanding applications.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Article Card 2 -->
+                        <article class="article-card bg-white overflow-hidden">
+                            <div class="article-border-container pl-4 pt-0 pb-4">
+                                <div class="article-content">
+                                    <div class="article-thumbnail-container overflow-hidden">
+                                        <img src="../public/assets/images/articles(2).png" 
+                                             alt="Article thumbnail" 
+                                             class="article-thumbnail w-full h-full">
+                                    </div>
+                                    <div class="article-content-inner">
+                                        <div class="article-author-section flex items-center justify-between mt-6 md:mt-0">
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-8 h-8 rounded-full mr-4" style="background-color: #000000;"></div>
+                                                <div>
+                                                    <p class="text-sm text-gray-900 font-semibold">by Michael Johnson</p>
+                                                    <p class="text-xs text-[#4B5563]" data-translate="articles.2.date">March 15, 2025</p>
+                                                </div>
+                                            </div>
+                                            <button class="bg-[#93cd25] text-white px-6 py-2 rounded-lg text-sm font-bold hover:bg-[#7fb01f] transition-all duration-300 ease-in-out hover:scale-105 active:scale-95" data-translate="articles.read">
+                                                Read
+                                            </button>
+                                        </div>
+                                        <div class="article-text-section">
+                                            <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-4" data-translate="articles.2.title">
+                                                ESG Reporting in the Digital Age: Best Practices
+                                            </h2>
+                                            <p class="text-gray-600 text-base md:text-lg mb-4 leading-relaxed" data-translate="articles.2.description">
+                                                Discover how modern technology is transforming ESG reporting, making it more accurate, transparent, and accessible. Learn about the latest tools and methodologies that help organizations meet their sustainability goals.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Article Card 3 -->
+                        <article class="article-card bg-white overflow-hidden">
+                            <div class="article-border-container pl-4 pt-0 pb-4">
+                                <div class="article-content">
+                                    <div class="article-thumbnail-container overflow-hidden">
+                                        <img src="../public/assets/images/articles(3).png" 
+                                             alt="Article thumbnail" 
+                                             class="article-thumbnail w-full h-full">
+                                    </div>
+                                    <div class="article-content-inner">
+                                        <div class="article-author-section flex items-center justify-between mt-6 md:mt-0">
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-8 h-8 rounded-full mr-4" style="background-color: #000000;"></div>
+                                                <div>
+                                                    <p class="text-sm text-gray-900 font-semibold">by Emily Davis</p>
+                                                    <p class="text-xs text-[#4B5563]" data-translate="articles.3.date">April 2, 2025</p>
+                                                </div>
+                                            </div>
+                                            <button class="bg-[#93cd25] text-white px-6 py-2 rounded-lg text-sm font-bold hover:bg-[#7fb01f] transition-all duration-300 ease-in-out hover:scale-105 active:scale-95" data-translate="articles.read">
+                                                Read
+                                            </button>
+                                        </div>
+                                        <div class="article-text-section">
+                                            <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-4" data-translate="articles.3.title">
+                                                Sustainable Business Models: A Comprehensive Guide
+                                            </h2>
+                                            <p class="text-gray-600 text-base md:text-lg mb-4 leading-relaxed" data-translate="articles.3.description">
+                                                Understanding how to build and maintain sustainable business models that balance profitability with environmental and social responsibility. Case studies from leading companies and actionable strategies.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Article Card 4 -->
+                        <article class="article-card bg-white overflow-hidden">
+                            <div class="article-border-container pl-4 pt-0 pb-4">
+                                <div class="article-content">
+                                    <div class="article-thumbnail-container overflow-hidden">
+                                        <img src="../public/assets/images/articles(4).png" 
+                                             alt="Article thumbnail" 
+                                             class="article-thumbnail w-full h-full">
+                                    </div>
+                                    <div class="article-content-inner">
+                                        <div class="article-author-section flex items-center justify-between mt-6 md:mt-0">
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-8 h-8 rounded-full mr-4" style="background-color: #000000;"></div>
+                                                <div>
+                                                    <p class="text-sm text-gray-900 font-semibold">by Robert Chen</p>
+                                                    <p class="text-xs text-[#4B5563]" data-translate="articles.4.date">May 10, 2025</p>
+                                                </div>
+                                            </div>
+                                            <button class="bg-[#93cd25] text-white px-6 py-2 rounded-lg text-sm font-bold hover:bg-[#7fb01f] transition-all duration-300 ease-in-out hover:scale-105 active:scale-95" data-translate="articles.read">
+                                                Read
+                                            </button>
+                                        </div>
+                                        <div class="article-text-section">
+                                            <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-4" data-translate="articles.4.title">
+                                                Data Analytics for ESG Performance Measurement
+                                            </h2>
+                                            <p class="text-gray-600 text-base md:text-lg mb-4 leading-relaxed" data-translate="articles.4.description">
+                                                How data analytics and machine learning are revolutionizing ESG performance measurement. Learn about key metrics, visualization techniques, and how to turn data into actionable insights for your organization.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Article Card 5 -->
+                        <article class="article-card bg-white overflow-hidden">
+                            <div class="article-border-container pl-4 pt-0 pb-4">
+                                <div class="article-content">
+                                    <div class="article-thumbnail-container overflow-hidden">
+                                        <img src="../public/assets/images/articles(1).png" 
+                                             alt="Article thumbnail" 
+                                             class="article-thumbnail w-full h-full">
+                                    </div>
+                                    <div class="article-content-inner">
+                                        <div class="article-author-section flex items-center justify-between mt-6 md:mt-0">
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-8 h-8 rounded-full mr-4" style="background-color: #000000;"></div>
+                                                <div>
+                                                    <p class="text-sm text-gray-900 font-semibold">by Sarah Williams</p>
+                                                    <p class="text-xs text-[#4B5563]" data-translate="articles.5.date">June 5, 2025</p>
+                                                </div>
+                                            </div>
+                                            <button class="bg-[#93cd25] text-white px-6 py-2 rounded-lg text-sm font-bold hover:bg-[#7fb01f] transition-all duration-300 ease-in-out hover:scale-105 active:scale-95" data-translate="articles.read">
+                                                Read
+                                            </button>
+                                        </div>
+                                        <div class="article-text-section">
+                                            <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-4" data-translate="articles.5.title">
+                                                Climate Risk Assessment: A Strategic Framework
+                                            </h2>
+                                            <p class="text-gray-600 text-base md:text-lg mb-4 leading-relaxed" data-translate="articles.5.description">
+                                                Learn how to identify, assess, and mitigate climate-related risks in your business operations. A comprehensive guide to building resilience and adapting to changing environmental conditions.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Article Card 6 -->
+                        <article class="article-card bg-white overflow-hidden">
+                            <div class="article-border-container pl-4 pt-0 pb-4">
+                                <div class="article-content">
+                                    <div class="article-thumbnail-container overflow-hidden">
+                                        <img src="../public/assets/images/articles(2).png" 
+                                             alt="Article thumbnail" 
+                                             class="article-thumbnail w-full h-full">
+                                    </div>
+                                    <div class="article-content-inner">
+                                        <div class="article-author-section flex items-center justify-between mt-6 md:mt-0">
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-8 h-8 rounded-full mr-4" style="background-color: #000000;"></div>
+                                                <div>
+                                                    <p class="text-sm text-gray-900 font-semibold">by David Martinez</p>
+                                                    <p class="text-xs text-[#4B5563]" data-translate="articles.6.date">July 12, 2025</p>
+                                                </div>
+                                            </div>
+                                            <button class="bg-[#93cd25] text-white px-6 py-2 rounded-lg text-sm font-bold hover:bg-[#7fb01f] transition-all duration-300 ease-in-out hover:scale-105 active:scale-95" data-translate="articles.read">
+                                                Read
+                                            </button>
+                                        </div>
+                                        <div class="article-text-section">
+                                            <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-4" data-translate="articles.6.title">
+                                                Corporate Governance and ESG Integration
+                                            </h2>
+                                            <p class="text-gray-600 text-base md:text-lg mb-4 leading-relaxed" data-translate="articles.6.description">
+                                                Explore how effective corporate governance structures can drive ESG performance and create long-term value for stakeholders. Best practices from leading organizations worldwide.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Article Card 7 -->
+                        <article class="article-card bg-white overflow-hidden">
+                            <div class="article-border-container pl-4 pt-0 pb-4">
+                                <div class="article-content">
+                                    <div class="article-thumbnail-container overflow-hidden">
+                                        <img src="../public/assets/images/articles(3).png" 
+                                             alt="Article thumbnail" 
+                                             class="article-thumbnail w-full h-full">
+                                    </div>
+                                    <div class="article-content-inner">
+                                        <div class="article-author-section flex items-center justify-between mt-6 md:mt-0">
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-8 h-8 rounded-full mr-4" style="background-color: #000000;"></div>
+                                                <div>
+                                                    <p class="text-sm text-gray-900 font-semibold">by Lisa Anderson</p>
+                                                    <p class="text-xs text-[#4B5563]" data-translate="articles.7.date">August 20, 2025</p>
+                                                </div>
+                                            </div>
+                                            <button class="bg-[#93cd25] text-white px-6 py-2 rounded-lg text-sm font-bold hover:bg-[#7fb01f] transition-all duration-300 ease-in-out hover:scale-105 active:scale-95" data-translate="articles.read">
+                                                Read
+                                            </button>
+                                        </div>
+                                        <div class="article-text-section">
+                                            <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-4" data-translate="articles.7.title">
+                                                Supply Chain Sustainability: Challenges and Solutions
+                                            </h2>
+                                            <p class="text-gray-600 text-base md:text-lg mb-4 leading-relaxed" data-translate="articles.7.description">
+                                                Discover strategies for building sustainable supply chains that reduce environmental impact while maintaining operational efficiency. Real-world case studies and implementation frameworks.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Article Card 8 -->
+                        <article class="article-card bg-white overflow-hidden">
+                            <div class="article-border-container pl-4 pt-0 pb-4">
+                                <div class="article-content">
+                                    <div class="article-thumbnail-container overflow-hidden">
+                                        <img src="../public/assets/images/articles(4).png" 
+                                             alt="Article thumbnail" 
+                                             class="article-thumbnail w-full h-full">
+                                    </div>
+                                    <div class="article-content-inner">
+                                        <div class="article-author-section flex items-center justify-between mt-6 md:mt-0">
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-8 h-8 rounded-full mr-4" style="background-color: #000000;"></div>
+                                                <div>
+                                                    <p class="text-sm text-gray-900 font-semibold">by James Wilson</p>
+                                                    <p class="text-xs text-[#4B5563]" data-translate="articles.8.date">September 8, 2025</p>
+                                                </div>
+                                            </div>
+                                            <button class="bg-[#93cd25] text-white px-6 py-2 rounded-lg text-sm font-bold hover:bg-[#7fb01f] transition-all duration-300 ease-in-out hover:scale-105 active:scale-95" data-translate="articles.read">
+                                                Read
+                                            </button>
+                                        </div>
+                                        <div class="article-text-section">
+                                            <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-4" data-translate="articles.8.title">
+                                                Renewable Energy Transition: A Business Perspective
+                                            </h2>
+                                            <p class="text-gray-600 text-base md:text-lg mb-4 leading-relaxed" data-translate="articles.8.description">
+                                                Understanding the economic and strategic benefits of transitioning to renewable energy sources. Financial models, risk assessment, and ROI calculations for energy investments.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div class="pagination-container" id="pagination-container"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-container"></div>
+
+    <script>
+        // Translations object
+        const translations = {
+            en: {
+                "article.title": "Article - ESGSyncPRO",
+                "articles.title": "Articles",
+                "articles.subtitle": "Latest insights and updates on ESG reporting and sustainability",
+                "articles.read": "Read",
+                "articles.pagination.previous": "Previous",
+                "articles.pagination.next": "Next",
+                // Navigation
+                "nav.demo": "Demo",
+                "nav.features": "Features",
+                "nav.howItWorks": "How It Works",
+                "nav.calculator": "Calculator",
+                "nav.article": "Article",
+                "nav.about": "About",
+                // CTA
+                "cta.getStarted": "Get Started",
+                // Footer
+                "footer.description": "Transform fuel data into actionable emission insights.",
+                "footer.product": "Product",
+                "footer.about": "About",
+                "footer.about.mission": "Mission",
+                "footer.about.ceo": "CEO & Product",
+                "footer.about.values": "Values",
+                "footer.about.technology": "Technology",
+                "footer.connect": "Connect",
+                "footer.copyright": "© 2025 ESGSyncPRO. All rights reserved.",
+                "footer.privacy": "Privacy Policy",
+                "articles.1.title": "The Secret to Sub-Millisecond Latency: A Deep Dive",
+                "articles.1.description": "Explore the advanced techniques and hardware necessary to minimize input lag and achieve true synchronization in demanding applications. Explore the advanced techniques and hardware necessary to minimize input lag and achieve true synchronization in demanding applications.",
+                "articles.1.date": "February 11, 2025",
+                "articles.2.title": "ESG Reporting in the Digital Age: Best Practices",
+                "articles.2.description": "Discover how modern technology is transforming ESG reporting, making it more accurate, transparent, and accessible. Learn about the latest tools and methodologies that help organizations meet their sustainability goals.",
+                "articles.2.date": "March 15, 2025",
+                "articles.3.title": "Sustainable Business Models: A Comprehensive Guide",
+                "articles.3.description": "Understanding how to build and maintain sustainable business models that balance profitability with environmental and social responsibility. Case studies from leading companies and actionable strategies.",
+                "articles.3.date": "April 2, 2025",
+                "articles.4.title": "Data Analytics for ESG Performance Measurement",
+                "articles.4.description": "How data analytics and machine learning are revolutionizing ESG performance measurement. Learn about key metrics, visualization techniques, and how to turn data into actionable insights for your organization.",
+                "articles.4.date": "May 10, 2025",
+                "articles.5.title": "Climate Risk Assessment: A Strategic Framework",
+                "articles.5.description": "Learn how to identify, assess, and mitigate climate-related risks in your business operations. A comprehensive guide to building resilience and adapting to changing environmental conditions.",
+                "articles.5.date": "June 5, 2025",
+                "articles.6.title": "Corporate Governance and ESG Integration",
+                "articles.6.description": "Explore how effective corporate governance structures can drive ESG performance and create long-term value for stakeholders. Best practices from leading organizations worldwide.",
+                "articles.6.date": "July 12, 2025",
+                "articles.7.title": "Supply Chain Sustainability: Challenges and Solutions",
+                "articles.7.description": "Discover strategies for building sustainable supply chains that reduce environmental impact while maintaining operational efficiency. Real-world case studies and implementation frameworks.",
+                "articles.7.date": "August 20, 2025",
+                "articles.8.title": "Renewable Energy Transition: A Business Perspective",
+                "articles.8.description": "Understanding the economic and strategic benefits of transitioning to renewable energy sources. Financial models, risk assessment, and ROI calculations for energy investments.",
+                "articles.8.date": "September 8, 2025"
+            },
+            pl: {
+                "article.title": "Artykuł - ESGSyncPRO",
+                "articles.title": "Artykuły",
+                "articles.subtitle": "Najnowsze spostrzeżenia i aktualizacje dotyczące raportowania ESG i zrównoważonego rozwoju",
+                "articles.read": "Czytaj",
+                "articles.pagination.previous": "Poprzednia",
+                "articles.pagination.next": "Następna",
+                // Navigation
+                "nav.demo": "Demo",
+                "nav.features": "Funkcje",
+                "nav.howItWorks": "Jak to działa",
+                "nav.calculator": "Kalkulator",
+                "nav.article": "Artykuł",
+                "nav.about": "O nas",
+                // CTA
+                "cta.getStarted": "Rozpocznij",
+                // Footer
+                "footer.description": "Przekształć dane o paliwach w praktyczne wglądy w emisje.",
+                "footer.product": "Produkt",
+                "footer.about": "O nas",
+                "footer.about.mission": "Misja",
+                "footer.about.ceo": "CEO i Produkt",
+                "footer.about.values": "Wartości",
+                "footer.about.technology": "Technologia",
+                "footer.connect": "Połącz się",
+                "footer.copyright": "© 2025 ESGSyncPRO. Wszelkie prawa zastrzeżone.",
+                "footer.privacy": "Polityka prywatności",
+                "articles.1.title": "Sekret opóźnienia poniżej milisekundy: Szczegółowa analiza",
+                "articles.1.description": "Poznaj zaawansowane techniki i sprzęt niezbędny do minimalizacji opóźnień wejściowych i osiągnięcia prawdziwej synchronizacji w wymagających aplikacjach. Poznaj zaawansowane techniki i sprzęt niezbędny do minimalizacji opóźnień wejściowych i osiągnięcia prawdziwej synchronizacji w wymagających aplikacjach.",
+                "articles.1.date": "11 lutego 2025",
+                "articles.2.title": "Raportowanie ESG w erze cyfrowej: Najlepsze praktyki",
+                "articles.2.description": "Dowiedz się, jak nowoczesna technologia przekształca raportowanie ESG, czyniąc je bardziej dokładnym, przejrzystym i dostępnym. Poznaj najnowsze narzędzia i metodologie, które pomagają organizacjom osiągnąć cele zrównoważonego rozwoju.",
+                "articles.2.date": "15 marca 2025",
+                "articles.3.title": "Zrównoważone modele biznesowe: Kompleksowy przewodnik",
+                "articles.3.description": "Zrozumienie, jak budować i utrzymywać zrównoważone modele biznesowe, które równoważą rentowność z odpowiedzialnością środowiskową i społeczną. Studia przypadków wiodących firm i praktyczne strategie.",
+                "articles.3.date": "2 kwietnia 2025",
+                "articles.4.title": "Analityka danych do pomiaru wydajności ESG",
+                "articles.4.description": "Jak analityka danych i uczenie maszynowe rewolucjonizują pomiar wydajności ESG. Poznaj kluczowe metryki, techniki wizualizacji i sposób przekształcania danych w praktyczne spostrzeżenia dla Twojej organizacji.",
+                "articles.4.date": "10 maja 2025",
+                "articles.5.title": "Ocena ryzyka klimatycznego: Ramy strategiczne",
+                "articles.5.description": "Dowiedz się, jak identyfikować, oceniać i łagodzić ryzyka związane z klimatem w działalności biznesowej. Kompleksowy przewodnik dotyczący budowania odporności i adaptacji do zmieniających się warunków środowiskowych.",
+                "articles.5.date": "5 czerwca 2025",
+                "articles.6.title": "Ład korporacyjny i integracja ESG",
+                "articles.6.description": "Poznaj, jak skuteczne struktury ładu korporacyjnego mogą napędzać wydajność ESG i tworzyć długoterminową wartość dla interesariuszy. Najlepsze praktyki wiodących organizacji na całym świecie.",
+                "articles.6.date": "12 lipca 2025",
+                "articles.7.title": "Zrównoważoność łańcucha dostaw: Wyzwania i rozwiązania",
+                "articles.7.description": "Odkryj strategie budowania zrównoważonych łańcuchów dostaw, które zmniejszają wpływ na środowisko przy jednoczesnym utrzymaniu efektywności operacyjnej. Prawdziwe studia przypadków i ramy wdrożeniowe.",
+                "articles.7.date": "20 sierpnia 2025",
+                "articles.8.title": "Przejście na energię odnawialną: Perspektywa biznesowa",
+                "articles.8.description": "Zrozumienie ekonomicznych i strategicznych korzyści przejścia na źródła energii odnawialnej. Modele finansowe, ocena ryzyka i obliczenia zwrotu z inwestycji dla inwestycji energetycznych.",
+                "articles.8.date": "8 września 2025"
+            }
+        };
+
+        // Current language state
+        let currentLanguage = 'en'; // Default to English
+        
+        // Initialize language from URL parameter or localStorage
+        function initializeLanguage() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlLang = urlParams.get('lang');
+            
+            if (urlLang && (urlLang === 'en' || urlLang === 'pl')) {
+                currentLanguage = urlLang;
+            } else {
+                const storedLang = localStorage.getItem('esgsyncp-language');
+                if (storedLang && (storedLang === 'en' || storedLang === 'pl')) {
+                    currentLanguage = storedLang;
+                } else {
+                    currentLanguage = 'en';
+                }
+            }
+            
+            // Update URL with current language if not present
+            if (!urlLang && currentLanguage !== 'en') {
+                const url = new URL(window.location);
+                url.searchParams.set('lang', currentLanguage);
+                window.history.replaceState({}, '', url);
+            }
+        }
+        
+        // Update all translations
+        function updateTranslations() {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[currentLanguage] && translations[currentLanguage][key]) {
+                    element.textContent = translations[currentLanguage][key];
+                }
+            });
+            
+            // Update pagination buttons if they exist
+            const prevButton = document.querySelector('[data-translate="articles.pagination.previous"]');
+            const nextButton = document.querySelector('[data-translate="articles.pagination.next"]');
+            
+            if (prevButton && translations[currentLanguage] && translations[currentLanguage]['articles.pagination.previous']) {
+                prevButton.textContent = translations[currentLanguage]['articles.pagination.previous'];
+            }
+            
+            if (nextButton && translations[currentLanguage] && translations[currentLanguage]['articles.pagination.next']) {
+                nextButton.textContent = translations[currentLanguage]['articles.pagination.next'];
+            }
+        }
+        
+        // Update language selectors to show current language
+        function updateLanguageSelectors() {
+            const currentLanguageElement = document.getElementById('current-language');
+            const mobileCurrentLanguageElement = document.getElementById('mobile-current-language');
+            
+            if (currentLanguageElement) {
+                currentLanguageElement.textContent = currentLanguage === 'en' ? 'English' : 'Polish';
+            }
+            
+            if (mobileCurrentLanguageElement) {
+                mobileCurrentLanguageElement.textContent = currentLanguage === 'en' ? 'English' : 'Polish';
+            }
+        }
+        
+        // Define language dropdown functions early so they're available when header loads
+        window.toggleLanguageDropdown = function() {
+            const dropdown = document.getElementById('language-dropdown');
+            const mobileDropdown = document.getElementById('mobile-language-dropdown');
+            const arrow = document.getElementById('language-arrow');
+            const mobileArrow = document.getElementById('mobile-language-arrow');
+            
+            if (dropdown && arrow) {
+                const isVisible = dropdown.style.opacity === '1' && dropdown.style.visibility === 'visible';
+                
+                if (isVisible) {
+                    // Close dropdown
+                    dropdown.style.opacity = '0';
+                    dropdown.style.visibility = 'hidden';
+                    dropdown.style.transform = 'translateY(-10px)';
+                    arrow.style.transform = 'rotate(0deg)';
+                } else {
+                    // Open dropdown
+                    dropdown.style.opacity = '1';
+                    dropdown.style.visibility = 'visible';
+                    dropdown.style.transform = 'translateY(0)';
+                    arrow.style.transform = 'rotate(180deg)';
+                }
+            }
+            
+            if (mobileDropdown && mobileArrow) {
+                const isVisible = mobileDropdown.style.opacity === '1' && mobileDropdown.style.visibility === 'visible';
+                
+                if (isVisible) {
+                    // Close mobile dropdown
+                    mobileDropdown.style.opacity = '0';
+                    mobileDropdown.style.visibility = 'hidden';
+                    mobileDropdown.style.transform = 'translateY(-10px)';
+                    mobileArrow.style.transform = 'rotate(0deg)';
+                } else {
+                    // Open mobile dropdown
+                    mobileDropdown.style.opacity = '1';
+                    mobileDropdown.style.visibility = 'visible';
+                    mobileDropdown.style.transform = 'translateY(0)';
+                    mobileArrow.style.transform = 'rotate(180deg)';
+                }
+            }
+        };
+        
+        window.closeAllLanguageDropdowns = function() {
+            const dropdown = document.getElementById('language-dropdown');
+            const mobileDropdown = document.getElementById('mobile-language-dropdown');
+            const arrow = document.getElementById('language-arrow');
+            const mobileArrow = document.getElementById('mobile-language-arrow');
+            
+            if (dropdown && arrow) {
+                dropdown.style.opacity = '0';
+                dropdown.style.visibility = 'hidden';
+                dropdown.style.transform = 'translateY(-10px)';
+                arrow.style.transform = 'rotate(0deg)';
+            }
+            
+            if (mobileDropdown && mobileArrow) {
+                mobileDropdown.style.opacity = '0';
+                mobileDropdown.style.visibility = 'hidden';
+                mobileDropdown.style.transform = 'translateY(-10px)';
+                mobileArrow.style.transform = 'rotate(0deg)';
+            }
+        };
+        
+        window.changeLanguage = function(lang) {
+            currentLanguage = lang;
+            
+            // Update language display
+            const currentLanguageElement = document.getElementById('current-language');
+            const mobileCurrentLanguageElement = document.getElementById('mobile-current-language');
+            
+            if (currentLanguageElement) {
+                currentLanguageElement.textContent = lang === 'en' ? 'English' : 'Polish';
+            }
+            
+            if (mobileCurrentLanguageElement) {
+                mobileCurrentLanguageElement.textContent = lang === 'en' ? 'English' : 'Polish';
+            }
+            
+            // Save language to localStorage
+            localStorage.setItem('esgsyncp-language', lang);
+            
+            // Update URL with language parameter
+            const url = new URL(window.location);
+            url.searchParams.set('lang', lang);
+            window.history.pushState({}, '', url);
+            
+            // Close dropdown
+            if (typeof window.closeAllLanguageDropdowns === 'function') {
+                window.closeAllLanguageDropdowns();
+            }
+            
+            // Update translations
+            updateTranslations();
+            
+            // Re-render pagination with new language if it exists
+            setTimeout(() => {
+                const container = document.getElementById('pagination-container');
+                if (container) {
+                    const cards = document.querySelectorAll('.article-card');
+                    const totalCards = cards.length;
+                    const itemsPerPage = getItemsPerPage();
+                    const totalPages = Math.ceil(totalCards / itemsPerPage);
+                    
+                    if (totalPages > 1) {
+                        // Get current page from active button or use stored page
+                        const activeButton = document.querySelector('.pagination-button.active');
+                        const page = activeButton ? parseInt(activeButton.textContent) || currentPaginationPage : currentPaginationPage;
+                        if (typeof window.renderPagination === 'function') {
+                            window.renderPagination(page, totalPages);
+                        }
+                    }
+                }
+            }, 150);
+        };
+        
+        // Load header from external file
+        async function loadHeader() {
+            try {
+                const response = await fetch('/pages/header.html');
+                const headerHtml = await response.text();
+                
+                // Extract and execute scripts from header.html
+                const scriptMatch = headerHtml.match(/<script>([\s\S]*?)<\/script>/);
+                if (scriptMatch && scriptMatch[1]) {
+                    // Save current changeLanguage function to prevent overwrite
+                    const currentChangeLanguageFunction = window.changeLanguage;
+                    
+                    // Execute the script content
+                    try {
+                        eval(scriptMatch[1]);
+                    } catch (e) {
+                        console.error('Error executing header script:', e);
+                    }
+                    
+                    // Restore changeLanguage function if it was overwritten
+                    // Also update the saved reference so header's wrapper can call it
+                    if (typeof currentChangeLanguageFunction === 'function') {
+                        window.changeLanguage = currentChangeLanguageFunction;
+                        window._pageChangeLanguage = currentChangeLanguageFunction;
+                    }
+                }
+                
+                // Remove script tags before inserting HTML
+                const htmlWithoutScripts = headerHtml.replace(/<script>[\s\S]*?<\/script>/g, '');
+                document.getElementById('header-container').innerHTML = htmlWithoutScripts;
+                
+                // Re-initialize feather icons after loading header
+                feather.replace();
+                
+                // Ensure header is properly positioned and styled
+                const header = document.querySelector('header');
+                if (header) {
+                    header.style.position = 'fixed';
+                    header.style.top = '0';
+                    header.style.left = '0';
+                    header.style.right = '0';
+                    header.style.zIndex = '9999';
+                    header.style.backgroundColor = 'white';
+                    header.style.height = '73px';
+                    header.style.borderBottom = '1px solid #d1d5db';
+                }
+                
+                // Update translations for header elements
+                if (typeof updateTranslations === 'function') {
+                    updateTranslations();
+                }
+                
+                // Update language selectors
+                if (typeof updateLanguageSelectors === 'function') {
+                    updateLanguageSelectors();
+                }
+                
+                // Ensure dropdowns are closed on load
+                setTimeout(() => {
+                    if (typeof window.closeAllLanguageDropdowns === 'function') {
+                        window.closeAllLanguageDropdowns();
+                    }
+                }, 100);
+                
+                // Setup mobile menu handlers after header is loaded
+                setTimeout(() => {
+                    // Call setup function from header if available
+                    if (typeof window.setupMobileMenuHandlers === 'function') {
+                        window.setupMobileMenuHandlers();
+                    }
+                    
+                    const mobileMenuButton = document.getElementById('mobile-menu-button');
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    const mobileOverlay = document.getElementById('mobile-menu-overlay');
+                    const mobileMenuClose = document.getElementById('mobile-menu-close');
+                    const mobileMenuLinks = document.querySelectorAll('.mobile-menu-nav-item, .mobile-menu-cta a');
+                    
+                    // Ensure toggleMobileMenu is available
+                    if (typeof window.toggleMobileMenu !== 'function') {
+                        console.error('toggleMobileMenu function not found!');
+                    }
+                    
+                    // Setup event handlers directly
+                    if (mobileMenuButton) {
+                        mobileMenuButton.onclick = null; // Clear any existing handlers
+                        mobileMenuButton.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            if (typeof window.toggleMobileMenu === 'function') {
+                                window.toggleMobileMenu();
+                            } else {
+                                console.error('toggleMobileMenu is not a function!');
+                            }
+                        }, { once: false });
+                    }
+                    
+                    if (mobileMenuClose) {
+                        mobileMenuClose.onclick = null;
+                        mobileMenuClose.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            if (typeof window.toggleMobileMenu === 'function') {
+                                window.toggleMobileMenu();
+                            }
+                        });
+                    }
+                    
+                    if (mobileOverlay) {
+                        mobileOverlay.onclick = null;
+                        mobileOverlay.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            if (typeof window.toggleMobileMenu === 'function') {
+                                window.toggleMobileMenu();
+                            }
+                        });
+                    }
+                    
+                    mobileMenuLinks.forEach(link => {
+                        link.onclick = function(e) {
+                            if (typeof window.toggleMobileMenu === 'function') {
+                                window.toggleMobileMenu();
+                            }
+                        };
+                    });
+                    
+                    // Setup language selector handlers
+                    const mobileLanguageSelector = document.getElementById('mobile-language-selector');
+                    const mobileLangOptionEn = document.getElementById('mobile-lang-option-en');
+                    const mobileLangOptionPl = document.getElementById('mobile-lang-option-pl');
+                    
+                    if (mobileLanguageSelector && !mobileLanguageSelector.onclick) {
+                        mobileLanguageSelector.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            if (typeof window.toggleLanguageDropdown === 'function') {
+                                window.toggleLanguageDropdown();
+                            }
+                        });
+                    }
+                    
+                    if (mobileLangOptionEn && !mobileLangOptionEn.onclick) {
+                        mobileLangOptionEn.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            if (typeof window.changeLanguage === 'function') {
+                                window.changeLanguage('en');
+                            }
+                        });
+                    }
+                    
+                    if (mobileLangOptionPl && !mobileLangOptionPl.onclick) {
+                        mobileLangOptionPl.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            if (typeof window.changeLanguage === 'function') {
+                                window.changeLanguage('pl');
+                            }
+                        });
+                    }
+                    
+                    if (window.innerWidth < 1024) {
+                        // Mobile view
+                        if (mobileMenuButton) {
+                            mobileMenuButton.style.display = 'flex';
+                            mobileMenuButton.style.visibility = 'visible';
+                        }
+                        if (mobileMenu) {
+                            mobileMenu.style.display = 'flex';
+                        }
+                        if (mobileOverlay) {
+                            mobileOverlay.style.display = 'block';
+                        }
+                    } else {
+                        // Desktop view
+                        if (mobileMenuButton) {
+                            mobileMenuButton.style.display = 'none';
+                            mobileMenuButton.style.visibility = 'hidden';
+                        }
+                        if (mobileMenu) {
+                            mobileMenu.style.display = 'none';
+                        }
+                        if (mobileOverlay) {
+                            mobileOverlay.style.display = 'none';
+                        }
+                    }
+                }, 150);
+            } catch (error) {
+                console.error('Error loading header:', error);
+            }
+        }
+        
+        // Load footer from external file
+        async function loadFooter() {
+            try {
+                const response = await fetch('/pages/footer.html');
+                const footerHtml = await response.text();
+                document.getElementById('footer-container').innerHTML = footerHtml;
+                
+                // Update translations for footer elements
+                if (typeof updateTranslations === 'function') {
+                    updateTranslations();
+                }
+            } catch (error) {
+                console.error('Error loading footer:', error);
+            }
+        }
+
+        // Add click handlers for Read buttons
+        function setupReadButtons() {
+            const readButtons = document.querySelectorAll('article button[data-translate="articles.read"]');
+            readButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    window.location.href = 'article.html';
+                });
+            });
+        }
+
+        // Pagination logic
+        function getItemsPerPage() {
+            if (window.innerWidth < 768) {
+                return 4; // Mobile
+            } else {
+                return 6; // Tablet and Desktop
+            }
+        }
+
+        // Store current page globally for language switching
+        let currentPaginationPage = 1;
+        
+        function setupPagination() {
+            const cards = document.querySelectorAll('.article-card');
+            const totalCards = cards.length;
+
+            function showPage(page) {
+                const itemsPerPage = getItemsPerPage();
+                const totalPages = Math.ceil(totalCards / itemsPerPage);
+                const start = (page - 1) * itemsPerPage;
+                const end = start + itemsPerPage;
+
+                cards.forEach((card, index) => {
+                    if (index >= start && index < end) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+
+                renderPagination(page, totalPages);
+                currentPaginationPage = page;
+            }
+
+            function renderPagination(page, totalPages) {
+                const container = document.getElementById('pagination-container');
+                if (!container) return;
+
+                container.innerHTML = '';
+
+                if (totalPages <= 1) {
+                    return; // Don't show pagination if only one page
+                }
+
+                // Previous button
+                const prevButton = document.createElement('button');
+                prevButton.className = 'pagination-button';
+                prevButton.setAttribute('data-translate', 'articles.pagination.previous');
+                const prevText = translations[currentLanguage] && translations[currentLanguage]['articles.pagination.previous'] || 'Previous';
+                prevButton.textContent = prevText;
+                prevButton.disabled = page === 1;
+                prevButton.addEventListener('click', () => {
+                    if (page > 1) {
+                        showPage(page - 1);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                });
+                container.appendChild(prevButton);
+
+                // Page numbers
+                const maxVisible = 5;
+                let startPage = Math.max(1, page - Math.floor(maxVisible / 2));
+                let endPage = Math.min(totalPages, startPage + maxVisible - 1);
+
+                if (endPage - startPage < maxVisible - 1) {
+                    startPage = Math.max(1, endPage - maxVisible + 1);
+                }
+
+                if (startPage > 1) {
+                    const firstButton = document.createElement('button');
+                    firstButton.className = 'pagination-button';
+                    firstButton.textContent = '1';
+                    firstButton.addEventListener('click', () => {
+                        showPage(1);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    });
+                    container.appendChild(firstButton);
+
+                    if (startPage > 2) {
+                        const ellipsis = document.createElement('span');
+                        ellipsis.className = 'pagination-ellipsis';
+                        ellipsis.textContent = '...';
+                        container.appendChild(ellipsis);
+                    }
+                }
+
+                for (let i = startPage; i <= endPage; i++) {
+                    const pageButton = document.createElement('button');
+                    pageButton.className = 'pagination-button';
+                    if (i === page) {
+                        pageButton.classList.add('active');
+                    }
+                    pageButton.textContent = i;
+                    pageButton.addEventListener('click', () => {
+                        showPage(i);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    });
+                    container.appendChild(pageButton);
+                }
+
+                if (endPage < totalPages) {
+                    if (endPage < totalPages - 1) {
+                        const ellipsis = document.createElement('span');
+                        ellipsis.className = 'pagination-ellipsis';
+                        ellipsis.textContent = '...';
+                        container.appendChild(ellipsis);
+                    }
+
+                    const lastButton = document.createElement('button');
+                    lastButton.className = 'pagination-button';
+                    lastButton.textContent = totalPages;
+                    lastButton.addEventListener('click', () => {
+                        showPage(totalPages);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    });
+                    container.appendChild(lastButton);
+                }
+
+                // Next button
+                const nextButton = document.createElement('button');
+                nextButton.className = 'pagination-button';
+                nextButton.setAttribute('data-translate', 'articles.pagination.next');
+                const nextText = translations[currentLanguage] && translations[currentLanguage]['articles.pagination.next'] || 'Next';
+                nextButton.textContent = nextText;
+                nextButton.disabled = page === totalPages;
+                nextButton.addEventListener('click', () => {
+                    if (page < totalPages) {
+                        showPage(page + 1);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                });
+                container.appendChild(nextButton);
+            }
+            
+            // Make renderPagination accessible globally
+            window.renderPagination = renderPagination;
+            
+            // Initialize pagination
+            showPage(1);
+
+            // Handle window resize
+            let resizeTimeout;
+            let lastItemsPerPage = getItemsPerPage();
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    const newItemsPerPage = getItemsPerPage();
+                    if (newItemsPerPage !== lastItemsPerPage) {
+                        lastItemsPerPage = newItemsPerPage;
+                        currentPaginationPage = 1;
+                        showPage(1);
+                    }
+                }, 250);
+            });
+        }
+
+        // Load header and footer when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize language first
+            initializeLanguage();
+            
+            loadHeader();
+            loadFooter();
+            setupReadButtons();
+            setupPagination();
+            
+            // Update translations and language selectors after header/footer are loaded
+            setTimeout(() => {
+                updateTranslations();
+                updateLanguageSelectors();
+            }, 200);
+        });
+    </script>
+</body>
+</html>
+

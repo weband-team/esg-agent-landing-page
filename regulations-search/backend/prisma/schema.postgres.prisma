@@ -1,0 +1,52 @@
+// AUTO-GENERATED from schema.prisma by `npm run db:pg:sync`.
+// Do NOT edit by hand — edit prisma/schema.prisma and re-run the sync script.
+
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Regulation {
+  regulation_id        String   @id
+  area                 String
+  name                 Json
+  obligation_name      Json
+  legal_level          String
+  legal_basis          Json
+  authority            Json
+  official_source      String
+  trigger_logic        Json
+  trigger_data_fields  Json
+  thresholds           Json?
+  obligation_type      String
+  output_required      Json
+  portal_or_submission Json
+  frequency            String
+  deadline             Json
+  evidence_to_keep     Json
+  penalty_risk         String
+  penalty_description  Json
+  owner_role           String
+  confidence_level     String
+  pkd_codes            Json
+}
+
+model Company {
+  nip            String   @id
+  name           String
+  krs            String?
+  regon          String
+  legal_form     String
+  address        Json
+  pkd_codes      Json
+  employee_count Int
+  revenue_pln    Float
+  assets_pln     Float
+  is_mock        Boolean  @default(true)
+}

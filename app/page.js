@@ -222,6 +222,7 @@ export default function Home() {
         </NavLogo>
         <NavMenu>
           <NavMenuLink href="/benchmark">{txt('Benchmark', 'Benchmark')}</NavMenuLink>
+          <NavMenuLink href="/regulations-search">{txt('Wyszukiwarka Regulacji', 'Regulations Search')}</NavMenuLink>
         </NavMenu>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <LangToggle>
@@ -344,7 +345,7 @@ export default function Home() {
             <Tag>{txt('Moduły platformy', 'Platform Modules')}</Tag>
             <SectionTitle>
               {txt('Dostępne ', 'Available ')}
-              <GradientText>{txt('bezpłatne moduły', 'free modules')}</GradientText>
+              <GradientText>{txt('moduły', 'modules')}</GradientText>
             </SectionTitle>
             <SectionSub style={{ margin: '0 auto 3rem auto', textAlign: 'center' }}>
               {txt(
@@ -370,21 +371,39 @@ export default function Home() {
               </ButtonPrimaryLink>
             </ModuleCard>
 
-            <ModuleCard className="coming-soon">
-              <span className="module-tag">{txt('Wkrótce', 'Coming soon')}</span>
+            <ModuleCard style={{ border: '1px solid rgba(34, 197, 94, 0.25)' }}>
               <div>
-                <div className="module-icon coming-soon-icon">🍃</div>
-                <h3>{txt('Analiza Śladu Węglowego (Carbon)', 'Carbon Footprint Calculator')}</h3>
+                <div className="module-icon">🔍</div>
+                <h3>{txt('Wyszukiwarka Regulacji (Regulations search)', 'Regulations Search (Compliance Radar)')}</h3>
                 <p>
                   {txt(
-                    'Precyzyjny moduł wyliczania śladu węglowego firmy (Emisje Zakresów 1, 2, 3) zgodny z GHG Protocol oraz normą ISO 14067. Automatyczne importowanie faktur za prąd, paliwo oraz tabele transportowe i wyliczenie śladu węglowego w kilka minut.',
-                    'Advanced carbon accounting module for greenhouse gas emissions (Scope 1, 2, 3) compliant with the GHG Protocol and ISO 14067. Auto-import fuel & power invoices to compute carbon footprints instantly.'
+                    'Sprawdź, którym unijnym i krajowym regulacjom ESG (CSRD, EUDR, CBAM, CSDDD, SFDR) podlega Twoje przedsiębiorstwo. Wprowadź NIP i uzyskaj natychmiastową, zindywidualizowaną analizę prawną wraz z pełnym raportem PDF.',
+                    'Identify which EU and national ESG regulations (CSRD, EUDR, CBAM, CSDDD, SFDR) apply to your enterprise. Input a Polish Tax ID (NIP) for an instant legal analysis and download a custom PDF compliance report.'
                   )}
                 </p>
               </div>
-              <ButtonPrimary disabled style={{ width: '100%', justifyContent: 'center' }}>
-                {txt('Moduł zablokowany', 'Module locked')}
-              </ButtonPrimary>
+              <ButtonPrimaryLink as={Link} href="/regulations-search" style={{ width: '100%', justifyContent: 'center' }}>
+                {txt('Uruchom moduł Szukaj Regulacji →', 'Launch Regulations Search →')}
+              </ButtonPrimaryLink>
+            </ModuleCard>
+
+            <ModuleCard style={{ border: '1px solid rgba(16, 185, 129, 0.25)', background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.6) 0%, rgba(16, 185, 129, 0.05) 100%)' }}>
+              <span className="module-tag" style={{ background: 'rgba(16, 185, 129, 0.15)', border: '1px solid rgba(16, 185, 129, 0.3)', color: '#34d399' }}>
+                {txt('Pełna wersja', 'Full platform')}
+              </span>
+              <div>
+                <div className="module-icon" style={{ background: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.2)' }}>✨</div>
+                <h3>{txt('Więcej modułów w aplikacji', 'More modules in the app')}</h3>
+                <p>
+                  {txt(
+                    'Zaloguj się do pełnej platformy ESG Sync Pro, aby uzyskać dostęp do zaawansowanych modułów regulacyjnych (CSRD, EUDR, GRI), zarządzania zespołem, automatycznego zbierania danych oraz pełnego asystenta AI.',
+                    'Log in to the full ESG Sync Pro platform to access advanced regulatory modules (CSRD, EUDR, GRI), team collaboration, automated data gathering, and the full AI copilot.'
+                  )}
+                </p>
+              </div>
+              <ButtonPrimaryLink href="https://app.esgsyncpro.qirelab.com/" target="_blank" rel="noopener noreferrer" style={{ width: '100%', justifyContent: 'center', background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', borderColor: '#34d399' }}>
+                {txt('Przejdź do aplikacji ↗', 'Go to the App ↗')}
+              </ButtonPrimaryLink>
             </ModuleCard>
           </ModulesGrid>
         </Container>

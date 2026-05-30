@@ -1,0 +1,92 @@
+<footer id="contact" class="bg-gray-900" style="padding-top: 3rem; padding-bottom: 2rem;" role="contentinfo">
+<style>
+.footer-logo {
+    height: 40px !important;
+    width: 71px !important;
+    max-width: 100% !important;
+}
+
+.footer-copyright {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 0.5rem 1rem !important;
+    min-height: 60px !important;
+    text-align: left !important;
+}
+
+.footer-copyright p {
+    margin: 0 !important;
+    font-size: 0.875rem !important; /* text-sm on mobile */
+}
+
+.footer-copyright a {
+    margin: 0 !important;
+    font-size: 0.875rem !important; /* text-sm on mobile */
+}
+
+@media (min-width: 768px) {
+    .footer-copyright {
+        justify-content: space-between !important;
+        gap: 0 !important;
+    }
+    
+    .footer-copyright p {
+        font-size: 1rem !important; /* text-base on desktop */
+    }
+    
+    .footer-copyright a {
+        font-size: 1rem !important; /* text-base on desktop */
+    }
+}
+</style>
+    <div class="px-6 md:px-12 lg:px-28">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <!-- Company Info -->
+            <div class="md:col-span-1">
+                <img src="../public/assets/images/img_headerlogo.svg" alt="ESGSyncPRO Logo" class="footer-logo" style="margin-bottom: 1rem; cursor: pointer; transition: opacity 0.3s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'" onclick="window.location.href='index.html'" />
+                <p class="text-base text-gray-400 leading-6" data-translate="footer.description">Transform fuel data into actionable emission insights.</p>
+            </div>
+            
+            <!-- Navigation Links -->
+            <div>
+                <h3 class="text-base font-semibold text-white mb-4" data-translate="footer.product">Product</h3>
+                <ul class="space-y-3">
+                    <li><a href="/#video" class="text-base text-gray-400 hover:text-white transition-colors" data-translate="nav.demo">Demo</a></li>
+                    <li><a href="/#features" class="text-base text-gray-400 hover:text-white transition-colors" data-translate="nav.features">Features</a></li>
+                    <li><a href="/#how-it-works" class="text-base text-gray-400 hover:text-white transition-colors" data-translate="nav.howItWorks">How It Works</a></li>
+                    <li><a href="/#calculator" class="text-base text-gray-400 hover:text-white transition-colors" data-translate="nav.calculator">Calculator</a></li>
+                </ul>
+            </div>
+            
+            <!-- About Links -->
+            <div>
+                <h3 class="text-base font-semibold text-white mb-4" data-translate="footer.about">About</h3>
+                <ul class="space-y-3">
+                    <li><a href="/about#mission" class="text-base text-gray-400 hover:text-white transition-colors" data-translate="footer.about.mission">Mission</a></li>
+                    <li><a href="/about#ceo" class="text-base text-gray-400 hover:text-white transition-colors" data-translate="footer.about.ceo">CEO & Product</a></li>
+                    <li><a href="/about#values" class="text-base text-gray-400 hover:text-white transition-colors" data-translate="footer.about.values">Values</a></li>
+                    <li><a href="/about#technology" class="text-base text-gray-400 hover:text-white transition-colors" data-translate="footer.about.technology">Technology</a></li>
+                </ul>
+            </div>
+            
+            <!-- Social Links -->
+            <div>
+                <h3 class="text-base font-semibold text-white mb-4" data-translate="footer.connect">Connect</h3>
+                <div class="flex space-x-4">
+                    <a href="http://linkedin.com/in/ai4" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="LinkedIn">
+                        <img src="../public/assets/images/img_frame_blue_gray_300_20x17.svg" alt="LinkedIn" class="w-5 h-4" />
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Copyright -->
+        <div class="border-t border-gray-800 pt-8 footer-copyright">
+            <p class="text-base text-gray-400" data-translate="footer.copyright">© 2025 ESGSyncPRO. All rights reserved.</p>
+            <a href="/privacy-policy" class="text-base text-gray-400 underline hover:text-white transition-colors" data-translate="footer.privacy" style="text-decoration: underline !important;">Privacy Policy</a>
+        </div>
+    </div>
+</footer>

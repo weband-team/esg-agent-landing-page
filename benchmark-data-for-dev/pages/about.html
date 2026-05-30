@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="about.title">About Us - ESGSyncPRO</title>
+    <meta name="description" content="Learn about ESGSyncPRO - Our mission, team, and commitment to transforming fuel data into actionable emission insights.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://esgsync.pro/pages/about.html" />
+    <meta property="og:title" content="About Us - ESGSyncPRO" />
+    <meta property="og:description" content="Learn about ESGSyncPRO - Our mission, team, and commitment to transforming fuel data into actionable emission insights." />
+    <meta property="og:image" content="https://esgsync.pro/public/assets/images/og-image.jpg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="About Us - ESGSyncPRO" />
+    <meta name="twitter:description" content="Learn about ESGSyncPRO - Our mission, team, and commitment to transforming fuel data into actionable emission insights." />
+    <meta name="twitter:image" content="https://esgsync.pro/public/assets/images/og-image.jpg" />
+
+    <link rel="icon" href="../public/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        .mobile-menu-transition {
+            transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        /* Responsive menu styles */
+        @media (min-width: 1024px) {
+            .lg\:hidden { display: none !important; }
+            .hidden.lg\:flex { display: flex !important; }
+            .hidden.lg\:block { display: block !important; }
+        }
+        
+        @media (max-width: 1023px) {
+            .lg\:hidden { display: flex !important; }
+            .hidden.lg\:flex { display: none !important; }
+            .hidden.lg\:block { display: none !important; }
+        }
+        
+        /* Additional responsive padding */
+        @media (min-width: 768px) {
+            .md\:px-12 { padding-left: 3rem; padding-right: 3rem; }
+            .md\:py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+            .md\:text-5xl { font-size: 3rem; line-height: 1; }
+            .md\:text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+            .md\:py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+        }
+        
+        @media (min-width: 1024px) {
+            .lg\:px-28 { padding-left: 7rem; padding-right: 7rem; }
+        }
+        
+        /* About page specific styles */
+        .hero-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .team-member {
+            transition: transform 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: scale(1.05);
+        }
+        
+        .stats-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .feature-icon {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        /* Forced hover effects for Values cards */
+        .values-card { transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease, background-color .3s ease; }
+        .values-card.hovered { transform: translateY(-4px); box-shadow: 0 15px 20px -5px rgba(0,0,0,.08), 0 8px 8px -5px rgba(0,0,0,.03); border-color: #d1d5db !important; background-color: #f9fafb; }
+        /* Forced hover effects for Impact cards */
+        .impact-card { transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease, background-color .3s ease; }
+        .impact-card.hovered { transform: translateY(-6px); box-shadow: 0 20px 25px -5px rgba(0,0,0,.1), 0 10px 10px -5px rgba(0,0,0,.04); border-color: #9ca3af !important; background-color: #f9fafb; }
+        
+        /* Tab styling */
+        .tab-button {
+            transition: all 0.2s ease;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            border-radius: 0.5rem 0.5rem 0 0;
+            padding: 0.75rem 1.5rem;
+        }
+        .tab-button.active {
+            background-color: #95ce24;
+            color: white !important;
+        }
+        .tab-button:not(.active) {
+            color: #374151;
+            background: transparent;
+        }
+        .tab-button:not(.active):hover {
+            background-color: #f3f4f6;
+        }
+        .tab-content {
+            transition: opacity 0.3s ease;
+        }
+        .tab-content.hidden {
+            display: none !important;
+        }
+        
+        /* Partner photo responsive sizing - reduce by 3x on mobile */
+        @media (max-width: 767px) {
+            #ceo-img {
+                max-width: 33.333% !important;
+                min-height: 167px !important;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+    <!-- Header will be loaded here -->
+    <div id="header-container"></div>
+
+    <!-- Main Content -->
+    <main class="min-h-screen" style="margin-top: 73px;">
+        <!-- Hero Section -->
+        <section id="hero" class="py-20 md:py-32 bg-white">
+            <div class="px-6 md:px-12 lg:px-28">
+                <div class="max-w-4xl mx-auto text-center">
+                     <h1 class="text-4xl md:text-6xl font-bold text-[#91cb24] mb-6" data-translate="about.hero.title">About ESGSyncPRO</h1>
+                     <p class="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed" data-translate="about.hero.subtitle">
+                         Transforming fuel data into actionable emission insights for a sustainable future
+                     </p>
+                    <div style="display: flex; flex-direction: column; gap: 1rem; justify-content: center; align-items: center;">
+                        <a href="/#contact" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background-color: #95ce24; color: white; padding: 0.5rem 1.5rem; border-radius: 0.5rem; font-size: 1rem; font-weight: 500; text-decoration: none; transition: all 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" onmouseover="this.style.backgroundColor='#7fb01f'; this.style.transform='scale(1.05)';" onmouseout="this.style.backgroundColor='#95ce24'; this.style.transform='scale(1)';" onmousedown="this.style.transform='scale(0.95)';" onmouseup="this.style.transform='scale(1.05)';">
+                            <i data-feather="mail" class="w-5 h-5"></i>
+                            <span data-translate="cta.getInTouch">Get in touch</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section id="mission" class="bg-gray-50 py-12 md:py-16 lg:py-20">
+            <div class="px-6 md:px-12 lg:px-28">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6" data-translate="about.mission.title">Our Mission</h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed" data-translate="about.mission.content">
+                        At ESGSyncPRO, we believe that accurate environmental data is the foundation of sustainable business practices. 
+                        Our mission is to empower organizations of all sizes with intelligent tools and actionable insights they need to 
+                        transform their fuel consumption data into comprehensive ESG reporting, comply with CSRD requirements, and make 
+                        data-driven decisions about their environmental impact.
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed" data-translate="about.mission.content2">
+                        We transform complex fuel consumption data into real-time CO₂e KPIs, providing automated emission calculations 
+                        across Scope 1, 2, and 3. Our platform helps businesses build ESG maturity, reduce their carbon footprint, 
+                        meet regulatory requirements, and achieve their sustainability goals through comprehensive reporting and strategic recommendations.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CEO & Product Section -->
+        <section id="ceo" class="bg-white py-12 md:py-16 lg:py-20">
+            <div class="px-6 md:px-12 lg:px-28">
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                        <!-- Left Column: Content -->
+                        <div class="order-1 md:order-1">
+                            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6" data-translate="about.ceo.title">Empowering Sustainable Futures with Data-Driven ESG Solutions</h2>
+                            <p class="text-lg text-gray-600 mb-6 leading-relaxed" data-translate="about.ceo.description">
+                                ESGSyncPRO provides comprehensive ESG solutions combining intelligent fuel data analysis with advanced assessment tools. From transforming fuel consumption into real-time CO₂e KPIs to interactive ESG maturity assessments, we deliver actionable insights that drive sustainable decisions and ensure CSRD compliance.
+                            </p>
+                            
+                            <!-- Tabs -->
+                            <div class="flex gap-0 mb-6" style="border-bottom: 1px solid #e5e7eb;">
+                                <button class="tab-button active text-base font-semibold" onclick="switchTab('mission', this)" data-translate="about.ceo.tab.mission">Mission</button>
+                                <button class="tab-button text-base font-semibold" onclick="switchTab('vision', this)" data-translate="about.ceo.tab.vision">Vision</button>
+                                <button class="tab-button text-base font-semibold" onclick="switchTab('value', this)" data-translate="about.ceo.tab.value">Our Value</button>
+                            </div>
+                            
+                            <!-- Tab Content -->
+                            <div id="tab-mission" class="tab-content">
+                                <p class="text-lg text-gray-600 leading-relaxed" data-translate="about.ceo.mission.content">
+                                    Our mission is to democratize ESG reporting by providing advanced tools that make environmental impact measurement accessible, accurate, and actionable for businesses of all sizes. We empower organizations to transform fuel consumption data into comprehensive CO₂e calculations (Scope 1, 2, 3), conduct ESG maturity assessments, and generate personalized reports that drive sustainability and ensure regulatory compliance.
+                                </p>
+                            </div>
+                            <div id="tab-vision" class="tab-content hidden">
+                                <p class="text-lg text-gray-600 leading-relaxed" data-translate="about.ceo.vision.content">
+                                    We envision a future where every business seamlessly integrates environmental intelligence into its core operations. ESGSyncPRO aims to become the global leader in data-driven ESG solutions, combining automated fuel data transformation with intelligent assessment tools to help companies worldwide achieve their sustainability goals, meet CSRD requirements, and build ESG maturity through data-driven insights and strategic recommendations.
+                                </p>
+                            </div>
+                            <div id="tab-value" class="tab-content hidden">
+                                <p class="text-lg text-gray-600 leading-relaxed mb-4" data-translate="about.ceo.value.content">
+                                    We are committed to delivering unparalleled accuracy, transparency, and accessibility in ESG reporting. Our platform leverages advanced analytics and intuitive interfaces to make complex ESG metrics, CO₂e calculations, and maturity assessments clear and actionable for every user, regardless of technical expertise.
+                                </p>
+                                <p class="text-lg text-gray-600 leading-relaxed" data-translate="about.ceo.value.howItWorks">
+                                    ESGSyncPRO operates through two complementary solutions: (1) Automated fuel data transformation that integrates with your existing systems to calculate real-time CO₂e emissions across Scope 1, 2, and 3, and (2) Interactive ESG assessment tools that evaluate your company's maturity level and generate personalized PDF reports with actionable recommendations. Together, these solutions help reduce your carbon footprint, achieve sustainability goals, and ensure CSRD compliance.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Right Column: CEO Image -->
+                        <div class="relative order-2 md:order-2">
+                            <img src="public/assets/images/big_logo.png" class="rounded-2xl w-full h-auto object-cover" style="aspect-ratio: 1; min-height: 500px;" id="ceo-img">                      </div>                  </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section id="values" class="bg-gray-50 py-12 md:py-16 lg:py-20">
+            <div class="px-6 md:px-12 lg:px-28">
+                <div class="max-w-4xl mx-auto text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6" data-translate="about.values.title">Our Values</h2>
+                    <p class="text-lg text-gray-600" data-translate="about.values.subtitle">The principles that guide everything we do</p>
+                </div>
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+                         <div class="values-card group bg-white p-8 md:p-10 rounded-2xl shadow-sm border border-gray-200" onmouseover="this.classList.add('hovered')" onmouseout="this.classList.remove('hovered')">
+                             <div class="text-4xl mb-4">🌱</div>
+                             <h3 class="text-xl font-semibold text-gray-900 mb-4 transition-transform duration-300 group-hover:scale-[1.02]" data-translate="about.values.sustainability.title">Sustainability</h3>
+                             <p class="text-gray-600" data-translate="about.values.sustainability.content">
+                                 We are committed to environmental responsibility and helping our clients achieve their sustainability goals.
+                             </p>
+                         </div>
+                         <div class="values-card group bg-white p-8 md:p-10 rounded-2xl shadow-sm border border-gray-200" onmouseover="this.classList.add('hovered')" onmouseout="this.classList.remove('hovered')">
+                             <div class="text-4xl mb-4">🎯</div>
+                             <h3 class="text-xl font-semibold text-gray-900 mb-4 transition-transform duration-300 group-hover:scale-[1.02]" data-translate="about.values.accuracy.title">Accuracy</h3>
+                             <p class="text-gray-600" data-translate="about.values.accuracy.content">
+                                 We provide precise, reliable data analysis that you can trust for critical business decisions.
+                             </p>
+                         </div>
+                         <div class="values-card group bg-white p-8 md:p-10 rounded-2xl shadow-sm border border-gray-200" onmouseover="this.classList.add('hovered')" onmouseout="this.classList.remove('hovered')">
+                             <div class="text-4xl mb-4">🚀</div>
+                             <h3 class="text-xl font-semibold text-gray-900 mb-4 transition-transform duration-300 group-hover:scale-[1.02]" data-translate="about.values.innovation.title">Innovation</h3>
+                             <p class="text-gray-600" data-translate="about.values.innovation.content">
+                                 We continuously innovate to provide cutting-edge solutions for environmental data management.
+                             </p>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!-- Technology Section -->
+        <section id="technology" class="bg-white py-12 md:py-16 lg:py-20">
+            <div class="px-6 md:px-12 lg:px-28">
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div class="lg:col-span-2">
+                            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6" data-translate="about.technology.title">Our Technology</h2>
+                            <p class="text-lg text-gray-600 mb-6 leading-relaxed" data-translate="about.technology.content">
+                                ESGSyncPRO combines advanced content generation with intelligent ESG assessment tools to deliver
+                                accurate, personalized environmental reporting. Our platform automatically calculates CO₂e emissions
+                                from fuel consumption data and generates comprehensive ESG reports tailored to your company's maturity level.
+                            </p>
+                             <div class="space-y-4">
+                                 <div class="flex items-center">
+                                     <div class="mr-3 text-[#95ce24]"><i data-feather="zap" class="w-6 h-6"></i></div>
+                                     <span class="text-gray-700" data-translate="about.technology.feature1">Automated PDF generation with unique content variants</span>
+                                 </div>
+                                 <div class="flex items-center">
+                                     <div class="mr-3 text-[#95ce24]"><i data-feather="search" class="w-6 h-6"></i></div>
+                                     <span class="text-gray-700" data-translate="about.technology.feature2">Automated CO₂e emission calculations (Scope 1, 2, 3)</span>
+                                 </div>
+                                 <div class="flex items-center">
+                                     <div class="mr-3 text-[#95ce24]"><i data-feather="lock" class="w-6 h-6"></i></div>
+                                     <span class="text-gray-700" data-translate="about.technology.feature3">Interactive ESG assessment tool with scoring system</span>
+                                 </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="cta" class="bg-gray-50 py-12 md:py-16 lg:py-20">
+            <div class="px-6 md:px-12 lg:px-28">
+                <div class="max-w-4xl mx-auto text-center">
+                    <!-- Icon/Logo -->
+                    <div class="flex justify-center mb-6">
+                        <div class="w-16 h-16 bg-[#95ce24] rounded-xl flex items-center justify-center">
+                            <i data-feather="zap" class="w-8 h-8 text-white"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Headline -->
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                        <span data-translate="about.cta.title.part1">Ready to Discover Your</span>
+                        <span class="text-[#95ce24]" data-translate="about.cta.title.part2"> ESG Maturity Level</span>
+                        <span data-translate="about.cta.title.part3">?</span>
+                    </h2>
+                    
+                    <!-- Description -->
+                    <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto" data-translate="about.cta.description">
+                        Take our quick ESG assessment (3-5 minutes) and get your personalized PDF report with your ESG score, maturity level, and actionable recommendations. See how ESGSyncPRO can help your business achieve sustainability goals today!
+                    </p>
+                    
+                    <!-- CTA Button -->
+                    <div style="display: flex; flex-direction: column; gap: 1rem; justify-content: center; align-items: center;">
+                        <a href="https://app.esgsync.pro" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background-color: #95ce24; color: white; padding: 0.5rem 1.5rem; border-radius: 0.5rem; font-size: 1rem; font-weight: 500; text-decoration: none; transition: all 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" onmouseover="this.style.backgroundColor='#7fb01f'; this.style.transform='scale(1.05)';" onmouseout="this.style.backgroundColor='#95ce24'; this.style.transform='scale(1)';" onmousedown="this.style.transform='scale(0.95)';" onmouseup="this.style.transform='scale(1.05)';">
+                            <i data-feather="dollar-sign" class="w-5 h-5"></i>
+                            <span data-translate="about.cta.button">Try MVP Now</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-container"></div>
+
+    <script>
+        // Translation System
+        const translations = {
+            en: {
+                // Navigation
+                "nav.demo": "Demo",
+                "nav.video": "Video",
+                "nav.features": "Features",
+                "nav.howItWorks": "How It Works",
+                "nav.calculator": "Calculator",
+                "nav.article": "Article",
+                "nav.mvp": "MVP Platform",
+                "nav.about": "About",
+                "cta.getStarted": "Get Started",
+                
+                "about.title": "About Us - ESGSyncPRO",
+                "about.hero.title": "About ESGSyncPRO",
+                "about.hero.subtitle": "Transforming fuel data into actionable emission insights for a sustainable future",
+                "cta.getInTouch": "Get in touch",
+                "cta.viewPricing": "View Pricing",
+                "about.mission.title": "Our Mission",
+                "about.mission.content": "At ESGSyncPRO, we believe that accurate environmental data is the foundation of sustainable business practices. Our mission is to empower organizations of all sizes with intelligent tools and actionable insights they need to transform their fuel consumption data into comprehensive ESG reporting, comply with CSRD requirements, and make data-driven decisions about their environmental impact.",
+                "about.mission.content2": "We transform complex fuel consumption data into real-time CO₂e KPIs, providing automated emission calculations across Scope 1, 2, and 3. Our platform helps businesses build ESG maturity, reduce their carbon footprint, meet regulatory requirements, and achieve their sustainability goals through comprehensive reporting and strategic recommendations.",
+                "about.ceo.title": "Empowering Sustainable Futures with Data-Driven ESG Solutions",
+                "about.ceo.description": "ESGSyncPRO provides comprehensive ESG solutions combining intelligent fuel data analysis with advanced assessment tools. From transforming fuel consumption into real-time CO₂e KPIs to interactive ESG maturity assessments, we deliver actionable insights that drive sustainable decisions and ensure CSRD compliance.",
+                "about.ceo.tab.mission": "Mission",
+                "about.ceo.tab.vision": "Vision",
+                "about.ceo.tab.value": "Our Value",
+                "about.ceo.mission.content": "Our mission is to democratize ESG reporting by providing advanced tools that make environmental impact measurement accessible, accurate, and actionable for businesses of all sizes. We empower organizations to transform fuel consumption data into comprehensive CO₂e calculations (Scope 1, 2, 3), conduct ESG maturity assessments, and generate personalized reports that drive sustainability and ensure regulatory compliance.",
+                "about.ceo.vision.content": "We envision a future where every business seamlessly integrates environmental intelligence into its core operations. ESGSyncPRO aims to become the global leader in data-driven ESG solutions, combining automated fuel data transformation with intelligent assessment tools to help companies worldwide achieve their sustainability goals, meet CSRD requirements, and build ESG maturity through data-driven insights and strategic recommendations.",
+                "about.ceo.value.content": "We are committed to delivering unparalleled accuracy, transparency, and accessibility in ESG reporting. Our platform leverages advanced analytics and intuitive interfaces to make complex ESG metrics, CO₂e calculations, and maturity assessments clear and actionable for every user, regardless of technical expertise.",
+                "about.ceo.value.howItWorks": "ESGSyncPRO operates through two complementary solutions: (1) Automated fuel data transformation that integrates with your existing systems to calculate real-time CO₂e emissions across Scope 1, 2, and 3, and (2) Interactive ESG assessment tools that evaluate your company's maturity level and generate personalized PDF reports with actionable recommendations. Together, these solutions help reduce your carbon footprint, achieve sustainability goals, and ensure CSRD compliance.",
+                "about.ceo.howItWorks": "ESGSyncPRO works by integrating with your existing fuel management systems, automatically collecting and processing consumption data. Our advanced algorithms calculate emissions in real-time, providing you with comprehensive reports and actionable recommendations to reduce your carbon footprint.",
+                "about.ceo.name": "CEO & Founder",
+                "about.ceo.role": "15+ years in environmental consulting",
+                "about.ceo.online": "Online",
+                "about.ceo.teamCount": "14 People",
+                "about.ceo.person1": "Esther Howard",
+                "about.ceo.person2": "Robert Kale",
+                "about.ceo.person3": "Tyler John",
+                "about.values.title": "Our Values",
+                "about.values.subtitle": "The principles that guide everything we do",
+                "about.values.sustainability.title": "Sustainability",
+                "about.values.sustainability.content": "We are committed to environmental responsibility and helping our clients achieve their sustainability goals.",
+                "about.values.accuracy.title": "Accuracy",
+                "about.values.accuracy.content": "We provide precise, reliable data analysis that you can trust for critical business decisions.",
+                "about.values.innovation.title": "Innovation",
+                "about.values.innovation.content": "We continuously innovate to provide cutting-edge solutions for environmental data management.",
+                "about.team.title": "Meet Our Team",
+                "about.team.subtitle": "The experts behind ESGSyncPRO",
+                "about.team.ceo.role": "CEO & Founder",
+                "about.team.ceo.bio": "15+ years in environmental consulting and sustainability management.",
+                "about.team.cto.role": "Chief Technology Officer",
+                "about.team.cto.bio": "Expert in data analytics and machine learning applications.",
+                "about.team.scientist.role": "Lead Environmental Scientist",
+                "about.team.scientist.bio": "PhD in Environmental Science with expertise in carbon footprint analysis.",
+                "about.technology.title": "Our Technology",
+                "about.technology.content": "ESGSyncPRO combines advanced content generation with intelligent ESG assessment tools to deliver accurate, personalized environmental reporting. Our platform automatically calculates CO₂e emissions from fuel consumption data and generates comprehensive ESG reports tailored to your company's maturity level.",
+                "about.technology.feature1": "Automated PDF generation with unique content variants",
+                "about.technology.feature2": "Automated CO₂e emission calculations (Scope 1, 2, 3)",
+                "about.technology.feature3": "Interactive ESG assessment tool with scoring system",
+                "about.cta.title.part1": "Ready to Discover Your",
+                "about.cta.title.part2": " ESG Maturity Level",
+                "about.cta.title.part3": "?",
+                "about.cta.description": "Take our quick ESG assessment (3-5 minutes) and get your personalized PDF report with your ESG score, maturity level, and actionable recommendations. See how ESGSyncPRO can help your business achieve sustainability goals today!",
+                "about.cta.button": "Try MVP Now",
+                
+                // Footer
+                "footer.description": "Transform fuel data into actionable emission insights.",
+                "footer.product": "Product",
+                "footer.video": "Video",
+                "footer.about": "About",
+                "footer.about.mission": "Mission",
+                "footer.about.ceo": "CEO & Product",
+                "footer.about.values": "Values",
+                "footer.about.technology": "Technology",
+                "footer.privacy": "Privacy Policy",
+                "footer.connect": "Connect",
+                "footer.copyright": "© 2025 ESGSyncPRO. All rights reserved."
+            },
+            pl: {
+                // Navigation
+                "nav.demo": "Demo",
+                "nav.video": "Wideo",
+                "nav.features": "Funkcje",
+                "nav.howItWorks": "Jak to działa",
+                "nav.calculator": "Kalkulator",
+                "nav.article": "Artykuł",
+                "nav.mvp": "Platforma MVP",
+                "nav.about": "O nas",
+                "cta.getStarted": "Rozpocznij",
+                
+                "about.title": "O nas - ESGSyncPRO",
+                "about.hero.title": "O ESGSyncPRO",
+                "about.hero.subtitle": "Przekształcamy dane paliwowe w praktyczne informacje o emisjach dla zrównoważonej przyszłości",
+                "cta.getInTouch": "Skontaktuj się",
+                "cta.viewPricing": "Zobacz cennik",
+                "about.mission.title": "Nasza misja",
+                "about.mission.content": "W ESGSyncPRO wierzymy, że dokładne dane środowiskowe są podstawą zrównoważonych praktyk biznesowych. Naszą misją jest wyposażenie organizacji wszystkich rozmiarów w inteligentne narzędzia i praktyczne informacje potrzebne do przekształcenia danych o zużyciu paliwa w kompleksowe raportowanie ESG, zgodność z wymaganiami CSRD oraz podejmowanie decyzji opartych na danych dotyczących wpływu na środowisko.",
+                "about.mission.content2": "Przekształcamy złożone dane o zużyciu paliwa w KPI CO₂e w czasie rzeczywistym, zapewniając zautomatyzowane obliczenia emisji w zakresie Scope 1, 2 i 3. Nasza platforma pomaga firmom budować dojrzałość ESG, zmniejszać ślad węglowy, spełniać wymagania regulacyjne i osiągać cele zrównoważonego rozwoju poprzez kompleksowe raportowanie i strategiczne rekomendacje.",
+                "about.ceo.title": "Pomagamy przekształcać dane paliwowe w informacje ESG",
+                "about.ceo.description": "ESGSyncPRO umożliwia organizacjom zrozumienie i zmniejszenie wpływu na środowisko poprzez inteligentną analizę danych. Nasza platforma przekształca złożone dane o zużyciu paliwa w jasne, praktyczne informacje, które napędzają zrównoważone decyzje biznesowe.",
+                "about.ceo.tab.mission": "Misja",
+                "about.ceo.tab.vision": "Wizja",
+                "about.ceo.tab.value": "Nasze wartości",
+                "about.ceo.mission.content": "Naszą misją jest uczynienie raportowania środowiskowego dostępnym i dokładnym dla firm wszystkich rozmiarów. Wierzymy, że każda firma powinna mieć narzędzia do zrozumienia i poprawy swojego śladu środowiskowego, niezależnie od poziomu wiedzy technicznej lub budżetu.",
+                "about.ceo.vision.content": "Wyobrażamy sobie przyszłość, w której każda decyzja biznesowa jest oparta na danych o wpływie na środowisko. Naszą wizją jest stanie się wiodącą platformą do raportowania ESG, pomagając firmom na całym świecie osiągnąć cele zrównoważonego rozwoju poprzez dane oparte na danych.",
+                "about.ceo.value.content": "Cenimy dokładność, przejrzystość i dostępność w raportowaniu środowiskowym. Nasza platforma łączy zaawansowaną analitykę z intuicyjnym interfejsem, czyniąc złożone metryki ESG zrozumiałymi i praktycznymi dla wszystkich.",
+                "about.ceo.value.howItWorks": "ESGSyncPRO działa poprzez integrację z istniejącymi systemami zarządzania paliwem, automatycznie zbierając i przetwarzając dane o zużyciu. Nasze zaawansowane algorytmy obliczają emisje w czasie rzeczywistym, dostarczając kompleksowe raporty i praktyczne rekomendacje w celu zmniejszenia śladu węglowego.",
+                "about.ceo.howItWorks": "ESGSyncPRO działa poprzez integrację z istniejącymi systemami zarządzania paliwem, automatycznie zbierając i przetwarzając dane o zużyciu. Nasze zaawansowane algorytmy obliczają emisje w czasie rzeczywistym, dostarczając kompleksowe raporty i praktyczne rekomendacje w celu zmniejszenia śladu węglowego.",
+                "about.ceo.name": "CEO i założyciel",
+                "about.ceo.role": "15+ lat w konsultingu środowiskowym",
+                "about.ceo.online": "Online",
+                "about.ceo.teamCount": "14 osób",
+                "about.ceo.person1": "Esther Howard",
+                "about.ceo.person2": "Robert Kale",
+                "about.ceo.person3": "Tyler John",
+                "about.values.title": "Nasze wartości",
+                "about.values.subtitle": "Zasady, które kierują wszystkim, co robimy",
+                "about.values.sustainability.title": "Zrównoważony rozwój",
+                "about.values.sustainability.content": "Jesteśmy zaangażowani w odpowiedzialność środowiskową i pomagamy naszym klientom osiągnąć ich cele zrównoważonego rozwoju.",
+                "about.values.accuracy.title": "Dokładność",
+                "about.values.accuracy.content": "Zapewniamy precyzyjną, niezawodną analizę danych, której możesz zaufać przy podejmowaniu kluczowych decyzji biznesowych.",
+                "about.values.innovation.title": "Innowacja",
+                "about.values.innovation.content": "Ciągle innowujemy, aby zapewnić najnowocześniejsze rozwiązania do zarządzania danymi środowiskowymi.",
+                "about.team.title": "Poznaj nasz zespół",
+                "about.team.subtitle": "Eksperci stojący za ESGSyncPRO",
+                "about.team.ceo.role": "CEO i założyciel",
+                "about.team.ceo.bio": "15+ lat w konsultingu środowiskowym i zarządzaniu zrównoważonym rozwojem.",
+                "about.team.cto.role": "Dyrektor techniczny",
+                "about.team.cto.bio": "Ekspert w analizie danych i zastosowaniach uczenia maszynowego.",
+                "about.team.scientist.role": "Główny naukowiec środowiskowy",
+                "about.team.scientist.bio": "Doktor nauk środowiskowych ze specjalizacją w analizie śladu węglowego.",
+                "about.technology.title": "Nasza technologia",
+                "about.technology.content": "ESGSyncPRO łączy zaawansowane generowanie treści z inteligentnymi narzędziami oceny ESG, aby dostarczać dokładne, spersonalizowane raportowanie środowiskowe. Nasza platforma automatycznie oblicza emisje CO₂e z danych o zużyciu paliwa i generuje kompleksowe raporty ESG dostosowane do poziomu dojrzałości Twojej firmy.",
+                "about.technology.feature1": "Automatyczne generowanie PDF z unikalnymi wariantami treści",
+                "about.technology.feature2": "Automatyczne obliczenia emisji CO₂e (Scope 1, 2, 3)",
+                "about.technology.feature3": "Interaktywne narzędzie oceny ESG z systemem punktacji",
+                "about.cta.title.part1": "Gotowy na odkrycie swojego",
+                "about.cta.title.part2": " poziomu dojrzałości ESG",
+                "about.cta.title.part3": "?",
+                "about.cta.description": "Przejdź naszą szybką ocenę ESG (3-5 minut) i otrzymaj spersonalizowany raport PDF z wynikiem ESG, poziomem dojrzałości i praktycznymi rekomendacjami. Zobacz, jak ESGSyncPRO może pomóc Twojej firmie osiągnąć cele zrównoważonego rozwoju już dziś!",
+                "about.cta.button": "Wypróbuj MVP teraz",
+                
+                // Footer
+                "footer.description": "Przekształć dane o paliwach w praktyczne wglądy w emisje.",
+                "footer.product": "Produkt",
+                "footer.video": "Wideo",
+                "footer.about": "O nas",
+                "footer.about.mission": "Misja",
+                "footer.about.ceo": "CEO i Produkt",
+                "footer.about.values": "Wartości",
+                "footer.about.technology": "Technologia",
+                "footer.privacy": "Polityka prywatności",
+                "footer.connect": "Połącz się",
+                "footer.copyright": "© 2025 ESGSyncPRO. Wszelkie prawa zastrzeżone."
+            }
+        };
+
+        // Current language state
+        let currentLanguage = 'en'; // Default to English
+        
+        // Initialize language from URL parameter or localStorage
+        function initializeLanguage() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlLang = urlParams.get('lang');
+            
+            if (urlLang && (urlLang === 'en' || urlLang === 'pl')) {
+                currentLanguage = urlLang;
+            } else {
+                const storedLang = localStorage.getItem('esgsyncp-language');
+                if (storedLang && (storedLang === 'en' || storedLang === 'pl')) {
+                    currentLanguage = storedLang;
+                } else {
+                    currentLanguage = 'en';
+                }
+            }
+            
+            // Update URL with current language if not present
+            if (!urlLang && currentLanguage !== 'en') {
+                const url = new URL(window.location);
+                url.searchParams.set('lang', currentLanguage);
+                window.history.replaceState({}, '', url);
+            }
+        }
+        
+        // Update language selectors to show current language
+        function updateLanguageSelectors() {
+            const currentLanguageElement = document.getElementById('current-language');
+            const mobileCurrentLanguageElement = document.getElementById('mobile-current-language');
+            
+            if (currentLanguageElement) {
+                currentLanguageElement.textContent = currentLanguage === 'en' ? 'English' : 'Polish';
+            }
+            
+            if (mobileCurrentLanguageElement) {
+                mobileCurrentLanguageElement.textContent = currentLanguage === 'en' ? 'English' : 'Polish';
+            }
+        }
+        
+        // Function to create links with current language
+        function createLanguageAwareLink(href) {
+            const url = new URL(href, window.location.origin);
+            url.searchParams.set('lang', currentLanguage);
+            return url.toString();
+        }
+        
+        // Update footer links with current language
+        function updateFooterLinks() {
+            // Wait a bit more for footer to be fully loaded
+            setTimeout(() => {
+                // Update anchor links to include language parameter
+                const anchorLinks = document.querySelectorAll('footer a[href^="#"]');
+                
+                if (anchorLinks.length === 0) {
+                    // Try again after another delay
+                    setTimeout(() => {
+                        const retryLinks = document.querySelectorAll('footer a[href^="#"]');
+                        updateAnchorLinks(retryLinks);
+                    }, 200);
+                } else {
+                    updateAnchorLinks(anchorLinks);
+                }
+            }, 100);
+        }
+        
+        function updateAnchorLinks(links) {
+            links.forEach(link => {
+                const originalHref = link.getAttribute('href');
+                const newHref = `index.html${originalHref}?lang=${currentLanguage}`;
+                link.href = newHref;
+                // Remove onclick handler since we're changing to external link
+                link.removeAttribute('onclick');
+            });
+        }
+        
+        // Update home links with current language
+        function updateHomeLinks() {
+            const homeLinks = document.querySelectorAll('a[href="/"]');
+            homeLinks.forEach(link => {
+                const newHref = createLanguageAwareLink('index.html');
+                link.href = newHref;
+            });
+        }
+        
+        // Navigation handler for footer links
+        function handleNavigation(element) {
+            const href = element.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                // For anchor links, scroll to the section
+                const targetId = href.substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            } else if (href && href.startsWith('http')) {
+                // For external links, open in new tab
+                window.open(href, '_blank', 'noopener,noreferrer');
+            }
+        }
+        
+        function initializeTranslations() {
+            updateTranslations();
+        }
+
+        // Update all translations
+        function updateTranslations() {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[currentLanguage] && translations[currentLanguage][key]) {
+                    element.textContent = translations[currentLanguage][key];
+                }
+            });
+        }
+
+        // Change language
+        function changeLanguage(lang) {
+            currentLanguage = lang;
+            localStorage.setItem('esgsyncp-language', lang);
+            
+            // Update URL with language parameter
+            const url = new URL(window.location);
+            url.searchParams.set('lang', lang);
+            window.history.pushState({}, '', url);
+            
+            // Update translations immediately
+            updateTranslations();
+            
+            // Update language display
+            const currentLanguageElement = document.getElementById('current-language');
+            const mobileCurrentLanguageElement = document.getElementById('mobile-current-language');
+            
+            if (currentLanguageElement) {
+                currentLanguageElement.textContent = lang === 'en' ? 'English' : 'Polish';
+            }
+            
+            if (mobileCurrentLanguageElement) {
+                mobileCurrentLanguageElement.textContent = lang === 'en' ? 'English' : 'Polish';
+            }
+            
+            // Update footer links with new language
+            updateFooterLinks();
+            
+            // Close dropdown
+            if (typeof window.toggleLanguageDropdown === 'function') {
+                window.toggleLanguageDropdown();
+            } else if (typeof toggleLanguageDropdown === 'function') {
+                toggleLanguageDropdown();
+            }
+        }
+        
+        // Make changeLanguage globally available
+        window.changeLanguage = changeLanguage;
+
+        // Toggle language dropdown
+        function toggleLanguageDropdown() {
+            const dropdown = document.getElementById('language-dropdown');
+            const mobileDropdown = document.getElementById('mobile-language-dropdown');
+            const arrow = document.getElementById('language-arrow');
+            const mobileArrow = document.getElementById('mobile-language-arrow');
+            
+            if (dropdown && arrow) {
+                const isVisible = dropdown.style.opacity === '1' && dropdown.style.visibility === 'visible';
+                
+                if (isVisible) {
+                    // Close dropdown
+                    dropdown.style.opacity = '0';
+                    dropdown.style.visibility = 'hidden';
+                    dropdown.style.transform = 'translateY(-10px)';
+                    arrow.style.transform = 'rotate(0deg)';
+                } else {
+                    // Open dropdown
+                    dropdown.style.opacity = '1';
+                    dropdown.style.visibility = 'visible';
+                    dropdown.style.transform = 'translateY(0)';
+                    arrow.style.transform = 'rotate(180deg)';
+                }
+            }
+            
+            if (mobileDropdown && mobileArrow) {
+                const isVisible = mobileDropdown.style.opacity === '1' && mobileDropdown.style.visibility === 'visible';
+                
+                if (isVisible) {
+                    // Close mobile dropdown
+                    mobileDropdown.style.opacity = '0';
+                    mobileDropdown.style.visibility = 'hidden';
+                    mobileDropdown.style.transform = 'translateY(-10px)';
+                    mobileArrow.style.transform = 'rotate(0deg)';
+                } else {
+                    // Open mobile dropdown
+                    mobileDropdown.style.opacity = '1';
+                    mobileDropdown.style.visibility = 'visible';
+                    mobileDropdown.style.transform = 'translateY(0)';
+                    mobileArrow.style.transform = 'rotate(180deg)';
+                }
+            }
+        }
+
+        // Close all language dropdowns
+        function closeAllLanguageDropdowns() {
+            const dropdown = document.getElementById('language-dropdown');
+            const mobileDropdown = document.getElementById('mobile-language-dropdown');
+            const arrow = document.getElementById('language-arrow');
+            const mobileArrow = document.getElementById('mobile-language-arrow');
+            
+            if (dropdown && arrow) {
+                dropdown.style.opacity = '0';
+                dropdown.style.visibility = 'hidden';
+                dropdown.style.transform = 'translateY(-10px)';
+                arrow.style.transform = 'rotate(0deg)';
+            }
+            
+            if (mobileDropdown && mobileArrow) {
+                mobileDropdown.style.opacity = '0';
+                mobileDropdown.style.visibility = 'hidden';
+                mobileDropdown.style.transform = 'translateY(-10px)';
+                mobileArrow.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // toggleMobileMenu is now defined in header.html and available globally
+
+        // Load header from external file
+        async function loadHeader() {
+            try {
+                const response = await fetch('/pages/header.html');
+                const headerHtml = await response.text();
+                
+                // Extract and execute scripts from header.html
+                const scriptMatch = headerHtml.match(/<script>([\s\S]*?)<\/script>/);
+                if (scriptMatch && scriptMatch[1]) {
+                    // Save current changeLanguage function to prevent overwrite
+                    const currentChangeLanguageFunction = window.changeLanguage || changeLanguage;
+                    
+                    // Execute the script content
+                    try {
+                        eval(scriptMatch[1]);
+                    } catch (e) {
+                        console.error('Error executing header script:', e);
+                    }
+                    
+                    // Restore changeLanguage function if it was overwritten
+                    // Also update the saved reference so header's wrapper can call it
+                    if (typeof currentChangeLanguageFunction === 'function') {
+                        window.changeLanguage = currentChangeLanguageFunction;
+                        window._pageChangeLanguage = currentChangeLanguageFunction;
+                    }
+                }
+                
+                // Remove script tags before inserting HTML
+                const htmlWithoutScripts = headerHtml.replace(/<script>[\s\S]*?<\/script>/g, '');
+                document.getElementById('header-container').innerHTML = htmlWithoutScripts;
+                
+                // Re-initialize feather icons after loading header
+                feather.replace();
+                
+                // Ensure header is properly positioned and styled
+                const header = document.querySelector('header');
+                if (header) {
+                    header.style.position = 'fixed';
+                    header.style.top = '0';
+                    header.style.left = '0';
+                    header.style.right = '0';
+                    header.style.zIndex = '9999';
+                    header.style.backgroundColor = 'white';
+                    header.style.height = '73px';
+                    header.style.borderBottom = '1px solid #d1d5db';
+                }
+                
+                // Update translations for header elements
+                if (typeof updateTranslations === 'function') {
+                    updateTranslations();
+                }
+                
+                // Setup mobile menu handlers after header is loaded
+                setTimeout(() => {
+                    // Call setup function from header if available
+                    if (typeof window.setupMobileMenuHandlers === 'function') {
+                        window.setupMobileMenuHandlers();
+                    }
+                    
+                    const mobileMenuButton = document.getElementById('mobile-menu-button');
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    const mobileOverlay = document.getElementById('mobile-menu-overlay');
+                    const mobileMenuClose = document.getElementById('mobile-menu-close');
+                    const mobileMenuLinks = document.querySelectorAll('.mobile-menu-nav-item, .mobile-menu-cta a');
+                    
+                    // Ensure toggleMobileMenu is available
+                    if (typeof window.toggleMobileMenu !== 'function') {
+                        console.error('toggleMobileMenu function not found!');
+                    }
+                    
+                    // Setup event handlers directly
+                    if (mobileMenuButton) {
+                        mobileMenuButton.onclick = null; // Clear any existing handlers
+                        mobileMenuButton.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            if (typeof window.toggleMobileMenu === 'function') {
+                                window.toggleMobileMenu();
+                            } else {
+                                console.error('toggleMobileMenu is not a function!');
+                            }
+                        }, { once: false });
+                    }
+                    
+                    if (mobileMenuClose) {
+                        mobileMenuClose.onclick = null;
+                        mobileMenuClose.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            if (typeof window.toggleMobileMenu === 'function') {
+                                window.toggleMobileMenu();
+                            }
+                        });
+                    }
+                    
+                    if (mobileOverlay) {
+                        mobileOverlay.onclick = null;
+                        mobileOverlay.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            if (typeof window.toggleMobileMenu === 'function') {
+                                window.toggleMobileMenu();
+                            }
+                        });
+                    }
+                    
+                    mobileMenuLinks.forEach(link => {
+                        link.onclick = function(e) {
+                            if (typeof window.toggleMobileMenu === 'function') {
+                                window.toggleMobileMenu();
+                            }
+                        };
+                    });
+                    
+                    // Setup language selector handlers
+                    const mobileLanguageSelector = document.getElementById('mobile-language-selector');
+                    const mobileLangOptionEn = document.getElementById('mobile-lang-option-en');
+                    const mobileLangOptionPl = document.getElementById('mobile-lang-option-pl');
+                    
+                    if (mobileLanguageSelector && !mobileLanguageSelector.onclick) {
+                        mobileLanguageSelector.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            if (typeof window.toggleLanguageDropdown === 'function') {
+                                window.toggleLanguageDropdown();
+                            }
+                        });
+                    }
+                    
+                    if (mobileLangOptionEn && !mobileLangOptionEn.onclick) {
+                        mobileLangOptionEn.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            if (typeof window.changeLanguage === 'function') {
+                                window.changeLanguage('en');
+                            }
+                        });
+                    }
+                    
+                    if (mobileLangOptionPl && !mobileLangOptionPl.onclick) {
+                        mobileLangOptionPl.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            if (typeof window.changeLanguage === 'function') {
+                                window.changeLanguage('pl');
+                            }
+                        });
+                    }
+                    
+                    if (window.innerWidth < 1024) {
+                        // Mobile view
+                        if (mobileMenuButton) {
+                            mobileMenuButton.style.display = 'flex';
+                            mobileMenuButton.style.visibility = 'visible';
+                        }
+                        if (mobileMenu) {
+                            mobileMenu.style.display = 'flex';
+                        }
+                        if (mobileOverlay) {
+                            mobileOverlay.style.display = 'block';
+                        }
+                    } else {
+                        // Desktop view
+                        if (mobileMenuButton) {
+                            mobileMenuButton.style.display = 'none';
+                            mobileMenuButton.style.visibility = 'hidden';
+                        }
+                        if (mobileMenu) {
+                            mobileMenu.style.display = 'none';
+                        }
+                        if (mobileOverlay) {
+                            mobileOverlay.style.display = 'none';
+                        }
+                    }
+                }, 100);
+            } catch (error) {
+                console.error('Error loading header:', error);
+            }
+        }
+        
+        // Load footer from external file
+        async function loadFooter() {
+            try {
+                const response = await fetch('/pages/footer.html');
+                const footerHtml = await response.text();
+                document.getElementById('footer-container').innerHTML = footerHtml;
+                
+                // Update translations for footer elements
+                if (typeof updateTranslations === 'function') {
+                    updateTranslations();
+                }
+            } catch (error) {
+                console.error('Error loading footer:', error);
+            }
+        }
+
+        // Tab switching function
+        function switchTab(tabName, buttonElement) {
+            // Hide all tab contents
+            const allContents = document.querySelectorAll('.tab-content');
+            allContents.forEach(content => {
+                content.classList.add('hidden');
+                content.style.display = 'none';
+            });
+            
+            // Remove active class from all buttons
+            const allButtons = document.querySelectorAll('.tab-button');
+            allButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            const selectedContent = document.getElementById('tab-' + tabName);
+            if (selectedContent) {
+                selectedContent.classList.remove('hidden');
+                selectedContent.style.display = 'block';
+            }
+            
+            // Add active class to clicked button
+            if (buttonElement) {
+                buttonElement.classList.add('active');
+            }
+        }
+        
+        // Make function globally available
+        window.switchTab = switchTab;
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Initialize language system first
+            initializeLanguage();
+            
+            await loadHeader();
+            await loadFooter();
+            
+            // Update language selectors after header is loaded
+            setTimeout(() => {
+                updateLanguageSelectors();
+                updateHomeLinks();
+                updateFooterLinks();
+                // Update translations after header is loaded
+                if (typeof updateTranslations === 'function') {
+                    updateTranslations();
+                }
+            }, 500); // Increased delay to 500ms
+            
+            // Initialize header-specific functions
+            setTimeout(() => {
+                if (typeof window.closeAllLanguageDropdowns === 'function') {
+                    window.closeAllLanguageDropdowns();
+                }
+            }, 100);
+            
+            initializeTranslations();
+            feather.replace();
+        });
+    </script>
+</body>
+</html>
