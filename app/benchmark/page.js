@@ -1403,6 +1403,9 @@ export default function BenchmarkPage() {
             {lang === 'pl' ? 'Strona główna' : 'Home'}
           </NavMenuLink>
           <NavMenuLink href="/benchmark">Benchmark</NavMenuLink>
+          <NavMenuLink href="/carbon-footprint">
+            {lang === 'pl' ? 'Ślad Węglowy' : 'Carbon Footprint'}
+          </NavMenuLink>
           <NavMenuLink href="/regulations-search">
             {lang === 'pl' ? 'Wyszukiwarka Regulacji' : 'Regulations Search'}
           </NavMenuLink>

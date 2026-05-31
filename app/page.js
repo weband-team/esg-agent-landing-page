@@ -231,6 +231,7 @@ export default function Home() {
         <NavMenu>
           <NavMenuLink href="/">{txt('Strona główna', 'Home')}</NavMenuLink>
           <NavMenuLink href="/benchmark">{txt('Benchmark', 'Benchmark')}</NavMenuLink>
+          <NavMenuLink href="/carbon-footprint">{txt('Ślad Węglowy', 'Carbon Footprint')}</NavMenuLink>
           <NavMenuLink href="/regulations-search">{txt('Wyszukiwarka Regulacji', 'Regulations Search')}</NavMenuLink>
         </NavMenu>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
@@ -393,6 +394,22 @@ export default function Home() {
               </div>
               <ButtonPrimaryLink as={Link} href="/regulations-search" style={{ width: '100%', justifyContent: 'center' }}>
                 {txt('Uruchom moduł Szukaj Regulacji →', 'Launch Regulations Search →')}
+              </ButtonPrimaryLink>
+            </ModuleCard>
+
+            <ModuleCard style={{ border: '1px solid rgba(34, 197, 94, 0.25)' }}>
+              <div>
+                <div className="module-icon">🌍</div>
+                <h3>{txt('Kalkulator Śladu Węglowego (Carbon Footprint)', 'Carbon Footprint Calculator')}</h3>
+                <p>
+                  {txt(
+                    'Oblicz emisje gazów cieplarnianych swojej firmy (Zakres 1 i 2) zgodnie z metodyką GHG Protocol. Przejdź przez prosty kreator, poznaj wynik w tonach CO₂e oraz wskaźniki intensywności, a następnie pobierz raport PDF lub wyślij go na e-mail.',
+                    'Calculate your company’s greenhouse gas emissions (Scope 1 & 2) using the GHG Protocol methodology. Walk through a simple wizard, see your result in tonnes of CO₂e plus intensity metrics, then download a PDF report or receive it via email.'
+                  )}
+                </p>
+              </div>
+              <ButtonPrimaryLink as={Link} href="/carbon-footprint" style={{ width: '100%', justifyContent: 'center' }}>
+                {txt('Uruchom Kalkulator CO₂ →', 'Launch Carbon Calculator →')}
               </ButtonPrimaryLink>
             </ModuleCard>
           </ModulesGrid>

@@ -72,6 +72,25 @@ db.serialize(() => {
       console.error('Error creating regulation_reports table:', err.message);
     }
   });
+
+  db.run(`
+    CREATE TABLE IF NOT EXISTS carbon_footprint_reports (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT NOT NULL,
+      email TEXT NOT NULL,
+      company TEXT NOT NULL,
+      reporting_year INTEGER,
+      total_lb REAL NOT NULL,
+      total_mb REAL,
+      scope1 REAL,
+      scope2_lb REAL,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    )
+  `, (err) => {
+    if (err) {
+      console.error('Error creating carbon_footprint_reports table:', err.message);
+    }
+  });
 });
 
 /**
@@ -173,11 +192,31 @@ function saveRegulationReport(report) {
   });
 }
 
+/**
+ * Save a new carbon footprint calculation report to the database
+ */
+function saveCarbonFootprintReport(report) {
+  return new Promise((resolve, reject) => {
+    const { name, email, company, reporting_year, total_lb, total_mb, scope1, scope2_lb } = report;
+    const query = `
+      INSERT INTO carbon_footprint_reports (name, email, company, reporting_year, total_lb, total_mb, scope1, scope2_lb)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    `;
+    db.run(query, [name, email, company, reporting_year, total_lb, total_mb, scope1, scope2_lb], function(err) {
+      if (err) {
+        return reject(err);
+      }
+      resolve({ id: this.lastID, ...report });
+    });
+  });
+}
+
 module.exports = {
   saveDeposit,
   getAllDeposits,
   getDepositByReference,
   updateDepositStatus,
   saveBenchmark,
-  saveRegulationReport
+  saveRegulationReport,
+  saveCarbonFootprintReport
 };

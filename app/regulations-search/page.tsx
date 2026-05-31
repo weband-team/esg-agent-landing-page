@@ -972,6 +972,7 @@ export default function RegulationsSearch() {
         <NavMenu>
           <NavMenuLink href="/">{lang === 'pl' ? 'Strona główna' : 'Home'}</NavMenuLink>
           <NavMenuLink href="/benchmark">{lang === 'pl' ? 'Benchmark' : 'Benchmark'}</NavMenuLink>
+          <NavMenuLink href="/carbon-footprint">{lang === 'pl' ? 'Ślad Węglowy' : 'Carbon Footprint'}</NavMenuLink>
           <NavMenuLink href="/regulations-search">{lang === 'pl' ? 'Wyszukiwarka Regulacji' : 'Regulations Search'}</NavMenuLink>
         </NavMenu>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
