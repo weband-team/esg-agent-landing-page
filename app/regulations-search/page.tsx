@@ -49,6 +49,15 @@ import {
   Footer
 } from '../styles';
 
+// ─── BACKEND API BASE URL ───
+// Base URL of the NestJS regulations backend (lookup SSE + PDF endpoints).
+// Leave NEXT_PUBLIC_REGULATIONS_API_URL empty to use the same origin as the
+// page (recommended in production, where Nginx proxies /api/lookup and
+// /api/pdf to the backend). In local development the backend runs on :3001.
+const REGULATIONS_API_BASE =
+  process.env.NEXT_PUBLIC_REGULATIONS_API_URL ??
+  (process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3001');
+
 // ─── KEYFRAMES & ANIMATIONS ───
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(15px); }
@@ -733,8 +742,8 @@ export default function RegulationsSearch() {
       eventSourceRef.current.close();
     }
 
-    // Connect to Nest.js SSE Progress Endpoint running on Port 3001
-    let sseUrl = `http://localhost:3001/api/lookup/progress/${cleanNip}`;
+    // Connect to Nest.js SSE Progress Endpoint (backend; see REGULATIONS_API_BASE)
+    let sseUrl = `${REGULATIONS_API_BASE}/api/lookup/progress/${cleanNip}`;
     const queryParams: string[] = [];
     if (customEmployees.trim() !== '') {
       queryParams.push(`employees=${encodeURIComponent(customEmployees.trim())}`);
@@ -846,13 +855,13 @@ export default function RegulationsSearch() {
     handleSearch(nip);
   };
 
-  // Direct PDF Download (Port 3001)
+  // Direct PDF Download (backend; see REGULATIONS_API_BASE)
   const handleDownloadPdf = async () => {
     if (!resultsData?.company?.nip) return;
     setPdfDownloading(true);
     try {
       const nip = resultsData.company.nip;
-      let downloadUrl = `http://localhost:3001/api/pdf/download/${nip}`;
+      let downloadUrl = `${REGULATIONS_API_BASE}/api/pdf/download/${nip}`;
       const queryParams: string[] = [];
       if (customEmployees.trim() !== '') queryParams.push(`employees=${encodeURIComponent(customEmployees.trim())}`);
       if (customRevenue.trim() !== '') queryParams.push(`revenue=${encodeURIComponent(customRevenue.trim())}`);

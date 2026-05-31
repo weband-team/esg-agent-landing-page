@@ -27,7 +27,23 @@ jobs:
         continue-on-error: false
 
       - name: Build Next.js project
+        env:
+          # Empty = the browser uses the same origin; Nginx proxies
+          # /api/lookup and /api/pdf to the backend. Inlined at build time.
+          NEXT_PUBLIC_REGULATIONS_API_URL: ''
         run: npm run build
+
+      - name: Install Regulations Search backend dependencies
+        working-directory: regulations-search
+        run: npm install --legacy-peer-deps
+
+      - name: Generate Prisma client and compile backend
+        working-directory: regulations-search/backend
+        env:
+          DATABASE_URL: "file:./dev.db"
+        run: |
+          npm run db:generate
+          npm run build
 
       - name: Prepare deployment archive
         run: |
@@ -72,15 +88,28 @@ jobs:
             ARCHIVE_NAME="esg-agent-landing-page.tar.gz"
             APP_PORT=5743
 
+            # Regulations Search backend (NestJS)
+            BACKEND_DIR="$DEPLOY_DIR/regulations-search/backend"
+            BACKEND_PM2_NAME="esg-regulations-backend"
+            BACKEND_PORT=3001
+
             echo "Deploy directory: $DEPLOY_DIR"
             echo "PM2 process name: $PM2_NAME"
             echo "Archive name: $ARCHIVE_NAME"
             echo "App port: $APP_PORT"
+            echo "Backend PM2 process name: $BACKEND_PM2_NAME"
+            echo "Backend port: $BACKEND_PORT"
 
             # Preserve SQLite database across deploys
             if [ -f "$DEPLOY_DIR/deposits.db" ]; then
               echo "Backing up existing SQLite database..."
               cp "$DEPLOY_DIR/deposits.db" /tmp/deposits.db.bak
+            fi
+
+            # Preserve Regulations Search backend SQLite database across deploys
+            if [ -f "$BACKEND_DIR/dev.db" ]; then
+              echo "Backing up Regulations backend SQLite database..."
+              cp "$BACKEND_DIR/dev.db" /tmp/regulations-dev.db.bak
             fi
 
             # Clean up old deployment
@@ -101,6 +130,12 @@ jobs:
               mv /tmp/deposits.db.bak "$DEPLOY_DIR/deposits.db"
             fi
 
+            # Restore Regulations Search backend SQLite database
+            if [ -f /tmp/regulations-dev.db.bak ]; then
+              echo "Restoring Regulations backend SQLite database..."
+              mv /tmp/regulations-dev.db.bak "$BACKEND_DIR/dev.db"
+            fi
+
             # Navigate to project directory
             cd $DEPLOY_DIR
 
@@ -116,6 +151,44 @@ jobs:
 
             # Verify the process is running
             pm2 show $PM2_NAME
+
+            # ── Regulations Search backend (NestJS) ──────────────────────
+            echo "Setting up Regulations Search backend..."
+            cd "$BACKEND_DIR"
+
+            # The backend .env is kept out of git, so write it on the host.
+            echo "Writing backend environment file..."
+            cat > .env <<EOF
+            DATABASE_URL="file:./dev.db"
+            PORT=$BACKEND_PORT
+            EOF
+
+            # Apply migrations; seed only on the first deploy (no DB restored yet).
+            if [ -f ./dev.db ]; then
+              echo "Existing backend database found — applying migrations only..."
+              npm run db:deploy
+            else
+              echo "No backend database — creating, migrating and seeding..."
+              npm run db:deploy
+              npm run db:seed
+            fi
+
+            # (Re)start the backend under PM2
+            echo "Managing backend PM2 process..."
+            if pm2 describe $BACKEND_PM2_NAME > /dev/null 2>&1; then
+              echo "Stopping existing backend PM2 process..."
+              pm2 delete $BACKEND_PM2_NAME
+            fi
+
+            echo "Starting backend PM2 process on port $BACKEND_PORT..."
+            DATABASE_URL="file:./dev.db" PORT=$BACKEND_PORT NODE_ENV=production \
+              pm2 start dist/src/main.js --name $BACKEND_PM2_NAME
+
+            # Verify the backend process is running
+            pm2 show $BACKEND_PM2_NAME
+
+            # Back to project root
+            cd $DEPLOY_DIR
 
             # Configure PM2 to start on system boot
             echo "Configuring PM2 startup..."

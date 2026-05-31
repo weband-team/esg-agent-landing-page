@@ -99,6 +99,119 @@ npm run start
 
 ---
 
+## ⚙️ Environment Variables
+
+Configuration is read from a `.env` file in the project root. Copy the provided
+template and adjust the values:
+
+```bash
+cp .env.example .env
+```
+
+| Variable | Scope | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `NODE_ENV` | Frontend | `development` | Set to `production` on the server. |
+| `PORT` | Frontend | `3000` | Port the Next.js app listens on (`5743` in production, behind Nginx). |
+| `NEXT_PUBLIC_REGULATIONS_API_URL` | **Browser** | _empty_ | Base URL the browser uses to reach the Regulations Search backend (SSE + PDF). Leave **empty** in production so the browser uses the same origin and Nginx proxies the requests. Inlined at **build time**. |
+| `REGULATIONS_BACKEND_URL` | Frontend server | `http://localhost:3001` | URL the Next.js server uses to call the NestJS backend directly (server-to-server, for emailed PDF reports). |
+
+> ⚠️ **Why this matters.** The Regulations Search page (`/regulations-search`)
+> streams progress via Server-Sent Events and downloads PDFs **directly from the
+> browser**. If these point at `http://localhost:3001`, they resolve to the
+> *visitor's* machine (and are blocked as mixed content on an HTTPS site).
+> Leaving `NEXT_PUBLIC_REGULATIONS_API_URL` empty makes the browser call the
+> public domain (e.g. `https://esgsyncpro.qirelab.com/api/lookup/...`), which
+> Nginx proxies to the backend — see the deployment section below.
+
+---
+
+## 🌐 Deploying to a Remote Server / Hosting
+
+This project is **two services** that must both run on the host:
+
+1. **Frontend** — the Next.js landing page (this repo root), served on **port `5743`**.
+2. **Regulations Search backend** — the NestJS API in
+   [`regulations-search/backend`](file:///Users/sergiusz/Documents/repo/esg-agent-landing-page/regulations-search/backend),
+   served on **port `3001`** (lookup SSE + PDF compiler). See its
+   [README](file:///Users/sergiusz/Documents/repo/esg-agent-landing-page/regulations-search/README.md)
+   for details. **The `/regulations-search` page is broken without it.**
+
+### 1. Build both services
+
+```bash
+# Frontend (project root)
+npm install --legacy-peer-deps
+npm run build
+
+# Regulations Search backend
+cd regulations-search/backend
+npm install
+npm run db:setup      # generate Prisma client, run migrations, seed SQLite
+npm run build
+cd ../..
+```
+
+### 2. Configure environment
+
+Create the root `.env` (see the table above):
+
+```env
+NODE_ENV=production
+PORT=5743
+NEXT_PUBLIC_REGULATIONS_API_URL=
+REGULATIONS_BACKEND_URL=http://localhost:3001
+```
+
+The backend reads its own `regulations-search/backend/.env`:
+
+```env
+DATABASE_URL="file:./dev.db"
+PORT=3001
+```
+
+### 3. Run both services with PM2
+
+```bash
+npm install -g pm2
+
+# Frontend on 5743
+PORT=5743 pm2 start npm --name esg-agent-landing-page -- run start
+
+# Backend on 3001
+cd regulations-search/backend
+PORT=3001 pm2 start dist/src/main.js --name esg-regulations-backend
+cd ../..
+
+pm2 save && pm2 startup
+```
+
+> The bundled GitHub Actions workflow
+> ([`.github/workflows/deploy.yml`](file:///Users/sergiusz/Documents/repo/esg-agent-landing-page/.github/workflows/deploy.yml))
+> currently builds and (re)starts **only the frontend** on port `5743`. The
+> backend must be built and started separately (the PM2 commands above), or
+> added to the workflow, otherwise Regulations Search will fail.
+
+### 4. Nginx reverse proxy (HTTPS)
+
+The committed [`nginx.conf`](file:///Users/sergiusz/Documents/repo/esg-agent-landing-page/nginx.conf)
+terminates TLS for `esgsyncpro.qirelab.com` and routes:
+
+- `/api/lookup/*` and `/api/pdf/*` → **backend** (`localhost:3001`), with SSE
+  buffering disabled for the live progress stream.
+- everything else (including the app's own `/api/deposit`, `/api/deposits`,
+  `/api/regulations-search/email` routes) → **frontend** (`localhost:5743`).
+
+After editing the config, reload Nginx:
+
+```bash
+sudo nginx -t && sudo systemctl reload nginx
+```
+
+This keeps everything on one HTTPS origin, so the browser never talks to
+`localhost:3001` directly and there is no mixed-content or CORS issue.
+
+---
+
 ## 🗄️ Database & Schema
 
 All registrations, benchmark submissions, and regulation check reports are securely recorded locally inside `deposits.db`. The database is self-initializing and auto-migrating on server startup (no manual migrations required).

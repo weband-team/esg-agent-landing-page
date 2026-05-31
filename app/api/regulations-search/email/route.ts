@@ -20,14 +20,17 @@ export async function POST(req: Request) {
     if (revenue !== undefined && revenue !== '') queryParams.append('revenue', String(revenue));
     if (assets !== undefined && assets !== '') queryParams.append('assets', String(assets));
 
-    const nestPdfUrl = `http://localhost:3001/api/pdf/download/${nip}?${queryParams.toString()}`;
-    
+    // Server-side calls reach the NestJS backend directly on the same host.
+    // Override with REGULATIONS_BACKEND_URL if the backend runs elsewhere.
+    const backendUrl = process.env.REGULATIONS_BACKEND_URL || 'http://localhost:3001';
+    const nestPdfUrl = `${backendUrl}/api/pdf/download/${nip}?${queryParams.toString()}`;
+
     let pdfBase64 = '';
     let matchedCount = 0;
 
     try {
       // Fetch the matching results from NestJS to get the matched count
-      const nestLookupUrl = `http://localhost:3001/api/lookup/direct/${nip}?${queryParams.toString()}`;
+      const nestLookupUrl = `${backendUrl}/api/lookup/direct/${nip}?${queryParams.toString()}`;
       const lookupResponse = await fetch(nestLookupUrl);
       if (lookupResponse.ok) {
         const lookupData = await lookupResponse.json();
