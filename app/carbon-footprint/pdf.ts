@@ -51,6 +51,54 @@ export function ensureJsPdf(): Promise<{ jsPDF: new (opts?: any) => any }> {
   });
 }
 
+// ── Unicode font embedding ───────────────────────────────────────────────────
+// jsPDF's built-in Helvetica only supports Latin-1 (WinAnsi), which mangles
+// Polish characters (ą, ł, ń, ś, ż, ź, ó, ę, ć). We embed DejaVu Sans (full
+// Polish + ₂ subscript coverage), fetched once from a CORS-enabled CDN and
+// cached as base64, then registered on each jsPDF document.
+const FONT_FAMILY = 'DejaVuSans';
+const FONT_URLS = {
+  regular: 'https://cdn.jsdelivr.net/npm/dejavu-fonts-ttf@2.37.3/ttf/DejaVuSans.ttf',
+  bold: 'https://cdn.jsdelivr.net/npm/dejavu-fonts-ttf@2.37.3/ttf/DejaVuSans-Bold.ttf',
+};
+let fontCache: { regular: string; bold: string } | null = null;
+
+function arrayBufferToBase64(buf: ArrayBuffer): string {
+  const bytes = new Uint8Array(buf);
+  let binary = '';
+  const chunk = 0x8000;
+  for (let i = 0; i < bytes.length; i += chunk) {
+    binary += String.fromCharCode.apply(null, Array.from(bytes.subarray(i, i + chunk)));
+  }
+  return btoa(binary);
+}
+
+/**
+ * Registers DejaVu Sans (normal + bold) on the given jsPDF document and returns
+ * the font family name. Throws if the font cannot be fetched — callers should
+ * fall back to 'helvetica' so PDF generation still succeeds offline.
+ */
+async function ensureUnicodeFont(doc: any): Promise<string> {
+  if (!fontCache) {
+    const [regBuf, boldBuf] = await Promise.all([
+      fetch(FONT_URLS.regular).then((r) => {
+        if (!r.ok) throw new Error(`font fetch failed: ${r.status}`);
+        return r.arrayBuffer();
+      }),
+      fetch(FONT_URLS.bold).then((r) => {
+        if (!r.ok) throw new Error(`font fetch failed: ${r.status}`);
+        return r.arrayBuffer();
+      }),
+    ]);
+    fontCache = { regular: arrayBufferToBase64(regBuf), bold: arrayBufferToBase64(boldBuf) };
+  }
+  doc.addFileToVFS('DejaVuSans.ttf', fontCache.regular);
+  doc.addFont('DejaVuSans.ttf', FONT_FAMILY, 'normal');
+  doc.addFileToVFS('DejaVuSans-Bold.ttf', fontCache.bold);
+  doc.addFont('DejaVuSans-Bold.ttf', FONT_FAMILY, 'bold');
+  return FONT_FAMILY;
+}
+
 // Brand palette (spec design tokens)
 const GREEN = '#16a34a';
 const GREEN_LIGHT = '#dcfce7';
@@ -90,6 +138,16 @@ export async function generateCarbonPdf(input: PdfInput): Promise<GeneratedPdf> 
   const { jsPDF } = await ensureJsPdf();
   const doc = new jsPDF({ orientation: 'p', unit: 'mm', format: 'a4' });
 
+  // Embed a Unicode font so Polish characters render correctly; fall back to
+  // Helvetica if the font cannot be loaded (offline) so generation still works.
+  let FONT = 'helvetica';
+  try {
+    FONT = await ensureUnicodeFont(doc);
+  } catch (e) {
+    FONT = 'helvetica';
+  }
+  doc.setFont(FONT, 'normal');
+
   const PW = doc.internal.pageSize.getWidth();   // 210
   const PH = doc.internal.pageSize.getHeight();  // 297
   const MX = 16;                                 // left/right margin
@@ -104,7 +162,7 @@ export async function generateCarbonPdf(input: PdfInput): Promise<GeneratedPdf> 
   const setText = (hex: string) => doc.setTextColor(hex);
 
   const footer = () => {
-    doc.setFont('helvetica', 'normal');
+    doc.setFont(FONT, 'normal');
     doc.setFontSize(8);
     setText(MUTED);
     doc.text(
@@ -117,7 +175,7 @@ export async function generateCarbonPdf(input: PdfInput): Promise<GeneratedPdf> 
 
   const sectionHeader = (title: string) => {
     if (y > PH - 40) { footer(); doc.addPage(); y = 20; }
-    doc.setFont('helvetica', 'bold');
+    doc.setFont(FONT, 'bold');
     doc.setFontSize(13);
     setText(TEXT);
     doc.text(title, MX, y);
@@ -128,7 +186,7 @@ export async function generateCarbonPdf(input: PdfInput): Promise<GeneratedPdf> 
   };
 
   const paragraph = (text: string, size = 9.5, color = MUTED) => {
-    doc.setFont('helvetica', 'normal');
+    doc.setFont(FONT, 'normal');
     doc.setFontSize(size);
     setText(color);
     const lines = doc.splitTextToSize(text, CW);
@@ -146,7 +204,7 @@ export async function generateCarbonPdf(input: PdfInput): Promise<GeneratedPdf> 
   setFill(GREEN);
   doc.rect(0, 86, PW, 0.8, 'F');
 
-  doc.setFont('helvetica', 'bold');
+  doc.setFont(FONT, 'bold');
   doc.setFontSize(11);
   setText('#86efac');
   doc.text('GHG PROTOCOL · SCOPE 1 & 2', MX, 40);
@@ -156,7 +214,7 @@ export async function generateCarbonPdf(input: PdfInput): Promise<GeneratedPdf> 
   doc.text(T(lang, 'Raport Śladu', 'Carbon Footprint'), MX, 60);
   doc.text(T(lang, 'Węglowego', 'Report'), MX, 74);
 
-  doc.setFont('helvetica', 'normal');
+  doc.setFont(FONT, 'normal');
   doc.setFontSize(12);
   setText('#cbd5e1');
   doc.text(profile.name || T(lang, 'Twoja firma', 'Your company'), MX, 104);
@@ -170,16 +228,16 @@ export async function generateCarbonPdf(input: PdfInput): Promise<GeneratedPdf> 
   // Headline KPI on the cover
   setFill('#0f2d1e');
   doc.roundedRect(MX, 150, CW, 34, 3, 3, 'F');
-  doc.setFont('helvetica', 'normal');
+  doc.setFont(FONT, 'normal');
   doc.setFontSize(10);
   setText('#86efac');
   doc.text(T(lang, 'Emisje całkowite (location-based)', 'Total emissions (location-based)'), MX + 8, 162);
-  doc.setFont('helvetica', 'bold');
+  doc.setFont(FONT, 'bold');
   doc.setFontSize(26);
   setText('#ffffff');
   doc.text(`${fmt(results.totalLB)} tCO₂e/${T(lang, 'rok', 'yr')}`, MX + 8, 176);
 
-  doc.setFont('helvetica', 'normal');
+  doc.setFont(FONT, 'normal');
   doc.setFontSize(8);
   setText('#64748b');
   doc.text(
@@ -211,15 +269,15 @@ export async function generateCarbonPdf(input: PdfInput): Promise<GeneratedPdf> 
     setFill('#f8fafc');
     doc.setDrawColor(BORDER);
     doc.roundedRect(x, y, boxW, boxH, 2, 2, 'FD');
-    doc.setFont('helvetica', 'normal');
+    doc.setFont(FONT, 'normal');
     doc.setFontSize(7.5);
     setText(MUTED);
     doc.text(doc.splitTextToSize(k.label, boxW - 6), x + 4, y + 7);
-    doc.setFont('helvetica', 'bold');
+    doc.setFont(FONT, 'bold');
     doc.setFontSize(16);
     setText(GREEN);
     doc.text(fmt(k.value), x + 4, y + 20);
-    doc.setFont('helvetica', 'normal');
+    doc.setFont(FONT, 'normal');
     doc.setFontSize(7);
     setText(MUTED);
     doc.text('tCO₂e', x + 4, y + 24);
@@ -229,7 +287,7 @@ export async function generateCarbonPdf(input: PdfInput): Promise<GeneratedPdf> 
   // Totals row
   setFill(GREEN_LIGHT);
   doc.roundedRect(MX, y, CW, 18, 2, 2, 'F');
-  doc.setFont('helvetica', 'bold');
+  doc.setFont(FONT, 'bold');
   doc.setFontSize(10);
   setText(TEXT);
   doc.text(
@@ -259,7 +317,7 @@ export async function generateCarbonPdf(input: PdfInput): Promise<GeneratedPdf> 
   slices.forEach((sl) => {
     if (y > PH - 24) { footer(); doc.addPage(); y = 20; }
     const pct = (Math.max(0, sl.value) / totalForPct) * 100;
-    doc.setFont('helvetica', 'normal');
+    doc.setFont(FONT, 'normal');
     doc.setFontSize(8.5);
     setText(TEXT);
     doc.text(doc.splitTextToSize(T(lang, sl.labelPl, sl.labelEn), labelW - 2), MX, y + barH - 2.5);
@@ -301,7 +359,7 @@ export async function generateCarbonPdf(input: PdfInput): Promise<GeneratedPdf> 
   // header
   setFill('#0f172a');
   doc.rect(MX, y, CW, 8, 'F');
-  doc.setFont('helvetica', 'bold');
+  doc.setFont(FONT, 'bold');
   doc.setFontSize(8.5);
   setText('#ffffff');
   doc.text(T(lang, 'Wskaźnik', 'Metric'), MX + 3, y + 5.5);
@@ -311,7 +369,7 @@ export async function generateCarbonPdf(input: PdfInput): Promise<GeneratedPdf> 
   rows.forEach((r, i) => {
     setFill(i % 2 ? '#f8fafc' : '#ffffff');
     doc.rect(MX, y, CW, 8, 'F');
-    doc.setFont('helvetica', 'normal');
+    doc.setFont(FONT, 'normal');
     doc.setFontSize(8.5);
     setText(TEXT);
     doc.text(r[0], MX + 3, y + 5.5);
@@ -349,7 +407,7 @@ export async function generateCarbonPdf(input: PdfInput): Promise<GeneratedPdf> 
   } else {
     top.forEach((s, i) => {
       const lev = levers[s.key];
-      doc.setFont('helvetica', 'bold');
+      doc.setFont(FONT, 'bold');
       doc.setFontSize(9.5);
       setText(TEXT);
       if (y > PH - 24) { footer(); doc.addPage(); y = 20; }
